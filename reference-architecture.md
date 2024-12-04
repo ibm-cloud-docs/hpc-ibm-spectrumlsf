@@ -66,7 +66,7 @@ production: false
 
 
 
-# Title
+# IBM Spectrum LSF
 {: #ibm-spectrum-lsf}
 {: toc-content-type="reference-architecture"}
 {: toc-industry="value"}
@@ -81,7 +81,7 @@ production: false
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Architecture diagram.](LSF-DA-Architecture-diagram.svg "IBM Spectrum LSF architecture diagram"){: caption="IBM Spectrum LSF architecture diagram" caption-side="bottom"}
+![Architecture diagram.](images/LSF-DA-Architecture-diagram.svg "IBM Spectrum LSF architecture diagram"){: caption="IBM Spectrum LSF architecture diagram" caption-side="bottom"}
 
 ## Design concepts
 {: #design-concepts}
