@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "title": "IBM Spectrum LSF",
+  "introduction": "Find useful information to learn about IBM Spectrum LSF.",
+  "product_page": "https://ibm.com/cloud/solution-page",
+  "deployment_url": "https://cloud.ibm.com/catalog/content/url/to/deploy",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Overview",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Deployment values",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Considerations for HPC cluster compute types",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Responsibilities",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "FAQs",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "IBM Spectrum LSF",
+      "description": "IBM Spectrum LSF allows you to deploy high-performance computing (HPC) clusters by using IBM Spectrum LSF as HPC scheduling software.",
+      "href": "https://cloud.ibm.com/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-about-spectrum-lsf",
+      "type": "training"
+    }
+  ],
+  "section_updates": {
+    "view_more": "/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-release-notes"
+  }
+}
+
