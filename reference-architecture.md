@@ -30,7 +30,7 @@ docs: https://cloud.ibm.com/docs/solution-guide
 image_source:
 
 related_links:
-  - title: 'Title'
+  - title: 'Reference Architecture'
     url: 'https://url.com'
     description: 'Description.'
   - title: 'related or follow-on architectures'

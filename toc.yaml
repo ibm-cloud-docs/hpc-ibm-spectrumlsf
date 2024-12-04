@@ -115,9 +115,10 @@ toc:
           - direct-link.md
           - setting-up-multi-cluster-job-forwarding.md
           - data-management.md
+      - responsibilities-da.md
   - navgroup:
       id: help
       topics: 
-      - faq.md
-      - troubleshooting.md
+      - faqs.md
+      - troubleshoot.md
       - getting-help.md
