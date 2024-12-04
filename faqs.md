@@ -12,8 +12,6 @@ content-type: faq
 
 ---
 
-
-
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
@@ -26,6 +24,8 @@ content-type: faq
 
 # FAQs for Spectrum LSF
 {: #spectrum-lsf-faqs}
+
+This document provides a list of frequently asked question and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
 
 ## What Spectrum LSF packages are included in a cluster deployed with this offering?
 {: #my-faq-packages}
