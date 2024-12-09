@@ -9,7 +9,7 @@ content-type: tutorial
 services: virtual-servers, vpc, loadbalancer-service
 account-plan: paid
 completion-time: 60m
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -228,4 +228,3 @@ If you leave the `dns_custom_resolver_id` deployment input value as null, the de
 {: step}
 
 To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-key-protect).
-

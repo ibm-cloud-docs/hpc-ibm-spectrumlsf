@@ -6,7 +6,7 @@ lastupdated: "2021-06-22"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -67,5 +67,3 @@ Complete the following steps if you want to update the maximum number of worker 
     badmin reconfig
     ```
     {: pre}
-
-

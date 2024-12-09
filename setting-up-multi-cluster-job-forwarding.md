@@ -6,7 +6,7 @@ lastupdated: "2022-09-20"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -130,4 +130,3 @@ For more information, check out the following {{site.data.keyword.spectrum_full_
 * [Enable queues for the LSF multi-cluster capability](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=queues-enable-multicluster){: external}
 * [Using the {{site.data.keyword.spectrum_full_notm}} Resource Connector](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector){: external}
 * [{{site.data.keyword.spectrum_full_notm}} Data Manager](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-data-manager){: external}
-

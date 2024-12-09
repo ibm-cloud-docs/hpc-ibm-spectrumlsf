@@ -6,7 +6,7 @@ lastupdated: "2023-04-21"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -150,4 +150,3 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "PUT /v1/wo
 INFO:root:Completed Applying Schematic Plan
 ```
 {: screen}
-

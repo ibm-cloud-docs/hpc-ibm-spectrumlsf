@@ -5,7 +5,7 @@ years: 2023, 2024
 lastupdated: "2024-03-19"
 
 keywords:
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 

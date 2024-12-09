@@ -6,7 +6,7 @@ lastupdated: "2021-07-02"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -30,9 +30,3 @@ You can use {{site.data.keyword.dl_full_notm}} for your hybrid connection betwee
 {: #next-steps-direct-link}
 
 After you configure and validate the connectivity from on-premises to your {{site.data.keyword.cloud_notm}} account, you are ready to [Set up the multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-set-up-multi-cluster-job-forwarding).
-
-
-
-
-
-

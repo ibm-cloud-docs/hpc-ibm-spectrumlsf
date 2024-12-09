@@ -5,7 +5,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-04"
+lastupdated: "2024-12-09"
 
 keywords: # Not typically populated
 
@@ -86,7 +86,7 @@ production: false
 ## Design concepts
 {: #design-concepts}
 
-The following architecture framework design heatmap covers design considerations and architecture decisions for the following aspects and domains:
+The following architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
 
 * **Data:** Data storage
 * **Compute:** Virtual servers
@@ -107,8 +107,8 @@ The following table outlines the requirements that are addressed in this archite
 | Data            | * Provide a location to store {{site.data.keyword.spectrum_full_notm}} configuration and data. |
 | Compute            | * Provide properly isolated compute resources with adequate compute capacity for the applications. |
 | Storage            | * Provide storage that meets the application and database performance requirements. |
-| Networking         | * Deploy workloads in isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage \n Provide private DNS resolution to support use of hostnames instead of IP addresses. |
-| Security           | * Ensure all operator actions are executed securely through a bastion host. \n * Provide customers with the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
+| Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage \n Provide private DNS resolution to support use of hostnames instead of IP addresses. |
+| Security           | * Ensure that all operator actions are run securely through a bastion host. \n * Provide customers with the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
 | Service Management | * Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n * Monitor audit logs to track changes and detect potential security problems. |
 {: caption="Requirements" caption-side="bottom"}
 
@@ -117,12 +117,12 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspects | Requirement | Architecture component | How the component is used |
 |-------------|-------------|-----------|--------------------|
-| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optinally [{{site.data.keyword.scale_full}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial)| Creates file shares for configuring user file data sharing. |
+| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial)| Creates file shares for configuring user file data sharing. |
 | Compute | Provide infrastructure and administration access | HPC VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
-|  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers used to manage access to a private network from an external network, typically the internet. |
+|  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
 |  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
 |  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | HPC management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
-| Networking | * Isolate bastion, login, and HPC management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and customer's host or CIDR. | Security group rules for each subnet | As an alternative choice, more CIDR or ports can be manually added after deployment. |
+| Networking | * Isolate bastion, login, and HPC management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and customer's host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
 |  | Enable floating IP on bastion node for customer access. | Floating IP on the bastion node | Allows customer access to the HPC VPC. |
 |  | Enable public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the HPC management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the HPC compute nodes | DNS service | Helps with the IP and name resolution for the HPC compute nodes. |

@@ -6,7 +6,7 @@ lastupdated: "2024-04-04"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -46,4 +46,3 @@ Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.dat
 {: #next-steps-cli}
 
 After you've reviewed and completed the prerequisites for setting up the CLI, you are ready to [Create a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace&interface=cli).
-

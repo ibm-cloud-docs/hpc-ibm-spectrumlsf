@@ -6,7 +6,7 @@ lastupdated: "2022-09-20"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -89,4 +89,3 @@ Complete the following steps to check the {{site.data.keyword.scale_short}} file
     {: codeblock}
 
 7. Create a file on the mount point path, for example, /gpfs/fs1, and verify on the other compute nodes that the file can be accessed.
-

@@ -6,7 +6,7 @@ lastupdated: "2022-03-03"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 

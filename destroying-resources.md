@@ -6,7 +6,7 @@ lastupdated: "2024-04-05"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -134,4 +134,3 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "PUT /v1/wo
 INFO:root:Completed Deletion of Schematic Resources
 ```
 {: screen}
-

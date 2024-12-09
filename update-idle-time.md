@@ -6,7 +6,7 @@ lastupdated: "2022-09-20"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -45,4 +45,3 @@ Complete the following steps to adjust the idle time for dynamic hosts that are 
     badmin mbdrestart
     ```
     {: pre}
-

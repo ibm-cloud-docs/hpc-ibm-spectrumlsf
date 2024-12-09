@@ -6,7 +6,7 @@ lastupdated: "2023-01-30"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -103,5 +103,3 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "GET /v1/wo
 INFO:root:Completed Retrieving the Schematic logs
 ```
 {: screen}
-
-

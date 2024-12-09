@@ -9,7 +9,7 @@ content-type: tutorial
 services:
 account-plan:
 completion-time:
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 

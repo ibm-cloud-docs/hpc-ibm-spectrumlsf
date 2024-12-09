@@ -5,7 +5,7 @@ copyright:
 lastupdated: "2024-02-22"
 
 keywords:
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 

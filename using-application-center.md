@@ -6,7 +6,7 @@ lastupdated: "2023-03-16"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -76,4 +76,3 @@ After the cluster is created, wait 5 - 10 minutes to complete the installation o
 
 In this example, the LSF Application Center installation is set up on the Spectrum LSF management node, `<cluster_prefix>-management-host-0`. If this management node fails, then your LSF Application Center is down.
 {: note}
-

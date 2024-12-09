@@ -6,7 +6,7 @@ lastupdated: "2024-09-02"
 
 keywords: vpc, lsf
 
-subcollection: spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 

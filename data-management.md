@@ -6,7 +6,7 @@ lastupdated: "2022-03-08"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -66,4 +66,3 @@ With a dedicated or stand-alone cluster on the cloud, your data is resident in t
 * For more information on how to use the IBM Aspera plug-in with {{site.data.keyword.spectrum_short}}, see [Configuring IBM Aspera as a data transfer tool](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=transfer-configuring-aspera-as-data-tool){: external}.
 * For more information about using {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 * For more information on how to use `s3fs` interface with {{site.data.keyword.cos_full_notm}}, see [Mounting a bucket using `s3fs`](/docs/cloud-object-storage?topic=cloud-object-storage-s3fs). 
-

@@ -6,7 +6,7 @@ lastupdated: "2022-08-09"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -85,4 +85,3 @@ This solution's automation always uses the same IP addresses, so there might be 
     where `COMPUTE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `<prefix>-primary-0`, which you gathered earlier, and `FLOATING_IP_ADDRESS` needs to be replaced with the floating IP address that you identified.
 3. Open a browser on the local system, and run https://localhost:21443. You get an SSL self-assigned certificate warning with your browser the first time when you access this URL.
 4. Enter your login credentials that you set up when you created your workspace to access the {{site.data.keyword.scale_short}} GUI.
-

@@ -6,7 +6,7 @@ lastupdated: "2023-03-20"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -156,5 +156,3 @@ You have logged on to PAC as: lsfadmin
  45439     Running   -                      *938772910               sleep 200
 ```
 {: codeblock}
-
-

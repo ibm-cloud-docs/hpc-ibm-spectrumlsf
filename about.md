@@ -6,7 +6,7 @@ lastupdated: "2024-07-17"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -42,5 +42,3 @@ The offering enables the initial Spectrum LSF-based HPC cluster creation. Any up
 {: #architecture-diagram}
 
 ![Figure 1. Architecture diagram](images/hpccluster_lsf_schematics_architecture_09-22-21.svg "Architecture diagram"){: caption="Architecture diagram" caption-side="bottom"}
-
-

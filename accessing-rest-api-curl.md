@@ -6,7 +6,7 @@ lastupdated: "2023-03-24"
 
 keywords: 
 
-subcollection: ibm-spectrum-lsf
+subcollection: hpc-ibm-spectrumlsf
 
 ---
 
@@ -172,9 +172,3 @@ subcollection: ibm-spectrum-lsf
     ' https://$AC_HOST:$AC_PORT/platform/webservice/pacclient/submitapp
     ```
     {: codeblock}
-
-
-
-
-
-
