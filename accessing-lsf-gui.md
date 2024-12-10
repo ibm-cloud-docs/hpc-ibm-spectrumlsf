@@ -32,9 +32,9 @@ Before you access the LSF Application Center GUI, review the following considera
 
 * Initial setup must be done from your local system.
 * Access the GUI with the same SSH key that was provided for cluster creation.
-* Recommended using the Safari browser to access the GUI.
+* It is recommended to use the Safari browser to access the GUI.
 * If you encounter a delay in loading or accessing the GUI, clear the browsers cache.
-* You can open Application Center GUIs on the 8443 port. 
+* You can open Application Center GUIs on the 8443 port.
 
 ## Gathering IP addresses
 {: #gathering-ip-addresses}

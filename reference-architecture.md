@@ -5,20 +5,14 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-10"
 
 keywords: # Not typically populated
 
 subcollection: hpc-ibm-spectrumlsf # Use deployable-reference-architectures, or the subcollection value from your toc.yaml file if docs-only.
 
 authors:
-  - name: Sam P. User
-    url: https://linkedin.com/in/sam-p-user
-  - name: "name"
-    url: "linkedIn profile URL"
-
-# The release that the reference architecture describes
-version: 1.0
+  - name: David Nguyen
 
 # Use if the reference architecture has deployable code.
 # Value is the URL to land the user in the IBM Cloud catalog details page for the deployable architecture.
@@ -29,26 +23,8 @@ docs: https://cloud.ibm.com/docs/solution-guide
 
 image_source:
 
-related_links:
-  - title: 'Reference Architecture'
-    url: 'https://url.com'
-    description: 'Description.'
-  - title: 'related or follow-on architectures'
-    url: 'https://url'
-    description: 'Description'
-
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
 use-case: IBM Spectrum LSF
-
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
-industry:
-
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
-compliance:
-
+industry: OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
 content-type: reference-architecture
 
 
