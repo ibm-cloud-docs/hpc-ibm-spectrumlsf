@@ -15,8 +15,7 @@ toc:
   - navgroup: 
       id: overview
       topics:
-      - getting-started.md
-      - about.md
+      - overview.md
       - release-notes.md
   - navgroup:
       id: architecture
@@ -35,9 +34,21 @@ toc:
   - navgroup:
       id: deploy
       topics:
+      - before_deploying.md
       - deployment-values.md
   - navgroup: 
       id: howto
+      topics:
+      - integrate-openldap-tutorial.md
+      - hpc-cluster-tutorial.md
+      - topicgroup:
+          label: Using OpenLDAP with the deployed environment
+          topics:
+          - about-ldapp.md
+          - integrate-openldapp.md
+          - check-ldapp-status.md
+          - create-ldapp-user.md
+          - submit-lsf-jobs-ldapp.md
       topics:
       - topicgroup: 
           label: Setting up the CLI and API

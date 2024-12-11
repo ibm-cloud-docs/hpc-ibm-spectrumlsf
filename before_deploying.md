@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Getting started with IBM Spectrum LSF
+# Before you begin deploying
 {: #getting-started-tutorial}
 
 {{site.data.keyword.spectrum_full}} enables customers to deploy HPC clusters that use {{site.data.keyword.spectrum_full_notm}} as a scheduling software. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks. The following steps outline the high-level flow of events that are performed:

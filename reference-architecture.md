@@ -5,7 +5,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-11"
 
 keywords: # Not typically populated
 
@@ -25,6 +25,7 @@ image_source:
 
 use-case: IBM Spectrum LSF
 industry: OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
+compliance:
 content-type: reference-architecture
 
 
