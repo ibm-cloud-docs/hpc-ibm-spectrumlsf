@@ -49,7 +49,6 @@ toc:
           - check-ldapp-status.md
           - create-ldapp-user.md
           - submit-lsf-jobs-ldapp.md
-      topics:
       - topicgroup: 
           label: Setting up the CLI and API
           topics: 
