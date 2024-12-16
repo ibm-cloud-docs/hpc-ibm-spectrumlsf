@@ -4,12 +4,20 @@ copyright:
   years: 2024
 lastupdated: "2024-12-16"
 
-subcollection: hpc-ibm-spectrumlsf
-
 keywords:
 
+subcollection: hpc-ibm-spectrumlsf
 ---
 
+{:shortdesc: .shortdesc}
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:external: target="_blank" .external}
+{:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:table: .aria-labeledby="caption"}
 {{site.data.keyword.attribute-definition-list}}
 
 # Understanding your responsibilities when you use {{site.data.keyword.spectrum_full_notm}}
