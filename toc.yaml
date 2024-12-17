@@ -83,19 +83,6 @@ toc:
                   topics:
                    - accessing-rest-api-pacclient.md
                    - accessing-rest-api-curl.md
-  - navgroup: 
-      id: tutorial
-      topics:
-      - integrate-openldap-tutorial.md
-      - hpc-cluster-tutorial.md
-      - topicgroup:
-          label: Using OpenLDAP with the deployed environment
-          topics:
-          - about-ldapp.md
-          - integrate-openldapp.md
-          - check-ldapp-status.md
-          - create-ldapp-user.md
-          - submit-lsf-jobs-ldapp.md
   - navgroup:
       id: reference
       topics:

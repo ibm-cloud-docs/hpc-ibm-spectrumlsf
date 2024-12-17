@@ -5,7 +5,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-11"
+lastupdated: "2024-12-17"
 
 keywords: # Not typically populated
 
@@ -46,12 +46,13 @@ production: false
 # IBM Spectrum LSF
 {: #ibm-spectrum-lsf}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="value"}
+{: toc-industry="Oil and gas"}
+{: toc-industry="Healthcare"}
+{: toc-industry="Life sciences"}
+{: toc-industry="Automotive"}
+{: toc-industry="Aerospace and defense"}
 {: toc-use-case="value"}
 {: toc-compliance="value"}
-{: toc-version="value"}
-
-
 
 {{site.data.keyword.spectrum_full}} high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud_notm}} resources. {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only.
 
@@ -81,9 +82,9 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspect | Requirements |
 | -------------- | -------------- |
-| Data            | * Provide a location to store {{site.data.keyword.spectrum_full_notm}} configuration and data. |
-| Compute            | * Provide properly isolated compute resources with adequate compute capacity for the applications. |
-| Storage            | * Provide storage that meets the application and database performance requirements. |
+| Data            | Provide a location to store {{site.data.keyword.spectrum_full_notm}} configuration and data. |
+| Compute            | Provide properly isolated compute resources with adequate compute capacity for the applications. |
+| Storage            | Provide storage that meets the application and database performance requirements. |
 | Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage \n Provide private DNS resolution to support use of hostnames instead of IP addresses. |
 | Security           | * Ensure that all operator actions are run securely through a bastion host. \n * Provide customers with the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
 | Service Management | * Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n * Monitor audit logs to track changes and detect potential security problems. |
@@ -113,16 +114,3 @@ The following table outlines the requirements that are addressed in this archite
 |  | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
 {: caption="Components" caption-side="bottom"}
-
-## Compliance
-{: #compliance}
-
-_Optional section._ Feedback from users implies that architects want only the high-level compliance items and links off to control details that team members can review. Include the list of control profiles or compliance audits that this architecture meets. For controls, provide "learn more" links to the control library that is published in the IBM Cloud Docs. For audits, provide information about the compliance item.
-
-## Next steps
-{: #next-steps}
-
-_Optional section._ Include links to your deployment guide or next steps to get started with the architecture.
-
-
-:exclamation: **Important:** Rename this file `<architecture-name>.md`. For deployable architectures, `<architecture-name>` is the same as the deployable architecture name.
