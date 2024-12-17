@@ -52,7 +52,7 @@ If you use other {{site.data.keyword.cloud_notm}} products such as {{site.data.k
 | Virtual network | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 
 {: row-headers}
-{: caption="Table 1. Responsibilities by resource." caption-side="bottom"}
+{: caption="Responsibilities by resource" caption-side="bottom"}
 
 Review the following sections for the specific responsibilities for you and for {{site.data.keyword.IBM_notm}} when you use the {{site.data.keyword.spectrum_full_notm}} deployable architecture.
 
@@ -67,7 +67,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 |Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n * Ensure that compute nodes successfully provision when the user account and permissions are correctly set up, and sufficient quota exists.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Provide tools, such as the LSF Resource Connector to extend your cluster infrastructure.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster |
 |Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Fulfill requests for more infrastructure, such as attaching worker nodes to existing VPC or subnets upon resizing a compute pool.  \n * Provide the ability to set up a VPN connection with on-premises resources such as through the strongSwan IPSec VPN service or the IBM Cloud VPC VPN.  \n * Provide the ability to isolate network traffic with login nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload. |
 |Observability| * Provide standard IBM Spectrum LSF tools for monitoring the status of LSF cluster.  \n * Provide standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, etc.). | Set up and monitor the health of your cluster health metrics. |
-{: caption="Table 1. Responsibilities for incident and operations" caption-side="bottom"}
+{: caption="Responsibilities for incident and operations" caption-side="bottom"}
 
 ## Change management
 {: #change-management}
@@ -81,7 +81,7 @@ You and IBM share responsibilities for keeping your clusters at the supported pl
 |Management nodes| Provide management node patch operating system(OS), version, and security updates for image used for new cluster creation. | Use the IBM Cloud tools to apply the provided(existing) management nodes updates that include operating system; or to request that management nodes are rebooted. |
 |Compute nodes| Provide compute node patch operating system (OS), version, and security updates. Not supported on existing running VSIs, only for new VSIs with latest image. | Use IBM Cloud tools to apply the provided compute node updates that include operating system patches; or to raise ticket to request that worker nodes are rebooted. |
 |Cluster version| Provide image for new version of LSF for new cluster creation. | Update existing management nodes and compute nodes to new LSF version, or create new cluster with latest image to run with new cluster version |
-{: caption="Table 2. Responsibilities for change management" caption-side="bottom"}
+{: caption="Responsibilities for change management" caption-side="bottom"}
 
 ## Identity and access management
 {: #iam-responsibilities}
@@ -93,7 +93,7 @@ You and IBM share responsibilities for controlling access to your {{site.data.ke
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |Observability| Provide the ability to integrate IBM Cloud Activity Tracker with your cluster to audit the actions that users take in the cluster. | Set up IBM Cloud Activity Tracker or other capabilities to track user activity in the cluster. |
-{: caption="Table 3. Responsibilities for identity and access management" caption-side="bottom"}
+{: caption="Responsibilities for identity and access management" caption-side="bottom"}
 
 ## Security and regulation compliance
 {: #security-compliance}
@@ -108,7 +108,7 @@ IBM is responsible for the security and compliance of HPC Clusters on IBM Cloud.
 Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
 |Management nodes|  | As part of your incident and operations management responsibilities for the management  nodes, apply the provided security patch updates. |
 |Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. |
-{: caption="Table 4. Responsibilities for security and regulation compliance" caption-side="bottom"}
+{: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ## Disaster recovery
 {: #disaster-recovery}
@@ -120,7 +120,7 @@ IBM is responsible for the recovery of Spectrum Computing on IBM Cloud component
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |General|  | Set up and maintain disaster recovery capabilities for your apps and data. For example, to prepare your cluster for HA/DR scenarios, follow the guidance in High availability on IBM Cloud. Note that persistent storage of data such as application logs and cluster metrics are not set up by default.  \n * Creating resources in a secondary region and managing the application and data disaster recovery. |
-{: caption="Table 5. Responsibilities for disaster recovery" caption-side="bottom"}
+{: caption="Responsibilities for disaster recovery" caption-side="bottom"}
 
 ## Applications and data
 {: #applications-data}
@@ -131,4 +131,4 @@ You are completely responsible for the applications, workloads, and data that yo
 |----------|-----------------------|--------|
 | Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to IBM File storage statement) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as File Storage, and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
 | Applications | * Provision clusters with Spectrum LSF, Data Manager and License Scheduler.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up-to-date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
-{: caption="Table. Responsibilities for applications and data" caption-side="bottom"}
+{: caption="Responsibilities for applications and data" caption-side="bottom"}
