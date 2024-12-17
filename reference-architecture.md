@@ -1,8 +1,5 @@
 ---
 
-# The YAML header is required. For more information about the YAML header, see
-# https://test.cloud.ibm.com/docs-internal/writing?topic=writing-reference-architectures
-
 copyright:
   years: 2024
 lastupdated: "2024-12-17"
@@ -28,7 +25,6 @@ industry: OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
 compliance:
 content-type: reference-architecture
 
-
 # For reference architectures in https://github.com/terraform-ibm-modules only.
 # All reference architectures stored in the /reference-architectures directory
 
@@ -41,18 +37,11 @@ production: false
 
 {{site.data.keyword.attribute-definition-list}}
 
-
-
 # IBM Spectrum LSF
 {: #ibm-spectrum-lsf}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="Oil and gas"}
-{: toc-industry="Healthcare"}
-{: toc-industry="Life sciences"}
-{: toc-industry="Automotive"}
-{: toc-industry="Aerospace and defense"}
-{: toc-use-case="value"}
-{: toc-compliance="value"}
+{: toc-industry="OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
+{: toc-use-case="IBMSpectrumLSF"}
 
 {{site.data.keyword.spectrum_full}} high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud_notm}} resources. {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only.
 
