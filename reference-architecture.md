@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-17"
+lastupdated: "2024-12-19"
 
 keywords: # Not typically populated
 
@@ -21,7 +21,7 @@ docs: https://cloud.ibm.com/docs/solution-guide
 image_source:
 
 use-case: IBM Spectrum LSF
-industry: OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
+industry: Electronic Design Automation (EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
 compliance:
 content-type: reference-architecture
 
@@ -43,7 +43,7 @@ production: false
 {: toc-industry="OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="IBMSpectrumLSF"}
 
-{{site.data.keyword.spectrum_full}} high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud_notm}} resources. {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only.
+{{site.data.keyword.spectrum_full}} high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only.
 
 ## Architecture diagram
 {: #architecture-diagram}
@@ -88,18 +88,18 @@ The following table outlines the requirements that are addressed in this archite
 | Compute | Provide infrastructure and administration access | HPC VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
 |  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
 |  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
-|  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | HPC management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
-| Networking | * Isolate bastion, login, and HPC management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and customer's host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+|  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
+| Networking | * Isolate bastion, login, and LSF management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and customer's host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
 |  | Enable floating IP on bastion node for customer access. | Floating IP on the bastion node | Allows customer access to the HPC VPC. |
-|  | Enable public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the HPC management node for any internet access (for example, repositories, packages, and so on). |
+|  | Enable public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the LSF management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the HPC compute nodes | DNS service | Helps with the IP and name resolution for the HPC compute nodes. |
 |  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the customer. |
 | Security | Create virtual server instances to support management. | Bastion node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
 |  | Create virtual server instances to support management. | Login node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
-|  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | HPC management node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
+|  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
 |  | (Optional) Provide customers with the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. |
 |  | (Optional) Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
-| Service Management | Schedule and run distributed batch HPC applications. | [IBM Spectrum LSF](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0){: external} cluster includes:  \n * Management nodes: Run LSF internal management highly available components.  \n * Dynamic compute nodes: Computational hosts where LSF runs the HPC workload and can be placed in one or two zones. | IBM Spectrum LSF software is industry-leading and enterprise-class. LSF provides a resource management framework that takes your job requirements, dynamically requests the best resources from the cloud to run the job, monitors its progress, and releases the resource after the workload completion. |
+| Service Management | Schedule and run distributed batch HPC applications. | [IBM Spectrum LSF](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0){: external} cluster includes:  \n * Management nodes: Run LSF internal management highly available components.  \n * Dynamic compute nodes: Computational hosts where LSF runs the HPC workload and can be placed in single zone. | IBM Spectrum LSF software is industry-leading and enterprise-class. LSF provides a resource management framework that takes your job requirements, dynamically requests the best resources from the cloud to run the job, monitors its progress, and releases the resource after the workload completion. |
 |  | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
 {: caption="Components" caption-side="bottom"}

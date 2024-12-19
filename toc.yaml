@@ -25,16 +25,26 @@ toc:
       id: plan
       topics:
       - considerations-for-HPC-cluster-compute-types.md
+      - ibm-cloud-logs.md
       - topicgroup:
           label: Integrating existing infrastructure resources
           topics:
+          - bastion-node.md
           - vpc-lsf.md
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
+      - topicgroup:
+            label: Using IBM Scale Storage as your storage solution
+            topics:
+            - about-scale.md
+            - integrate-scale.md
+      - before-you-deploy-application-center.md
+      - custom-image.md
   - navgroup:
       id: deploy
       topics:
       - before_deploying.md
+      - deploying-hpc.md
       - deployment-values.md
   - navgroup: 
       id: howto
