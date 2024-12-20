@@ -33,8 +33,6 @@ subcollection: hpc-ibm-spectrumlsf
 If you decide to deploy your {{site.data.keyword.spectrum_full_notm}} cluster through the {{site.data.keyword.cloud_notm}} catalog, when you click Install, the **Generate Plan** action is skipped, and the steps go from Create Workspace to Apply Plan directly. You need to enter values in the catalog that work for your permissions and {{site.data.keyword.cloud_notm}} account. If the deployment fails, the {{site.data.keyword.bpshort}} UI can be used to fix the errors, and you can retry the **Apply Plan** step.
 {: note}
 
-Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps.
-
 ## Confirm your {{site.data.keyword.cloud}} settings
 {: #confirm-cloud-settings}
 
@@ -94,18 +92,23 @@ The {{site.data.keyword.spectrum_full}} deployable architecture requires access 
 
 Your capacity reservation ID and cluster ID are provided by {{site.data.keyword.IBM_notm}} technical sales. Before you deploy ensure that you have received these IDs so that you can input them as the and `reservation_id` and `cluster_id` input values when you [deploy the {{site.data.keyword.spectrum_full}} environment](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
 
+Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
+
 ## Create an IBM Cloud API key
 {: #create-api-key}
+{: step}
 
 Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
 ## Create an SSH key
 {: #create-ssh-key}
+{: step}
 
 Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an HPC cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## Choose between IBM-managed or customer-managed encryption
 {: #encryption}
+{: step}
 
 By default, VPC volumes and file shares are encrypted with IBM-managed encryption. However, you can opt for customer-managed encryption per your security requirements. Customer-managed encryption uses your root key, which gives you complete control over your data. You can provision or import existing encrypted keys by using {{site.data.keyword.keymanagementservicefull_notm}}.
 
@@ -126,6 +129,7 @@ Customer-managed encryption applies only to the bastion, login, and management n
 
 ## Select the method for accessing the cluster
 {: #select-method-for-accessing-cluster}
+{: step}
 
 Access the bastion node in the cluster directly or through a VPN gateway. You set your method during [cluster deployment](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) as optional deployment input values:
 
