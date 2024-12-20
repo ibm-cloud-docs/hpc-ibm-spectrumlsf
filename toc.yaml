@@ -45,6 +45,7 @@ toc:
       topics:
       - before_deploying.md
       - deploying-hpc.md
+      - deployment-values.md
   - navgroup: 
       id: howto
       topics:
