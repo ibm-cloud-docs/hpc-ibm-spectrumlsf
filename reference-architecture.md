@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-20"
+  years: 2025
+lastupdated: "2025-01-01"
 
 keywords: # Not typically populated
 
@@ -43,7 +43,7 @@ production: false
 {: toc-industry="ElectronicDesignAutomation(EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="IBMSpectrumLSF"}
 
-{{site.data.keyword.spectrum_full}} high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only.
+{{site.data.keyword.spectrum_full}} enables high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as the HPC scheduling software. This solution employs a deployable architecture to provision and configure IBM Cloud resources. It supports public virtual machines or virtual machines on dedicated hosts for static compute nodes. However, management nodes and dynamic compute nodes are exclusively deployed using public virtual machines.
 
 ## Architecture diagram
 {: #architecture-diagram}
