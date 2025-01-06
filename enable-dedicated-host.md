@@ -46,7 +46,8 @@ By setting the `enable_dedicated_host` value to true, a dedicated host will be d
 To enable dedicated host on a LSF cluster, the following variable needs to be defined:
 
 | Dedicated Host variable | Description | Example value |
-| ----- | ----------- | --------------- | ------------ |
+| ----- | ----------- | --------------- |
 | `enable_dedicatedhost` | Set this option to true to enable dedicated hosts for the VSI created for workload servers, with the default value set to false. | true |
+{: caption="Configuring dedicated host deployment values" caption-side="bottom"}
 
 To learn more about dedicated host, click [here](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui).
