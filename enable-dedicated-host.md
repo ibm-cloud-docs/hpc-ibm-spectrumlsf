@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Enable dedicated hosts
+# Enabling dedicated hosts
 {: #enable-dedicated-hosts}
 
 {{site.data.keyword.cloud}} dedicated hosts are physical servers that are committed to a group of users. Dedicated hosts offer virtual server provisioning capacity and maximum placement control.
