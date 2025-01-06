@@ -78,6 +78,7 @@ toc:
           - update-idle-time.md
           - adding-profile-types.md
       - using-dedicated-hosts.md
+      - enable-dedicated-host.md
       - topicgroup:
            label: Using IBM Storage Scale
            topics:
