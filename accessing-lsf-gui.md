@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-03-17"
+  years: 2025
+lastupdated: "2025-01-08"
 
 keywords: 
 
@@ -51,7 +51,7 @@ To access the GUI, you must collect the IP addresses of the compute nodes and th
 
 Complete the following steps to access the LSF Application Center:
 
-1. Open a new command-line terminal.
+1. Open a new command line terminal.
 
 2. Run the following command to access the LSF Application Center GUI:
 

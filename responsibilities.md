@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2025
+lastupdated: "2025-01-08"
 
 keywords:
 
@@ -104,7 +104,7 @@ IBM is responsible for the security and compliance of HPC Clusters on IBM Cloud.
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|General| * Provide security controls commensurate to best practice for {{site.data.keyword.spectrum_full_notm}} in Cloud.  \n * 
+|General| Provide security controls commensurate to best practice for {{site.data.keyword.spectrum_full_notm}} in Cloud.|
 Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
 |Management nodes|  | As part of your incident and operations management responsibilities for the management  nodes, apply the provided security patch updates. |
 |Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. |
@@ -119,7 +119,7 @@ IBM is responsible for the recovery of Spectrum Computing on IBM Cloud component
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|General|  | Set up and maintain disaster recovery capabilities for your apps and data. For example, to prepare your cluster for HA/DR scenarios, follow the guidance in High availability on IBM Cloud. Note that persistent storage of data such as application logs and cluster metrics are not set up by default.  \n * Creating resources in a secondary region and managing the application and data disaster recovery. |
+|General|  | * Set up and maintain disaster recovery capabilities for your apps and data. For example, to prepare your cluster for HA/DR scenarios, follow the guidance in High availability on IBM Cloud. Note that persistent storage of data such as application logs and cluster metrics are not set up by default.  \n * Creating resources in a secondary region and managing the application and data disaster recovery. |
 {: caption="Responsibilities for disaster recovery" caption-side="bottom"}
 
 ## Applications and data
