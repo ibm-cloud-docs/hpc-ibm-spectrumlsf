@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-01-09"
 
 keywords:
 
@@ -129,6 +129,6 @@ You are completely responsible for the applications, workloads, and data that yo
 
 | Resource | How {{site.data.keyword.IBM_notm}} helps | What you can do |
 |----------|-----------------------|--------|
-| Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to IBM File storage statement) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as File Storage, and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
+| Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to IBM File storage statement) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as File Storage and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
 | Applications | * Provision clusters with Spectrum LSF, Data Manager and License Scheduler.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up-to-date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
 {: caption="Responsibilities for applications and data" caption-side="bottom"}

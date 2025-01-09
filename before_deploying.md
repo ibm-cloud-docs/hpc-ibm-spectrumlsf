@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2021, 2024
-lastupdated: "2024-09-03"
+  years: 2025
+lastupdated: "2025-01-09"
 
 keywords: 
 
@@ -71,7 +71,7 @@ To view access policies, complete the following steps:
    | VPC Infrastructure Services | All | Writer, Editor |
 {: caption="IAM access policies" caption-side="bottom"}
 
-The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Applicaton Center with high availablity](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center), which is enabled by default.
+The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center), which is enabled by default.
 {:note: .note}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
@@ -79,7 +79,7 @@ The Database for MySQL access is required if your [{{site.data.keyword.spectrum_
 
 The {{site.data.keyword.spectrum_full}} deployable architecture requires access to the following {{site.data.keyword.cloud_notm}} service API public endpoints. For a successful deployment to provision the infrastructure and the associated services, ensure that you are aware of these endpoints and that you allow them access:
 
-| Enpdpoint | Type | Notes |
+| Endpoint | Type | Notes |
    | ------- | --------- | ---- |
    | `iam.cloud.ibm.com` | IAM | The IAM endpoint is protected by Akamai under the [Akamai IP ranges](https://techdocs.akamai.com/origin-ip-acl/docs/update-your-origin-server){: external} |
    | `api.us-south.codeengine.cloud.ibm.com` | {{site.data.keyword.codeenginefull}} | The API endpoints for {{site.data.keyword.codeengineshort}} are protected by CloudFlare under the [CloudFlare IP ranges]( https://www.cloudflare.com/ips-v4/#){: external} |

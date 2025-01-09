@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-19"
+  years: 2025
+lastupdated: "2025-01-09"
 
 keywords:
 
@@ -27,7 +27,7 @@ Enable LSF Application Center with your {{site.data.keyword.cloud}} HPC cluster 
 * use a cross availability zone instance of the [{{site.data.keyword.cloud}} Database for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-getting-started) as the backend database.
 * use an [{{site.data.keyword.cloud}} Application Load Balancer for VPC (ALB)](/docs/vpc?topic=vpc-load-balancers-about) as the VPC load balancer to dispatch requests to LSF Application Center nodes.
 
-Before you can deploy your {{site.data.keyword.cloud_notm}} HPC cluster with LSF Application Center in high availability mode, import a TLS terminiation certificate and authorize it.
+Before you can deploy your {{site.data.keyword.cloud_notm}} HPC cluster with LSF Application Center in high availability mode, import a TLS termination certificate and authorize it.
 
 ## Importing a TLS termination certificate in Secrets Manager and configuring authorization
 {: #importing-certificate}
@@ -49,7 +49,7 @@ For LSF Application Center high availability, you require a certificate for TLS 
     3. Select **Specific resources** as the scope.
     4. Select **Resource Type** in the **Add attributes** section, and select **Load Balancer for VPC**.
     5. In the **Target** section, select **Secrets Manager** as the source to which to give access.
-    6. Select **Instance ID**, select **string equals**, and select your Secrets Manager instance.
+    6. Select **Instance ID**, select the **string equals**, and select your Secrets Manager instance.
     7. In the **Roles** section, select **Writer** as the level of access to assign.
 
-With these settings complete, you can [deploy your {{site.data.keyword.cloud_notm}} HPC cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) with LSF Application Center high availability enabled. Once deployed, you can [access LSF Application Center](/docs/allowlist/hpc-service?topic=hpc-service-accessing-lsf-gui).
+With these settings complete, you can [deploy your {{site.data.keyword.cloud_notm}} HPC cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) with LSF Application Center high availability enabled. Once deployed, you can [access the LSF Application Center](/docs/allowlist/hpc-service?topic=hpc-service-accessing-lsf-gui).
