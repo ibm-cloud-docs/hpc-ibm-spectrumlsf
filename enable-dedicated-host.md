@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-06"
+lastupdated: "2025-01-09"
 
 keywords: 
 
@@ -24,9 +24,11 @@ subcollection: hpc-ibm-spectrumlsf
 # Enabling dedicated hosts
 {: #enable-dedicated-hosts}
 
-{{site.data.keyword.cloud}} dedicated hosts are physical servers that are committed to a group of users. Dedicated hosts offer virtual server provisioning capacity and maximum placement control.
+Dedicated hosts enable you to deploy your virtual server instances on single-tenant compute hosts. Workloads under dedicated hosts can avoid noisy neighbor issues (for example, performance interference due to other users workloads) that they might encounter on public virtual server instances. When you use a dedicated host, you are billed by the usage of the host, not vCPUs or RAM associated with your virtual instances.
 
-Foloowing are the key values for enabling dedicated host:
+This offering can deploy static compute nodes on dedicated hosts. The number of dedicated hosts and the profile names for dedicated hosts are calculated from `worker_node_min_count` and `worker_node_instance_type`.
+
+Following are the key values for enabling dedicated host:
 
 * Dedicated host ensures no co-tenancy with other customers offering enhanced privacy and security. It provides isolation at the hardware level, which is critical for sensitive workloads or regulated environments.
 
@@ -39,6 +41,11 @@ Foloowing are the key values for enabling dedicated host:
 * Compliance-driven industries with strict data isolation and residency requirements.
 
 By setting the `enable_dedicated_host` value to true, a dedicated host will be deployed and ensures that all the static worker nodes will be created on the dedicated host.
+
+## Before you begin
+{: #before-you-begin}
+
+Before you begin, make sure to complete the steps for [Before you begin deploying](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui).
 
 ## Configuring dedicated host deployment values
 {: #config-dedicated-hosts-deploy-values}
