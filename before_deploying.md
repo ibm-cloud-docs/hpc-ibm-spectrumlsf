@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-10"
 
 keywords: 
 
@@ -24,11 +24,11 @@ subcollection: hpc-ibm-spectrumlsf
 # Before you begin deploying
 {: #getting-started-tutorial}
 
-{{site.data.keyword.spectrum_full}} enables customers to deploy HPC clusters that use {{site.data.keyword.spectrum_full_notm}} as a scheduling software. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks. The following steps outline the high-level flow of events that are performed:
+{{site.data.keyword.spectrum_full}} enables customers to deploy HPC clusters that use LSF as a scheduling software. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks. The following steps outline the high-level flow of events that are performed:
 
 1. **Create a workspace** with the Terraform code from {{site.data.keyword.bplong_notm}}. This step defines the set of configuration properties that are used to perform the automation.
 2. **Generate a plan** to confirm whether the configuration properties are valid, so that when you run the Terraform code, all the resources are provisioned correctly. If the validation fails, fix the configuration properties and try again.
-3. **Apply a plan** triggers the actual deployment of the {{site.data.keyword.cloud_notm}} resources to have an HPC cluster up and running by the time the deployment completes. If the deployment fails, identify the reason for failure, fix the problem, and try again. If a change is needed to the configuration properties, it might be better to generate a plan again.
+3. **Apply a plan** triggers the actual deployment of the {{site.data.keyword.cloud_notm}} resources to have an LSF cluster up and running by the time the deployment completes. If the deployment fails, identify the reason for failure, fix the problem, and try again. If a change is needed to the configuration properties, it might be better to generate a plan again.
 
 If you decide to deploy your {{site.data.keyword.spectrum_full_notm}} cluster through the {{site.data.keyword.cloud_notm}} catalog, when you click Install, the **Generate Plan** action is skipped, and the steps go from Create Workspace to Apply Plan directly. You need to enter values in the catalog that work for your permissions and {{site.data.keyword.cloud_notm}} account. If the deployment fails, the {{site.data.keyword.bpshort}} UI can be used to fix the errors, and you can retry the **Apply Plan** step.
 {: note}
@@ -69,7 +69,7 @@ To view access policies, complete the following steps:
    | Activity Track Event Routing | All | Writer, Editor, Key manager, Service configuration reader |
    | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
    | VPC Infrastructure Services | All | Writer, Editor |
-{: caption="IAM access policies" caption-side="bottom"}
+{: caption="Verifying access policies" caption-side="bottom"}
 
 The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center), which is enabled by default.
 {:note: .note}
@@ -82,15 +82,12 @@ The {{site.data.keyword.spectrum_full}} deployable architecture requires access 
 | Endpoint | Type | Notes |
    | ------- | --------- | ---- |
    | `iam.cloud.ibm.com` | IAM | The IAM endpoint is protected by Akamai under the [Akamai IP ranges](https://techdocs.akamai.com/origin-ip-acl/docs/update-your-origin-server){: external} |
-   | `api.us-south.codeengine.cloud.ibm.com` | {{site.data.keyword.codeenginefull}} | The API endpoints for {{site.data.keyword.codeengineshort}} are protected by CloudFlare under the [CloudFlare IP ranges]( https://www.cloudflare.com/ips-v4/#){: external} |
-   | `api.us-east.codeengine.cloud.ibm.com` | {{site.data.keyword.codeengineshort}} | The API endpoints for {{site.data.keyword.codeengineshort}} are protected by CloudFlare under the [CloudFlare IP ranges]( https://www.cloudflare.com/ips-v4/#){: external} |
-   | `api.eu-de.codeengine.cloud.ibm.com` | {{site.data.keyword.codeengineshort}} | The API endpoints for {{site.data.keyword.codeengineshort}} are protected by CloudFlare under the [CloudFlare IP ranges]( https://www.cloudflare.com/ips-v4/#){: external} |
 {: caption="{{site.data.keyword.cloud_notm}} public endpoints required for {{site.data.keyword.cloud_notm}} HPC deployment" caption-side="bottom"}
 
-## Obtain your capacity reservation ID and cluster ID from {{site.data.keyword.IBM}}
-{: #obtain-reservationID-clusterID}
+## Gather LSF entitlement information
+{: #gather-lsf-entitlement-information}
 
-Your capacity reservation ID and cluster ID are provided by {{site.data.keyword.IBM_notm}} technical sales. Before you deploy ensure that you have received these IDs so that you can input them as the and `reservation_id` and `cluster_id` input values when you [deploy the {{site.data.keyword.spectrum_full}} environment](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
+The offering uses BYOL (Bring your own licenses) for {{site.data.keyword.spectrum_short}} when you deploy an LSF cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.spectrum_full_notm}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
 
@@ -104,7 +101,7 @@ Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more infor
 {: #create-ssh-key}
 {: step}
 
-Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an HPC cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## Choose between IBM-managed or customer-managed encryption
 {: #encryption}
@@ -133,9 +130,9 @@ Customer-managed encryption applies only to the bastion, login, and management n
 
 Access the bastion node in the cluster directly or through a VPN gateway. You set your method during [cluster deployment](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) as optional deployment input values:
 
-1. Directly through a floating IP that is attached to the bastion node. If you select a value of **true** for the `enable_fip` deployment input variable, then a floating IP is attached to the bastion node. If you are connecting to the HPC cluster through VPN gateway, set this value to **false**. If not specified, this deployment value is set to **true**.
+1. Directly through a floating IP that is attached to the bastion node. If you select a value of **true** for the `enable_fip` deployment input variable, then a floating IP is attached to the bastion node. If you are connecting to the LSF cluster through VPN gateway, set this value to **false**. If not specified, this deployment value is set to **true**.
 
-2. Through a VPN gateway. If you select a value of **true** for the `vpn_enabled` deployment input variables, it results in the creation of a VPN gateway. In this case, values for the following parameters must also be set: `vpn_peer_address`, `vpn_peer_cidrs`, `vpn_preshared_key`. If you select the use of a VPN gateway, a floating IP is not attached to the bastion node. If not specified, this deployment value is set to **false**.
+2. Through a VPN gateway. If you select a value of **true** for the `vpn_enabled` deployment input variables, it results in the creation of a VPN gateway. If you select the use of a VPN gateway, a floating IP is not attached to the bastion node. If not specified, this deployment value is set to **false**.
 
 Regardless of which access method you select, values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
 
@@ -161,12 +158,6 @@ See the following example SSH command syntax for accessing different types of no
     ssh lsfadmin@10.241.0.11
     ```
     {: codeblock}
-
-## Gather LSF entitlement information
-{: #gather-lsf-entitlement-information}
-{: step}
-
-The offering uses BYOL (Bring your own licenses) for {{site.data.keyword.spectrum_short}} when you deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.spectrum_full_notm}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 ## Next steps
 {: #getting-started-next-steps}

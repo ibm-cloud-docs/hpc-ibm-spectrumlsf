@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-09-14"
+  years: 2025
+lastupdated: "2025-01-10"
 
 keywords:
 content-type: tutorial
@@ -28,15 +28,12 @@ subcollection: hpc-ibm-spectrumlsf
 
 # Integrating OpenLDAP with IBM Spectrum LSF
 {: #integrate-openldap-spectrum-lsf}
-{: toc-content-type="tutorial"} 
-{: toc-services="virtual-servers, vpc, loadbalancer-service"} 
-{: toc-completion-time="60m"}
 
 {{site.data.keyword.spectrum_full_notm}} is a workload management platform that provides powerful resource management capabilities to optimize application performance and maximize resource usage. OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
 By following the steps outlined in this tutorial, you can integrate OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, which allows you to use your existing LDAP infrastructure for authentication, enabling more secure and streamlined user access to {{site.data.keyword.spectrum_full_notm}}.
 
-This tutorial only covers configuring the OpenLDAP server on a Linux&reg; system (RHEL 7.9 as the host).
+This section only covers configuring the OpenLDAP server on a Linux&reg; system (RHEL above 8.6 version as the host).
 {: note}
 
 ## Design considerations

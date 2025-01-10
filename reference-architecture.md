@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-01"
+lastupdated: "2025-01-10"
 
 keywords: # Not typically populated
 
@@ -21,7 +21,7 @@ docs: https://cloud.ibm.com/docs/solution-guide
 image_source:
 
 use-case: IBM Spectrum LSF
-industry: Electronic Design Automation (EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
+industry: ElectronicDesignAutomation(EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
 compliance:
 content-type: reference-architecture
 
@@ -43,7 +43,7 @@ production: false
 {: toc-industry="ElectronicDesignAutomation(EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="IBMSpectrumLSF"}
 
-{{site.data.keyword.spectrum_full}} enables high-performance computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as the HPC scheduling software. This solution employs a deployable architecture to provision and configure IBM Cloud resources. It supports public virtual machines or virtual machines on dedicated hosts for static compute nodes. However, management nodes and dynamic compute nodes are exclusively deployed using public virtual machines.
+{{site.data.keyword.spectrum_full}} enables High Performance Computing (HPC) clusters by using LSF as the HPC scheduling software. This solution employs a deployable architecture to provision and configure IBM Cloud resources. It supports public virtual machines or virtual machines on dedicated hosts for static compute nodes. However, management nodes and dynamic compute nodes are exclusively deployed using public virtual machines.
 
 ## Architecture diagram
 {: #architecture-diagram}

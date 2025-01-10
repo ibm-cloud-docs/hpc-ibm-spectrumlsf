@@ -1,8 +1,8 @@
 ---
 
 copyright: 
-  years: 2021, 2023
-lastupdated: "2024-09-03"
+  years: 2025
+lastupdated: "2025-01-10"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -27,25 +27,24 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 
 # Setting up an IBM Spectrum LSF cluster
-{: #using-hpc-cluster} 
-{: toc-content-type="tutorial"} 
-{: toc-services="virtual-servers, vpc, loadbalancer-service"} 
-{: toc-completion-time="60m"}
+{: #using-hpc-cluster}
 
 Deploy the HPC cluster with your choice of configuration properties.
 
-## Architecture overview and NFS file system setup 
+## Architecture overview and VPC File Storage setup 
 {: #hpc-cluster-architecture-overview}
 
-The HPC cluster consists of a login node, a storage node where the block storage volume is attached, 1 - 3 LSF management nodes, and some LSF worker nodes.
+The LSF cluster consists of a bastion, lsf login client node, 1 - 10 LSF management nodes, and a number of LSF worker nodes. Where the VPC filestorage is attached to lsf login client node/management and worker nodes.
 
-* The login node is served as a jump host and it is the only node that has the public IP address. Other nodes have only private IP addresses and the only way to reach these nodes is through the login node. You can log in to the primary LSF management host and do most of the operations from the LSF management host. By default, `lsfadmin` is the only user ID created on the cluster. The SSH passwordless setup is configured between the LSF management host and workers. You can reach any other worker node with the `lsfadmin` user ID from the LSF primary.
+* The bastion node is served as a jump host and it is the only node that has the public IP address. Other nodes have only private IP addresses and the only way to reach these nodes is through the bastion node. You can log in to the primary LSF management host and do most of the operations from the LSF management host. By default, `lsfadmin` is the only user ID created on the cluster. The SSH passwordless setup is configured between the LSF management host and workers. You can reach any other worker node with the `lsfadmin` user ID from the LSF primary.
 
-* The worker node can be a static resource. In this case, it is lifecycle managed by Schematics. You can request some static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
+* The lsf login client nodes is used to submit the jobs and it is not intended to run the jobs. To reach the login node is through the bastion node. Instead of accessing the management node, users can directly access the login node and submit and manage the entire cluster.
+
+* The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request a number of static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
 
 * The {{site.data.keyword.cloud_notm}} File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-spectrum-lsf-faqs#share).
 
-The HPC cluster solution provides a base custom image, which includes the LSF installation. You can create your own custom image on top of the base image. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). The image service on VPC provides a way for doing this. You can then specify the custom image that you want to use in Schematics for LSF management nodes and worker nodes. The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
+The HPC cluster solution provides a base custom image, which includes the LSF installation. You can still create customaziable custom image with the installation of required packages. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). You can then specify the custom image created in the IBM Spectrum LSF tile under the `compute_image_name`(worker nodes). The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
 
 ## Create SSH key
 {: #hpc-ssh-key-creation-before}
@@ -97,29 +96,10 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
 2. In the **Set the deployment values** section, supply the required values: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`. 
 
-3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 5 minutes with the default configuration.
+3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 
-### Parameters for cluster deployment
-{: #hpc-cluster-deployment-parameters}
-
-See the following table for a list of parameters that you can configure for your HPC cluster:
-
-| Parameter | Description |
-| --------- | ----------- |
-| `cluster_prefix` | The prefix used to name the VPC resources that are provisioned to build the HPC cluster. There are resources where their names must be unique in the same cloud account given a single region. Make sure that the name is unique (for example, add your initials to the name: po-hpc-cluster). |
-| `hyperthreading_enabled` | You can enable hyper-threading in the worker nodes of the cluster by setting this value to true (default). Otherwise, hyper-threading is disabled. |
-| `compute_image_name` | Name of the custom image that you use to create virtual server instances in your {{site.data.keyword.cloud_notm}} account to deploy the IBM Spectrum LSF cluster worker nodes. If you created your own custom image, edit the value to the name of your custom image. |
-| `management_image_name` | Edit and add the custom image with LSF. You can use the default LSF custom image that is provided by the solution. |
-| `management_node_count` | You can have up to three management nodes in the cluster. If you want failover support that is provided by LSF, you need to specify the value to be larger than one. In this case, when the primary management node is down, one of the candidate management nodes become the primary and your cluster remains functional without interruption. |
-| `region` | Edit the region where you want your cluster to be created. To get a full list of regions, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region). |
-| `resource_group` | The resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources are deployed. |
-| `vpc_name` | You can use an existing VPC in which the cluster resources are provisioned. If no value given, then a new VPC is provisioned for the cluster. |
-| `vpn_enabled` | You can deploy a VPN gateway for VPC in the cluster. By default, the value is set to false. |
-| `vpn_peer_address` | The peer public IP address to which the VPN is connected. |
-| `vpn_peer_cidrs` | Comma-separated list of peer CIDRs (for example, 192.168.0.0/24) to which the VPN is connected. |
-| `vpn_preshared_key` | The pre-shared key for the VPN. |
-| `zone` | Edit the zone based on the selected region. To get a full list of zones within a region, see [Get zones by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). |
-{: caption="Parameter values" caption-side="top"} 
+IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer the [deployment values](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
+{: note} 
 
 ### Parameters for auto scaling
 {: #hpc-cluster-auto-scaling-parameters}
@@ -133,12 +113,7 @@ You can set the following parameters for auto scaling:
 ### Parameters for instance profiles
 {: #hpc-cluster-instance-profiles-deployment-parameters}
 
-You can control the instance profile for each instance type through the `xxx_node_instance_type` parameters. The management nodes are where the main LSF daemons are running. You need to select ones with more compute power if you plan to run jobs by using 100+ nodes. The worker nodes are the ones where the workload execution takes place and the choice needs to be made according to the characteristic of workloads. The storage node is the one to manage the NFS file system for your HPC cluster. The login instance is served as a jump host, so you can pick the smallest profile. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
-
-### Parameters for block volumes
-{: #hpc-cluster-block-volume-parameters}
-
-You can configure the storage capacity and throughput by using the `volume_xxx` parameters. The value for the `volume_profile` parameter can be either general purpose or custom. When `general-purpose` is used, IOPS is determined by the cloud infrastructure and the `volume_iops` parameter does not have any affect. If you want to customize the IOPS, you need to use custom for `volume_profiles` and set up the IOPS through `volume_iops` based on the capacity that is specified in `volume_capacity`. For more information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui).
+You can control the instance profile for each instance type through the `xxx_node_instance_type` parameters. The management nodes are where the main LSF daemons are running. You need to select ones with more compute power if you plan to run jobs by using 100+ nodes. The worker nodes are the ones where the workload execution takes place and the choice needs to be made according to the characteristic of workloads.
 
 ## Accessing the HPC cluster
 {: #hpc-cluster-access}
@@ -146,7 +121,7 @@ You can configure the storage capacity and throughput by using the `volume_xxx` 
 
 To access your HPC cluster, complete the following steps:
 
-1. Go to the **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Activity > Plan applied > View log**.
+1. Go to Schematics > Choose Workspace > Plan applied > View log.
 
 2. Copy `ssh-command` to access your cluster.
 
@@ -228,3 +203,4 @@ If you leave the `dns_custom_resolver_id` deployment input value as null, the de
 {: step}
 
 To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-key-protect).
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-06"
+lastupdated: "2025-01-10"
 
 keywords: 
 
@@ -35,7 +35,7 @@ The offering supports the bring-your-own-license (BYOL) model for [{{site.data.k
 
 {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, and CLI. To use the API and CLI interfaces, the Terraform-based automation code is available in this [public GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
 
-{{site.data.keyword.spectrum_full_notm}} also offers the [LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0){: external}, which provides a flexible, easy-to-use interface for cluster users and administrators. Available as an add-on module to IBM Spectrum LSF, the LSF Application Center enables users to interact with intuitive, self-documenting, standardized interfaces. You can access the LSF Application Center through the [GUI](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui), and you can also access the API calls with [Python](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-access-rest-api-calls-pacclient) and [`curl`](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-access-rest-api-calls-curl).
+{{site.data.keyword.spectrum_full_notm}} also offers the [LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0){: external}, which provides a flexible, easy-to-use interface for cluster users and administrators. Available as an add-on module to IBM Spectrum LSF, the LSF Application Center enables users to interact with intuitive, self-documenting, standardized interfaces. You can access the LSF Application Center through the [GUI](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-gui&interface=ui), and you can also access the API calls with [Python](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-pacclient&interface=ui) and [`curl`](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-curl&interface=ui).
 
 The LSF cluster is configured not only with the Application Center feature but also with the Application Center High Availability (HA) functionality. In the event of a failover, the PAC feature will remain operational, ensuring users can still access and interact with the GUI. Jobs will continue running as long as at least one LSF management host is available. The cluster deploys GUI services across three GUI servers, with the database hosted on one of these GUI hosts.
 

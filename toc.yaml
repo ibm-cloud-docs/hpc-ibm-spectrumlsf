@@ -44,13 +44,13 @@ toc:
       id: deploy
       topics:
       - before_deploying.md
-      - deploying-hpc.md
+      - deploying-lsf.md
       - deployment-values.md
   - navgroup: 
       id: howto
       topics:
       - integrate-openldap-tutorial.md
-      - hpc-cluster-tutorial.md
+      - setting-lsf-cluster.md
       - topicgroup:
           label: Using OpenLDAP with the deployed environment
           topics:

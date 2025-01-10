@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-19"
+  years: 2025
+lastupdated: "2025-01-10"
 
 keywords:
 
@@ -23,10 +23,10 @@ subcollection: hpc-ibm-spectrumlsf
 {:api: .ph data-hd-interface='api'}
 {:table: .aria-labeledby="caption"}
 
-# Deploying {{site.data.keyword.cloud_notm}} HPC
+# Deploying {{site.data.keyword.spectrum_full_notm}}
 {: #deploy-architecture}
 
-Deploy the {{site.data.keyword.cloud}} HPC deployable architecture for an {{site.data.keyword.cloud_notm}} HPC cluster with {{site.data.keyword.spectrum_full_notm}}. Use either the {{site.data.keyword.cloud_notm}} console UI, or the {{site.data.keyword.cloud_notm}} catalog CLI, and then access the deployed environment.
+Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture with Spectrum LSF cluster using either the {{site.data.keyword.cloud_notm}} console UI, or the {{site.data.keyword.cloud_notm}} catalog CLI, and then access the deployed environment.
 {: shortdesc}
 
 ## Creating the project by using the UI
