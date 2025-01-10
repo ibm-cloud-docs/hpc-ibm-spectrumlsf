@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-10"
 
 keywords: 
 
@@ -45,7 +45,7 @@ By setting the `enable_dedicated_host` value to true, a dedicated host will be d
 ## Before you begin
 {: #before-you-begin}
 
-Before you begin, make sure to complete the steps for [Before you begin deploying](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui).
+Before you begin, make sure to complete the steps from [Before you begin deploying](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui) topic.
 
 ## Configuring dedicated host deployment values
 {: #config-dedicated-hosts-deploy-values}
@@ -54,7 +54,7 @@ To enable dedicated host on a LSF cluster, the following variable needs to be de
 
 | Dedicated Host variable | Description | Example value |
 | ----- | ----------- | --------------- |
-| `enable_dedicatedhost` | Set this option to true to enable dedicated hosts for the VSI created for workload servers, with the default value set to false. | true |
+| `enable_dedicated_host` | Set this option to true to enable dedicated hosts for the VSI created for workload servers, with the default value set to false. | true |
 {: caption="Configuring dedicated host deployment values" caption-side="bottom"}
 
 To learn more about dedicated host, click [here](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui).
