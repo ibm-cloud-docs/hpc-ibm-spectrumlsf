@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-15"
 
 keywords: 
 
@@ -30,6 +30,8 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
+| `enable_app_center` | Set to true to enable the IBM Spectrum LSF Application Center GUI (default: false). [System requirements](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14) for IBM Spectrum LSF Application Center Version 10.2 Fix Pack 14. | No | false |
+| `existing_certificate_instance` | When app_center_high_availability is enable/set as true, The Application Center is configured for high availability and requires an Application Load Balancer Front-End listener to use a certificate CRN value stored in the Secret Manager. Provide the valid 'existing_certificate_instance' to configure the Application load balancer. | No | "" |
 | `app_center_gui_pwd` | Password for IBM Spectrum LSF Application Center GUI. Note: Password should be at least 8 characters, must have one number, one lowercase letter, one uppercase letter, and at least one special character. | No | "" |
 | `app_center_high_availability` | Set to false to disable the IBM Spectrum LSF Application Center GUI High Availability (default: true). If the value is set as true, provide a certificate instance crn under the existing_certificate_instance value for the VPC load balancer to enable HTTPS connections.[certificate instance requirements](https://cloud.ibm.com/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center). | No | true |
 | `bastion_ssh_keys` | Provide the list of SSH key names configured in your IBM Cloud account to establish a connection to the IBM Cloud HPC bastion and login node. Ensure that the SSH key is present in the same resource group and region where the cluster is being provisioned. If you do not have an SSH key in your IBM Cloud account, create one by following the provided instructions.[SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys). | Yes | None |
@@ -49,10 +51,8 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 | `dns_custom_resolver_id` | Provide the ID of an existing IBM Cloud DNS custom resolver to skip creating a new custom resolver. If the value is set to null, a new dns custom resolver shall be created and associated to the VPC. Note: A VPC can be associated only to a single custom resolver. Provide the ID of the custom resolver if it is already associated to the VPC. | No | "" |
 | `enable_cos_integration` | Set to true to create an extra cos bucket to integrate with HPC cluster deployment. | No | false |
 | `enable_vpc_flow_logs` | Flag to enable VPC flow logs. If true, a flow log collector is created. | No | false |
-| `enable_app_center` | Set to true to enable the IBM Spectrum LSF Application Center GUI (default: false). [System requirements](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14) for IBM Spectrum LSF Application Center Version 10.2 Fix Pack 14. | No | false |
 | `enable_fip` | The solution supports multiple ways to connect to your IBM Cloud HPC cluster, for example, by using a login node, or by using VPN or direct connection. If connecting to the IBM Cloud HPC cluster by using VPN or direct connection, set this value to false. | No | true |
 | `enable_ldap` | Set this option to true to enable LDAP for IBM Cloud HPC, with the default value set to false. | No | false |
-| `existing_certificate_instance` | When app_center_high_availability is enable/set as true, The Application Center is configured for high availability and requires an Application Load Balancer Front-End listener to use a certificate CRN value stored in the Secret Manager. Provide the valid 'existing_certificate_instance' to configure the Application load balancer. | No | "" |
 | `hyperthreading_enabled` | Setting this to true will enable hyper-threading in the compute nodes of the cluster (default). Otherwise, hyper-threading will be disabled. | No | true |
 | `ibmcloud_api_key` | IBM Cloud API key for the IBM Cloud account where the IBM Cloud HPC cluster needs to be deployed. For more information on how to create an API key, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey). | Yes | None |
 | `ibm_customer_number` | Comma-separated list of one or more IBM Customer Numbers (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn). | No | "" |

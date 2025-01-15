@@ -64,7 +64,6 @@ toc:
           topics: 
           - setting-up-cli.md
           - setting-up-api.md
-      - creating-workspace.md
       - generating-plan.md
       - applying-plan.md
       - destroying-resources.md
@@ -93,6 +92,12 @@ toc:
                   topics:
                    - accessing-rest-api-pacclient.md
                    - accessing-rest-api-curl.md
+      - topicgroup:
+            label: Observability
+            topics:
+             - ibm-cloud-logs.md
+             - activity-tracker-event.md
+             - cloud-monitoring.md
   - navgroup:
       id: reference
       topics:

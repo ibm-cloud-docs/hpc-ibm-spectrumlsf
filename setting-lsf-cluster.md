@@ -2,7 +2,7 @@
 
 copyright: 
   years: 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-01-15"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -121,7 +121,7 @@ You can control the instance profile for each instance type through the `xxx_nod
 
 To access your HPC cluster, complete the following steps:
 
-1. Go to Schematics > Choose Workspace > Plan applied > View log.
+1. Go to Schematics > Choose the name for your workspace > Plan applied > View log.
 
 2. Copy `ssh-command` to access your cluster.
 
@@ -203,4 +203,3 @@ If you leave the `dns_custom_resolver_id` deployment input value as null, the de
 {: step}
 
 To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-key-protect).
-
