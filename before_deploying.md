@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-01-15"
 
 keywords: 
 
@@ -69,7 +69,7 @@ To view access policies, complete the following steps:
    | Activity Track Event Routing | All | Writer, Editor, Key manager, Service configuration reader |
    | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
    | VPC Infrastructure Services | All | Writer, Editor |
-{: caption="Verifying access policies" caption-side="bottom"}
+{: caption="Verify access policies" caption-side="bottom"}
 
 The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center), which is enabled by default.
 {:note: .note}
