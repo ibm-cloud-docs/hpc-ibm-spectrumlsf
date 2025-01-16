@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-01-16"
 
 keywords: 
 
@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-## Activity Tracker Event Routing
+# Activity Tracker Event Routing
 {: #activity-tracker-overview}
 
 We do not support the creation of new Activity Tracker instances, as this feature has been deprecated and replaced by IBM Cloud Logs; however, Activity Tracker event routing remains supported.
