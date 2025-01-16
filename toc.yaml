@@ -25,7 +25,6 @@ toc:
       id: plan
       topics:
       - considerations-for-HPC-cluster-compute-types.md
-      - ibm-cloud-logs.md
       - topicgroup:
           label: Integrating existing infrastructure resources
           topics:
