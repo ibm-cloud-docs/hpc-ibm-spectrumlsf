@@ -2,18 +2,15 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-01-16"
 
 keywords: # Not typically populated
 
-subcollection: hpc-ibm-spectrumlsf # Use deployable-reference-architectures, or the subcollection value from your toc.yaml file if docs-only.
+subcollection: hpc-ibm-spectrumlsf
 
 authors:
   - name: David Nguyen
 
-# Use if the reference architecture has deployable code.
-# Value is the URL to land the user in the IBM Cloud catalog details page for the deployable architecture.
-# See https://test.cloud.ibm.com/docs/get-coding?topic=get-coding-deploy-button
 deployment-url: url
 
 docs: https://cloud.ibm.com/docs/solution-guide
@@ -21,26 +18,19 @@ docs: https://cloud.ibm.com/docs/solution-guide
 image_source:
 
 use-case: IBM Spectrum LSF
-industry: ElectronicDesignAutomation(EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
+industry: OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense, ElectronicDesignAutomation(EDA)
 compliance:
 content-type: reference-architecture
-
-# For reference architectures in https://github.com/terraform-ibm-modules only.
-# All reference architectures stored in the /reference-architectures directory
-
-# Set production to true to publish the reference architecture to IBM Cloud docs.
 
 production: false
 
 ---
-
-
 {{site.data.keyword.attribute-definition-list}}
 
 # IBM Spectrum LSF
 {: #ibm-spectrum-lsf}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="ElectronicDesignAutomation(EDA), OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
+{: toc-industry="OilAndGas, Healthcare, LifeSciences, Automotive, AerospaceAndDefense, ElectronicDesignAutomation(EDA)"}
 {: toc-use-case="IBMSpectrumLSF"}
 
 {{site.data.keyword.spectrum_full}} enables High Performance Computing (HPC) clusters by using LSF as the HPC scheduling software. This solution employs a deployable architecture to provision and configure IBM Cloud resources. It supports public virtual machines or virtual machines on dedicated hosts for static compute nodes. However, management nodes and dynamic compute nodes are exclusively deployed using public virtual machines.

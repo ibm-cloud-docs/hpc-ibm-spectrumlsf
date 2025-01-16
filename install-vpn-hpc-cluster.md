@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-03-08"
+  years: 2025
+lastupdated: "2025-01-16"
 
 keywords: 
 
@@ -71,4 +71,4 @@ Typical VPN configurations require a public IP address for the local VPN server,
 ## Next steps
 {: #next-steps-vpn-environment}
 
-After you've configured your local VPN environment, you are ready to set up the multi-cluster and job forwarding. For more information, see [Setting up multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-set-up-multi-cluster-job-forwarding).
+After you have configured your local VPN environment, you are ready to set up the multi-cluster and job forwarding. For more information, see [Setting up multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-set-up-multi-cluster-job-forwarding).
