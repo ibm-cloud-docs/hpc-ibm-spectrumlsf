@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-01-16"
 
 keywords: 
 
@@ -43,7 +43,7 @@ To access the GUI, you must collect the IP addresses of the compute nodes and th
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to Schematics > Workspaces, and choose your workspace.
 2. On the workspace page, click the _Resources_ tab. In the list of Terraform resources, click the `management_host` resource link, which opens a new window with a list of the virtual server instances that were provisioned.
-3. On the Virtual server instances for VPC page, locate the IP address for `<cluster_prefix>-management-host-0`, which is the management IP address that you need.
+3. On the Virtual server instances for VPC page, locate the IP address for `<cluster_prefix>-login-host-0`, which is the management IP address that you need.
 4. In addition to that IP address, pick up the floating IP address that is attached to the login node.
 
 ## Accessing the LSF Application Center
@@ -56,11 +56,17 @@ Complete the following steps to access the LSF Application Center:
 2. Run the following command to access the LSF Application Center GUI:
 
     ```
-    #ssh -L 8443:localhost:8443 -J root@{FLOATING_IP_ADDRESS} lsfadmin@{MANAGEMENT_NODE_IP_ADDRESS}
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}
     ```
     {: pre}
 
-    where `MANAGEMENT_NODE_IP_ADDRESS` needs to be replaced with the management node IP address that is associated with `<cluster_prefix>-management-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
+    where `LOGIN_NODE_IP_ADDRESS` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
+
+    Example:
+    ```
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@52.116.124.34 lsfadmin@10.241.16.5
+    ```
+    {: pre}
 
 3. Open a browser on your local system and run https://localhost:8443.
 4. To access the LSF Application Center GUI, enter the default user as `lsfadmin` and enter the password that you configured when you created your workspace.

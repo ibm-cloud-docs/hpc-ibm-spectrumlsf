@@ -38,7 +38,6 @@ toc:
             topics:
             - about-scale.md
             - integrate-scale.md
-      - before-you-deploy-application-center.md
       - custom-image.md
   - navgroup:
       id: deploy
@@ -78,14 +77,9 @@ toc:
           - adding-profile-types.md
       - enable-dedicated-host.md
       - topicgroup:
-           label: Using IBM Storage Scale
-           topics:
-            - using-spectrum-scale-storage.md
-            - accessing-gui.md
-      - topicgroup:
             label: Using LSF Application Center
             topics:
-             - using-application-center.md
+             - before-you-deploy-application-center.md
              - accessing-lsf-gui.md
              - topicgroup:
                   label: Accessing REST API calls
