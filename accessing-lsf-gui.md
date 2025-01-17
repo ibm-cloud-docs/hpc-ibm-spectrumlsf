@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-01-17"
 
 keywords: 
 
@@ -19,54 +19,123 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# Accessing the GUI
+# Accessing LSF Application Center
 {: #accessing-lsf-gui}
 
-After the cluster setup is complete, you can monitor the resources and status of the service directly from the {{site.data.keyword.spectrum_full_notm}} Application Center GUI. For more information about the GUI, see the [LSF Application Center Web Services product documentation](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
+You can use multiple methods of accessing LSF Application Center from an [LSF Application Center supported browser](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14#pac_sysreqs_10.2.0.14__title__6){: external}.
 {: shortdesc}
-
-## Before you begin
-{: #before-you-begin}
-
-Before you access the LSF Application Center GUI, review the following considerations and requirements:
-
-* Initial setup must be done from your local system.
-* Access the GUI with the same SSH key that was provided for cluster creation.
-* It is recommended to use the Safari browser to access the GUI.
-* If you encounter a delay in loading or accessing the GUI, clear the browsers cache.
-* You can open Application Center GUIs on the 8443 port.
 
 ## Gathering IP addresses
 {: #gathering-ip-addresses}
 
-To access the GUI, you must collect the IP addresses of the compute nodes and the floating IP address that is attached to the login node.
+Regardless of which method you use to access LSF Application Center, first collect the IP addresses of your compute nodes and the floating IP address that is attached to your bastion node:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to Schematics > Workspaces, and choose your workspace.
-2. On the workspace page, click the _Resources_ tab. In the list of Terraform resources, click the `management_host` resource link, which opens a new window with a list of the virtual server instances that were provisioned.
-3. On the Virtual server instances for VPC page, locate the IP address for `<cluster_prefix>-login-host-0`, which is the management IP address that you need.
-4. In addition to that IP address, pick up the floating IP address that is attached to the login node.
+1. In the {{site.data.keyword.cloud_notm}} console, select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Resources** tab, and click the link for the workspace.
+2. On the workspace page, click the _Resources_ tab. In the list of Terraform resources, click the `management_host` resource link, which opens a new window with a list of the VSIs that were provisioned.
+3. On the **Virtual server instances for VPC** page, locate the IP address for `<cluster_prefix>-mgmt-1`, which is the management IP address that you need.
+4. Locate the floating IP address that is attached to the bastion node.
 
-## Accessing the LSF Application Center
+## Logging in to LSF Application Center
 {: #accessing-lsf-application-center}
 
-Complete the following steps to access the LSF Application Center:
+You can access LSF Application Center directly:
 
-1. Open a new command line terminal.
+1. Open a new command-line console and run the following command:
 
-2. Run the following command to access the LSF Application Center GUI:
-
+    ```console
+    application_center_tunnel = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:pac.hpcaas.com:8443 -L 6080:pac.hpcaas.com:6080 -L 8444:pac.hpcaas.com:8444 -J ubuntu@<floating_IP_address> lsfadmin@<login_VSI_IP_address>" ... ..."
     ```
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}
-    ```
-    {: pre}
+    {: codeblock}
 
-    where `LOGIN_NODE_IP_ADDRESS` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the login node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
+    where `<floating_IP_address>` is the floating IP address for the bastion node and `<management_node_IP_address>` is the IP address for the management node.
 
-    Example:
-    ```
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@52.116.124.34 lsfadmin@10.241.16.5
-    ```
-    {: pre}
+    You can copy the command to access LSF Application Center from the output section of your workspace; look for `application_center`.
+    {: tip}
 
-3. Open a browser on your local system and run https://localhost:8443.
-4. To access the LSF Application Center GUI, enter the default user as `lsfadmin` and enter the password that you configured when you created your workspace.
+2. Open a browser:
+    * If you are on your local host, access https://localhost:8443.
+    * If you enabled a [VPN connection](/docs/allowlist/hpc-service?topic=hpc-service-install-vpn-hpc-cluster) or a direct link among your on-premises facilities and the VPC, access http://pac.<domain_name>, where `<domain_name>` is your {{site.data.keyword.cloud}} HPC cluster domain name.
+
+3. Log in to LSF Application Center, by using the default user **lsfadmin** and the password that you configured when you [deployed your {{site.data.keyword.cloud_notm}} cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) (for example, **Admin@123**).
+
+    If LDAP is enabled, you can access the LSF Application Center:
+    * by using the LDAP username and password that you configured during {{site.data.keyword.cloud}} HPC cluster deployment.
+    * by using an existing LDAP username and password.
+
+Clear the browser's cache if you encounter slowness in loading or accessing LSF Application Center.
+{: tip}
+
+## Accessing LSF Application Center through VNC (remote) consoles
+{: #accessing-lsf-application-center-vnc}
+
+You can also access LSF Application Center by using a remote console, which opens a remote desktop on the LSF Application Center server through Virtual network computing (VNC):
+
+1. In LSF Application Center, select the **Workload** tab.
+2. Do one of the following actions:
+
+    * To submit a custom application job from LSF Application Center, click **GEDIT**. Wait for the remote console to open, choose the appropriate language and security requirement option, and click **Next** to access the remote console.
+
+    * To open a new remote console, select **VNC Consoles > Open my console** to access the remote console.
+
+When you deploy the {{site.data.keyword.cloud_notm}} HPC cluster with LSF Application Center and enable high availability using a self-signed certificate, you need to accept the certificates for both the LSF Application Center port (8443) for https://pac.<domain_name>:8443, and the VNC port (6080) for https://pac.<domain_name>:6080.
+{:note: .note}
+
+## Accessing LSF Application Center by using SSH tunneling from a bastion host
+{: #accessing-lsf-application-center-ssh-bastion}
+
+When you deploy the {{site.data.keyword.cloud}} HPC cluster with LSF Application Center and high availability enabled, the output section provides guidance about accessing LSF Application Center with an SSH tunnel. Note the `application_center_tunnel` and `application_center_url_NOTE` lines in the following example output:
+
+```console
+application_center_tunnel = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:pac.hpcaas.com:8443 -L 6080:pac.hpcaas.com:6080 -J ubuntu@<floating_IP_address> lsfadmin@<login_VSI_IP_address>"
+application_center_url = "https://pac.<dommain_name>:8443"
+application_center_url_NOTE = "you may need '127.0.0.1 pac pac.<domain-name>' in your /etc/hosts, to let your browser use the ssh tunnel"
+```
+{: codeblock}
+
+where `<floating_IP_address>` is the floating IP address for the bastion node, `<login_VSI_IP_address>` is the IP address for the login node, and `<domain_name>` is your {{site.data.keyword.cloud}} HPC cluster domain name.
+
+You may need '127.0.0.1 pac.<domain-name>' on /etc/hosts of your local machine where the connection is established, to let your browser use the ssh tunnel.
+{: note}
+
+To access LSF Application Center by creating a port-forwarding SSH tunnel from your bastion host:
+
+1. Edit the `./etc/hosts` file on your host to add this line to the file:
+    ```console
+    127.0.0.1 pac pac.<domain-name>
+    ```
+    {: codeblock}
+
+    For example:
+    ```console
+    127.0.0.1 pac pac.mydomain.com
+    ```
+    {: codeblock}
+
+2. Customize your `./ssh/config` file for SSH tunnelling and port forwarding for the login VSI. This examples shows settings for a bastion and a login VSI:
+    ```console
+    Host clusterX-vsi-for-bastion
+        Hostname <bastion_floating_IP_address>
+        ForwardAgent yes
+        IdentityFile ~/.ssh/my-ssh-key
+        StrictHostKeyChecking no
+        User ubuntu
+    Host clusterX-vsi-for-login
+        Hostname clusterX-vsi-for-login-001.hpcaas.com
+        ForwardAgent yes
+        LocalForward 8443 pac.<domain_name>:8443
+        LocalForward 8444 pac.hpcaas.com:8444
+        LocalForward 6080 pac.<domain_name>:6080
+        IdentityFile ~/.ssh/my-ssh-key
+        StrictHostKeyChecking no
+        User lsfadmin
+        ProxyJump ubuntu@<bastion_floating_public_IP_address>
+    ```
+    {: codeblock}
+
+3. Establish an SSH connection to the login VSI. For example, to connect to the **clusterX-vsi-for-login** VSI, run:
+    ```console
+    ssh clusterX-vsi-for-login
+    ```
+    {: codeblock}
+
+4. Open a browser and access https://pac.<domain_name>:8443. For example, https://pac.mydomain:8443.

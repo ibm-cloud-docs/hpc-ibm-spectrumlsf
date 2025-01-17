@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-04-20"
+  years: 2025
+lastupdated: "2025-01-17"
 
 keywords: 
 
@@ -33,9 +33,9 @@ To begin with:
 
 The goal is to pick a compute configuration that returns the best price performance. An HPC workload can be as simple as a single core job or as complex as a job that needs hundreds to thousands of cores. HPC aggregates computing power (clustering) and can deliver higher performance and solve large problems.
 
-Most of HPC workloads fall below the 1000 core range. There are some workloads that require a high number of cores up to and including 10k-50k. Execution time for an HPC workload can be simple and last only a few seconds, or it can be complex and take several days. 
+Most of HPC workloads fall below the 1000 core range. There are some workloads that require a high number of cores up to and including 10k-50k. Execution time for an HPC workload can be simple (for few seconds) or it can be complex (take several days).
 
-As an example, EDA (Electronic Design Simulation) workloads have component level simulation jobs that require millions of such jobs ran every day, but each single job requires a single core and approximately 10 seconds. Others such as Optical Proximity Correction can take multiple hours or even days depending on the size of the chip and the size of the HPC cluster. 
+As an example, EDA (Electronic Design Simulation) workloads have component level simulation jobs that require millions of such jobs ran every day, but each single job requires a single core and approximately 10 seconds. Optical Proximity Correction can take multiple hours or even days depending on the size of the chip and the size of the HPC cluster.
 
 Typically HPC clusters contain a set of virtual machines and use the cluster to run multiple workloads. It all depends on the workload resource requirements and duration.
 

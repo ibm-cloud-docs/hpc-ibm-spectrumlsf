@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-01-17"
 
 keywords: 
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Overview of IBM Spectrum LSF
 {: #about-spectrum-lsf}
 
-{{site.data.keyword.spectrum_full}} High-Performance Computing (HPC) clusters by using {{site.data.keyword.spectrum_full_notm}} as HPC scheduling software. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_full_notm}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_full_notm}} clusters can automatically add and remove worker nodes based on workload specifications. This allows to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
+{{site.data.keyword.spectrum_full} is a scheduling software to enable High Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_full_notm}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_full_notm}} clusters can automatically add and remove worker nodes based on workload specifications. This allows to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
 {: shortdesc}
 
 {{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual machine, or virtual machines that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only. The dedicated host option allows you to have systems that are assigned just for your workloads and avoids issues like a noisy neighbor. You can pack a dedicated host to full capacity before spilling to another instance or spread the virtual server instances evenly across all dedicated hosts.
@@ -41,8 +41,3 @@ The LSF cluster is configured not only with the Application Center feature but a
 
 The offering enables the initial Spectrum LSF-based HPC cluster creation. Any updates that are needed post-deployment regarding LSF configuration or setup must be performed by using LSF tools and commands. If you use the {{site.data.keyword.bpshort}} interface to change configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.spectrum_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
-
-## Architecture diagram
-{: #architecture-diagram}
-
-![Figure 1. Architecture diagram](images/LSF-DA-Architecture-diagram.svg "Architecture diagram"){: caption="Architecture diagram" caption-side="bottom"}

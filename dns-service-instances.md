@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-03-18"
+  years: 2025
+lastupdated: "2025-01-17"
 
 keywords:
 
@@ -23,8 +23,6 @@ subcollection: hpc-ibm-spectrumlsf
 # DNS zones and DNS custom resolvers
 {: #dns-custom-resolvers}
 
-Automatically configure new DNS zones and DNS custom resolvers for your {{site.data.keyword.spectrum_full_notm}} when you deploy the cluster.
-
 [{{site.data.keyword.cloud}} DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started) provides private DNS to VPC users. Also, if you have an {{site.data.keyword.cloud}} DNS Services instance ID, you can specify that ID when you create the DNS zones or custom resolvers for your {{site.data.keyword.spectrum_full_notm}} cluster.
 
 ## DNS zones for your {{site.data.keyword.spectrum_full_notm}} cluster
@@ -32,17 +30,17 @@ Automatically configure new DNS zones and DNS custom resolvers for your {{site.d
 
 Private DNS zones are resolvable only on {{site.data.keyword.cloud}}, and only from explicitly permitted networks in an account.
 
-### Creating DNS zones without an {{site.data.keyword.cloud_notm}} DNS Services instance ID
+### Creating new {{site.data.keyword.cloud_notm}} DNS setup
 {: #dns-clean}
 
-If you do not have an existing {{site.data.keyword.cloud_notm}} DNS Service instance setup and want to automatically create and manage a new DNS instance ID, then leave the `dns_instance_id` deployment input value as null during deployment. In this case, the deployment creates a VPC (as necessary), DNS service instance ID, and the respective DNS zones. This process includes associating the new VPC under the appropriate permitted network.
+To create a {{site.data.keyword.cloud_notm}} DNS Service instance setup and to automatically create and manage a new DNS instance ID, then set the `dns_instance_id` deployment input value as "null" during deployment. In this case, the deployment creates a VPC (as necessary), DNS service instance ID, and the respective DNS zones. This process includes associating the new VPC under the appropriate permitted network.
 
 ### Creating DNS zones with an existing {{site.data.keyword.cloud_notm}} DNS Services instance ID
 {: #dns-existing}
 
 If you have an existing VPC with {{site.data.keyword.cloud_notm}} DNS Service instance ID, provide that service instance ID as the `dns_instance_id` deployment input value during {{site.data.keyword.spectrum_full_notm}} cluster deployment. In this case, since you already have a DNS service instance ID to use, the {{site.data.keyword.cloud_notm}} cluster deployment skips creating a new DNS service instance, and creates new DNS zones from the `dns_domain_names` value for the existing DNS service instance. This process automatically associates the new DNS zones to your existing VPC under the permitted network.
 
-Furthermore, if you have an existing {{site.data.keyword.cloud_notm}} DNS Service instance setup, but want the {{site.data.keyword.spectrum_full_notm}} deployment to create a new VPC for your {{site.data.keyword.spectrum_full_notm}} cluster, provide the `dns_instance_id` deployment input value during deployment. The deployment automatically creates a new VPC with your existing DNS service instance, and creates new DNS zones for the existing DNS service instance. This process automatically associates the new VPC under the permitted network.
+Furthermore, if you have an existing {{site.data.keyword.cloud_notm}} DNS Service instance setup, but want the {{site.data.keyword.spectrum_full_notm}} deployment to create a new VPC for your {{site.data.keyword.spectrum_full_notm}} cluster, provide the DNS instance ID under `dns_instance_id` and set the `vpc_name` value as "null” (default) during the deployment. This deployment creates a new VPC using your existing DNS service instance and creates new DNS zones. This process automatically associates the new VPC under the permitted network.
 
 A VPC cannot be a permitted network for domains of the same name. When you use an existing DNS instance ID, make sure that the DNS domains are not duplicated to avoid association issues; otherwise, you can encounter a message similar to: `Error creating PDNS permitted network: The VPC was already associated to the same DNS zone name.`
 {: note}
