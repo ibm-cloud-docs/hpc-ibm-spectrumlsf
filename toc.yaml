@@ -89,7 +89,7 @@ toc:
       - topicgroup:
             label: Observability
             topics:
-             - ibm-cloud-logs.md
+             - cloud-logs.md
              - activity-tracker-event.md
              - cloud-monitoring.md
   - navgroup:

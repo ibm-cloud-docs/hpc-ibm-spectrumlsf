@@ -48,8 +48,8 @@ Users can enable cloud logs to capture infrastructure and application logs from 
 
 * `observability_enable_platform_logs`: Setting this value as "true" creates a tenant in the same region in which the {{site.data.keyword.logs_full}} instance is provisioned to enable platform logs for that region. 
 
-You can have only one tenant per region in an account.
-{: note}
+    You can have only one tenant per region in an account.
+    {: note}
 
 * `observability_logs_retention_period`: The number of days {{site.data.keyword.logs_full_notm}} retains the logs data in priority insights. The allowed values are 7, 14, 30, 60, and 90.
 
