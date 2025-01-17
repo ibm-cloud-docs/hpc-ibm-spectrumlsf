@@ -49,19 +49,21 @@ With a new VPC, the {{site.data.keyword.spectrum_full_notm}} cluster deployment 
 
 If you have existing VPC infrastructure, you can use that VPC for your {{site.data.keyword.spectrum_full_notm}} cluster. There are two possible approaches to using an existing VPC:
 
-* An existing VPC with existing subnets available to use.
+### An existing VPC with existing subnets available to use
+{: #existing-vpc}
 
 If you use your existing VPC for your {{site.data.keyword.spectrum_full_notm}} cluster, set the `vpc_name` input value during {{site.data.keyword.spectrum_full_notm}} cluster deployment with the name of your existing VPC. With this setting, the {{site.data.keyword.spectrum_full_notm}} cluster deployment automatically skips creating a new VPC and uses the one you specify and its existing VPC details for all networking.
 
 With an existing VPC, you can also choose to make use of existing subnets to create {{site.data.keyword.spectrum_full_notm}} cluster nodes. Cluster deployment needs two subnets:
 
-  * Provide a larger subnet ID for the `cluster_subnet_ids` dployment inout value, as it is used to create all management nodes or VPC file shares, and the compute nodes.
-  * Provide another subnet ID for the `login_subnet_id` to create the bastion and login nodes.
+* Provide a larger subnet ID for the `cluster_subnet_ids` dployment inout value, as it is used to create all management nodes or VPC file shares, and the compute nodes.
+* Provide another subnet ID for the `login_subnet_id` to create the bastion and login nodes.
 
-* An existing VPC and automatically creating two new subnets from the {{site.data.keyword.spectrum_full_notm}} cluster deployment.
+### An existing VPC and automatically creating two new subnets from the {{site.data.keyword.spectrum_full_notm}} cluster deployment
+{: #existing-two-subnets}
 
 If you have an existing VPC but there are no existing subnets to use, then provide the available valid CIDR range for the `vpc_cluster_private_subnets_cidr_blocks` and `vpc_cluster_login_private_subnets_cidr_blocks` {{site.data.keyword.spectrum_full_notm}} cluster deployment input values. The deployment creates two new subnets under your provided existing VPC. When a new VPC is created, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
 
-  * Provide a smaller CIDR range for `vpc_cluster_login_private_subnets_cidr_blocks` for the creation of bastion and login nodes. Provide a bigger range of CIDR under `vpc_cluster_private_subnets_cidr_blocks` for the creation of management nodes/VPC file shares/compute nodes.
+* Provide a smaller CIDR range for `vpc_cluster_login_private_subnets_cidr_blocks` for the creation of bastion and login nodes. Provide a bigger range of CIDR under `vpc_cluster_private_subnets_cidr_blocks` for the creation of management nodes/VPC file shares/compute nodes.
 
 When you provide existing VPC detail, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
