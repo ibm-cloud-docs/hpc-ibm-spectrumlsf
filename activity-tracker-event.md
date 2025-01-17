@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-01-17"
 
 keywords: 
 
@@ -21,34 +21,34 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Activity Tracker Event Routing
+# IBM Cloud Activity Tracker Event Routing
 {: #activity-tracker-overview}
 
-We do not support the creation of new Activity Tracker instances, as this feature has been deprecated and replaced by IBM Cloud Logs; however, Activity Tracker event routing remains supported.
+We do not support the creation of new {{site.data.keyword.at_short}} instances, as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}; however, {{site.data.keyword.atracker_short}} remains supported.
 
-As part of Activity Tracker event routing, we support two target types:
+As part of {{site.data.keyword.atracker_short}}, we support two target types:
 
-* Cloud Logs
+* {{site.data.keyword.logs_full}}
 * Cloud Object Storage(COS) Bucket
 
-To use Cloud Logs as a target, a Cloud Logs instance is created and configured for Activity Tracker event routing. Even if the observability_logs_enable variable is not set to true, a Cloud Logs instance will still be created for Activity Tracker. 
+To use {{site.data.keyword.logs_full}} as a target, a {{site.data.keyword.logs_full}} instance is created and configured for {{site.data.keyword.atracker_short}}. Even if the observability_logs_enable variable is not set to true, a {{site.data.keyword.logs_full}} instance will still be created for {{site.data.keyword.at_short}}.
 
-When observability_logs_enable is set to true, the same Cloud Logs instance can be utilized as a target, enabling the filtering of management, compute, and Activity Tracker logs within a unified dashboard.
+When observability_logs_enable is set to true, the same {{site.data.keyword.logs_full}} instance can be utilized as a target, enabling the filtering of management, compute, and {{site.data.keyword.at_short}} logs within a unified dashboard.
 
-For COS buckets, you can provide an existing COS instance. Under this instance, we will create a COS bucket that will act as a target for Activity Tracker event routing.
+For COS buckets, you can provide an existing COS instance. Under this instance, we will create a COS bucket that will act as a target for {{site.data.keyword.atracker_short}}.
 
-To configure this Activity Tracker event routing, we have introduced two new variables:
+To configure this {{site.data.keyword.atracker_short}}, we have introduced two new variables:
 
 1. `observability_atracker_enable`
 
-    * Purpose: Configures Activity Tracker event routing to determine how auditing events are routed.
+    * Purpose: Configures {{site.data.keyword.atracker_short}} to determine how auditing events are routed.
 
-    * Usage: While multiple Activity Tracker event routings can be created, only one is needed to capture all events. If an existing Activity Tracker is already integrated with a COS bucket or Cloud Logs instance, set this value to false to avoid creating redundant trackers. All events can then be monitored and accessed through the existing tracker.
+    * Usage: While multiple {{site.data.keyword.atracker_short}} can be created, only one is needed to capture all events. If an existing {{site.data.keyword.at_short}} is already integrated with a COS bucket or {{site.data.keyword.logs_full}} instance, set this value to false to avoid creating redundant trackers. All events can then be monitored and accessed through the existing tracker.
 
 2. `observability_atracker_target_type`
 
     * Purpose: Determines where all events will be stored, based on user input.
 
-    * Options: COS Bucket or Cloud Logs.
+    * Options: Cloud Object Storage(COS) Bucket or {{site.data.keyword.logs_full}}.
 
     * Usage: Select the desired target type to retrieve or ingest events into your system.
