@@ -28,33 +28,13 @@ subcollection: hpc-ibm-spectrumlsf
 
 To add monitoring features with {{site.data.keyword.monitoringlong_notm}} in the {{site.data.keyword.cloud_notm}}, you must provision an instance of the {{site.data.keyword.monitoringlong_notm}} service.
 
-1. `observability_monitoring_enable`
-
-* Description: Set false to disable {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure and LSF application metrics from Management Nodes will be ingested.
-* Type: bool
-* Default: true
-
-2. `observability_monitoring_on_compute_nodes_enable`
-
-* Description: Set false to disable {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure metrics from Compute Nodes will be ingested.
-* Type: bool
-* Default: false
-
-3. `observability_monitoring_plan`
-
-* Description: Type of service plan for {{site.data.keyword.monitoringlong_notm}} instance. You can choose one of the following: lite, graduated-tier. For all details visit [IBM Cloud Monitoring Service Plans](/docs/monitoring?topic=monitoring-service_plans).
-* Type: string
-* Default: "graduated-tier"
-* Validation:
-    * Condition: Validates if the value matches lite or graduated-tier.
-
-    * Error Message: "Please enter a valid plan for {{site.data.keyword.monitoringlong_notm}}, for all details visit https://cloud.ibm.com/docs/monitoring?topic=monitoring-service_plans."
-
-4. `observability_enable_metrics_routing`
-
-* Description: Enable metrics routing to manage metrics at the account level by configuring targets and routes that define where data points are routed.
-* Type: bool
-* Default: false
+| Value | Description | Type | Default value | Validation |
+| ----- | ----------- | --------------- | ------------ | ------------ |
+| `observability_monitoring_enable` | Set false to disable {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure and LSF application metrics from Management Nodes will be ingested. | bool | true |
+| `observability_monitoring_on_compute_nodes_enable` | Set false to disable {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure metrics from Compute Nodes will be ingested. | bool | false |
+| `observability_monitoring_plan` | Type of service plan for {{site.data.keyword.monitoringlong_notm}} instance. You can choose one of the following: lite, graduated-tier. For all details visit [IBM Cloud Monitoring Service Plans](/docs/monitoring?topic=monitoring-service_plans). | string | "graduated-tier" |  \n * Condition: Validates if the value matches lite or graduated-tier.
+  \n * Error Message: "Please enter a valid plan for {{site.data.keyword.monitoringlong_notm}}, for all details visit https://cloud.ibm.com/docs/monitoring?topic=monitoring-service_plans." |
+| `observability_enable_metrics_routing` | Enable metrics routing to manage metrics at the account level by configuring targets and routes that define where data points are routed. | bool | false |
 
 You can use {{site.data.keyword.metrics_router_full_notm}}, a platform service, to manage metrics at the account-level by configuring targets and routes that define where data points are routed.
 
