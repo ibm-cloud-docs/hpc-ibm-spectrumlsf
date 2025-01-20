@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-19"
+  years: 2025
+lastupdated: "2025-01-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -21,10 +21,10 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:new_window: target="_blank"}
 
-# Integrating {{site.data.keyword.scale_full_notm}} with your {{site.data.keyword.cloud_notm}} HPC cluster
+# Integrating {{site.data.keyword.scale_full_notm}} with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrating-scale}
 
-After you deploy your {{site.data.keyword.scale_short}} cluster with CES, you deploy your {{site.data.keyword.cloud_notm}} HPC cluster and integrate the {{site.data.keyword.scale_short}} values so that {{site.data.keyword.cloud_notm}} HPC uses {{site.data.keyword.scale_short}} as the shared file storage solution.
+After you deploy your {{site.data.keyword.scale_short}} cluster with CES, you deploy your {{site.data.keyword.spectrum_full_notm}} cluster and integrate the {{site.data.keyword.scale_short}} values so that {{site.data.keyword.spectrum_full_notm}} uses {{site.data.keyword.scale_short}} as the shared file storage solution.
 {: shortdesc}
 
 ## Deploying your {{site.data.keyword.scale_short}} cluster
@@ -36,18 +36,18 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 * Select to use product version 2.3.2 or later.
 * [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
     1. Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
-    2. Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.cloud_notm}} HPC cluster.
+    2. Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full_notm}} cluster.
 
        You can also set the quota to control the storage capacity on individual NFS shared by updating the `size` attribute of the `fileshare` value. No quota is set if the size is set to **0**.
 
-        To integrate {{site.data.keyword.scale_short}} with your {{site.data.keyword.cloud_notm}} HPC cluster, create a separate file set to share HPC configurations within the {{site.data.keyword.cloud_notm}} HPC cluster. By default, the name of the `mount_path` value is **/mnt/scale/tools**. Include another entry for the **lsf** file set. For example:
+        To integrate {{site.data.keyword.scale_short}} with your {{site.data.keyword.spectrum_full_notm}} cluster, create a separate file set to share LSF configurations within the {{site.data.keyword.spectrum_full_notm}} cluster. By default, the name of the `mount_path` value is **/mnt/scale/tools**. Include another entry for the **lsf** file set. For example:
 
         ```text
         [{ mount_path = "/mnt/scale/lsf", size = 0 }, { mount_path = "/mnt/scale/tools", size = 0 }, { mount_path = "/mnt/scale/data", size = 0 }]
         ```
         {: codeblock}
 
-    3. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.cloud_notm}} HPC cluster. The NFS mount can be an {{site.data.keyword.cloud_notm}} HPC cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.cloud_notm}} HPC cluster.
+    3. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.spectrum_full_notm}} cluster. The NFS mount can be an {{site.data.keyword.spectrum_full_notm}} cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.spectrum_full_notm}} cluster.
 
 ### Verifying the {{site.data.keyword.scale_short}} cluster
 {: #scale-verify}
@@ -85,13 +85,13 @@ Path               Delegations       Clients
 ```
 {: codeblock}
 
-When the {{site.data.keyword.cloud_notm}} HPC cluster is active and the NFS shares are mounted (you can use the `df-h` command to verify), the {{site.data.keyword.cloud_notm}} HPC nodes have access to the integrated {{site.data.keyword.scale_short}} cluster.
+When the {{site.data.keyword.spectrum_full_notm}} cluster is active and the NFS shares are mounted (you can use the `df-h` command to verify), the {{site.data.keyword.spectrum_full_notm}} nodes have access to the integrated {{site.data.keyword.scale_short}} cluster.
 {:tip: .tip}
 
 ### Updating the squash permission property for the NFS export
 {: #scale-update-squash}
 
-To enable {{site.data.keyword.scale_short}} integration with your {{site.data.keyword.cloud_notm}} HPC cluster, change the squash permission property for the NFS export (for example, for the `/gpfs/fs1/lsf` export). Update the `SQUASH` property from **ROOT_SQUASH** to **NO_ROOT_SQUASH** so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.cloud_notm}} HPC clusters can share configurations.
+To enable {{site.data.keyword.scale_short}} integration with your {{site.data.keyword.spectrum_full_notm}} cluster, change the squash permission property for the NFS export (for example, for the `/gpfs/fs1/lsf` export). Update the `SQUASH` property from **ROOT_SQUASH** to **NO_ROOT_SQUASH** so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full_notm}} clusters can share configurations.
 
 For example, as the `root` user, connect to the {{site.data.keyword.scale_short}} CES cluster node and run the following `mmnfs export` commands to change the squash property for the **/gpfs/fs1/lsf** NFS export:
 
@@ -111,21 +111,21 @@ Path          Delegations Clients       Access_Type Protocols Transport Squash .
 ```
 {: codeblock}
 
-## Integrating {{site.data.keyword.scale_short}} values for your {{site.data.keyword.cloud_notm}} HPC cluster deployment
+## Integrating {{site.data.keyword.scale_short}} values for your {{site.data.keyword.spectrum_full_notm}} cluster deployment
 {: #integrate-scale-and-hpc}
 
-After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.cloud_notm}} HPC cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
+After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
 
-To make sure that the {{site.data.keyword.cloud_notm}} HPC cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.cloud_notm}} HPC cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.cloud_notm}} HPC deployments are integrated:
+To make sure that the {{site.data.keyword.spectrum_full_notm}} cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.spectrum_full_notm}} cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full_notm}} deployments are integrated:
 
 1. Set the `cluster_subnet_id` and `vpc_cluster_private_cidr_blocks` deployment value as the same values as the `vpc_compute_subnet` and `vpc_compute_cluster_private-subnets_cidr_block` values for your {{site.data.keyword.scale_short}} deployment.
 
-2. Derive the `custom_file_shares` value for your {{site.data.keyword.cloud_notm}} HPC deployment from the `filesets` value of your {{site.data.keyword.scale_short}} deployment. The attributes of the `custom_file_shares` value are as follows:
+2. Derive the `custom_file_shares` value for your {{site.data.keyword.spectrum_full_notm}} deployment from the `filesets` value of your {{site.data.keyword.scale_short}} deployment. The attributes of the `custom_file_shares` value are as follows:
 
-    * `mount_path` is the path where you expect the NFS exports to be mounted on the {{site.data.keyword.cloud_notm}} HPC cluster (the default is **/mnt/scale/tools**). The `custom_file_shares` value contains a list of `mount_path` values, and one of these `mount_path` values must be the **/mnt/lsf** mount to indicate to use {{site.data.keyword.scale_short}} as the shared file storage for the {{site.data.keyword.cloud_notm}} HPC cluster.
+    * `mount_path` is the path where you expect the NFS exports to be mounted on the {{site.data.keyword.spectrum_full_notm}} cluster (the default is **/mnt/scale/tools**). The `custom_file_shares` value contains a list of `mount_path` values, and one of these `mount_path` values must be the **/mnt/lsf** mount to indicate to use {{site.data.keyword.scale_short}} as the shared file storage for the {{site.data.keyword.spectrum_full_notm}} cluster.
 
-    * `nfs_share` is the NFS file share between {{site.data.keyword.scale_short}} and {{site.data.keyword.cloud_notm}} HPC. It is derived by concatenating the following criteria:
-        1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **hpc**.
+    * `nfs_share` is the NFS file share between {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full_notm}}. It is derived by concatenating the following criteria:
+        1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **LSF**.
         2. A hyphen (-).
         3. The text **ces**.
         4. A dot (.).
@@ -181,7 +181,7 @@ You can optionally extend your {{site.data.keyword.scale_short}} shared file sto
     ```
     {: codeblock}
 
-### Associating the {{site.data.keyword.scale_short}} security group ID with your {{site.data.keyword.cloud_notm}} HPC cluster
+### Associating the {{site.data.keyword.scale_short}} security group ID with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrate-scale-security-group-ID}
 
 The {{site.data.keyword.cloud_notm}} cluster nodes need to access the NFS mount points that are created under the specific storage security group.
@@ -191,4 +191,4 @@ To determine and integrate your storage security group ID from {{site.data.keywo
 1. Go to the resources list.
 2. Search for the prefix that is used to create the {{site.data.keyword.scale_short}} cluster.
 3. Copy the security group ID of the security group.
-4. Update the ID under the {{site.data.keyword.cloud_notm}} HPC cluster's `storage_security_group_id` deployment input value.
+4. Update the ID under the {{site.data.keyword.spectrum_full_notm}} clusters `storage_security_group_id` deployment input value.
