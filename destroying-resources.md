@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2024-04-05"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -58,7 +58,7 @@ You can monitor the log files to view the deletion progress of all {{site.data.k
 {: api}
 
 1. To destroy resources by using the {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_destroy_resources.py`.
-2. Copy and paste the [Destroy resources using Schematics Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deleting-resources#example-request-destroy) example request to your Python file.
+2. Copy and paste the [Destroy resources using Schematics Python API](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deleting-resources&interface=api#example-request-destroy) example request to your Python file.
 3. Change the following parameters as part of the request:
   * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
@@ -80,7 +80,7 @@ You can monitor the log files to view the deletion progress of all {{site.data.k
 
 5. Run the Python script by using `python3 <python-file-name>` to destroy the resources that you created in the {{site.data.keyword.bpshort}} workspace in the {{site.data.keyword.cloud_notm}}.
 6. You get an activity ID in the response if the parameters passed as part of the request are valid. You should be able to see that the resources are deleted in the {{site.data.keyword.bpshort}} workspace that you created in the {{site.data.keyword.cloud_notm}} console. If you don’t get a successful response, the error response contains the errors that you need to resolve. Resolve those errors and run the script until you are able to get a valid response and destroy the resources.
-7. If you want to check the logs of the action, see [Retrieving action logs with {{site.data.keyword.bpshort}} API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-retrieve-action-logs) to retrieve the logs. The response contains the status of the action, and it appears in either a `COMPLETED` or `FAILED` state.
+7. If you want to check the logs of the action, see [Retrieving action logs with {{site.data.keyword.bpshort}} API](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-retrieve-action-logs) to retrieve the logs. The response contains the status of the action, and it appears in either a `COMPLETED` or `FAILED` state.
 
 ### Example Python request
 {: #example-request-destroy}

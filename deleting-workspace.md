@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2024-04-05"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -54,7 +54,7 @@ You can monitor the log files to view the deletion progress of your workspace.
 {: api}
 
 1. To delete a workspace by using the {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_delete_workspace.py`.
-2. Copy and paste the [Delete a workspace using Schematics Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deleting-workspace#example-request-delete-workspace) example request to your Python file.
+2. Copy and paste the [Delete a workspace using Schematics Python API](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deleting-workspace&interface=api#example-request-delete-workspace) example request to your Python file.
 3. Change the following parameters as part of the request: 
     * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
     * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.

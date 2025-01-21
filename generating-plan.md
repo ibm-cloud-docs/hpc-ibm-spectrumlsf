@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023, 2024
-lastupdated: "2024-04-05"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -40,7 +40,7 @@ After you have created your workspace, you need to generate a plan to validate a
 {: #next-steps-generate-ui}
 {: ui}
 
-After you have successfully generated a plan, you can begin [Applying a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=ui) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
+After you have successfully generated a plan, you can begin [Applying a plan](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-applying-plan) to deploy your {{site.data.keyword.cloud_notm}} resources to build a {{site.data.keyword.spectrum_short}} cluster instance.
 
 ## Generating a plan using the CLI
 {: #generate-plan-cli}

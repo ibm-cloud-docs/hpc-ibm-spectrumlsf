@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-04-21"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -74,7 +74,7 @@ After the plan is successfully applied, it generates an `sshcommand` in the _Out
 {: api}
 
 1. To apply a plan by using the {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_apply_plan.py`.
-2. Copy and paste the [Apply a plan using {{site.data.keyword.bpshort}} Python API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan&interface=api#example-request-apply) example request to your Python file.
+2. Copy and paste the [Apply a plan using {{site.data.keyword.bpshort}} Python API](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-applying-plan&interface=api#example-request-apply) example request to your Python file.
 3. Change the following parameters as part of the request:
   * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
@@ -96,7 +96,7 @@ After the plan is successfully applied, it generates an `sshcommand` in the _Out
 
 5. Run the Python script by using `python3 <python-file-name>` to apply a plan in the {{site.data.keyword.cloud_notm}}.
 6. You get an activity ID in response if the parameters passed as part of the request are valid. You should see the plan being applied in the {{site.data.keyword.bpshort}} workspace that you created in the {{site.data.keyword.cloud_notm}} console. If you don’t get a successful response, the error response contains the errors that you need to resolve. Resolve those errors and run the script until you are able to get a valid response and apply a plan.
-7. If you want to check the logs of the action, see [Retrieving action logs with {{site.data.keyword.bpshort}} API](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-retrieve-action-logs) to retrieve the logs. The response contains the status of the action, and it appears in either a `COMPLETED` or `FAILED` state.
+7. If you want to check the logs of the action, see [Retrieving action logs with {{site.data.keyword.bpshort}} API](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-retrieve-action-logs) to retrieve the logs. The response contains the status of the action, and it appears in either a `COMPLETED` or `FAILED` state.
 
 ### Example Python request
 {: #example-request-apply}

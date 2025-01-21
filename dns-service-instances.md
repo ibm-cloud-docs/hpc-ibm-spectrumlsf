@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-21"
 
 keywords:
 
@@ -38,9 +38,9 @@ To create a {{site.data.keyword.cloud_notm}} DNS Service instance setup and to a
 ### Creating DNS zones with an existing {{site.data.keyword.cloud_notm}} DNS Services instance ID
 {: #dns-existing}
 
-If you have an existing VPC with {{site.data.keyword.cloud_notm}} DNS Service instance ID, provide that service instance ID as the `dns_instance_id` deployment input value during {{site.data.keyword.spectrum_full_notm}} cluster deployment. In this case, since you already have a DNS service instance ID to use, the {{site.data.keyword.cloud_notm}} cluster deployment skips creating a new DNS service instance, and creates new DNS zones from the `dns_domain_names` value for the existing DNS service instance. This process automatically associates the new DNS zones to your existing VPC under the permitted network.
+If you have an existing VPC with {{site.data.keyword.cloud_notm}} DNS Service instance ID, provide that service instance ID as the `dns_instance_id` deployment input value during {{site.data.keyword.spectrum_full}} cluster deployment. In this case, since you already have a DNS service instance ID to use, the {{site.data.keyword.cloud_notm}} cluster deployment skips creating a new DNS service instance, and creates new DNS zones from the `dns_domain_names` value for the existing DNS service instance. This process automatically associates the new DNS zones to your existing VPC under the permitted network.
 
-Furthermore, if you have an existing {{site.data.keyword.cloud_notm}} DNS Service instance setup, but want the {{site.data.keyword.spectrum_full_notm}} deployment to create a new VPC for your {{site.data.keyword.spectrum_full_notm}} cluster, provide the DNS instance ID under `dns_instance_id` and set the `vpc_name` value as "null” (default) during the deployment. This deployment creates a new VPC using your existing DNS service instance and creates new DNS zones. This process automatically associates the new VPC under the permitted network.
+Furthermore, if you have an existing {{site.data.keyword.cloud_notm}} DNS Service instance setup, but want the {{site.data.keyword.spectrum_full}} deployment to create a new VPC for your {{site.data.keyword.spectrum_full}} cluster, provide the DNS instance ID under `dns_instance_id` and set the `vpc_name` value as "null” (default) during the deployment. This deployment creates a new VPC using your existing DNS service instance and creates new DNS zones. This process automatically associates the new VPC under the permitted network.
 
 A VPC cannot be a permitted network for domains of the same name. When you use an existing DNS instance ID, make sure that the DNS domains are not duplicated to avoid association issues; otherwise, you can encounter a message similar to: `Error creating PDNS permitted network: The VPC was already associated to the same DNS zone name.`
 {: note}
@@ -55,7 +55,7 @@ A custom resolver can always be associated with a VPC for domain name resolution
 ### Creating custom resolvers without an existing VPC
 {: #custom-resolvers-clean}
 
-If you want a new custom resolver to be created and associated with the newly created VPC for name resolution, then leave the `dns_custom_resolver_id` deployment input value as null during {{site.data.keyword.spectrum_full_notm}} cluster deployment. The deployment process automatically creates a new VPC and a creates and enables a new custom resolver for your cluster.
+If you want a new custom resolver to be created and associated with the newly created VPC for name resolution, then leave the `dns_custom_resolver_id` deployment input value as null during {{site.data.keyword.spectrum_full}} cluster deployment. The deployment process automatically creates a new VPC and a creates and enables a new custom resolver for your cluster.
 
 ### Creating custom resolvers with an existing VPC
 {: #custom-resolvers-existing}

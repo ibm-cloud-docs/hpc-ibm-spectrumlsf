@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-15"
+lastupdated: "2025-01-21"
 
 keywords:
 
@@ -33,7 +33,7 @@ Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture with
 {: #deploy-project-gui}
 {: ui}
 
-You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using the {{site.data.keyword.cloud_notm}} console UI to create an {{site.data.keyword.spectrum_full_notm}} project.
+You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{site.data.keyword.cloud_notm}} console UI to create an {{site.data.keyword.spectrum_full_notm}} project.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
 2. In the _Works with_ section, select **LSF** and then select the {{site.data.keyword.spectrum_full_notm}} tile.
@@ -42,11 +42,11 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
 5. Click **Review deployment options**.
 6. In the _Deployment options_ section, click **Add to project** to add this deployment to an {{site.data.keyword.cloud_notm}} project and combine it with other deployments, if applicable. {{site.data.keyword.cloud_notm}} projects include several more pipeline steps before deployment, including deployment validation, cost calculation, compliance verification, and approval process.
 7. In the _Create a project_ section:
-    * Specify a **Name** for your {{site.data.keyword.spectrum_full_notm}} project.
+    * Specify a **Name** for your {{site.data.keyword.spectrum_full}} project.
     * Optionally provide a **Description** to describe the purpose of the project.
-    * Specify a **Configuration name** for your {{site.data.keyword.spectrum_full_notm}} project. The name can be up to 64 characters.
-    * Select a **Region** for the location where you want the {{site.data.keyword.spectrum_full_notm}} project deployed. The region for the LSF project container can be different from the actual region where the cluster is deployed.
-    * Select a **Resource group** for where to get resources for your {{site.data.keyword.spectrum_full_notm}} project.
+    * Specify a **Configuration name** for your {{site.data.keyword.spectrum_full}} project. The name can be up to 64 characters.
+    * Select a **Region** for the location where you want the {{site.data.keyword.spectrum_full}} project deployed. The region for the LSF project container can be different from the actual region where the cluster is deployed.
+    * Select a **Resource group** for where to get resources for your {{site.data.keyword.spectrum_full}} project.
 
     Click **Add** to save and add your project. When created, the project is added to the **Projects** view of the {{site.data.keyword.cloud_notm}} console.
 
@@ -58,8 +58,8 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
     Secure deployment input values might be entered directly or might be referenced from an existing [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). As a best practice, the more secure option is to use a Secrets Manager to store secured input values.
 
     * In the **Security** tab, you have two sections:
-        * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.spectrum_full_notm}} cluster to fulfill the `ibmcloud_api_key` input variable.
-        * **Security and compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.spectrum_full_notm}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
+        * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.spectrum_full}} cluster to fulfill the `ibmcloud_api_key` input variable.
+        * **Security and compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.spectrum_full}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
 
     * In the **Required** tab, specify the deployment values for the mandatory input variables: `cluster_id`, `cluster_prefix`, `reservation_id`, `remote_allowed_ips`, `resource_group`, `ssh_key_name`, `ibm_customer_number` and `zone`.
 
@@ -84,17 +84,17 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
 
         * To enable a [flow log collector for your VPC](/docs/vpc?topic=vpc-flow-logs), set `enable_vpc_flow_logs` to **true**, and provide values for `create_authorization_policy_vpc_to_cos`, `existing_cos_instance_guid`, `existing_storage_bucket_name`, and `is_flow_log_collector_active`.
 
-        * To enable monitoring metrics for your {{site.data.keyword.spectrum_full_notm}} cluster using {{site.data.keyword.monitoringfull_notm}}, [enable the monitoring settings](/docs/allowlist/hpc-service?topic=hpc-service-monitoring) using the `observability_monitoring_enable`, `observability_monitoring_on_compute_nodes_enable`, and `observability_monitoring_plan` input variables.
+        * To enable monitoring metrics for your {{site.data.keyword.spectrum_full}} cluster using {{site.data.keyword.monitoringfull_notm}}, [enable the monitoring settings](/docs/allowlist/hpc-service?topic=hpc-service-monitoring) using the `observability_monitoring_enable`, `observability_monitoring_on_compute_nodes_enable`, and `observability_monitoring_plan` input variables.
 
         * To use [customer-managed encryption](/docs/allowlist/hpc-service?topic=hpc-service-before-you-begin-deploying&interface=ui#encryption), specify the encryption input variables: `enable_customer_managed_encryption`, `kms_instance_id`, and `kms_key_name`.
 
-        * To create an {{site.data.keyword.compliance_short}} instance that checks to your environment for security issues and validates the deployable architecture code during {{site.data.keyword.spectrum_full_notm}} cluster deployment, configure the `scc_enable`, `scc_location`, `scc_profile`, and `scc_profile_version` input variables.
+        * To create an {{site.data.keyword.compliance_short}} instance that checks to your environment for security issues and validates the deployable architecture code during {{site.data.keyword.spectrum_full}} cluster deployment, configure the `scc_enable`, `scc_location`, `scc_profile`, and `scc_profile_version` input variables.
 
             The {{site.data.keyword.compliance_short}} instance addition does not represent an infrastructure cost. Its billing is based on its evaluations. For more information about {{site.data.keyword.compliance_short}} pricing, see the [{{site.data.keyword.compliance_short}} documentation](/docs/security-compliance?topic=security-compliance-scc-pricing).
 
             Note that if you have an existing {{site.data.keyword.compliance_short}} instance to validate the deployable architecture code, these deployment input variables are in the **Security** deployment tab.
 
-        * To configure and use [{{site.data.keyword.spectrum_full_notm}} Application Center](/docs/allowlist/hpc-service?topic=hpc-service-about-application-center) to submit and monitor LSF jobs for your {{site.data.keyword.spectrum_full_notm}} cluster from a GUI interface, set `enable_app_center` to **true**, and `app_center_gui_pwd` to match your LSF Application Center password (which must be at least 8 characters, contain one number, one lowercase letter, one uppercase letter, and at least one special character (for example, **Admin@123**)). (For more information about detailed LSF Application Center usage, see [{{site.data.keyword.spectrum_full_notm}} Application Center product documentation](https://www.ibm.com/docs/en/slac/10.2.0){: external}.)
+        * To configure and use [{{site.data.keyword.spectrum_full_notm}} Application Center](/docs/allowlist/hpc-service?topic=hpc-service-about-application-center) to submit and monitor LSF jobs for your {{site.data.keyword.spectrum_full}} cluster from a GUI interface, set `enable_app_center` to **true**, and `app_center_gui_pwd` to match your LSF Application Center password (which must be at least 8 characters, contain one number, one lowercase letter, one uppercase letter, and at least one special character (for example, **Admin@123**)). (For more information about detailed LSF Application Center usage, see [{{site.data.keyword.spectrum_full_notm}} Application Center product documentation](https://www.ibm.com/docs/en/slac/10.2.0){: external}.)
 
             By default, LSF Application Center high availability is enabled (that is, the `app_center_high_availability` input variable is set to **true** by default). To fully configure high availability, also complete the [predeployment steps for LSF Application Center high availability](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center).
 
@@ -102,10 +102,10 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
 
     Click **Save** to save your configuration options.
 9. Click **Validate**.
-   {{site.data.keyword.cloud_notm}} projects run a Code Risk Analyzer scan that includes a [supported set of {{site.data.keyword.compliance_short}} rules](/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-scc-goals). It checks controls that are part of the {{site.data.keyword.spectrum_full_notm}} deployment and that {{site.data.keyword.cloud_notm}} projects support. Any extra controls that are not included in the list of supported {{site.data.keyword.compliance_short}} rules are not checked when you validate the configuration.
+   {{site.data.keyword.cloud_notm}} projects run a Code Risk Analyzer scan that includes a [supported set of {{site.data.keyword.compliance_short}} rules](/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-scc-goals). It checks controls that are part of the {{site.data.keyword.spectrum_full}} deployment and that {{site.data.keyword.cloud_notm}} projects support. Any extra controls that are not included in the list of supported {{site.data.keyword.compliance_short}} rules are not checked when you validate the configuration.
 
    Provide a comment to approve the validation and proceed to deployment.
-10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.spectrum_full_notm}} project.
+10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.spectrum_full}} project.
 
 When deployed, you can then access your deployed environment.
 
@@ -113,7 +113,7 @@ When deployed, you can then access your deployed environment.
 {: #create-project-cli}
 {: cli}
 
-You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using the {{site.data.keyword.cloud_notm}} CLI to create a catalog workspace with the supported {{site.data.keyword.spectrum_full_notm}} version. The CLI requires a `values.json` file with your configuration settings.
+You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{site.data.keyword.cloud_notm}} CLI to create a catalog workspace with the supported {{site.data.keyword.spectrum_full}} version. The CLI requires a `values.json` file with your configuration settings.
 
 1. Install the [{{site.data.keyword.cloud_notm}} CLI and the catalogs management plug-in](https://cloud.ibm.com/docs/cli?topic=cli-manage-catalogs-plugin) before you run any CLI commands.
 
@@ -134,9 +134,9 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
 2. The CLI requires a `values.json` file with your configuration settings. Use the following example `values.json` file as a reference: you can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
 
     Take note of these mandatory deployment input values:
-    * Provide the mandatory deployment values for your {{site.data.keyword.spectrum_full_notm}} cluster, specifically, replace the **Fill here** text with values for `ibmcloud_api_key`, `cluster_id`, `cluster_prefix`, `reservation_id`, `remote_allowed_ips`, `resource_group`, `ssh_key_name`, and `zone`.
+    * Provide the mandatory deployment values for your {{site.data.keyword.spectrum_full}} cluster, specifically, replace the **Fill here** text with values for `ibmcloud_api_key`, `cluster_id`, `cluster_prefix`, `reservation_id`, `remote_allowed_ips`, `resource_group`, `ssh_key_name`, and `zone`.
 
-    * Your capacity reservation ID and cluster ID are provided by {{site.data.keyword.IBM}} technical sales. Before you deploy, verify that you have these IDs so that you can input them as `cluster_id` and `reservation_id` input values when you deploy the {{site.data.keyword.spectrum_full_notm}} environment.
+    * Your capacity reservation ID and cluster ID are provided by {{site.data.keyword.IBM}} technical sales. Before you deploy, verify that you have these IDs so that you can input them as `cluster_id` and `reservation_id` input values when you deploy the {{site.data.keyword.spectrum_full}} environment.
 
     * You can specify two availability zones, in the same [region](/docs/allowlist/hpc-service?topic=hpc-service-ha-dr), for your {{site.data.keyword.cloud_notm}} HPC cluster nodes. For example, zones `us-east-1` and `us-east-3` in the **us-east** region, and zones `eu-de-2` and `eu-de-3` in the **eu-de** region.
 
@@ -157,11 +157,11 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
 
     * To enable a [flow log collector for your VPC](/docs/vpc?topic=vpc-flow-logs), set `enable_vpc_flow_logs` to **true**, and provide values for `create_authorization_policy_vpc_to_cos`, `existing_cos_instance_guid`, `existing_storage_bucket_name`, and `is_flow_log_collector_active`.
 
-    * To enable moritoring metrics for your {{site.data.keyword.spectrum_full_notm}} cluster using {{site.data.keyword.monitoringfull_notm}}, [enable the monitoring settings](/docs/allowlist/hpc-service?topic=hpc-service-monitoring) using the `observability_monitoring_enable`, `observability_monitoring_on_compute_nodes_enable`, and `observability_monitoring_plan` input variables.
+    * To enable moritoring metrics for your {{site.data.keyword.spectrum_full}} cluster using {{site.data.keyword.monitoringfull_notm}}, [enable the monitoring settings](/docs/allowlist/hpc-service?topic=hpc-service-monitoring) using the `observability_monitoring_enable`, `observability_monitoring_on_compute_nodes_enable`, and `observability_monitoring_plan` input variables.
 
     * To use [customer-managed encryption](/docs/allowlist/hpc-service?topic=hpc-service-before-you-begin-deploying&interface=ui#encryption), specify the encryption input variables: `enable_customer_managed_encryption`, `kms_instance_id`, and `kms_key_name`.
 
-    * To create an {{site.data.keyword.compliance_full}} instance that checks to your environment for security issues and validates the deployable architecture code during {{site.data.keyword.spectrum_full_notm}} cluster deployment, configure the `scc_enable`, `scc_location`, `scc_profile`, and `scc_profile_version` input variables.
+    * To create an {{site.data.keyword.compliance_full}} instance that checks to your environment for security issues and validates the deployable architecture code during {{site.data.keyword.spectrum_full}} cluster deployment, configure the `scc_enable`, `scc_location`, `scc_profile`, and `scc_profile_version` input variables.
 
         The {{site.data.keyword.compliance_short}} instance addition does not represent an infrastructure cost. Its billing is based on its evaluations. For more information about {{site.data.keyword.compliance_short}} pricing, see the [{{site.data.keyword.compliance_short}} documentation](/docs/security-compliance?topic=security-compliance-scc-pricing).
 
@@ -171,7 +171,7 @@ You can deploy your {{site.data.keyword.spectrum_full_notm}} cluster by using th
 
     * To use [OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/allowlist/hpc-service?topic=hpc-service-integrate-openldap-spectrum-lsf)  for centralized user management, robust security, and simplified user authentication, configure the `enable_ldap`, `ldap_basedns`, `ldap_server`,`ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` input values.
 
-3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your {{site.data.keyword.spectrum_full_notm}} cluster with the configuration you specified in your `values.json` file; you use your `version_locator_value` copied and saved in a previous step, here:
+3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your {{site.data.keyword.spectrum_full}} cluster with the configuration you specified in your `values.json` file; you use your `version_locator_value` copied and saved in a previous step, here:
 
     ```text
     ibmcloud catalog install --vl <version_locator_value> --override-values values.json
@@ -204,11 +204,11 @@ When deployed, you can then access your deployed environment.
 ## Accessing the deployed environment
 {: #access-deployed-environment}
 
-Regardless of whether you deployed the {{site.data.keyword.spectrum_full_notm}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
+Regardless of whether you deployed the {{site.data.keyword.spectrum_full}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
 
 * Verify that you have access to the bastion host by using an SSH key.
 * Verify that you can log in to all created IBM Spectrum LSF instances.
-* Verify that you can connect to the {{site.data.keyword.spectrum_full_notm}} environment by using the following SSH commands:
+* Verify that you can connect to the {{site.data.keyword.spectrum_full}} environment by using the following SSH commands:
 
 Run the command to login to the management node:
     ```ssh

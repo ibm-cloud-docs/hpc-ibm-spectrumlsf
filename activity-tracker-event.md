@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -35,7 +35,9 @@ To use {{site.data.keyword.logs_full}} as a target, a {{site.data.keyword.logs_f
 
 When `observability_logs_enable` is set to true, the same {{site.data.keyword.logs_full}} instance can be utilized as a target, enabling the filtering of management, compute, and {{site.data.keyword.at_short}} logs within a unified dashboard.
 
-For COS buckets, you can provide an existing COS instance. Under this instance, you will create a COS bucket that will act as a target for {{site.data.keyword.atracker_short}}.
+For COS bucket as a target, you can provide an existing COS instance as well. Under this instance, you will create a COS bucket that will act as a target for {{site.data.keyword.atracker_short}}.
+
+If you will not provide any existing COS instance, we will create the new one by default.
 
 There are two new variables to configure the {{site.data.keyword.atracker_short}}:
 
@@ -49,6 +51,6 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
 
     * Purpose: Determines where all events will be stored, based on user input.
 
-    * Options: Cloud Object Storage(COS) Bucket or {{site.data.keyword.logs_full}}.
+    * Options: cloudlogs or cos
 
     * Usage: Select the desired target type to retrieve or ingest events into your system.

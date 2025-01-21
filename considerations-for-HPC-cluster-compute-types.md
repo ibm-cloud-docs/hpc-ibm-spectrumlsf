@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -71,7 +71,7 @@ Scalable MPI jobs can be set up that require multiple virtual machines that are 
 ### Electronic Design Automation (EDA)
 {: #electronic-design-automation}
 
-IBM Systems and IBM Research work in this industry domain and have successfully used {{site.data.keyword.cloud_notm}} for such workloads. The following graph displays a scale test for up to 30 K cores. To showcase how cloud zones can be used as a single data center, we built a large HPC cluster aggregating the resources across three {{site.data.keyword.cloud_notm}} locations. The setup also uses {{site.data.keyword.scale_full_notm}} as a scratch-based, high-performing file system along with {{site.data.keyword.spectrum_full_notm}} for HPC cluster configuration. We have used BX2-48x192 for {{site.data.keyword.spectrum_full_notm}} worker nodes and MX2d-16x128 for storage nodes under the {{site.data.keyword.scale_full_notm}}.
+IBM Systems and IBM Research work in this industry domain and have successfully used {{site.data.keyword.cloud_notm}} for such workloads. The following graph displays a scale test for up to 30 K cores. To showcase how cloud zones can be used as a single data center, we built a large HPC cluster aggregating the resources across three {{site.data.keyword.cloud_notm}} locations. The setup also uses {{site.data.keyword.scale_full_notm}} as a scratch-based, high-performing file system along with {{site.data.keyword.spectrum_full_notm}} cluster configuration. We have used BX2-48x192 for {{site.data.keyword.spectrum_full}} worker nodes and MX2d-16x128 for storage nodes under the {{site.data.keyword.scale_full_notm}}.
 
 ![Figure 1. EDA-diagram](images/Electronic-Design-Automation.png "EDA-diagram"){: caption="EDA-diagram" caption-side="bottom"}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-02-22"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Creating an LDAP user
 {: #create-ldap-user}
 
-If you do not have an existing LDAP server, the deployment process creates a new LDAP server through which the user can access the {{site.data.keyword.spectrum_full_notm}} cluster to manage the remaining user creation. Create an LDAP user for your {{site.data.keyword.spectrum_full_notm}} LDAP server.
+If you do not have an existing LDAP server, the deployment process creates a new LDAP server through which the user can access the {{site.data.keyword.spectrum_full_notm}} cluster to manage the remaining user creation. Create an LDAP user for your {{site.data.keyword.spectrum_full}} LDAP server.
 
 Use this LDAP server to run the LSF commands and submit the LSF jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
 
@@ -112,5 +112,5 @@ export NEW_LDAP_USER_PASSWORD="Test@1234"
     ```
     {: codeblock}
 
-To accommodate a potentially large number of LDAP users (where each user has an individual IP address), update the security group for the {{site.data.keyword.spectrum_full_notm}} cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up to date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
+To accommodate a potentially large number of LDAP users (where each user has an individual IP address), update the security group for the {{site.data.keyword.spectrum_full}} cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up to date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
 {: note}

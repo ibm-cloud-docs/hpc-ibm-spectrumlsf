@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-02"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords:
 
@@ -131,11 +131,11 @@ If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of core
 
 For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
 
-## What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full_notm}} cluster shared storage?
+## What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full}} cluster shared storage?
 {: #file-storage-for-vpc-profiles}
 {: faq}
 
-{{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full_notm}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
+{{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
 
 ## Can you specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
 {: #iops}

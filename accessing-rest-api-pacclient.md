@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -40,7 +40,7 @@ Before you connect to the LSF Application Center with `https`, you need to compl
     ```
     {: codeblock}
 
-    where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
+    where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-lsf-gui&interface=ui#gathering-ip-addresses).
 
 2. Open a second terminal, download, and install the Python 3.6 version or newer. The following examples are for Linux and MAC systems. If you are using Windows, the installation is different. For more information, see [Python releases for Windows](https://www.python.org/downloads/windows/){: external}.
 

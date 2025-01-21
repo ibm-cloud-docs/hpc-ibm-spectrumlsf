@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-03-08"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords: 
 
@@ -50,7 +50,7 @@ LSF's Data Manager component addresses this by scheduling data movement independ
 
 To further reduce data movement, pre- and post-processing can also be conducted in the cloud. LSF's Application Center provides a web portal and restful API, which allows jobs to be submitted directly to the cloud cluster and starts remote visualization tools on the job or data in the cloud. The Application Center built in support for visualization of common output formats. It also has a client component that can be used to upload or download data directly from your laptop to the cloud cluster.
 
-The NFS instance that is deployed with the {{site.data.keyword.spectrum_full_notm}} cluster in the cloud can be used as a destination with Data Manager configuration. When the data is available on NFS, it is visible to the management and worker nodes of your {{site.data.keyword.spectrum_short}} cluster.
+The NFS instance that is deployed with the {{site.data.keyword.spectrum_full}} cluster in the cloud can be used as a destination with Data Manager configuration. When the data is available on NFS, it is visible to the management and worker nodes of your {{site.data.keyword.spectrum_short}} cluster.
 
 ## Stand-alone cluster on IBM Cloud
 {: #stand-alone-cluster}

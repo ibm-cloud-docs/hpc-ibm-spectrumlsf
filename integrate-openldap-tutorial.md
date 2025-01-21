@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-01-21"
 
 keywords:
 content-type: tutorial
@@ -26,12 +26,12 @@ subcollection: hpc-ibm-spectrumlsf
 {:new_window: target="_blank"}
 {:step: data-tutorial-type='step'}
 
-# Integrating OpenLDAP with IBM Spectrum LSF
+# Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}}
 {: #integrate-openldap-spectrum-lsf}
 
 {{site.data.keyword.spectrum_full_notm}} is a workload management platform that provides powerful resource management capabilities to optimize application performance and maximize resource usage. OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
-By following the steps outlined in this tutorial, you can integrate OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, which allows you to use your existing LDAP infrastructure for authentication, enabling more secure and streamlined user access to {{site.data.keyword.spectrum_full_notm}}.
+By following the steps outlined in this tutorial, you can integrate OpenLDAP with {{site.data.keyword.spectrum_full}}, which allows you to use your existing LDAP infrastructure for authentication, enabling more secure and streamlined user access to {{site.data.keyword.spectrum_full}}.
 
 This section only covers configuring the OpenLDAP server on a Linux&reg; system (RHEL above 8.6 version as the host).
 {: note}
@@ -39,9 +39,9 @@ This section only covers configuring the OpenLDAP server on a Linux&reg; system 
 ## Design considerations
 {: #design-considerations}
 
-Integrating OpenLDAP with {{site.data.keyword.spectrum_full_notm}} involves modifying the LSF configuration files and the OpenLDAP server configuration files. The design considerations for this integration include:
+Integrating OpenLDAP with {{site.data.keyword.spectrum_full}} involves modifying the LSF configuration files and the OpenLDAP server configuration files. The design considerations for this integration include:
 
-1. {{site.data.keyword.spectrum_full_notm}} uses the Pluggable Authentication Module (PAM) framework for authentication.
+1. {{site.data.keyword.spectrum_full}} uses the Pluggable Authentication Module (PAM) framework for authentication.
 2. OpenLDAP uses a hierarchical naming structure that is called the Distinguished Name (DN) to identify entries in the directory.
 3. The OpenLDAP configuration file is located in `/etc/openldap/slapd.conf` or `/etc/openldap/slapd.d/`.
 5. The OpenLDAP server must be configured to use the LDAP protocol over a secure connection (LDAPS) for authentication.
@@ -56,9 +56,9 @@ Before you get started, be sure to review the following prerequisites:
 
 1. {{site.data.keyword.spectrum_full_notm}} version 10.1 or later is installed and configured.
 2. OpenLDAP version 2.4 or later is installed and configured.
-3. The OpenLDAP server is accessible from the {{site.data.keyword.spectrum_full_notm}} cluster nodes.
-4. The `ldapsearch` command-line tool is installed on each {{site.data.keyword.spectrum_full_notm}} cluster node.
-5. The `pam_ldap` and `nss_ldap` LDAP client libraries are installed on each {{site.data.keyword.spectrum_full_notm}} cluster node.
+3. The OpenLDAP server is accessible from the {{site.data.keyword.spectrum_full}} cluster nodes.
+4. The `ldapsearch` command-line tool is installed on each {{site.data.keyword.spectrum_full}} cluster node.
+5. The `pam_ldap` and `nss_ldap` LDAP client libraries are installed on each {{site.data.keyword.spectrum_full}} cluster node.
 
 ### Network prerequisites
 {: #network-prerequisites}
@@ -577,4 +577,4 @@ The specific LDAP command-line tools and commands might vary.
 ## Conclusion
 {: #conclusion}
 
-You have now successfully integrated OpenLDAP with {{site.data.keyword.spectrum_full_notm}} to provide centralized authentication and directory services, which enable you to use your existing LDAP infrastructure for authentication. You have also enabled secure and streamlined user access to {{site.data.keyword.spectrum_full_notm}}.
+You have now successfully integrated OpenLDAP with {{site.data.keyword.spectrum_full}} to provide centralized authentication and directory services, which enable you to use your existing LDAP infrastructure for authentication. You have also enabled secure and streamlined user access to {{site.data.keyword.spectrum_full}}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-19"
+  years: 2025
+lastupdated: "2025-01-21"
 
 keywords:
 
@@ -23,13 +23,13 @@ subcollection: hpc-ibm-spectrumlsf
 # Creating a custom image for compute nodes
 {: #custom-image}
 
-{{site.data.keyword.cloud}} HPC provides a pre-optimized HPC image with {{site.data.keyword.spectrum_full_notm}} and preinstalled tools for a compute node. If you need to add tools or software, you can use the custom image builder tool to create custom private images for your {{site.data.keyword.spectrum_full_notm}} deployment. The custom image builder is an automated tool that takes an {{site.data.keyword.cloud}} base image, adds the base HPC packages (for {{site.data.keyword.spectrum_full_notm}}), includes additional packages if wanted, and validates the image. In addition, you can share your private custom image with other {{site.data.keyword.cloud_notm}} accounts.
+{{site.data.keyword.cloud}} HPC provides a pre-optimized HPC image with {{site.data.keyword.spectrum_full_notm}} and preinstalled tools for a compute node. If you need to add tools or software, you can use the custom image builder tool to create custom private images for your {{site.data.keyword.spectrum_full}} deployment. The custom image builder is an automated tool that takes an {{site.data.keyword.cloud}} base image, adds the base HPC packages (for {{site.data.keyword.spectrum_full}}), includes additional packages if wanted, and validates the image. In addition, you can share your private custom image with other {{site.data.keyword.cloud_notm}} accounts.
 {: shortdesc}
 
 ## Features
 {: #custom-image-builder}
 
-The custom image builder is a tool that guides you through creating customized images for your {{site.data.keyword.spectrum_full_notm}} environment, by using an automated process. Key features of the custom image builder include:
+The custom image builder is a tool that guides you through creating customized images for your {{site.data.keyword.spectrum_full}} environment, by using an automated process. Key features of the custom image builder include:
 
 Tailored for your HPC environment
 :  The custom image builder creates tailored images specifically for HPC environments by using an automated process. The automation helps ensure that images are optimized for workload management and performance. It handles software configuration and dependencies that are necessary to effectively manage compute nodes within the cluster.
@@ -43,8 +43,8 @@ Support for multiple operating systems
 Script-driven customization
 :  To customize your images, you edit a user-provided script (`customer_script.sh`) and specify software packages, dependencies, and configurations specific to your business needs.
 
- {{site.data.keyword.spectrum_full_notm}} deployment validation
-:  After the custom image builder creates the image, the automation validates it through {{site.data.keyword.spectrum_full_notm}} deployment, which helps ensure that the image is functional and ready for use within the cluster.
+{{site.data.keyword.spectrum_full}} deployment validation
+:  After the custom image builder creates the image, the automation validates it through {{site.data.keyword.spectrum_full}} deployment, which helps ensure that the image is functional and ready for use within the cluster.
 
 Private catalog integration
 :  You can add the created custom image to your private catalog within your {{site.data.keyword.cloud_notm}} account and then share it with other accounts.
@@ -53,7 +53,7 @@ Private catalog integration
 {: #custom-image-builder-prerequistes}
 
 Before you use the custom image builder, you require prerequisites to be installed in the location (local host or a VSI) where you want to run the custom image deployment:
-* [Git](https://git-scm.com/downloads): The necessary files and scripts for the custom image builder are available in a Git repository that you clone to your local directory. Make sure that you have Git for your platform.
+* [Git](https://git-scm.com/downloads){: external}: The necessary files and scripts for the custom image builder are available in a Git repository that you clone to your local directory. Make sure that you have Git for your platform.
 
     First, create a directory where you will clone the Git repository (for example, one called `mydirectory`):
 
@@ -69,7 +69,7 @@ Before you use the custom image builder, you require prerequisites to be install
     ```
     {: codeblock}
 
-* [Terraform](https://developer.hashicorp.com/terraform/install): The custom image builder requires Terraform, as you run Terraform commands to build your custom image with the tool. Make sure that you have Terraform 1.5.7 or later installed.
+* [Terraform](https://developer.hashicorp.com/terraform/install){: external}: The custom image builder requires Terraform, as you run Terraform commands to build your custom image with the tool. Make sure that you have Terraform 1.5.7 or later installed.
 
     To determine the Terraform version installed, run:
     ```text
@@ -77,21 +77,21 @@ Before you use the custom image builder, you require prerequisites to be install
     ```
     {: codeblock}
 
-    If Terraform is not installed or if it requires updating, refer to the [Terraform site](https://developer.hashicorp.com/terraform/install) for details.
+    If Terraform is not installed or if it requires updating, refer to the [Terraform site](https://developer.hashicorp.com/terraform/install){: external} for details.
 
-For Terraform installation information, see the [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
+For Terraform installation information, see the [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli){: external}.
 
 ## Preinstalled software packages with the custom image builder
 {: #custom-image-builder-software-included}
 
 Along with Terraform, the custom image builder uses and installs the following software:
-* Open-source [Packer](https://developer.hashicorp.com/packer/install): Used in the automation process to create custom images.
-* Open-source [Go](https://go.dev/dl/): Employed to validate custom images through {{site.data.keyword.spectrum_full_notm}} deployment as part of the automation workflow.
+* Open-source [Packer](https://developer.hashicorp.com/packer/install){: external}: Used in the automation process to create custom images.
+* Open-source [Go](https://go.dev/dl/){: external}: Employed to validate custom images through {{site.data.keyword.spectrum_full}} deployment as part of the automation workflow.
 
 ## Setting up your infrastructure
 {: #custom-image-builder-setup}
 
-The custom image builder uses a deployable architecture that helps ensure correctly established network, compute, and security configurations. This way, {{site.data.keyword.spectrum_full_notm}} deployment is seamless and scalable. You can either provide existing infrastructure resources, or allow the model to dynamically create new ones, including essential infrastructure such as VPCs, VSIs, and security groups.
+The custom image builder uses a deployable architecture that helps ensure correctly established network, compute, and security configurations. This way, {{site.data.keyword.spectrum_full}} deployment is seamless and scalable. You can either provide existing infrastructure resources, or allow the model to dynamically create new ones, including essential infrastructure such as VPCs, VSIs, and security groups.
 
 All custom image builder values are set in a `customer_script.sh` script, which you [clone from the custom image builder Git repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/tree/main/tools/image-builder){: external}. Clone the repository to a platform from which you run the custom image builder. You can deploy from a local host or a VSI. After you clone, switch to the `tools/image-builder` directory.
 
@@ -147,9 +147,9 @@ The overall flow for creating your custom image by using the custom image builde
 
     When the installation completes, VSI-2 moves to stopped state and the image creation process begins.
 
-3. After the worker node VSI creates the image, the automation helps ensure that the image is set to an available state. The automation then initiates {{site.data.keyword.spectrum_full_notm}} deployment by using the new image to validate the deployment process, helping ensure that the new image is correct and can deploy successfully.
+3. After the worker node VSI creates the image, the automation helps ensure that the image is set to an available state. The automation then initiates {{site.data.keyword.spectrum_full}} deployment by using the new image to validate the deployment process, helping ensure that the new image is correct and can deploy successfully.
 
-    The {{site.data.keyword.spectrum_full_notm}} deployment requests the `cluster_id` and `reservation_id` deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full_notm}} deployment from the newly created custom image.
+    The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and `reservation_id` deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
     {: tip}
 
 4. The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the automation creates and validates the image, without publishing it.
@@ -182,8 +182,8 @@ To create your custom image:
 
 4. Use validation logs to see the status and troubleshoot any issues:
     * For Packer logs and script execution logs for the custom image builder, log in to VSI-1 (the bootstrap node) and check the `/var/log/cloud-init-output.log` user data log.
-    * For {{site.data.keyword.spectrum_full_notm}} deployment with the new custom image, access the full run log from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/<log_file_name_with_date>`.
-    * For {{site.data.keyword.spectrum_full_notm}} deployment validation, dynamic node creation, and catalog validation, view the log files from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/test_output/log_*.log`.
+    * For {{site.data.keyword.spectrum_full}} deployment with the new custom image, access the full run log from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/<log_file_name_with_date>`.
+    * For {{site.data.keyword.spectrum_full}} deployment validation, dynamic node creation, and catalog validation, view the log files from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/test_output/log_*.log`.
 
 ## Manually sharing the custom image to make it accessible to {{site.data.keyword.spectrum_full_notm}}
 {: #custom-image-share}
@@ -214,14 +214,14 @@ To share private images and make them accessible by other accounts:
 3. Share the private catalog with the {{site.data.keyword.spectrum_full_notm}} account:
     1. From the **Products** list, select the product that you created in the previous step.
     2. Select **Actions... > Share**.
-    3. Select **Share with other accounts > Add Accounts** and then enter `d068deb903504fe78cde1ab53bd6474e` to share your private catalog product with the {{site.data.keyword.spectrum_full_notm}} account, which uses the provided image to create dynamic compute hosts for {{site.data.keyword.spectrum_full_notm}} clusters. No other accounts are allowed to use this custom image.
+    3. Select **Share with other accounts > Add Accounts** and then enter `d068deb903504fe78cde1ab53bd6474e` to share your private catalog product with the {{site.data.keyword.spectrum_full}} account, which uses the provided image to create dynamic compute hosts for {{site.data.keyword.spectrum_full}} clusters. No other accounts are allowed to use this custom image.
 
     For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](/docs/secure-enterprise?topic=secure-enterprise-catalog-enterprise-share&interface=ui).
 
 ### Associating your custom image with the {{site.data.keyword.spectrum_full_notm}} deployable architecture
 {: #custom-image-crn}
 
-When you deploy your {{site.data.keyword.spectrum_full_notm}} cluster with a custom image, you specify the `compute_image_name` deployment input value with the custom image that you want to use to create VSIs in your {{site.data.keyword.cloud_notm}} account to deploy the {{site.data.keyword.spectrum_full_notm}} cluster dynamic compute nodes. Provide the [Cloud Resource Name (CRN)](/docs/account?topic=account-crn) of the custom image as the `compute_image_name` value.
+When you deploy your {{site.data.keyword.spectrum_full}} cluster with a custom image, you specify the `compute_image_name` deployment input value with the custom image that you want to use to create VSIs in your {{site.data.keyword.cloud_notm}} account to deploy the {{site.data.keyword.spectrum_full}} cluster dynamic compute nodes. Provide the [Cloud Resource Name (CRN)](/docs/account?topic=account-crn) of the custom image as the `compute_image_name` value.
 
 A CRN uniquely identifies {{site.data.keyword.cloud_notm}} resources. It is used to specify a resource in an unambiguous way. To determine the CRN for your custom image, use the `ibmcloud catalog offering search` {{site.data.keyword.cloud_notm}} CLI command. For example:
 
