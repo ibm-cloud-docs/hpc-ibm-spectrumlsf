@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-01-22"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -21,5 +21,5 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:new_window: target="_blank"}
 
-# Bastion node
+# Bastion nodes
 {: #bastion-node}

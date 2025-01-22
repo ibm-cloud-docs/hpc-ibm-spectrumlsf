@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-01-22"
 
 keywords:
 
@@ -211,23 +211,27 @@ Regardless of whether you deployed the {{site.data.keyword.spectrum_full}} envir
 * Verify that you can connect to the {{site.data.keyword.spectrum_full}} environment by using the following SSH commands:
 
 Run the command to login to the management node:
-    ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<management_node_IP>
-    ```
-    {: codeblock}
 
-Run the command for the login node: 
-    ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<login_node_ip>
-    ```
-    {: codeblock}
-
-    For example:
-    ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@150.239.215.145 lsfadmin@10.241.0.4
-    ```
-    {: codeblock}
+```ssh
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<management_node_IP>
+```
+{: codeblock}
 
 
-    If you deployed by using a project, you can copy this SSH command from the {{site.data.keyword.cloud_notm}} console: select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Outputs** tab, and use the copy icon to copy the `ssh_command` value and run it from a command line.
-    {: tip}
+Run the command for the login node:
+
+```ssh
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<login_node_ip>
+```
+{: codeblock}
+
+For example:
+
+```ssh
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@150.239.215.145 lsfadmin@10.241.0.4
+```
+{: codeblock}
+
+
+If you deployed by using a project, you can copy this SSH command from the {{site.data.keyword.cloud_notm}} console: select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Outputs** tab, and use the copy icon to copy the `ssh_command` value and run it from a command line.
+{: tip}

@@ -42,8 +42,8 @@ toc:
       id: deploy
       topics:
       - before_deploying.md
-      - deploying-lsf.md
       - deployment-values.md
+      - deploying-lsf.md
   - navgroup: 
       id: howto
       topics:
