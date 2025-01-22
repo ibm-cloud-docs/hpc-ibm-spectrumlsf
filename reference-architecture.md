@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-01-22"
 
 keywords: # Not typically populated
 
@@ -64,8 +64,8 @@ The following table outlines the requirements that are addressed in this archite
 | Data            | Provide a location to store {{site.data.keyword.spectrum_full_notm}} configuration and data. |
 | Compute            | Provide properly isolated compute resources with adequate compute capacity for the applications. |
 | Storage            | Provide storage that meets the application and database performance requirements. |
-| Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage \n Provide private DNS resolution to support use of hostnames instead of IP addresses. |
-| Security           | * Ensure that all operator actions are run securely through a bastion host. \n * Provide customers with the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
+| Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage. \n * Provide private DNS resolution to support use of hostnames instead of IP addresses. |
+| Security           | * Ensure that all operator actions are run securely through bastion host. \n * Provide customers with the ability to use keys to ensure that all data meets regulatory compliance requirements for additional security and customer control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
 | Service Management | * Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n * Monitor audit logs to track changes and detect potential security problems. |
 {: caption="Requirements" caption-side="bottom"}
 
