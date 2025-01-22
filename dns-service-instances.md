@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-01-22"
 
 keywords:
 
@@ -25,7 +25,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 [{{site.data.keyword.cloud}} DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started) provides private DNS to VPC users. Also, if you have an {{site.data.keyword.cloud}} DNS Services instance ID, you can specify that ID when you create the DNS zones or custom resolvers for your {{site.data.keyword.spectrum_full_notm}} cluster.
 
-## DNS zones for your {{site.data.keyword.spectrum_full_notm}} cluster
+## DNS zones for your {{site.data.keyword.spectrum_full}} cluster
 {: #dns}
 
 Private DNS zones are resolvable only on {{site.data.keyword.cloud}}, and only from explicitly permitted networks in an account.
@@ -45,7 +45,7 @@ Furthermore, if you have an existing {{site.data.keyword.cloud_notm}} DNS Servic
 A VPC cannot be a permitted network for domains of the same name. When you use an existing DNS instance ID, make sure that the DNS domains are not duplicated to avoid association issues; otherwise, you can encounter a message similar to: `Error creating PDNS permitted network: The VPC was already associated to the same DNS zone name.`
 {: note}
 
-## DNS custom resolvers for your {{site.data.keyword.spectrum_full_notm}} cluster
+## DNS custom resolvers for your {{site.data.keyword.spectrum_full}} cluster
 {: #custom-resolvers}
 
 A private DNS custom resolver extends {{site.data.keyword.cloud_notm}} DNS Service's capability to meet the needs of a hybrid cloud environment. It enables resolution of the {{site.data.keyword.cloud_notm}} VPC hostnames from on-premises DNS resolvers. It also enables the resolution of on-premises hostnames from {{site.data.keyword.cloud_notm}}.

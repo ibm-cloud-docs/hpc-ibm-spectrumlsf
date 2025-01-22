@@ -2,7 +2,7 @@
 
 copyright: 
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-01-22"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -34,17 +34,17 @@ Deploy the HPC cluster with your choice of configuration properties.
 ## Architecture overview and VPC File Storage setup 
 {: #hpc-cluster-architecture-overview}
 
-The LSF cluster consists of a bastion, lsf login client node, 1 - 10 LSF management nodes, and a number of LSF worker nodes. Where the VPC filestorage is attached to lsf login client node/management and worker nodes.
+The LSF cluster consists of a bastion, lsf login client node, 1 - 10 LSF management nodes, and some LSF worker nodes. Where the VPC file storage is attached to lsf login client node/management and worker nodes.
 
 * The bastion node is served as a jump host and it is the only node that has the public IP address. Other nodes have only private IP addresses and the only way to reach these nodes is through the bastion node. You can log in to the primary LSF management host and do most of the operations from the LSF management host. By default, `lsfadmin` is the only user ID created on the cluster. The SSH passwordless setup is configured between the LSF management host and workers. You can reach any other worker node with the `lsfadmin` user ID from the LSF primary.
 
-* The lsf login client nodes is used to submit the jobs and it is not intended to run the jobs. To reach the login node is through the bastion node. Instead of accessing the management node, users can directly access the login node and submit and manage the entire cluster.
+* The lsf login client nodes are used to submit the jobs and it is not intended to run the jobs. To reach the login node is through the bastion node. Instead of accessing the management node, users can directly access the login node and submit and manage the entire cluster.
 
-* The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request a number of static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
+* The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request some static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
 
 * The {{site.data.keyword.cloud_notm}} File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs&interface=ui#share).
 
-The HPC cluster solution provides a base custom image, which includes the LSF installation. You can still create customaziable custom image with the installation of required packages. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). You can then specify the custom image created in the IBM Spectrum LSF tile under the `compute_image_name`(worker nodes). The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
+The HPC cluster solution provides a base custom image, which includes the LSF installation. You can still create customizable custom image with the installation of the required packages. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). You can then specify the custom image that is created in the IBM Spectrum LSF tile under the `compute_image_name`(worker nodes). The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
 
 ## Create SSH key
 {: #hpc-ssh-key-creation-before}
@@ -98,7 +98,7 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 
-IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer the [deployment values](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
+IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
 {: note} 
 
 ### Parameters for auto scaling
@@ -170,7 +170,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
     ![Two worker nodes](images/autoscaling.png){: caption="Five worker nodes added"}
 
-5. The difference of nodes created by the auto scaling function are destroyed automatically after 10 minutes of not being used.
+5. The difference of nodes that are created by the auto scaling function are destroyed automatically after 10 minutes of not being used.
 
 ## Set up hybrid connectivity (Optional)
 {: #optional-hybrid-connectivity}

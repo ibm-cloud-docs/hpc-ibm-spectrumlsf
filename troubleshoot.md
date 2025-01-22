@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-02"
+  years: 2025
+lastupdated: "2025-01-22"
 
 keywords: question about _xx_, _messageID_
 
@@ -29,14 +29,14 @@ content-type: troubleshoot
 # Troubleshooting
 {: #troubleshooting-spectrum-lsf}
 
-This document provides the solutions to the common encountered problems when working on {{site.data.keyword.spectrum_full_notm}}.
+This document provides the solutions to the common problems encountered when working on {{site.data.keyword.spectrum_full_notm}}.
 
 ## Why is IBM Cloud Schematics not able to clone the private GitHub repo?
 {: #troubleshoot-topic-1}
 {: troubleshoot}
 {: support}
 
-Schematics is not able to clone the private GitHub repository, and you are seeing the following error message: `Failed to clone git repository, repository not found (check url, also check the scope 'repo' of the personal access token if SCHEMATICSGITTOKEN is used)`
+Schematics are not able to clone the private GitHub repository, and you are seeing the following error message: `Failed to clone git repository, repository not found (check url, also check the scope 'repo' of the personal access token if SCHEMATICSGITTOKEN is used)`
 {: tsSymptoms}
 
 You did not provide the correct GitHub token, or you didn't provide a GitHub token altogether.
@@ -50,7 +50,7 @@ Provide a [GitHub token](https://docs.github.com/en/github/authenticating-to-git
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to clone the public GitHub repository, and you are seeing one of the following error messages:
+Schematics aren't able to clone the public GitHub repository, and you are seeing one of the following error messages:
 
 * `Fatal, could not download repo, Failed to clone git repository, authentication required (or the git url is incorrect). Problems found with the Repository. Please Rectify and Retry`
 * `Template error: Failed to clone git repository, authentication required (or the git url is incorrect)`
@@ -67,7 +67,7 @@ Do not provide a GitHub token, and check to see whether the GitHub token was pro
 {: troubleshoot}
 {: support}
 
-Schematics is not able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
+Schematics are not able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
 {: tsSymptoms}
 
 You do not have the required access to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group.
@@ -81,7 +81,7 @@ Contact your account administrator and get assigned with the manager role on the
 {: troubleshoot}
 {: support}
 
-Schematics is not able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
+Schematics are not able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
 {: tsSymptoms}
 
 You don't have the required access to get any VPC resources provisioned. 
@@ -95,7 +95,7 @@ Contact your account administrator and get all the required accesses. For more i
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to provision the cluster, and you are seeing the following example error message:
+Schematics aren't able to provision the cluster, and you are seeing the following example error message:
 {: tsSymptoms}
 
 ```
