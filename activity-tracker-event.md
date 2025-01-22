@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-01-22"
 
 keywords: 
 
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # IBM Cloud Activity Tracker Event Routing
 {: #activity-tracker-overview}
 
-We do not support the creation of new {{site.data.keyword.at_short}} instances, as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}, however the {{site.data.keyword.atracker_short}} is still supported.
+Creation of new {{site.data.keyword.at_short}} instances is not supported, as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}. However, the {{site.data.keyword.atracker_short}} is still supported.
 
 Two target types are supported, as part of {{site.data.keyword.atracker_short}}:
 
@@ -35,9 +35,9 @@ To use {{site.data.keyword.logs_full}} as a target, a {{site.data.keyword.logs_f
 
 When `observability_logs_enable` is set to true, the same {{site.data.keyword.logs_full}} instance can be utilized as a target, enabling the filtering of management, compute, and {{site.data.keyword.at_short}} logs within a unified dashboard.
 
-For COS bucket as a target, you can provide an existing COS instance as well. Under this instance, you will create a COS bucket that will act as a target for {{site.data.keyword.atracker_short}}.
+For COS bucket as a target, you can provide an existing COS instance as well. Under this instance, automation will create a COS bucket that will act as a target for {{site.data.keyword.atracker_short}}.
 
-If you will not provide any existing COS instance, we will create the new one by default.
+If you will not provide any existing COS instance, then we will create the new one by default.
 
 There are two new variables to configure the {{site.data.keyword.atracker_short}}:
 
