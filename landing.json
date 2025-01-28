@@ -6,35 +6,35 @@
   "section_topics": {
     "links": [
       {
-        "title": "Overview",
-        "href": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial"
+        "title": "Overview of IBM Spectrum LSF",
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf"
       },
       {
         "title": "Deployment values",
-        "href": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values"
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values"
       },
       {
         "title": "Considerations for HPC cluster compute types",
-        "href": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-considerations-for-HPC-custer-compute-types"
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-considerations-for-HPC-custer-compute-types"
       },
       {
         "title": "Responsibilities",
-        "href": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-responsibilities"
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-responsibilities"
       },
       {
         "title": "FAQs",
-        "href": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs"
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs"
       }
     ]
   },
   "section_architectures": [
     {
       "title": "IBM Spectrum LSF",
-      "href": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-ibm-spectrum-lsf",
+      "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-ibm-spectrum-lsf",
       "deployable": true
     }
   ],
   "section_updates": {
-    "view_more": "/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-my-service-relnotes"
+    "view_more": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-my-service-relnotes"
   }
 }

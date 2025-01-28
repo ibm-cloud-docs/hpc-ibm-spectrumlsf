@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-01-28"
 
 keywords: vpc, lsf
 
@@ -33,7 +33,7 @@ For more details about {{site.data.keyword.vpc_short}}, see the [{{site.data.key
 ## Using a new VPC for your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #vpc-new}
 
-If you choose to create a new VPC, set the the `vpc_name` input value as null during the Spectrum LSF cluster deployment. With this setting, the {{site.data.keyword.spectrum_full}} cluster deployment automatically creates a brand-new VPC by using the provided address prefix that you provide for the `vpc_cidr` input value. Make sure that you provide a valid address prefix for the `vpc_cidr` input value.
+If you choose to create a new VPC, set the `vpc_name` input value as null during the Spectrum LSF cluster deployment. With this setting, the {{site.data.keyword.spectrum_full}} cluster deployment automatically creates a brand-new VPC by using the provided address prefix that you provide for the `vpc_cidr` input value. Make sure that you provide a valid address prefix for the `vpc_cidr` input value.
 
 With a new VPC, the {{site.data.keyword.spectrum_full}} cluster deployment automatically isolates the network, and creates two different subnets under the new VPC by using the `vpc_cidr` value:
 
@@ -54,9 +54,9 @@ If you have existing VPC infrastructure, you can use that VPC for your {{site.da
 
 If you use your existing VPC for your {{site.data.keyword.spectrum_full}} cluster, set the `vpc_name` input value during {{site.data.keyword.spectrum_full}} cluster deployment with the name of your existing VPC. With this setting, the {{site.data.keyword.spectrum_full}} cluster deployment automatically skips creating a new VPC and uses the one you specify and its existing VPC details for all networking.
 
-With an existing VPC, you can also choose to make use of existing subnets to create {{site.data.keyword.spectrum_full_notm}} cluster nodes. Cluster deployment needs two subnets:
+With an existing VPC, you can also choose to use existing subnets to create {{site.data.keyword.spectrum_full_notm}} cluster nodes. Cluster deployment needs two subnets:
 
-* Provide a larger subnet ID for the `cluster_subnet_ids` dployment inout value, as it is used to create all management nodes or VPC file shares, and the compute nodes.
+* Provide a larger subnet ID for the `cluster_subnet_ids` deployment input value, as it is used to create all management nodes or VPC file shares, and the compute nodes.
 * Provide another subnet ID for the `login_subnet_id` to create the bastion and login nodes.
 
 ### An existing VPC and automatically creating two new subnets from the {{site.data.keyword.spectrum_full}} cluster deployment

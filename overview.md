@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-01-28"
 
 keywords: 
 
@@ -35,7 +35,7 @@ The {{site.data.keyword.scale_short}} feature is designed to work with {{site.da
 
 The offering supports the bring-your-own-license (BYOL) model for [{{site.data.keyword.spectrum_full_notm}}](https://www.ibm.com/products/hpc-workload-management){: external} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. For evaluation purposes, {{site.data.keyword.cloud_notm}} does enable limited access. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
 
-{{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, and CLI. To use the API and CLI interfaces, the Terraform-based automation code is available in the [public GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
+The {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, and CLI. To use the API and CLI interfaces, the Terraform-based automation code is available in the [public GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
 
 {{site.data.keyword.spectrum_full}} also offers the [LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0){: external}, which provides a flexible, easy-to-use interface for cluster users and administrators. It is available as an add-on module to IBM Spectrum LSF, the LSF Application Center enables users to interact with intuitive, self-documenting, standardized interfaces. You can access the LSF Application Center through the [GUI](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-gui&interface=ui), and you can also access the API calls with [Python](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-pacclient&interface=ui) and [`curl`](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-curl&interface=ui).
 
