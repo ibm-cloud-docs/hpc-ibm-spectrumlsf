@@ -54,6 +54,7 @@ Users can enable cloud logs to capture infrastructure and application logs from 
     -H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '{print $4}')" \
     -H "IBM-API-Version: $(date +%Y-%m-%d)"
     ```
+    {: pre}
 
     You can have only one tenant per region in an account.
     {: note}

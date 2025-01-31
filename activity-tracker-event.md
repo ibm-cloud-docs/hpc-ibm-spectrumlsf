@@ -55,10 +55,10 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
 
     * Usage: Select the desired target type to retrieve or ingest events into your system.
 
-    When the `observability_atracker_target_type` is set to "cloudlogs" then:
+    When the `observability_atracker_target_type` is set to "cloudlogs":
 
-    ```console
-    % ibmcloud atracker route get --route nproba-atracker-route
+    ```
+    ibmcloud atracker route get --route nproba-atracker-route
     OK
     Route      
     Name:     nproba-atracker-route
@@ -69,8 +69,11 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
     CreatedAt:   2025-01-29T07:40:42.854Z
     UpdatedAt:   2025-01-29T07:40:42.854Z
     API version:  2
+    ```
+    {: pre}
 
-    % ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+    ```
+    ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
     OK
     Target                   
     Name:                    nproba-atracker-target
@@ -85,10 +88,10 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
     ```
     {: pre}
 
-    When the `observability_atracker_target_type` is set to "cos" then:
+    When the `observability_atracker_target_type` is set to "cos":
 
-    ```console
-    % ibmcloud atracker route get --route nprshd-atracker-route
+    ```
+    ibmcloud atracker route get --route nprshd-atracker-route
     OK
     Route          
     Name:          nprshd-atracker-route
@@ -99,7 +102,11 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
     CreatedAt:     2024-10-10T10:51:18.483Z
     UpdatedAt:     2024-10-10T10:51:18.483Z
     API version:   2
-    % ibmcloud atracker target validate --target 039f909b-e184-4734-ba68-93393294884f
+    ```
+    {: pre}
+
+    ```
+    ibmcloud atracker target validate --target 039f909b-e184-4734-ba68-93393294884f
     OK
     Target                        
     Name:                         nprshd-atracker
