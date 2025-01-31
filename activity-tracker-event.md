@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-01-31"
 
 keywords: 
 
@@ -54,3 +54,65 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
     * Options: cloudlogs or cos
 
     * Usage: Select the desired target type to retrieve or ingest events into your system.
+
+    When the `observability_atracker_target_type` is set to "cloudlogs" then:
+
+    ```console
+    % ibmcloud atracker route get --route nproba-atracker-route
+    OK
+    Route      
+    Name:     nproba-atracker-route
+    ID:      5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
+    CRN:      crn:v1:bluemix:public:atracker:global:a/ec1b082b25144a52bb1a269c883d5a00::route:5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
+    Version:    0
+    Rules:     [[ceada6af-7381-4297-9a9d-ce4b9aac8cb2],[*,global]]
+    CreatedAt:   2025-01-29T07:40:42.854Z
+    UpdatedAt:   2025-01-29T07:40:42.854Z
+    API version:  2
+
+    % ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+    OK
+    Target                   
+    Name:                    nproba-atracker-target
+    ID:                      ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+    CRN:                     crn:v1:bluemix:public:atracker:us-east:a/ec1b082b25144a52bb1a269c883d5a00::target:ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+    Region:                  us-east
+    Type:                    cloud_logs
+    Cloud Logs Target CRN:   crn:v1:bluemix:public:logs:us-east:a/ec1b082b25144a52bb1a269c883d5a00:12ebd90f-f9d6-4c94-a8db-1e0965f4637d::
+    Write Status:            success
+    CreatedAt:               2025-01-29T07:40:38.091Z
+    UpdatedAt:               2025-01-29T07:40:38.091Z
+    ```
+    {: pre}
+
+    When the `observability_atracker_target_type` is set to "cos" then:
+
+    ```console
+    % ibmcloud atracker route get --route nprshd-atracker-route
+    OK
+    Route          
+    Name:          nprshd-atracker-route
+    ID:            619a001a-cf7e-4e7a-aefd-edddd10c5b8d
+    CRN:           crn:v1:bluemix:public:atracker:global:a/ec1b082b25144a52bb1a269c883d5a00::route:619a001a-cf7e-4e7a-aefd-edddd10c5b8d
+    Version:       0
+    Rules:         [[039f909b-e184-4734-ba68-93393294884f],[*,global]]
+    CreatedAt:     2024-10-10T10:51:18.483Z
+    UpdatedAt:     2024-10-10T10:51:18.483Z
+    API version:   2
+    % ibmcloud atracker target validate --target 039f909b-e184-4734-ba68-93393294884f
+    OK
+    Target                        
+    Name:                         nprshd-atracker
+    ID:                           039f909b-e184-4734-ba68-93393294884f
+    CRN:                          crn:v1:bluemix:public:atracker:us-south:a/ec1b082b25144a52bb1a269c883d5a00::target:039f909b-e184-4734-ba68-93393294884f
+    Region:                       us-south
+    Type:                         cloud_object_storage
+    COS Endpoint:                 s3.private.us-south.cloud-object-storage.appdomain.cloud
+    COS Target CRN:               crn:v1:bluemix:public:cloud-object-storage:global:a/ec1b082b25144a52bb1a269c883d5a00:5235aa21-7a1a-4639-af8c-be92a276a72e::
+    Service to Service Enabled:   true
+    COS Bucket:                   nprshd-atracker-bucket-wlhphwih
+    Write Status:                 success
+    CreatedAt:                    2024-10-10T10:51:14.172Z
+    UpdatedAt:                    2024-10-10T10:51:14.172Z
+    ```
+    {: pre}

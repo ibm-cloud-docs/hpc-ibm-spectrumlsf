@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-31"
 
 keywords: 
 
@@ -46,7 +46,14 @@ Users can enable cloud logs to capture infrastructure and application logs from 
 
 * `observability_logs_enable_for_compute`: Set this value as "false" to disables the {{site.data.keyword.logs_full_notm}} integration. If enabled, infrastructure and LSF application logs from compute nodes will be ingested.
 
-* `observability_enable_platform_logs`: Setting this value as "true" creates a tenant in the same region in which the {{site.data.keyword.logs_full}} instance is provisioned to enable platform logs for that region. 
+* `observability_enable_platform_logs`: Setting this value as "true" creates a tenant in the same region in which the {{site.data.keyword.logs_full}} instance is provisioned to enable platform logs for that region.
+
+    ```
+    observability_enable_platform_logs = true
+    curl -X GET "[https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants](https://management.us-east.logs-router.cloud.ibm.com/v1/tenants)" \ 
+    -H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '{print $4}')" \
+    -H "IBM-API-Version: $(date +%Y-%m-%d)"
+    ```
 
     You can have only one tenant per region in an account.
     {: note}

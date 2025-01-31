@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-01-31"
 
 keywords:
 
@@ -125,7 +125,7 @@ IBM is responsible for the recovery of Spectrum Computing on IBM Cloud component
 ## Applications and data
 {: #applications-data}
 
-You are completely responsible for the applications, workloads, and data that you deploy to {{site.data.keyword.cloud_notm}}. However, {{site.data.keyword.IBM_notm}} provides various tools to help you set up, manage, secure, integrate, and optimize your applications.
+You are responsible for the applications, workloads, and data that you deploy to {{site.data.keyword.cloud_notm}}. However, {{site.data.keyword.IBM_notm}} provides various tools to help you set up, manage, secure, integrate, and optimize your applications.
 
 | Resource | How {{site.data.keyword.IBM_notm}} helps | What you can do |
 |----------|-----------------------|--------|
