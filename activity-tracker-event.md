@@ -26,9 +26,6 @@ subcollection: hpc-ibm-spectrumlsf
 
 Creation of new {{site.data.keyword.at_short}} instances is not supported, as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}. However, the {{site.data.keyword.atracker_short}} is still supported.
 
-## Target types
-{: #activity-tracker-types}
-
 There are two target types supported as part of {{site.data.keyword.atracker_short}}:
 
 * Cloud Object Storage(COS) bucket
@@ -63,76 +60,76 @@ There are two new variables to configure the {{site.data.keyword.atracker_short}
 
 To validate the Activity Tracker event routing using the CLI, first install the atracker plugin:
 
-  ```
-  ibmcloud plugin install atracker
-  ```
-  {: pre}
+```
+ibmcloud plugin install atracker
+```
+{: pre}
 
 ### Checking an Activity Tracker Route
 {: #activity-tracker-check}
 
 Run the following command to retrieve details about an Activity Tracker Event Routing route:
 
-  ```
-  ibmcloud atracker route get --route ROUTE [--output FORMAT]
-  ```
-  {: pre}
+```
+ibmcloud atracker route get --route ROUTE [--output FORMAT]
+```
+{: pre}
 
-  For example:
+For example:
 
-  ```
-  ibmcloud atracker route get --route nproba-atracker-route
-  ```
-  {: pre}
+```
+ibmcloud atracker route get --route nproba-atracker-route
+```
+{: pre}
 
-  Sample Output:
+Sample Output:
 
-  ```
-  OK
-  Route      
-  Name:     nproba-atracker-route
-  ID:      5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
-  CRN:      crn:v1:bluemix:public:atracker:global:a/ec1b082b25144a52bb1a269c883d5a00::route:5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
-  Version:    0
-  Rules:     [[ceada6af-7381-4297-9a9d-ce4b9aac8cb2],[*,global]]
-  CreatedAt:   2025-01-29T07:40:42.854Z
-  UpdatedAt:   2025-01-29T07:40:42.854Z
-  API version:  2
-  ```
-  {: pre}
+```
+OK
+Route      
+Name:     nproba-atracker-route
+ID:      5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
+CRN:      crn:v1:bluemix:public:atracker:global:a/ec1b082b25144a52bb1a269c883d5a00::route:5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
+Version:    0
+Rules:     [[ceada6af-7381-4297-9a9d-ce4b9aac8cb2],[*,global]]
+CreatedAt:   2025-01-29T07:40:42.854Z
+UpdatedAt:   2025-01-29T07:40:42.854Z
+API version:  2
+```
+{: pre}
 
 ### Validating an Activity Tracker Target
 {: #activity-tracker-target}
 
 Run the following command to check if a target is correctly configured for an IBM Cloud Activity Tracker Event Routing region:
 
-  ```
-  ibmcloud atracker target validate --target TARGET [--region REGION] [--output FORMAT]
-  ```
-  {: pre}
+```
+ibmcloud atracker target validate --target TARGET [--region REGION] [--output FORMAT]
+```
+{: pre}
 
 For example:
 
-  ```
-  ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
-  ```
-  {: pre}
+```
+ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+```
+{: pre}
 
-  Sample Output:
+Sample Output:
 
-  ```
-  OK
-  Target                   
-  Name:                    nproba-atracker-target
-  ID:                      ceada6af-7381-4297-9a9d-ce4b9aac8cb2
-  CRN:                     crn:v1:bluemix:public:atracker:us-east:a/ec1b082b25144a52bb1a269c883d5a00::target:ceada6af-7381-4297-9a9d-ce4b9aac8cb2
-  Region:                  us-east
-  Type:                    cloud_logs
-  Cloud Logs Target CRN:   crn:v1:bluemix:public:logs:us-east:a/ec1b082b25144a52bb1a269c883d5a00:12ebd90f-f9d6-4c94-a8db-1e0965f4637d::
-  Write Status:            success
-  CreatedAt:               2025-01-29T07:40:38.091Z
-  UpdatedAt:               2025-01-29T07:40:38.091Z
-  ```
-  {: pre}
+```
+OK
+Target                   
+Name:                    nproba-atracker-target
+ID:                      ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+CRN:                     crn:v1:bluemix:public:atracker:us-east:a/ec1b082b25144a52bb1a269c883d5a00::target:ceada6af-7381-4297-9a9d-ce4b9aac8cb2
+Region:                  us-east
+Type:                    cloud_logs
+Cloud Logs Target CRN:   crn:v1:bluemix:public:logs:us-east:a/ec1b082b25144a52bb1a269c883d5a00:12ebd90f-f9d6-4c94-a8db-1e0965f4637d::
+Write Status:            success
+CreatedAt:               2025-01-29T07:40:38.091Z
+UpdatedAt:               2025-01-29T07:40:38.091Z
+```
+{: pre}
 
-  If you set `observability_atracker_target_type` = cloudlogs, then the output will include a Cloud Logs Target CRN. If `observability_atracker_target_type` = cos, then the output will contain a COS Target CRN instead.
+If you set `observability_atracker_target_type` = cloudlogs, then the output will include a Cloud Logs Target CRN. If `observability_atracker_target_type` = cos, then the output will contain a COS Target CRN instead.
