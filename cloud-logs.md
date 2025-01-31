@@ -48,13 +48,16 @@ Users can enable cloud logs to capture infrastructure and application logs from 
 
 * `observability_enable_platform_logs`: Setting this value as "true" creates a tenant in the same region in which the {{site.data.keyword.logs_full}} instance is provisioned to enable platform logs for that region.
 
+  Run the following command, to check if the platform logs are enabled for your specified region:
+
     ```
-    observability_enable_platform_logs = true
     curl -X GET "[https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants](https://management.us-east.logs-router.cloud.ibm.com/v1/tenants)" \ 
     -H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '{print $4}')" \
     -H "IBM-API-Version: $(date +%Y-%m-%d)"
     ```
     {: pre}
+
+    If the output contains an empty tenants list, then it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
 
     You can have only one tenant per region in an account.
     {: note}
