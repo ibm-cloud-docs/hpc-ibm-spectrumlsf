@@ -44,6 +44,7 @@ To check if Cloud Monitoring is configured correctly on your VSI, SSH into the i
 systemctl status prometheus
 ```
 {: pre}
+
 ```
 systemctl status dragent
 ```
