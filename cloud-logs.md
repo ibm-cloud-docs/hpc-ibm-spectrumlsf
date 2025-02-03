@@ -85,7 +85,7 @@ Users can apply filters based on the subsystem and application to refine the log
 
 If your log instance is also configured as a target for {{site.data.keyword.atracker_short}}, additional application names may appear besides "LSF". To exclude audit events, filter by the LSF application names specifically.
 
-To check if the Cloud Logs agent is running on your VSI, SSH into the VSI and run:
+To check if the cloud logs agent are running on your VSI, SSH into the VSI and run:
 
 `systemctl status fluent-bit`
 
