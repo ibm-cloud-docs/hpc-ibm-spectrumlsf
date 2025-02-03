@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-02-03"
 
 keywords: 
 
@@ -37,6 +37,14 @@ To add the monitoring features with Cloud Monitoring in the {{site.data.keyword.
 {: caption="{{site.data.keyword.monitoringlong_notm}} variables" caption-side="bottom"}
 
 You can use {{site.data.keyword.metrics_router_full_notm}}, a platform service to manage metrics at the account-level by configuring targets and routes that define where data points are routed.
+
+To check if Cloud Monitoring is configured correctly on your VSI, SSH into the instance and run the following commands:
+
+```
+systemctl status prometheus
+systemctl status dragent
+```
+{: pre}
 
 ## Key features
 {: #key-features}
