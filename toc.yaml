@@ -57,17 +57,8 @@ toc:
           - check-ldapp-status.md
           - create-ldapp-user.md
           - submit-lsf-jobs-ldapp.md
-      - topicgroup: 
-          label: Setting up the CLI and API
-          topics: 
-          - setting-up-cli.md
-          - setting-up-api.md
-      - generating-plan.md
-      - applying-plan.md
-      - destroying-resources.md
-      - deleting-workspace.md
-      - retrieving-action-logs.md
-      - updating-variables.md
+          - retrieving-action-logs.md
+          - updating-variables.md
       - topicgroup:
           label: Managing worker nodes
           topics:

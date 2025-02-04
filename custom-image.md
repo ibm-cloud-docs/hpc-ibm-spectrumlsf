@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-04"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Creating a custom image for compute nodes
 {: #custom-image}
 
-{{site.data.keyword.cloud}} HPC provides a pre-optimized HPC image with {{site.data.keyword.spectrum_full_notm}} and preinstalled tools for a compute node. If you need to add tools or software, you can use the custom image builder tool to create custom private images for your {{site.data.keyword.spectrum_full}} deployment. The custom image builder is an automated tool that takes an {{site.data.keyword.cloud}} base image, adds the base HPC packages (for {{site.data.keyword.spectrum_full}}), includes additional packages if wanted, and validates the image. In addition, you can share your private custom image with other {{site.data.keyword.cloud_notm}} accounts.
+Custom image builder tool provides a feature to create an pre-optimized image with {{site.data.keyword.spectrum_full_notm}} and required opensource packages for a compute node. If you need to add install any additional customised packages/opesource packages or software, you can use the custom image builder tool to create custom private images for your IBM® Spectrum LSF deployment. The custom image builder is an automated tool that takes an IBM Cloud® base image, adds the base packages (for IBM® Spectrum LSF), includes additional packages if wanted, and validates the image. In addition, you can access the images through your private custom image for version controlling.
 {: shortdesc}
 
 ## Features
@@ -47,7 +47,7 @@ Script-driven customization
 :  After the custom image builder creates the image, the automation validates it through {{site.data.keyword.spectrum_full}} deployment, which helps ensure that the image is functional and ready for use within the cluster.
 
 Private catalog integration
-:  You can add the created custom image to your private catalog within your {{site.data.keyword.cloud_notm}} account and then share it with other accounts.
+:  You can add the created custom image to your private catalog within your IBM Cloud account to maintain a version history of the images created.
 
 ## Prerequisites
 {: #custom-image-builder-prerequistes}
@@ -149,7 +149,7 @@ The overall flow for creating your custom image by using the custom image builde
 
 3. After the worker node VSI creates the image, the automation helps ensure that the image is set to an available state. The automation then initiates {{site.data.keyword.spectrum_full}} deployment by using the new image to validate the deployment process, helping ensure that the new image is correct and can deploy successfully.
 
-    The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and `reservation_id` deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
+    The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and IBM customer number deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
     {: tip}
 
 4. The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the automation creates and validates the image, without publishing it.
@@ -210,11 +210,6 @@ To share private images and make them accessible by other accounts:
         * Category: **Compute/Cloud Images**
     3. From the **Products** list, click the product that you created in the previous step, and select the **Versions** view.
     4. From the **Versions** list, select **Validate** from the action menu. Validation triggers an automated task to deploy a new VSI with the custom image that you added to the catalog.
-
-3. Share the private catalog with the {{site.data.keyword.spectrum_full_notm}} account:
-    1. From the **Products** list, select the product that you created in the previous step.
-    2. Select **Actions... > Share**.
-    3. Select **Share with other accounts > Add Accounts** and then enter `d068deb903504fe78cde1ab53bd6474e` to share your private catalog product with the {{site.data.keyword.spectrum_full}} account, which uses the provided image to create dynamic compute hosts for {{site.data.keyword.spectrum_full}} clusters. No other accounts are allowed to use this custom image.
 
     For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](/docs/secure-enterprise?topic=secure-enterprise-catalog-enterprise-share&interface=ui).
 
