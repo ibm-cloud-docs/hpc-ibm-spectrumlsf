@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-05"
 
 keywords: question about _xx_, _messageID_
 
@@ -30,20 +30,6 @@ content-type: troubleshoot
 {: #troubleshooting-spectrum-lsf}
 
 This document provides the solutions to the common problems encountered when working on {{site.data.keyword.spectrum_full_notm}}.
-
-## Why is IBM Cloud Schematics not able to clone the private GitHub repo?
-{: #troubleshoot-topic-1}
-{: troubleshoot}
-{: support}
-
-Schematics are not able to clone the private GitHub repository, and you are seeing the following error message: `Failed to clone git repository, repository not found (check url, also check the scope 'repo' of the personal access token if SCHEMATICSGITTOKEN is used)`
-{: tsSymptoms}
-
-You did not provide the correct GitHub token, or you didn't provide a GitHub token altogether.
-{: tsCauses}
-
-Provide a [GitHub token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token){: external} and check to see whether the correct GitHub token is provided in the `github_token` parameter in the created workspace API.
-{: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to clone the public GitHub repo?
 {: #troubleshoot-topic-2}

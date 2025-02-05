@@ -30,7 +30,7 @@ The IBM Spectrum LSF solution includes support for bastion nodes as part of its 
 
 The solution uses an Ubuntu-based operating system for the bastion node. To maintain security compliance and ensure up-to-date features, the automation code is regularly updated to deploy the latest Ubuntu 22.04 version.
 
-No need to create a bastion node for every new deployment. If an existing bastion node is available, it can be reused to access cluster nodes.
+It is not required to create a bastion node for every new deployment. If an existing bastion node is available, it can be reused to access cluster nodes.
 {: note}
 
 ## Bastion node usage
