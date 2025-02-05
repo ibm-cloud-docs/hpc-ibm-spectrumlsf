@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-05"
 
 keywords: 
 
@@ -59,12 +59,12 @@ To view access policies, complete the following steps:
    | {{site.data.keyword.cloud_notm}} Project | All | Administrator |
    | All IAM Account Management services| All | Editor, Operator, Service ID creator, VPN Administrator, User API key creator, API key reviewer |
    | Security and Compliance Center | All | Editor, Viewer, Reader, Manager |
-   | Code Engine | All | Editor, Viewer, Reader, Manager |
    | Resource group only | All resource groups in the account | Editor, Viewer |
    | Schematics | All | Manager, Editor |
    | DNS Services | All | Manager, Editor |
    | Key Protect | All | Manager, Editor |
    | Cloud Monitoring| All | Reader, Manager, Editor, Viewer |
+   | Cloud Logs| All | Reader, Manager, Editor, Viewer |
    | Cloud Object Storage | All | Writer, Editor |
    | Activity Track Event Routing | All | Writer, Editor, Key manager, Service configuration reader |
    | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
@@ -158,6 +158,9 @@ See the following example SSH command syntax for accessing different types of no
     ssh lsfadmin@10.241.0.11
     ```
     {: codeblock}
+
+This worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
+For example, you could choose 100 instance to be created from `bx2-4x16` and you could choose 10 instance from `mx3d-8x80`. So you would get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
 
 ## Next steps
 {: #getting-started-next-steps}

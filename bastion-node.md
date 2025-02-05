@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-04"
+lastupdated: "2025-02-05"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,20 +24,20 @@ subcollection: hpc-ibm-spectrumlsf
 # Bastion node
 {: #bastion-node-overview}
 
-A bastion node, also known as a jump server, is a secure entry point designed to provide controlled access to private network resources. It acts as an intermediary between the public internet and internal systems, allowing users to securely access internal servers without exposing sensitive resources directly to the public web.
+A bastion node also known as a jump server is a secure entry point designed to provide controlled access to private network resources. It acts as an agent between the public internet and internal systems, allowing users to securely access internal servers without exposing sensitive resources directly to the public web.
 
-The IBM Spectrum LSF solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to cluster nodes. Customers can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
+The IBM Spectrum LSF solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to the cluster nodes. Customers can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
 
 The solution uses an Ubuntu-based operating system for the bastion node. To maintain security compliance and ensure up-to-date features, the automation code is regularly updated to deploy the latest Ubuntu 22.04 version.
 
-A bastion node does not need to be created for every new deployment. If an existing bastion node is available, it can be reused to access cluster nodes.
+No need to create a bastion node for every new deployment. If an existing bastion node is available, it can be reused to access cluster nodes.
 {: note}
 
 ## Bastion node usage
 {: #bastion-node-usage}
 
-1. Enabled Bastion Node through Architectural Design - The solution provisions a bastion node by default to secure access to cluster nodes.
-2. Support for Existing Bastion Setup - Users can leverage an existing bastion node instead of creating a new one, providing flexibility and continuity in secure cluster access.
+1. Enable bastion node through Architectural Design - The solution provisions a bastion node by default to secure access to cluster nodes.
+2. Support for existing bastion setup - Users can leverage an existing bastion node instead of creating a new one, providing flexibility and continuity in secure cluster access.
 
 ## Default bastion node support
 {: #bastion-node-support}
@@ -76,4 +76,4 @@ To configure and use an existing bastion node, users must provide the following 
 
 By providing these details, the LSF cluster can be configured to use the existing bastion node, enabling secure access and efficient management.
 
-This approach ensures a seamless and secure solution, whether using a newly created or existing bastion node.
+This approach ensures a seamless and secure solution either by using a newly created or existing bastion node.

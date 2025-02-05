@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-28"
+lastupdated: "2025-02-05"
 
 keywords: vpc, lsf
 
@@ -67,3 +67,6 @@ If you have an existing VPC but there are no existing subnets to use, then provi
 * Provide a smaller CIDR range for `vpc_cluster_login_private_subnets_cidr_blocks` for the creation of bastion and login nodes. Provide a bigger range of CIDR under `vpc_cluster_private_subnets_cidr_blocks` for the creation of management nodes/VPC file shares/compute nodes.
 
 When you provide existing VPC detail, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
+
+Always the name of the VPC variable is a name and the ID is the ID and not the CRN.
+{: note}

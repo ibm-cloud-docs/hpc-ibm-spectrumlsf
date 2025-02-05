@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-05"
 
 keywords:
 
@@ -31,10 +31,7 @@ This document provides a list of frequently asked question and answers about a s
 {: #my-faq-packages}
 {: faq}
 
-The following {{site.data.keyword.spectrum_short}} programs are included:
-* {{site.data.keyword.spectrum_full_notm}} Standard Edition
-* {{site.data.keyword.spectrum_full_notm}} License Scheduler
-* {{site.data.keyword.spectrum_full_notm}} Data Manager
+{{site.data.keyword.spectrum_full_notm}} Standard Edition is included in {{site.data.keyword.spectrum_short}} program.
 
 ## What locations are available for deploying VPC resources?
 {: #locations-vpc-resources}
@@ -81,9 +78,12 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
 Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
-The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_min_count` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_instance_type` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster. 
 
-## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?
+This worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
+For example, you could choose 100 instance to be created from `bx2-4x16` and you could choose 10 instance from `mx3d-8x80`. So you would get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
+
+## Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
 {: #resource-group-parameters}
 {: faq}
 

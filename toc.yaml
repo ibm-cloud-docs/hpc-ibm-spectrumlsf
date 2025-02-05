@@ -28,10 +28,10 @@ toc:
       - topicgroup:
           label: Integrating existing infrastructure resources
           topics:
-          - bastion-node.md
           - vpc-lsf.md
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
+          - bastion-node.md
       - topicgroup:
             label: Using IBM Scale Storage as your storage solution
             topics:
@@ -47,7 +47,6 @@ toc:
   - navgroup: 
       id: howto
       topics:
-      - integrate-openldap-tutorial.md
       - setting-lsf-cluster.md
       - topicgroup:
           label: Using OpenLDAP with the deployed environment
@@ -57,6 +56,9 @@ toc:
           - check-ldapp-status.md
           - create-ldapp-user.md
           - submit-lsf-jobs-ldapp.md
+      - topicgroup:
+          label: Schematics API
+          topics:
           - retrieving-action-logs.md
           - updating-variables.md
       - topicgroup:
