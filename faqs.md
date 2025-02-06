@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-06"
 
 keywords:
 
@@ -44,6 +44,10 @@ Available regions and zones for deploying VPC resources, and a mapping of those 
 {: faq}
 
 Instructions for setting the appropriate permissions for {{site.data.keyword.cloud_notm}} services that are used by the offering to create a cluster can be found in [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources), [Managing user access for Schematics](/docs/schematics?topic=schematics-access), and [Assigning access to Secrets Manager](/docs/secrets-manager?topic=secrets-manager-assign-access).
+
+![Granting user permissions - Platform roles](images/platform_roles.png "Granting user permissions - Platform roles"){: caption="Granting user permissions - Platform roles" caption-side="bottom"}
+
+![Granting user permissions - Service roles](images/service_roles.png "Granting user permissions - Service roles"){: caption="Granting user permissions - Service roles" caption-side="bottom"}
 
 ## How do I SSH among nodes?
 {: #ssh-among-nodes}
