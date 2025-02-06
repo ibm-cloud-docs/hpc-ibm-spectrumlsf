@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-31"
+lastupdated: "2025-02-06"
 
 keywords: 
 
@@ -24,36 +24,39 @@ subcollection: hpc-ibm-spectrumlsf
 # IBM Cloud Activity Tracker Event Routing
 {: #activity-tracker-overview}
 
-Creation of new {{site.data.keyword.at_short}} instances is not supported, as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}. However, the {{site.data.keyword.atracker_short}} is still supported.
+{{site.data.keyword.atracker_short}} is a platform service which manages the auditing events at the account-level by configuring targets and routes that define where auditing data is routed.
+
+The {{site.data.keyword.at_short}} instances are not supported as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}.
+{: note}
 
 There are two target types supported as part of {{site.data.keyword.atracker_short}}:
 
 * Cloud Object Storage(COS) bucket
 * {{site.data.keyword.logs_full}}
 
-To use {{site.data.keyword.logs_full}} as a target, a {{site.data.keyword.logs_full}} instance is created and configured for {{site.data.keyword.atracker_short}}. Even if the `observability_logs_enable` variable is not set to true, a {{site.data.keyword.logs_full}} instance is still created for {{site.data.keyword.at_short}}.
+By default, `observability_atracker_target_type` is set to cloudlogs as a target type which creates the Cloud Logs instance and configures it for Activity Tracker Event Routing. Even if the `observability_logs_enable_for_management` or `observability_logs_enable_for_compute` variable is not set to true, a {{site.data.keyword.logs_full}} instance is still created for {{site.data.keyword.at_short}}.
 
-When `observability_logs_enable` is set to true, the same {{site.data.keyword.logs_full}} instance can be utilized as a target, enabling the filtering of management, compute, and {{site.data.keyword.at_short}} logs within a unified dashboard.
+When `observability_logs_enable_for_management` or `observability_logs_enable_for_compute` is set to true, the same {{site.data.keyword.logs_full}} instance can be utilized as a target, enabling the filtering of management, compute, and {{site.data.keyword.at_short}} logs within a unified dashboard.
 
 For COS bucket as a target, you can provide an existing COS instance as well. Under this instance, automation will create a COS bucket that will act as a target for {{site.data.keyword.atracker_short}}.
 
-If you will not provide any existing COS instance, then we will create the new one by default.
+If you will not provide any existing COS instance, then the solution will create the new one by default.
 
-There are two new variables to configure the {{site.data.keyword.atracker_short}}:
+There are two variables to configure the {{site.data.keyword.atracker_short}}:
 
 1. `observability_atracker_enable`
 
-    * Purpose: Configures {{site.data.keyword.atracker_short}} to determine how auditing events are routed.
+    * Purpose: Configures {{site.data.keyword.atracker_short}} to determine how audit events are routed.
 
-    * Usage: While multiple {{site.data.keyword.atracker_short}} can be created, only one is needed to capture all events. If an existing {{site.data.keyword.at_short}} is already integrated with a COS bucket or {{site.data.keyword.logs_full}} instance, set this value to "false" to avoid creating redundant trackers. All events can then be monitored and accessed through the existing tracker.
+    * Usage: While multiple {{site.data.keyword.atracker_short}} can be created, only one is needed to capture all events. If an existing {{site.data.keyword.at_short}} is already integrated with a COS bucket or {{site.data.keyword.logs_full_notm}} instance, set this value to "false" to avoid creating redundant trackers. All events can then be monitored and accessed through the existing tracker.
 
 2. `observability_atracker_target_type`
 
-    * Purpose: Determines where all events will be stored, based on user input.
+    * Purpose: Determines where all events can be stored, based on user input.
 
     * Options: cloudlogs or cos
 
-    * Usage: Select the desired target type to retrieve or ingest events into your system.
+    * Usage: Select the desired target type to retrieve or capture events into your system.
 
 ## Validating Activity Tracker Event Routing
 {: #activity-tracker-validate}
@@ -87,7 +90,7 @@ Sample Output:
 ```
 OK
 Route      
-Name:     nproba-atracker-route
+Name:     <cluster_prefix>-atracker-route
 ID:      5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
 CRN:      crn:v1:bluemix:public:atracker:global:a/ec1b082b25144a52bb1a269c883d5a00::route:5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
 Version:    0
@@ -132,4 +135,4 @@ UpdatedAt:               2025-01-29T07:40:38.091Z
 ```
 {: pre}
 
-If you set `observability_atracker_target_type` = cloudlogs, then the output will include a Cloud Logs Target CRN. If `observability_atracker_target_type` = cos, then the output will contain a COS Target CRN instead.
+If you set `observability_atracker_target_type` to cloudlogs, then the output will include a Cloud Logs Target CRN. If `observability_atracker_target_type` to cos, then the output will contain a COS Target CRN instead.

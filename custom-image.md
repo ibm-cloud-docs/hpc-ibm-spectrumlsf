@@ -38,7 +38,7 @@ Automated image creation
 :  The custom image builder automatically builds and configures images by using Packer. This automation reduces manual intervention and helps ensure consistency across image deployments.
 
 Support for multiple operating systems
-:  The custom image builder supports images for Ubuntu, RHEL, and Rocky Linux&reg;, which provides flexibility for different HPC environments and software requirements.
+:  The custom image builder supports images for RHEL and Rocky Linux&reg;, which provides flexibility for different HPC environments and software requirements.
 
 Script-driven customization
 :  To customize your images, you edit a user-provided script (`customer_script.sh`) and specify software packages, dependencies, and configurations specific to your business needs.
@@ -59,7 +59,6 @@ Before you use the custom image builder, you require prerequisites to be install
 
     ```text
     cd <my-directory>
-    https://github.com/terraform-ibm-modules/terraform-ibm-hpc/tree/main/tools/image-builder
     ```
     {: codeblock}
 
@@ -69,7 +68,7 @@ Before you use the custom image builder, you require prerequisites to be install
     ```
     {: codeblock}
 
-* [Terraform](https://developer.hashicorp.com/terraform/install){: external}: The custom image builder requires Terraform, as you run Terraform commands to build your custom image with the tool. Make sure that you have Terraform 1.5.7 or later installed.
+* [Terraform](https://developer.hashicorp.com/terraform/install){: external}: The custom image builder requires Terraform, as you run Terraform commands to build your custom image with the tool. Make sure that you have Terraform 1.9.0 or later installed.
 
     To determine the Terraform version installed, run:
     ```text
@@ -130,7 +129,7 @@ By default, a floating IP is created and attached to VSI-1. If you do not requir
 ### Custom image builder workflow
 {: #custom-image-builder-workflow}
 
-With the custom image builder, you can write your own scripts to install extra packages (including open source packages, dependencies, and configuration requirements) for Ubuntu, RHEL, and Rocky Linux&reg; images, along with the essential packages installed. Use the provided `customer_script.sh` script as a template for your script. Provide  values based on the operating system you provide for the `source_image_name` variable. Whenever a new dynamic node joins the cluster, all additional packages and necessary configuration are automatically included for the new nodes.
+With the custom image builder, you can write your own scripts to install extra packages (including open source packages, dependencies, and configuration requirements) for RHEL and Rocky Linux&reg; images, along with the essential packages installed. Use the provided `customer_script.sh` script as a template for your script. Provide values based on the operating system you choose for the `source_image_name` variable. Whenever a new dynamic node joins the cluster, all additional packages and necessary configuration are automatically included for the new nodes.
 
 The custom image automation creates two VSIs: VSI-1 is a bootstrap node VSI, and VSI-2 is a worker node VSI.
 
@@ -140,7 +139,7 @@ The overall flow for creating your custom image by using the custom image builde
 
 1. With the bootstrap node VSI created, the automation installs the necessary version of open source Packer.
 
-2. After Packer is installed, the automation triggers a new VSI for image-building purposes. Based on the value you provide for the `source_image_name` variable, the automation starts the worker node VSI and uses it to create the Ubuntu, RHEL, or Rocky Linux&reg; custom image based on your specifications, calling two scripts:
+2. After Packer is installed, the automation triggers a new VSI for image-building purposes. Based on the value you provide for the `source_image_name` variable, the automation starts the worker node VSI and uses it to create the RHEL or Rocky Linux&reg; custom image based on your specifications, calling two scripts:
 
     * To include the LSF prerequisites in the custom image, the automation calls a `script.sh` script to install the appropriate LSF packages. To view installation logs on the bootstrap node, refer to the `var/log/cloud-init-output.log` file.
     * To include any additional open source packages in the custom image, the automation calls your `customer_script.sh` script with your predefined cusotmizations, after the `script.sh` script.
@@ -152,7 +151,8 @@ The overall flow for creating your custom image by using the custom image builde
     The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and IBM customer number deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
     {: tip}
 
-4. The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the automation creates and validates the image, without publishing it.
+4. The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. 
+  (Optional): If you do not provide a catalog ID, then the automation creates and validates the image, without publishing it.
 
 ### Running the custom image builder
 {: #custom-image-builder-running}
