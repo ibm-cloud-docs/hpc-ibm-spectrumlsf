@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: 
 
@@ -68,7 +68,9 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
 
 To ensure that the logs are successfully flowing to the {{site.data.keyword.logs_full_notm}} instance, test messages are sent through userdata.
 
-The dashboard results in a visual confirmation of logs captured and flow.
+1. Go to cloud logs https://dashboard.us-east.logs.cloud.ibm.com/bf8eb7dd-1a4b-421d-9bde-2861fdc13b9a url.
+2. On the left-hand side, click Explore Logs > Logs.
+3. The dashboard results in a visual confirmation of logs captured and flow.
 
 ![Architecture diagram.](images/verifying_log_flow.png "Verifying the log flow"){: caption="Verifying the log flow" caption-side="bottom"}
 
