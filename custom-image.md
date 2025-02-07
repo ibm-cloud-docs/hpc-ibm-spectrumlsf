@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Creating a custom image for compute nodes
 {: #custom-image}
 
-Custom image builder tool provides a feature to create an pre-optimized image with {{site.data.keyword.spectrum_full_notm}} and required opensource packages for a compute node. If you need to install any additional customised packages/opesource packages/software, you can use the custom image builder tool to create custom private images for your Spectrum LSF deployment. The custom image builder is an automated tool that takes an {{site.data.keyword.cloud_notm}} base image and adds the base packages (for {{site.data.keyword.spectrum_full_notm}}) that includes additional packages and validates the image. In addition, you can access the images through your private custom image for version controlling.
+The custom image builder tool enables the creation of pre-optimized images for compute nodes with IBM Spectrum LSF and essential open-source packages. If additional need to customize or install any third-party packages, use this tool to build private custom images tailored for your Spectrum LSF deployment. This automated solution starts with an IBM Cloud base image (stock image) and installs essential IBM Spectrum LSF components along with any prerequiste packages for the LSF images to work as defined and validates the final image. These custom images can be version-controlled and accessed through your private image catalog, providing flexibility and efficiency for maintaining and updating compute environments.
 {: shortdesc}
 
 ## Features
@@ -151,8 +151,7 @@ The overall flow for creating your custom image by using the custom image builde
     The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and IBM customer number deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
     {: tip}
 
-4. The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. 
-  (Optional): If you do not provide a catalog ID, then the automation creates and validates the image, without publishing it.
+4. (Optional): The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the image is created and validated.
 
 ### Running the custom image builder
 {: #custom-image-builder-running}

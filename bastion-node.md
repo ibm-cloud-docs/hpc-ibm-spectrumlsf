@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-07"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -26,7 +26,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 A bastion node also known as a jump server is a secure entry point designed to provide controlled access to private network resources. It acts as an agent between the public internet and internal systems, allowing users to securely access internal servers without exposing sensitive resources directly to the public web.
 
-The IBM Spectrum LSF solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to the cluster nodes. Customers can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
+The IBM Spectrum LSF solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to the cluster nodes. Users can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
 
 The solution uses an Ubuntu-based operating system for the bastion node. To maintain security compliance and ensure up-to-date features, the automation code is regularly updated to deploy the latest Ubuntu 22.04 version.
 
@@ -42,11 +42,11 @@ It is not required to create a bastion node for every new deployment. If an exis
 ## Default bastion node support
 {: #bastion-node-support}
 
-The LSF solution supports the creation of a bastion node by default for each individual deployment. When a new cluster is deployed, a bastion node (also referred to as a login or management node) is provisioned alongside the worker nodes based on the architecture setup. Customers can securely access these cluster nodes through the bastion node.
+The LSF solution supports the creation of a bastion node by default for each individual deployment. When a new cluster is deployed, a bastion node is provisioned alongside the worker nodes based on the architecture setup. Users can securely access these cluster nodes through the bastion node.
 
 As part of the VPC design, a dedicated subnet is created specifically for the bastion node. Additionally, a dedicated security group is assigned to the bastion node, configured to allow SSH access for secure connectivity to the cluster nodes. Internal automation ensures seamless communication between the bastion node (jump host) and the cluster nodes.
 
-To trigger the creation of a bastion node for a fresh deployment, set the variable “bastion_instance_name” to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
+To trigger the creation of a bastion node for a fresh deployment, set the variable `bastion_instance_name` to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
 
 Newly created bastion nodes are not automatically registered in the DNS domain for name resolution. As a result, access to these nodes can only be performed using their IP addresses.
 {: note}
@@ -56,13 +56,11 @@ Newly created bastion nodes are not automatically registered in the DNS domain f
 
 The solution is designed to accommodate scenarios where an existing bastion node is already configured. This flexibility is particularly useful when:
 
-* A bastion node has already been set up as part of a previous deployment.
+* A bastion node that has already been set up as part of a previous deployment.
 
 * The environment uses LDAP-based authentication.
 
-* Similar use cases requiring centralized secure access points.
-
-For instance, if a Spectrum Scale Storage cluster already exists with an associated bastion node, users can repurpose this bastion node to manage and access the LSF cluster nodes. This provides a single, secure access point for both solutions.
+For instance, if a Spectrum Scale Storage cluster is already deployed and configured. The solution is associated with a bastion node, users can repurpose this bastion node to manage and access the LSF cluster nodes. This provides a single, secure access point for both solutions.
 
 To configure and use an existing bastion node, users must provide the following details:
 
