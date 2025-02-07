@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-31"
+lastupdated: "2025-02-07"
 
 keywords: 
 
@@ -44,6 +44,27 @@ To address this range of characteristics, {{site.data.keyword.cloud}} provides v
 * Memory-intensive configurations that provide 8 - 28 GB memory per core and a network of 2 - 80 Gbps
 
 For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
+
+The {{site.data.keyword.spectrum_full}} solution supports the creation of static compute nodes by leveraging different instance type profiles based on resource requirements. This allows you to tailor the compute resources to meet the specific workload demands.
+For instance, if the solution requires 100 static worker nodes, you can allocate 70 nodes from the `bx3d-176x880` instance type and the remaining 30 from the `cx3d-96x240` instance type. This approach enables a balanced distribution of compute resources, accommodating both high-performance and general-purpose tasks.
+However, when dynamic nodes are created based on the maximum node count, the automation currently selects only the first instance profile from the list to calculate CPU and memory resources for the dynamic node creation.
+
+Configuration example:
+
+```
+hcl
+```
+{: pre}
+
+```
+  worker_node_instance_type = [
+  { count = 70, instance_type = "bx3d-176x880" },
+  { count = 30, instance_type = "cx3d-96x240" }
+  ]
+```
+{: pre}
+
+In this scenario, the automation chooses the first profile `bx3d-176x880` to compute CPU, memory, and other specifications, leading to dynamic nodes being provisioned solely based on this profile, regardless of additional instance type definitions.
 
 For all of the configurations, the range of core count is 2 - 128 per virtual machine. There is a special ultra high memory virtual machine type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core. 
 

@@ -46,13 +46,13 @@ There are two variables to configure the {{site.data.keyword.atracker_short}}:
 
 1. `observability_atracker_enable`
 
-    * Purpose: Configures {{site.data.keyword.atracker_short}} to determine how audit events are routed.
+    * Purpose: Configures {{site.data.keyword.atracker_short}} to determine how audit events routed.
 
     * Usage: While multiple {{site.data.keyword.atracker_short}} can be created, only one is needed to capture all events. If an existing {{site.data.keyword.at_short}} is already integrated with a COS bucket or {{site.data.keyword.logs_full_notm}} instance, set this value to "false" to avoid creating redundant trackers. All events can then be monitored and accessed through the existing tracker.
 
 2. `observability_atracker_target_type`
 
-    * Purpose: Determines where all events can be stored, based on user input.
+    * Purpose: Determines where all events can be stored based on user input.
 
     * Options: cloudlogs or cos
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: 
 
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # IBM Cloud Monitoring
 {: #cloud-monitoring-overview}
 
-IBM Cloud® Monitoring is a cloud-native, and container-intelligence management system that you can include as part of your IBM Cloud architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards.
+IBM Cloud® Monitoring is a cloud-native and container-intelligence management system that is included as part of your IBM Cloud architecture. The cloud monitoring is used to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards.
 
 | Value | Description | Type | Default value | Validation |
 | ----- | ----------- | --------------- | ------------ | ------------ |

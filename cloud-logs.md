@@ -94,7 +94,7 @@ For more detailed logs, run:
 
 `journalctl -u fluent-bit -e`
 
-For IBM Cloud Logs, we support are RHEL8.8 and above.
+For IBM Cloud Logs, we support RHEL8.8 and above.
 {: note}
 
 For more information on {{site.data.keyword.logs_full_notm}}, go to the documentation [here](/docs/cloud-logs?topic=cloud-logs-getting-started).
