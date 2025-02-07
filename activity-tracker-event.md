@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-06"
+lastupdated: "2025-02-07"
 
 keywords: 
 
@@ -90,13 +90,13 @@ Sample Output:
 ```
 OK
 Route      
-Name:     <cluster_prefix>-atracker-route
-ID:      5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
-CRN:      crn:v1:bluemix:public:atracker:global:a/ec1b082b25144a52bb1a269c883d5a00::route:5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
-Version:    0
-Rules:     [[ceada6af-7381-4297-9a9d-ce4b9aac8cb2],[*,global]]
-CreatedAt:   2025-01-29T07:40:42.854Z
-UpdatedAt:   2025-01-29T07:40:42.854Z
+Name:         <cluster_prefix>-atracker-route
+ID:           5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
+CRN:          crn:v1:bluemix:public:atracker:global:a/    ec1b082b25144a52bb1a269c883d5a00::route:5ba1ea49-3b93-4b48-a3e1-17da64ca81f1
+Version:      0
+Rules:        [[ceada6af-7381-4297-9a9d-ce4b9aac8cb2],[*,global]]
+CreatedAt:    2025-01-29T07:40:42.854Z
+UpdatedAt:    2025-01-29T07:40:42.854Z
 API version:  2
 ```
 {: pre}
