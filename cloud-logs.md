@@ -68,7 +68,8 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
 
 To ensure that the logs are successfully flowing to the {{site.data.keyword.logs_full_notm}} instance, test messages are sent through userdata.
 
-1. Go to cloud logs https://dashboard.us-east.logs.cloud.ibm.com/bf8eb7dd-1a4b-421d-9bde-2861fdc13b9a url.
+1. Go to the `cloud_logs_url` in the terraform output.
+  For example: https://dashboard.us-east.logs.cloud.ibm.com/bf8eb7dd-1a4b-421d-9bde-2861fdc13b9a
 2. On the left-hand side, click Explore Logs > Logs.
 3. The dashboard results in a visual confirmation of logs captured and flow.
 
