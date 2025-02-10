@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-07"
+lastupdated: "2025-02-10"
 
 keywords: 
 
@@ -57,6 +57,8 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
 
     If the output contains an empty tenants list, then it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. 
     However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
+    
+    The empty tentants list output looks `{“tenants”:[]}`
 
     You can have only one tenant per region in an account.
     {: note}

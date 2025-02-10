@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-07"
+lastupdated: "2025-02-10"
 
 keywords: 
 
@@ -48,7 +48,19 @@ systemctl status dragent
 ```
 {: pre}
 
-<<add the steps and screenshot>>
+1. Go to the `cloud_monitoring_url` in the terraform output.
+  For example: https://cloud.ibm.com/observe/embedded-view/monitoring/e68481cb-21ff-45bb-90db-cee02cebed3d  
+
+  ![Architecture diagram.](images/cloud_monitoring_dashboard.png "Cloud Monitoring Dashboard"){: caption="Cloud Monitoring Dashboard" caption-side="bottom"}
+
+  Following are the steps to manually access the dashboard:
+  
+1. Go to Observability > Monitoring instances.
+2. On the left-hand side, click Overview and select the name of the metrics instance.
+3. On the right-side, click Dashboard.
+4. The dashboard results in a visual confirmation of logs captured and flow.
+
+  ![Architecture diagram.](images/monitoring_instances.png "Cloud Monitoring instances"){: caption="Cloud Monitoring instances" caption-side="bottom"}
 
 ## Key features
 {: #key-features}
