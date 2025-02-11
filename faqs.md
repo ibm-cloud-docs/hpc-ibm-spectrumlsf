@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-07"
+lastupdated: "2025-02-11"
 
 keywords:
 
@@ -25,7 +25,7 @@ content-type: faq
 # FAQs for Spectrum LSF
 {: #spectrum-lsf-faqs}
 
-This document provides a list of frequently asked question and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
+This document provides a list of frequently asked questions and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
 
 ## What Spectrum LSF packages are included in a cluster deployed with this offering?
 {: #my-faq-packages}
@@ -37,13 +37,13 @@ This document provides a list of frequently asked question and answers about a s
 {: #locations-vpc-resources}
 {: faq}
 
-Available regions and zones for deploying VPC resources, and a mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
+The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## What permissions do you need to create a cluster using the offering?
 {: #permissions-cluster-offering}
 {: faq}
 
-Instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
+The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
 
 ![Granting user permissions - Platform roles](images/platform_roles.png "Granting user permissions - Platform roles"){: caption="Granting user permissions - Platform roles" caption-side="bottom"}
 
@@ -85,7 +85,7 @@ Before deploying a cluster, it is important to ensure that the VPC resource quot
 The maximum number of worker nodes that are supported for the deployment value `worker_node_max_count` is 500 (see [Deployment values](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-deployment-values)). The `worker_node_instance_type` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster. 
 
 This worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
-For example, you could choose 100 instance to be created from `bx2-4x16` and you could choose 10 instance from `mx3d-8x80`. So you would get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
+For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
 
 ## Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
 {: #resource-group-parameters}
@@ -192,7 +192,7 @@ LSF also provides an `lsfstartup` command, which starts all the daemons on all t
 No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
 {: note}
 
-## How do I secure LSF Application Center connections by importing the cacert.pem certificate into a browser?
+## How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?
 {: #secure-application-center-connection}
 {: faq}
 

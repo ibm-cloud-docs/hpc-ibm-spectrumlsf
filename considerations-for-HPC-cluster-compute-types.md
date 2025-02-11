@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-07"
+lastupdated: "2025-02-11"
 
 keywords: 
 
@@ -51,18 +51,18 @@ However, when dynamic nodes are created based on the maximum node count, the aut
 
 Configuration example:
 
-```
-hcl
-```
-{: pre}
+  ```text
+  hcl
+  ```
+  {: codeblock}
 
-```
+  ```text
   worker_node_instance_type = [
   { count = 70, instance_type = "bx3d-176x880" },
   { count = 30, instance_type = "cx3d-96x240" }
   ]
-```
-{: pre}
+  ```
+  {: codeblock}
 
 In this scenario, the automation chooses the first profile `bx3d-176x880` to compute CPU, memory, and other specifications, leading to dynamic nodes being provisioned solely based on this profile, regardless of additional instance type definitions.
 
@@ -97,7 +97,7 @@ IBM Systems and IBM Research work in this industry domain and have successfully 
 ### Weather (WRF Model)
 {: #weather-wrf-model}
 
-{{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual machine configuration that is used for this benchmark is bx2-16x64. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
+{{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual machine configuration that is used for this benchmark is `bx2-16x64`. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
 
 ![Figure 2. EDA-diagram](images/Weather.png "EDA-diagram"){: caption="EDA-diagram" caption-side="bottom"}
 
@@ -114,7 +114,7 @@ On {{site.data.keyword.cloud_notm}}, the benchmarks use two different configurat
 * bx2-8x32
 * bx2-16x64 
 
-As you can see, SNAP results show that bx2-8x32 provides more performance because of higher effective network bandwidth ratio per core; where Quicksilver does well with bx2-16x64 as it has moderate communication requirements and is mostly near-neighbor to track particle motion across the global domain.
+As you can see, SNAP results show that `bx2-8x32` provides more performance because of higher effective network bandwidth ratio per core; where Quicksilver does well with bx2-16x64 as it has moderate communication requirements and is mostly near-neighbor to track particle motion across the global domain.
 
 ![Figure 3. SNAP scaling diagram](images/DoE-Snap-Scaling.png "SNAP scaling diagram"){: caption="SNAP scaling diagram" caption-side="bottom"}
 

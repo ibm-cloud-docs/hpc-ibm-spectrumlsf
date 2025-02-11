@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-11"
 
 keywords: question about _xx_, _messageID_
 
@@ -36,7 +36,7 @@ This document provides the solutions to the common problems encountered when wor
 {: troubleshoot}
 {: support}
 
-Schematics aren't able to clone the public GitHub repository, and you are seeing one of the following error messages:
+Schematics are not able to clone the public GitHub repository, and you are seeing one of the following error messages:
 
 * `Fatal, could not download repo, Failed to clone git repository, authentication required (or the git url is incorrect). Problems found with the Repository. Please Rectify and Retry`
 * `Template error: Failed to clone git repository, authentication required (or the git url is incorrect)`

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-11"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Integrating {{site.data.keyword.scale_full_notm}} with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrating-scale}
 
-After you deploy your {{site.data.keyword.scale_short}} cluster with CES, you deploy your {{site.data.keyword.spectrum_full}} cluster and integrate the {{site.data.keyword.scale_short}} values so that {{site.data.keyword.spectrum_full}} uses {{site.data.keyword.scale_short}} as the shared file storage solution.
+After you deploy your {{site.data.keyword.scale_short}} cluster with CES, deploy your {{site.data.keyword.spectrum_full}} cluster and integrate the {{site.data.keyword.scale_short}} values so that {{site.data.keyword.spectrum_full}} uses {{site.data.keyword.scale_short}} as the shared file storage solution.
 {: shortdesc}
 
 ## Deploying your {{site.data.keyword.scale_short}} cluster
@@ -114,7 +114,7 @@ Path          Delegations Clients       Access_Type Protocols Transport Squash .
 ## Integrating {{site.data.keyword.scale_short}} values for your {{site.data.keyword.spectrum_full_notm}} cluster deployment
 {: #integrate-scale-and-hpc}
 
-After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
+After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
 
 To make sure that the {{site.data.keyword.spectrum_full}} cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.spectrum_full}} cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full}} deployments are integrated:
 
@@ -150,6 +150,8 @@ To make sure that the {{site.data.keyword.spectrum_full}} cluster uses {{site.da
     ]
     ```
     {: codeblock}
+
+3. Provide the DNS custom resolver ID from the IBM Spec storage scale deployment. As we are using the existing VPC for the LSF deployment, it is reqd to provide the DNS resolver ID. If the resolver ID is not provided then the LSF deployment as it tries to create a new resolver ID and attaches to the existing VPC, while the VPC from the storage deployment already has the resolver ID attached.
 
 ### Extending {{site.data.keyword.scale_short}} to a login node and subnet
 {: #integrate-scale-adavanced}

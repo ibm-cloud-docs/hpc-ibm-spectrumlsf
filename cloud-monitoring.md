@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-02-11"
 
 keywords: 
 
@@ -55,8 +55,8 @@ systemctl status dragent
 
   Following are the steps to manually access the dashboard:
   
-1. Go to Observability > Monitoring instances.
-2. On the left-hand side, click Overview and select the name of the metrics instance.
+1. Go to Observability > Monitoring > Instances.
+2. Search the name of the metrics instance.
 3. On the right-side, click Dashboard.
 4. The dashboard results in a visual confirmation of logs captured and flow.
 

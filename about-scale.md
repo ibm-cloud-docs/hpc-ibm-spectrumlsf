@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-20"
+lastupdated: "2025-02-11"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # About {{site.data.keyword.scale_full_notm}} with {{site.data.keyword.spectrum_full_notm}}
 {: #about-scale}
 
-The default shared file storage solution for your {{site.data.keyword.spectrum_full_notm}} cluster is {{site.data.keyword.filestorage_vpc_full}}, which can connect up to 256 hosts per zone per VPC. This limits the maximum number of dynamic compute nodes to 250. Instead, you can use {{site.data.keyword.scale_full}} as your storage solution, which can mount up to 4000 NFS connections per protocol and can be extended to a 32-node protocol cluster. If you use {{site.data.keyword.scale_short}} as your storage solution, you first [set up a {{site.data.keyword.scale_short}} cluster](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global), and then [integrate a list of values from the {{site.data.keyword.scale_short}} deployment with the {{site.data.keyword.spectrum_full_notm}} cluster deployment](/docs/allowlist/hpc-service?topic=hpc-service-integrating-scale).
+The default shared file storage solution for your {{site.data.keyword.spectrum_full_notm}} cluster is {{site.data.keyword.filestorage_vpc_full}}, which can connect up to 256 hosts per zone per VPC. This limits the maximum number of dynamic compute nodes to 250. Instead, you can use {{site.data.keyword.scale_full}} as your storage solution, which can mount up to 4000 NFS connections per protocol and can be extended to a 32-node protocol cluster. If you use {{site.data.keyword.scale_short}} as your storage solution, you first [set up a {{site.data.keyword.scale_short}} cluster](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global), and then [integrate a list of values from the {{site.data.keyword.scale_short}} deployment with the {{site.data.keyword.spectrum_full_notm}} cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale).
 
 {{site.data.keyword.scale_short}} is a clustered file system that provides concurrent access to a single file system or set of file systems from multiple nodes. It enables high-performance access to a common set of data to support a scale-out solution or to provide a high availability platform. {{site.data.keyword.scale_short}} can run on virtualized instances that provide common data access in environments, and uses logical partitioning or other hypervisors. Multiple {{site.data.keyword.scale_short}} clusters can share data within a location or across a wide area network (WAN) connections.
 

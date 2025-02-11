@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-11"
 
 keywords:
 
@@ -40,7 +40,7 @@ For LSF Application Center high availability, you require a certificate for TLS 
 
 3. [Import the certificate](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui) to Secrets Manager.
 
-4. Take note of the CRN (cloud resource name) value for the certificate, as you need to provide it during {{site.data.keyword.cloud}} HPC cluster deployment as the `certificate_instance` deployment input value. The VPC load balancer front-end listeners use the CRN to load the certificate.
+4. Take note of the Cloud Resource Name (CRN) value for the certificate, as you need to provide it during {{site.data.keyword.cloud}} HPC cluster deployment as the `certificate_instance` deployment input value. The VPC load balancer front-end listeners use the CRN to load the certificate.
 
 5. Provide IAM service to service authorization between the VPC load balancer resource type and the Secrets Manager user instance. This way, the VPC load balancer for your {{site.data.keyword.cloud_notm}} HPC cluster instance can retrieve the TLS certificate and related private key in a secure and auditable way. For example:
     1. In the {{site.data.keyword.cloud_notm}} console, select **Manage > Access (IAM) > Authorizations** to display the **Grant a service authorization** page.
