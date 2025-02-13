@@ -35,9 +35,11 @@ The solution provides flexibility by supporting both Storage scale NFS mount poi
 1. VPC File Storage Limitations:
 * The VPC file storage supports up to 250 dynamic nodes.
 * This limitation is by design and cannot be exceeded.
+
 2. Default storage scale NFS Mount Point
 * By default, a custom NFS mount point is provided with the path "/mnt/scale/tools".
 * Users must pass additional NFS mount points using the nfs_share parameter.
+
 3. Sample Mount Configuration:
 ```text
 [ { mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/vpcstorage/data", size = 100, iops = 6000 }, { mount_path = "/mnt/scale/tools", nfs_share = "" ]
@@ -124,31 +126,32 @@ After you deploy and verify your Storage Scale cluster, you deploy your [IBM Spe
 The LSF cluster setup requires two distinct subnets:
 
 1. Bastion/Login Subnet:
-    * This subnet is used for deploying the login and bastion nodes.
+* This subnet is used for deploying the login and bastion nodes.
 2. Cluster Management/Compute Subnet:
-    * This subnet is for deploying the cluster management and compute nodes.
+* This subnet is for deploying the cluster management and compute nodes.
 
 ### Guidelines for Subnet Configuration
 {: #integrate-guidelines}
 
 1. Creating the Management/Compute Nodes:
-    * Use the `cluster_subnet_ids` parameter to specify the compute subnet.
-    * This subnet should already exist in the storage scale cluster.
-    * The subnet name typically follows the pattern `<cluster_prefix>-comp-pvt-1`.
+* Use the `cluster_subnet_ids` parameter to specify the compute subnet.
+* This subnet should already exist in the storage scale cluster.
+* The subnet name typically follows the pattern `<cluster_prefix>-comp-pvt-1`.
 
 2. Creating the Login Node:
-    * Manually create a new subnet in the storage cluster and provide its ID under `login_subnet_id`.
-    * This subnet is used to deploy both the login and bastion nodes.
-    * The solution also supports reusing an existing bastion node, if available.
+* Manually create a new subnet in the storage cluster and provide its ID under `login_subnet_id`.
+* This subnet is used to deploy both the login and bastion nodes.
+* The solution also supports reusing an existing bastion node, if available.
 
 ### Important Considerations
 {: #integrate-considerations}
 
-1. When a storage scale cluster is created, two additional subnets are automatically generated:
-    * proto-pvt-1
-    * stg-pvt-1
-2. Security note:
-    * Avoid using these subnets for the login and bastion nodes, doing so grants direct access to storage, which conflicts with the secure access design principles.
+When a storage scale cluster is created, two additional subnets are automatically generated:
+* proto-pvt-1
+* stg-pvt-1
+
+Avoid using these subnets for login and bastion nodes, doing so grants direct access to storage, which conflicts with the secure access design principles.
+{: important}
 
 ### NFS Mount Points for Login Node
 {: #nfs-login-node}
