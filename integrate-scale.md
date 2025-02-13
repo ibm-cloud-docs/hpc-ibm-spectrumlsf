@@ -32,26 +32,31 @@ After you deploy your {{site.data.keyword.scale_short}} cluster with CES, deploy
 
 The solution provides flexibility by supporting both Storage scale NFS mount points and VPC file storage for LSF clusters. Below are the key considerations and guidelines:
 
-1. VPC File Storage Limitations:
+1. VPC File Storage limitations:
+
 * The VPC file storage supports up to 250 dynamic nodes.
 * This limitation is by design and cannot be exceeded.
 
-2. Default storage scale NFS Mount Point
-* By default, a custom NFS mount point is provided with the path "/mnt/scale/tools".
-* Users must pass additional NFS mount points using the nfs_share parameter.
+2. Default storage scale NFS mount point:
 
-3. Sample Mount Configuration:
+* By default, a custom NFS mount point is provided with the path `/mnt/scale/tools`.
+* Users must pass additional NFS mount points using the `nfs_share` parameter.
+
+3. Sample mount configuration
+
 ```text
 [ { mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/vpcstorage/data", size = 100, iops = 6000 }, { mount_path = "/mnt/scale/tools", nfs_share = "" ]
 ```
 {: codeblock}
 
-4. Scaling Beyond 250 Nodes:
-* For environments requiring more than 250 dynamic nodes, it is recommended to create a new NFS share from the storage cluster.
-* Provide the path as input in the following format:hcl
+4. Scaling beyond 250 nodes:
+
+* Environments that require more than 250 dynamic nodes, it is recommended to create a new NFS share from the storage cluster.
+* Provide the path as input in the following format:
+`hcl`
 `{ mount_path = "/mnt/scale/lsf", nfs_share = "" }`
 
-5. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.spectrum_full}} cluster. The NFS mount can be an {{site.data.keyword.spectrum_full}} cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.spectrum_full}} cluster.
+5. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount point that is needed for the {{site.data.keyword.spectrum_full_notm}} cluster. The NFS mount point can be an {{site.data.keyword.spectrum_short}} cluster subnet used for management and dynamic compute nodes. Make a note of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values as they are required when deploying your {{site.data.keyword.spectrum_full_notm}} cluster.
 
 ### Verifying the {{site.data.keyword.scale_short}} cluster
 {: #scale-verify}
@@ -125,20 +130,23 @@ After you deploy and verify your Storage Scale cluster, you deploy your [IBM Spe
 
 The LSF cluster setup requires two distinct subnets:
 
-1. Bastion/Login Subnet:
-* This subnet is used for deploying the login and bastion nodes.
-2. Cluster Management/Compute Subnet:
-* This subnet is for deploying the cluster management and compute nodes.
+1. Bastion and Login subnet:
+* This subnet is used for deploying the bastion and login nodes.
+
+2. Cluster Management and Compute subnet:
+* This subnet is used for deploying the cluster management and compute nodes.
 
 ### Guidelines for Subnet Configuration
 {: #integrate-guidelines}
 
-1. Creating the Management/Compute Nodes:
+1. Creating the Management and Compute nodes:
+
 * Use the `cluster_subnet_ids` parameter to specify the compute subnet.
-* This subnet should already exist in the storage scale cluster.
+* This subnet should exist already in the storage scale cluster.
 * The subnet name typically follows the pattern `<cluster_prefix>-comp-pvt-1`.
 
 2. Creating the Login Node:
+
 * Manually create a new subnet in the storage cluster and provide its ID under `login_subnet_id`.
 * This subnet is used to deploy both the login and bastion nodes.
 * The solution also supports reusing an existing bastion node, if available.
