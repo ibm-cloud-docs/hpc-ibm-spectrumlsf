@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-13"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -32,24 +32,24 @@ After you deploy your {{site.data.keyword.scale_short}} cluster with CES, deploy
 
 The solution provides flexibility by supporting both Storage scale NFS mount points and VPC file storage for LSF clusters. Below are the key considerations and guidelines:
 
-  1. VPC File Storage Limitations:
-    * The VPC file storage supports up to 250 dynamic nodes.
-    * This limitation is by design and cannot be exceeded.
-  2. Default storage scale NFS Mount Point
-    * By default, a custom NFS mount point is provided with the path "/mnt/scale/tools".
-    * Users must pass additional NFS mount points using the nfs_share parameter.
-  3. Sample Mount Configuration:
-    ```text
-    [ { mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/vpcstorage/data", size = 100, iops = 6000 }, { mount_path = "/mnt/scale/tools", nfs_share = "" ]
-    ```
-    {: codeblock}
+1. VPC File Storage Limitations:
+  * The VPC file storage supports up to 250 dynamic nodes.
+  * This limitation is by design and cannot be exceeded.
+2. Default storage scale NFS Mount Point
+  * By default, a custom NFS mount point is provided with the path "/mnt/scale/tools".
+  * Users must pass additional NFS mount points using the nfs_share parameter.
+3. Sample Mount Configuration:
+  ```text
+  [ { mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/vpcstorage/data", size = 100, iops = 6000 }, { mount_path = "/mnt/scale/tools", nfs_share = "" ]
+  ```
+  {: codeblock}
 
-  4. Scaling Beyond 250 Nodes:
-    * For environments requiring more than 250 dynamic nodes, it is recommended to create a new NFS share from the storage cluster.
-    * Provide the path as input in the following format:hcl
-    `{ mount_path = "/mnt/scale/lsf", nfs_share = "" }`
+4. Scaling Beyond 250 Nodes:
+  * For environments requiring more than 250 dynamic nodes, it is recommended to create a new NFS share from the storage cluster.
+  * Provide the path as input in the following format:hcl
+  `{ mount_path = "/mnt/scale/lsf", nfs_share = "" }`
 
-  5. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.spectrum_full}} cluster. The NFS mount can be an {{site.data.keyword.spectrum_full}} cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.spectrum_full}} cluster.
+5. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.spectrum_full}} cluster. The NFS mount can be an {{site.data.keyword.spectrum_full}} cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.spectrum_full}} cluster.
 
 ### Verifying the {{site.data.keyword.scale_short}} cluster
 {: #scale-verify}
