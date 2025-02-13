@@ -167,7 +167,7 @@ Avoid using these subnets for login and bastion nodes, doing so grants direct ac
 If a new subnet is created for the login node, NFS mount points can be added to share scale storage as required by the login node.
 This setup ensures a secure, scalable, and properly configured environment for the LSF cluster.
 
-To make sure that the {{site.data.keyword.spectrum_full}} cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.spectrum_full}} cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full}} deployments are integrated:
+To make sure that the {{site.data.keyword.spectrum_full_notm}} cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.spectrum_short}} cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_short}} deployments are integrated:
 
 1. Set the `cluster_subnet_id` and `vpc_cluster_private_cidr_blocks` deployment value as the same values as the `vpc_compute_subnet` and `vpc_compute_cluster_private-subnets_cidr_block` values for your {{site.data.keyword.scale_short}} deployment.
 
