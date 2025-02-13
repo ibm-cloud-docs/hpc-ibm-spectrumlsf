@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-13"
 
 keywords: question about _xx_, _messageID_
 
@@ -31,7 +31,7 @@ content-type: troubleshoot
 
 This document provides the solutions to the common problems encountered when working on {{site.data.keyword.spectrum_full_notm}}.
 
-## IBM Cloud Schematics unable to clone the public GitHub repo
+## Why is IBM Cloud Schematics not able to clone the public GitHub repo?
 {: #troubleshoot-topic-2}
 {: troubleshoot}
 {: support}
@@ -48,7 +48,7 @@ You did not provide the correct GitHub URL, or you provided a GitHub token, whic
 Do not provide a GitHub token, and check to see whether the GitHub token was provided in the `github_token` parameter while creating a workspace by using the public repo.
 {: tsResolve}
 
-## IBM Cloud Schematics unable to create a workspace
+## Why is IBM Cloud Schematics not able to create a workspace?
 {: #troubleshoot-topic-3}
 {: troubleshoot}
 {: support}
@@ -62,7 +62,7 @@ You do not have the required access to create a workspace in any resource groups
 Contact your account administrator and get assigned with the manager role on the Schematics service in at least one resource group.
 {: tsResolve}
 
-## IBM Cloud Schematics unable to provision the cluster and fails with an authorization error
+## Why is IBM Cloud Schematics not able to provision the cluster and fails with an authorization error?
 {: #troubleshoot-topic-5}
 {: troubleshoot}
 {: support}
@@ -76,7 +76,7 @@ You don't have the required access to get any VPC resources provisioned.
 Contact your account administrator and get all the required accesses. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 {: tsResolve}
 
-## IBM Cloud Schematics unable to provision the cluster and fails with an error that the provided name is not unique
+## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique? 
 {: #troubleshoot-topic-6}
 {: troubleshoot}
 {: support}
@@ -101,7 +101,7 @@ VPC resource names must be unique. If a resource exists with the same name, you 
 Deprovision the existing resource and try again.
 {: tsResolve}
 
-## IBM Cloud Schematics unable to provision the cluster while using a custom image
+## Why is IBM Cloud Schematics not able to provision the cluster while using a custom image?
 {: #troubleshoot-topic-7}
 {: troubleshoot}
 {: support}
@@ -118,7 +118,7 @@ The custom image that is used for one of the virtual server instances is not pre
 If you are using a custom image for any of your virtual server instances, ensure that the custom image is available in the target region and zone and is accessible by the account and API key that is used to provision the cluster.
 {: tsResolve}
 
-## Error occurs when applying a change to the workspace
+## Why the error occur when applying a change to the workspace?
 {: #troubleshoot-topic-9}
 {: troubleshoot}
 {: support}
@@ -132,7 +132,7 @@ After reconfiguring the volume profile, capacity, or IOPS, your workspace needs 
 You need to destroy your existing resources and try applying the change again. Your data on the storage node is deleted if you destroy your existing resources.
 {: tsResolve}
 
-## Cluster creation fails with SSH issues
+## Why does cluster creation fail with SSH issues?
 {: #troubleshoot-topic-10}
 {: troubleshoot}
 {: support}
@@ -152,7 +152,7 @@ To fix the issue, you can:
 3. If there are no issues with the infrastructure, report this issue to the automation team who can investigate further.
 {: tsResolve}
 
-## Resource errors occur due to authentication or timeout issues
+## Why do resource errors occur due to authentication or timeout issues?
 {: #troubleshoot-topic-11}
 {: troubleshoot}
 {: support}
@@ -169,7 +169,7 @@ While {{site.data.keyword.bpshort}} deploys the infrastructure resources, it aut
 To fix either issue (resource failing due to authentication error or the timeout error), destroy the resources from the {{site.data.keyword.bpshort}} workspace and retry deploying the resources. 
 {: tsResolve}
 
-## Error occurs with the provided `ssh_key_name` value
+## Why does the error occur with the provided `ssh_key_name` value?
 {: #troubleshoot-topic-13}
 {: troubleshoot}
 {: support}
@@ -185,7 +185,7 @@ Terraform might not find the given SSH key names that are provided by you.
 3. If you are using multiple SSH keys, check whether a comma is used as a delimiter between the SSH keys and that there is no white space added before or after the SSH key.
 {: tsResolve}
 
-## `remote-exec provisioner error` occur during cluster deployment
+## Why does `remote-exec provisioner error` occur during cluster deployment?
 {: #troubleshoot-topic-14}
 {: troubleshoot}
 {: support}
@@ -207,7 +207,7 @@ When Schematics deploys the infrastructure resources, there is automatic validat
 Sometimes the LSF management nodes take time to retrieve LIM status, so wait a while before checking. However, if the issue persists, destroy the cluster from Schematics and reapply.
 {: tsResolve}
 
-## Error when using the {{site.data.keyword.cloud}} Secrets Manager during cluster deployment
+## Why do you see an error when using the {{site.data.keyword.cloud}} Secrets Manager during cluster deployment?
 {: #troubleshoot-topic-15}
 {: troubleshoot}
 {: support}
@@ -227,7 +227,7 @@ There is a known issue with {{site.data.keyword.cloud}} projects when reading [*
 Change all user credential type secrets to [**arbitrary**](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui) type secrets in Secret Manager, and retry your deployment.
 {: tsResolve}
 
-## The LDAP user not found error occurs
+## Why does the LDAP user not found error occur?
 {: #troubleshoot-topic-16}
 {: troubleshoot}
 {: support}
@@ -248,7 +248,7 @@ The error occurs because the specified LDAP user (`lsfuser05` in this case) is n
 [Verify that the user exists](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user) by using the `ldapsearch` command. If the user does not exist, [create the user](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user).
 {: tsResolve}
 
-## The LDAP user authentication fails
+## Why does the LDAP user authentication fail?
 {: #troubleshoot-topic-17}
 {: troubleshoot}
 {: support}
@@ -290,7 +290,7 @@ Reset the LDAP password:
       ```
      {: codeblock}
 
-## The ssh connection not established by using host shortnames
+## Why the ssh connection not established by using host shortnames?
 {: #troubleshoot-topic-18}
 {: troubleshoot}
 {: support}

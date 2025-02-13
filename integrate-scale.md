@@ -30,33 +30,24 @@ After you deploy your {{site.data.keyword.scale_short}} cluster with CES, deploy
 ## Deploying your {{site.data.keyword.scale_short}} cluster
 {: #scale-tile}
 
-The solution provides flexibility by supporting both Storage scale NFS mount points and VPC file storage for LSF clusters. Below are the key considerations and guidelines:
+Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) to create a workspace, generate a plan, and then apply the plan by using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
 
-1. VPC File Storage limitations:
+When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
+* Select to use product version 2.3.2 or later.
+* [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
+    1. Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+    2. Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 
-* The VPC file storage supports up to 250 dynamic nodes.
-* This limitation is by design and cannot be exceeded.
+       You can also set the quota to control the storage capacity on individual NFS shared by updating the `size` attribute of the `fileshare` value. No quota is set if the size is set to **0**.
 
-2. Default storage scale NFS mount point:
+        To integrate {{site.data.keyword.scale_short}} with your {{site.data.keyword.spectrum_full}} cluster, create a separate file set to share LSF configurations within the {{site.data.keyword.spectrum_full}} cluster. By default, the name of the `mount_path` value is **/mnt/scale/tools**. Include another entry for the **lsf** file set. For example:
 
-* By default, a custom NFS mount point is provided with the path `/mnt/scale/tools`.
-* Users must pass additional NFS mount points using the `nfs_share` parameter.
+        ```text
+        [{ mount_path = "/mnt/scale/lsf", size = 0 }, { mount_path = "/mnt/scale/tools", size = 0 }, { mount_path = "/mnt/scale/data", size = 0 }]
+        ```
+        {: codeblock}
 
-3. Sample mount configuration
-
-```text
-[ { mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/vpcstorage/data", size = 100, iops = 6000 }, { mount_path = "/mnt/scale/tools", nfs_share = "" ]
-```
-{: codeblock}
-
-4. Scaling beyond 250 nodes:
-
-* Environments that require more than 250 dynamic nodes, it is recommended to create a new NFS share from the storage cluster.
-* Provide the path as input in the following format:
-`hcl`
-`{ mount_path = "/mnt/scale/lsf", nfs_share = "" }`
-
-5. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount point that is needed for the {{site.data.keyword.spectrum_full_notm}} cluster. The NFS mount point can be an {{site.data.keyword.spectrum_short}} cluster subnet used for management and dynamic compute nodes. Make a note of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values as they are required when deploying your {{site.data.keyword.spectrum_full_notm}} cluster.
+    3. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.spectrum_full}} cluster. The NFS mount can be an {{site.data.keyword.spectrum_full}} cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.spectrum_full}} cluster.
 
 ### Verifying the {{site.data.keyword.scale_short}} cluster
 {: #scale-verify}
@@ -123,49 +114,7 @@ Path          Delegations Clients       Access_Type Protocols Transport Squash .
 ## Integrating {{site.data.keyword.scale_short}} values for your {{site.data.keyword.spectrum_full_notm}} cluster deployment
 {: #integrate-scale-and-hpc}
 
-After you deploy and verify your Storage Scale cluster, you deploy your [IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
-
-### LSF Cluster Subnet Requirements
-{: #integrate-lsf-cluster}
-
-The LSF cluster setup requires two distinct subnets:
-
-1. Bastion and Login subnet:
-* This subnet is used for deploying the bastion and login nodes.
-
-2. Cluster Management and Compute subnet:
-* This subnet is used for deploying the cluster management and compute nodes.
-
-### Guidelines for Subnet Configuration
-{: #integrate-guidelines}
-
-1. Creating the Management and Compute nodes:
-
-* Use the `cluster_subnet_ids` parameter to specify the compute subnet.
-* This subnet should exist already in the storage scale cluster.
-* The subnet name typically follows the pattern `<cluster_prefix>-comp-pvt-1`.
-
-2. Creating the Login Node:
-
-* Manually create a new subnet in the storage cluster and provide its ID under `login_subnet_id`.
-* This subnet is used to deploy both the login and bastion nodes.
-* The solution also supports reusing an existing bastion node, if available.
-
-### Important Considerations
-{: #integrate-considerations}
-
-When a storage scale cluster is created, two additional subnets are automatically generated:
-* proto-pvt-1
-* stg-pvt-1
-
-Avoid using these subnets for login and bastion nodes, doing so grants direct access to storage, which conflicts with the secure access design principles.
-{: important}
-
-### NFS Mount Points for Login Node
-{: #nfs-login-node}
-
-If a new subnet is created for the login node, NFS mount points can be added to share scale storage as required by the login node.
-This setup ensures a secure, scalable, and properly configured environment for the LSF cluster.
+After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
 
 To make sure that the {{site.data.keyword.spectrum_full_notm}} cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.spectrum_short}} cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_short}} deployments are integrated:
 
@@ -202,7 +151,7 @@ To make sure that the {{site.data.keyword.spectrum_full_notm}} cluster uses {{si
     ```
     {: codeblock}
 
-3. Provide the DNS custom resolver ID from the IBM Spectrum Storage Scale deployment. As you are using the existing VPC for the LSF deployment, it is required to provide the DNS resolver ID. If the resolver ID is not provided, then the LSF deployment tries to create a new resolver ID and attaches to the existing VPC, while the VPC from the storage deployment already has the resolver ID attached.
+3. Provide the DNS custom resolver ID from the IBM Spec storage scale deployment. As we are using the existing VPC for the LSF deployment, it is reqd to provide the DNS resolver ID. If the resolver ID is not provided then the LSF deployment as it tries to create a new resolver ID and attaches to the existing VPC, while the VPC from the storage deployment already has the resolver ID attached.
 
 ### Extending {{site.data.keyword.scale_short}} to a login node and subnet
 {: #integrate-scale-adavanced}
