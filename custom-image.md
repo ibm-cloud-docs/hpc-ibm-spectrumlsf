@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-02-13"
 
 keywords:
 
@@ -234,6 +234,6 @@ ibmcloud catalog offering search  --catalog <private_catalog_name> --offering <p
 ```
 {: codeblock}
 
-The command output shows the CRN value for your product version. For deails about this command, see the [{{site.data.keyword.cloud_notm}} CLI](docs/account?topic=account-manage-catalogs-plugin&interface=ui#search-catalog-offering-search).
+The command output shows the CRN value for your product version. For details about this command, see the [{{site.data.keyword.cloud_notm}} CLI](docs/account?topic=account-manage-catalogs-plugin&interface=ui#search-catalog-offering-search).
 
 After you determine the CRN for your custom image, use it for the [{{site.data.keyword.spectrum_full_notm}} cluster `compute_image_name` deployment input value](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
