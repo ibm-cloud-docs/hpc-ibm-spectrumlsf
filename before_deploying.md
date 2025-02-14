@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-14"
 
 keywords: 
 
@@ -103,13 +103,13 @@ Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more infor
 
 Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
-## Choose between IBM-managed or customer-managed encryption
+## Choose between IBM-managed or user-managed encryption
 {: #encryption}
 {: step}
 
-By default, VPC volumes and file shares are encrypted with IBM-managed encryption. However, you can opt for customer-managed encryption per your security requirements. Customer-managed encryption uses your root key, which gives you complete control over your data. You can provision or import existing encrypted keys by using {{site.data.keyword.keymanagementservicefull_notm}}.
+By default, VPC volumes and file shares are encrypted with IBM-managed encryption. However, you can opt for user-managed encryption per your security requirements. Customer-managed encryption uses your root key, which gives you complete control over your data. You can provision or import existing encrypted keys by using {{site.data.keyword.keymanagementservicefull_notm}}.
 
-If you decide to use customer-managed encryption, complete the following steps before you deploy your {{site.data.keyword.spectrum_full}} architecture:
+If you decide to use user-managed encryption, complete the following steps before you deploy your {{site.data.keyword.spectrum_full}} architecture:
 
 1. [Provision an instance of Key Protect](/docs/key-protect?topic=key-protect-provision#provision-gui).
 2. [Create or import key](/docs/key-protect?topic=key-protect-getting-started-tutorial#get-started-keys).

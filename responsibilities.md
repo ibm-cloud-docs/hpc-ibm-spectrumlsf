@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-31"
+lastupdated: "2025-02-14"
 
 keywords:
 
@@ -27,13 +27,13 @@ Learn about the management responsibilities and terms and conditions that you ha
 {: shortdesc}
 
 - For more information about the responsibilities for you and for {{site.data.keyword.IBM}} when you use a deployable architecture, see [Understanding your responsibilities when you use deployable architectures](/docs/secure-enterprise?topic=secure-enterprise-responsibilities-deployable-architectures).
-- For a high-level view of the service types in {{site.data.keyword.cloud}} and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for using {{site.data.keyword.cloud}} products](/docs/overview?topic=overview-shared-responsibilities).
+- For a high-level view of the service types in {{site.data.keyword.cloud}} and the breakdown of responsibilities between the user and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for using {{site.data.keyword.cloud}} products](/docs/overview?topic=overview-shared-responsibilities).
 - For the overall terms of use, see [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
 
 ## Overview of shared responsibilities
 {: #overview-by-shared-resource}
 
-{{site.data.keyword.spectrum_full_notm}} is a product that is deployed to customer resources in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview?topic=overview-shared-responsibilities). Start by reviewing the following table of who is responsible for particular cloud resources for {{site.data.keyword.spectrum_full_notm}}. Next, view more granular tasks for shared responsibilities in the proceeding sections.
+{{site.data.keyword.spectrum_full_notm}} is a product that is deployed to user resources in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview?topic=overview-shared-responsibilities). Start by reviewing the following table of who is responsible for particular cloud resources for {{site.data.keyword.spectrum_full_notm}}. Next, view more granular tasks for shared responsibilities in the proceeding sections.
 
 If you use other {{site.data.keyword.cloud_notm}} products such as {{site.data.keyword.cos_short}}, responsibilities that are marked as yours in the following table, such as disaster recovery for Data, might be {{site.data.keyword.IBM_notm}}'s or shared. Consult those products' documentation for your responsibilities.
 {: note}

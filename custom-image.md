@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-14"
 
 keywords:
 
@@ -148,7 +148,7 @@ The overall flow for creating your custom image by using the custom image builde
 
 3. After the worker node VSI creates the image, the automation helps ensure that the image is set to an available state. The automation then initiates {{site.data.keyword.spectrum_full}} deployment by using the new image to validate the deployment process, helping ensure that the new image is correct and can deploy successfully.
 
-    The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and IBM customer number deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
+    The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and IBM user number deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
     {: tip}
 
 4. (Optional): The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the image is created and validated.

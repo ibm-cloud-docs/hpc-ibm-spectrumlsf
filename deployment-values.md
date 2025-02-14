@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-14"
 
 keywords: 
 
@@ -56,7 +56,7 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 | `hyperthreading_enabled` | Setting this to true will enable hyper-threading in the compute nodes of the cluster (default). Otherwise, hyper-threading will be disabled. | No | true |
 | `ibmcloud_api_key` | IBM Cloud API key for the IBM Cloud account where the IBM Cloud HPC cluster needs to be deployed. For more information on how to create an API key, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey). | Yes | None |
 | `ibm_customer_number` | Comma-separated list of one or more IBM Customer Numbers (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn). | No | "" |
-| `key_management` | Set the value as key_protect to enable customer-managed encryption for boot volume and file share. If the key_management is set as null, IBM Cloud resources are will be will be always be encrypted through provider managed. | No | "key_protect" |
+| `key_management` | Set the value as key_protect to enable user-managed encryption for boot volume and file share. If the key_management is set as null, IBM Cloud resources are will be will be always be encrypted through provider managed. | No | "key_protect" |
 | `kms_instance_name` | Provide the name of the existing Key Protect instance associated with the Key Management Service. Note: To use existing kms_instance_name set key_management as key_protect. The name can be found under the details of the KMS, see [View key-protect ID](https://cloud.ibm.com/docs/key-protect?topic=key-protect-retrieve-instance-ID&interface=ui). | No | "" |
 | `kms_key_name` | Provide the existing kms key name that you want to use for the IBM Cloud HPC cluster. Note: kms_key_name is considered only if key_management value is set as key_protect.(for example kms_key_name: my-encryption-key). | No | "" |
 | `login_subnet_id` | Provide the list of existing subnet ID under the existing VPC, where the login/bastion server is provisioned. One subnet ID is required as an input value for the creation of login node and bastion in the same zone as the management nodes. Note: Provide a different subnet ID for login_subnet_id, do not overlap or provide the same subnet ID that was already provided for cluster_subnet_ids. | No | "" |

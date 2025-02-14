@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2025-01-10"
+lastupdated: "2025-02-14"
 
 keywords:
 
@@ -25,7 +25,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 The [{{site.data.keyword.keymanagementservicefull}} ({{site.data.keyword.keymanagementservicelong_notm}})](/docs/key-protect) service helps you provision and store encrypted keys for applications across {{site.data.keyword.cloud_notm}} services, so you can see and manage data encryption and the entire key lifecycle from one central location.
 
-With customer-managed encryption, you can bring your own custom root key (CRK) to the cloud or have a key management service (KMS) generate a key for you. You use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region.
+With user-managed encryption, you can bring your own custom root key (CRK) to the cloud or have a key management service (KMS) generate a key for you. You use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region.
 {: shortdesc}
 
 ## {{site.data.keyword.keymanagementservicelong_notm}} instances for your IBM Spectrum LSF cluster
