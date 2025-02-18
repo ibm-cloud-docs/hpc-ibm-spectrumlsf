@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -50,8 +50,6 @@ If you use other {{site.data.keyword.cloud_notm}} products such as {{site.data.k
 | Compute nodes | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 | Virtual storage | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 | Virtual network | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
-
-{: row-headers}
 {: caption="Responsibilities by resource" caption-side="bottom"}
 
 Review the following sections for the specific responsibilities for you and for {{site.data.keyword.IBM_notm}} when you use the {{site.data.keyword.spectrum_full_notm}} deployable architecture.
