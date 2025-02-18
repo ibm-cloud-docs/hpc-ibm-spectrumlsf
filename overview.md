@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-02-18"
 
 keywords: 
 
@@ -39,7 +39,7 @@ The offering supports the bring-your-own-license (BYOL) model for [{{site.data.k
 
 The {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, and CLI.
 
-{{site.data.keyword.spectrum_full}} also offers the [LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0){: external}, which provides a flexible, easy-to-use interface for cluster users and administrators. It is available as an add-on module to IBM Spectrum LSF, the LSF Application Center enables users to interact with intuitive, self-documenting, standardized interfaces. You can access the LSF Application Center through the GUI, and you can also access the API calls with [Python](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-pacclient&interface=ui) and [`curl`](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-curl&interface=ui).
+{{site.data.keyword.spectrum_full}} also offers the [LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0){: external}, which provides a flexible, easy-to-use interface for cluster users and administrators. It is available as an add-on module to IBM Spectrum LSF, the LSF Application Center enables users to interact with intuitive, self-documenting, standardized interfaces. You can access the LSF Application Center through the GUI, and you can also access the API calls with [Python](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-pacclient&interface=ui) and [`curl`](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-access-rest-api-calls-curl&interface=ui).
 
 The LSF cluster is configured not only with the Application Center feature but also with the Application Center High Availability (HA) functionality. In the event of a failover, the PAC feature remains operational, ensuring that users can still access and interact with the GUI. Jobs continue to run as long as at least one LSF management host is available. The cluster deploys GUI services across three GUI servers, with the database hosted on one of these GUI hosts.
 

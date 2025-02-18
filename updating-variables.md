@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-18"
 
 keywords: 
 
@@ -26,7 +26,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 1. To update variables by using the {{site.data.keyword.bplong}} Python APIs, create two Python files, and provide a name of your choice for those files, for example, `schematics_variables_update.py` and `schematics_env_class.py`.
 2. Copy and paste the `schematics_variables_update.py` and `schematics_env_class.py` Python example code requests to the respective Python files.
-3. Copy and paste the [`config.json` template file](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-update-variables&interface=api#template-file) to a JSON file, for example `config.json`.
+3. Copy and paste the [`config.json` template file](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-update-variables&interface=api#template-file) to a JSON file, for example `config.json`.
 4. Change the following parameters as part of the request:
   * Provide the `workspace ID w_id` generated in both the following functions: `schematic_obj.get_workspace(w_id="<w_id>)` and `schematic_obj.update_variables(w_id="<wi_id>")`.
 5. Make sure to update the required parameters, such as `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone` in the `config.json` file.

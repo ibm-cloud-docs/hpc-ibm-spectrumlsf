@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-02-18"
 
 keywords: 
 
@@ -16,7 +16,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:note .note}
+{: note .note}
 {:important: .important}
 
 # Adding compute profile types for auto scaling

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-18"
 
 keywords: 
 
@@ -166,9 +166,6 @@ For example, you could choose 100 instance to be created from `bx2-4x16` and you
 {: #getting-started-next-steps}
 {: step}
 
-After you gather the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster. The {{site.data.keyword.spectrum_short}} cluster can be deployed on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} catalog, {{site.data.keyword.bpshort}} CLI, or the {{site.data.keyword.bpshort}} APIs. If you want to deploy your cluster by using the CLI or API, review the prerequisites for your interface of choice:
-
-* [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-setting-up-cli)
-* [Setting up the {{site.data.keyword.bplong_notm}} API](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-setting-up-api)
+After you gather the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster.
 
 After you create and gathered your information and reviewed any additional prerequisites for your interface of choice, you are ready to begin [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-18"
 
 keywords: 
 
@@ -80,7 +80,7 @@ By setting the `enable_dedicated_host` value to true, a dedicated host is deploy
 ## Before you begin
 {: #before-you-begin}
 
-Before you begin, make sure to complete the steps from [Before you begin deploying](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui) topic.
+Before you begin, make sure to complete the steps from [Before you begin deploying](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial) topic.
 
 ## Configuring dedicated host deployment values
 {: #config-dedicated-hosts-deploy-values}

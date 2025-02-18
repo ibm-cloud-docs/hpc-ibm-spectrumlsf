@@ -2,7 +2,7 @@
 
 copyright: 
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-18"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -42,7 +42,7 @@ The LSF cluster consists of a bastion, lsf login client node, 1 - 10 LSF managem
 
 * The worker node can be a static resource. In this case, its lifecycle is managed by Schematics. You can request some static worker nodes, and these workers remain available in the LSF cluster until a Schematics-destroy action is performed. The LSF resource connector function creates extra workers when there is not enough capacity to run jobs and destroys workers when the demands decrease. The lifecycle of these dynamic workers is managed by the LSF resource connector. Wait until these dynamic resources are returned to the cloud before you destroy the entire VPC cluster through Schematics.
 
-* The {{site.data.keyword.cloud_notm}} File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs&interface=ui#share).
+* The {{site.data.keyword.cloud_notm}} File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs&interface=ui#share).
 
 The HPC cluster solution provides a base custom image, which includes the LSF installation. You can still create customizable custom image with the installation of the required packages. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). You can then specify the custom image that is created in the IBM Spectrum LSF tile under the `compute_image_name`(worker nodes). The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
 
@@ -98,7 +98,7 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 
-IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
+IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
 {: note} 
 
 ### Parameters for auto scaling
@@ -176,30 +176,30 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 {: #optional-hybrid-connectivity}
 {: step}
 
-If you want to set up a hybrid connectivity environment by using VPN, see the instructions [Installing a VPN to an HPC cluster](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-install-vpn-hpc-cluster).
+If you want to set up a hybrid connectivity environment by using VPN, see the instructions [Installing a VPN to an HPC cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-install-vpn-hpc-cluster).
 
-If you would like to use Direct Link, see the instructions for [Installing Direct Link to an HPC cluster](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-installing-direct-link-cluster).
+If you would like to use Direct Link, see the instructions for [Installing Direct Link to an HPC cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-installing-direct-link-cluster).
 
 ## Using OpenLDAP with IBM Spectrum LSF
 {: #using-openladap-spectrum-lsf}
 {: step}
 
-If you want to know more about OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, see [About OpenLDAP with IBM Spectrum LSF](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrate-openldap-spectrum-lsf).
+If you want to know more about OpenLDAP with {{site.data.keyword.spectrum_full_notm}}, see [About OpenLDAP with IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrate-openldap-spectrum-lsf).
 
 During deployment, you enable OpenLDAP with your {{site.data.keyword.spectrum_full}} cluster by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values.
 
-If you want to know more about integrating OpenLDAP with your {{site.data.keyword.spectrum_full}} cluster, see [Integrating OpenLDAP with your IBM Spectrum LSF cluster](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrate-openldap-spectrum-lsf).
+If you want to know more about integrating OpenLDAP with your {{site.data.keyword.spectrum_full}} cluster, see [Integrating OpenLDAP with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrate-openldap-spectrum-lsf).
 
 ## Create DNS zones and DNS custom resolver
 {: #dns-zones-custom-resolvers}
 {: step}
 
- If you leave the `dns_instance_id` deployment input value as null, the deployment process creates a new DNS service instance ID in the respective DNS zone. Alternatively, provide an existing [IBM Cloud® DNS Service instance ID](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dns-custom-resolvers) for the `dns_instance_id` deployment input value.
+ If you leave the `dns_instance_id` deployment input value as null, the deployment process creates a new DNS service instance ID in the respective DNS zone. Alternatively, provide an existing [IBM Cloud® DNS Service instance ID](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dns-custom-resolvers) for the `dns_instance_id` deployment input value.
 
-If you leave the `dns_custom_resolver_id` deployment input value as null, the deployment process creates a new VPC and enables a new custom resolver for your cluster. Alternatively, to create custom DNS resolvers with an existing VPC, provide the resolver ID for the `dns_custom_resolver_id` deployment input value. For more information, see [DNS custom resolvers for your IBM Spectrum LSF cluster](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dns-custom-resolvers&interface=ui#custom-resolvers).
+If you leave the `dns_custom_resolver_id` deployment input value as null, the deployment process creates a new VPC and enables a new custom resolver for your cluster. Alternatively, to create custom DNS resolvers with an existing VPC, provide the resolver ID for the `dns_custom_resolver_id` deployment input value. For more information, see [DNS custom resolvers for your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dns-custom-resolvers&interface=ui#custom-resolvers).
 
 ## Using IBM Key Protect instances to manage data encryption
 {: #key-protect-encryption}
 {: step}
 
-To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-key-protect).
+To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through {{site.data.keyword.spectrum_full_notm}} cluster. For more information on Key Protect and encryption keys, see [IBM® Key Protect and encryption keys](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-key-protect).

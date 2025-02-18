@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-18"
 
 keywords: 
 
@@ -25,7 +25,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 The following deployment values can be used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
 
-NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog tile. If you are using other modes like CLI, API, or Schematics UI directly to provision the HPC cluster, leave the values empty.
+`NOT_SET` refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog tile. If you are using other modes like CLI, API, or Schematics UI directly to provision the HPC cluster, leave the values empty.
 {: note}
 
 | Value | Description | Is it required? | Default value |
@@ -107,107 +107,4 @@ NOT_SET refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog
 | `worker_node_instance_type` | Specify the virtual server instance profile type name to be used to create the worker nodes for the Spectrum LSF cluster. The worker nodes are the ones where the workload execution takes place and the choice should be made according to the characteristic of workloads. For choices on profile types, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). Note: If dedicated_host_enabled == true, the available instance prefix (for example, bx2 and cx2) can be limited depending on your target region. Check `ibmcloud target -r {region_name}; ibmcloud is dedicated-host-profiles. | No | "bx2-4x16" |
 | `worker_node_max_count` | The maximum number of worker nodes that can be deployed in the Spectrum LSF cluster. In order to use the [Resource Connector](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector) feature to dynamically create and delete worker nodes based on workload demand, the value that is selected for this parameter must be larger than worker_node_min_count. If you plan to deploy only static worker nodes in the LSF cluster, for example, when using Spectrum Scale storage, the value for this parameter should be equal to worker_node_min_count. Enter a value in the range 1 - 500. | No | 10 |
 | `zones` | The IBM Cloud zone name within the selected region where the IBM Cloud HPC cluster should be deployed and requires a single zone input value. Supported zones are: eu-de-2 and eu-de-3 for eu-de, us-east-1 and us-east-3 for us-east, and us-south-1 for us-south. The management nodes file storage shares, and compute nodes are deployed in the same zone.[Learn more](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). | No | ["us-east-1"] |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{: caption="Deployment values" caption-side="top"} 
+{: caption="Deployment Values" caption-side="bottom"}

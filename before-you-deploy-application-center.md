@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Using {{site.data.keyword.cloud_notm}} HPC with LSF Application Center and high availability
 {: #before-deploy-application-center}
 
-Enable LSF Application Center with your {{site.data.keyword.cloud}} HPC cluster [during deployment](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture) by setting `enable_app_center` to **true**, and `app_center_gui_pwd` to match your LSF Application Center password. High availability for LSF Application Center is enabled by default and managed with the `app_center_high_availability` deployment input value (that is, it is set to **true** by default). Leaving this high availability input value enabled allows LSF Application Center to:
+Enable LSF Application Center with your {{site.data.keyword.cloud}} HPC cluster [during deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture) by setting `enable_app_center` to **true**, and `app_center_gui_pwd` to match your LSF Application Center password. High availability for LSF Application Center is enabled by default and managed with the `app_center_high_availability` deployment input value (that is, it is set to **true** by default). Leaving this high availability input value enabled allows LSF Application Center to:
 * run on all deployed management nodes.
 * use a cross availability zone instance of the [{{site.data.keyword.cloud}} Database for MySQL](/docs/databases-for-mysql?topic=databases-for-mysql-getting-started) as the backend database.
 * use an [{{site.data.keyword.cloud}} Application Load Balancer for VPC (ALB)](/docs/vpc?topic=vpc-load-balancers-about) as the VPC load balancer to dispatch requests to LSF Application Center nodes.

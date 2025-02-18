@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-18"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -30,5 +30,5 @@ The release notes describe the brief overview of the changes that are made to {{
 {: #release-notes-jan3025}
 {: release-note}
 
-[Introducing the {{site.data.keyword.spectrum_full_notm}} deployable architecture](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf)
+[Introducing the {{site.data.keyword.spectrum_full_notm}} deployable architecture](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf)
 :   {{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources.
