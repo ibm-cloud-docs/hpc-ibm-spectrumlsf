@@ -26,7 +26,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 Dedicated hosts allows you to deploy virtual server instances on single-tenant compute hosts, ensuring isolation from other users. This setup helps prevent noisy neighbor issues such as performance interference caused by shared workloads in public virtual server instances. When using a dedicated host, billing is based on host usage rather than individual vCPU or RAM consumption.
 
-## Key Considerations for Deploying Dedicated Hosts
+## Key Considerations
 {: #key-considerations}
 
 Following are the key factors to deploy the dedicated host:
@@ -39,18 +39,19 @@ Following are the key factors to deploy the dedicated host:
 
 For more information, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 
-## Enabling a Dedicated Host
+## Enabling Dedicated Host
 {: #enable-dedicated-hosts}
 
 To enable a dedicated host, set the `enable_dedicated_host` parameter to true (default: false). Once enabled, all the static worker nodes are automatically attached to the same dedicated host.
 
-## Limitations when using a Dedicated Hosts
+## Limitations
 {: #limitations-dedicated-host}
 
 1. Single Profile Requirement
   * When `enable_dedicated_host` is set to true, you must specify only one profile in `worker_node_instance_type` parameter.
 
   * If more than one profile is provided, an error is displayed:
+
   Error Example:
 
   ```console
@@ -79,7 +80,7 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
   Error Example:
    If a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
 
-    ```console
+  ```console
   Error: Invalid index
   │
   │ on locals.tf line 316, in locals:
@@ -92,7 +93,7 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
   ```
   {: codeblock}
 
-## Benefits of Dedicated Hosts
+## Benefits
 {: #benefits-dedicated-hosts}
 
 Following are the benefits of dedicated host:
