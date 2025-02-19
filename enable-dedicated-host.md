@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-19"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -21,19 +21,37 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Enabling dedicated hosts
+# Dedicated Hosts for Virtual Server Instances
+{: #dedicated-hosts-vsi}
+
+Dedicated hosts allows you to deploy virtual server instances on single-tenant compute hosts, ensuring isolation from other users. This setup helps prevent noisy neighbor issues such as performance interference caused by shared workloads in public virtual server instances. When using a dedicated host, billing is based on host usage rather than individual vCPU or RAM consumption.
+
+## Key Considerations for Deploying Dedicated Hosts
+{: #key-considerations}
+
+Following are the key factors to deploy the dedicated host:
+
+* This offering supports only static compute nodes on dedicated hosts.
+
+* The number and profile names of dedicated hosts are determined by the `worker_node_instance_type` parameter.
+
+* The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, etc.
+
+For more information, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+
+## Enabling a Dedicated Host
 {: #enable-dedicated-hosts}
 
-Dedicated hosts enable you to deploy your virtual server instances on single-tenant compute hosts. Workloads under dedicated hosts can avoid noisy neighbor issues (such as, performance interference due to other users workloads) that they might encounter on public virtual server instances. When you use a dedicated host, you are billed by usage of the host, not the vCPUs, or RAM associated with your virtual instances.
+To enable a dedicated host, set the `enable_dedicated_host` parameter to true (default: false). Once enabled, all the static worker nodes are automatically attached to the same dedicated host.
 
-This offering can deploy static compute nodes on dedicated hosts. The number of dedicated hosts and the profile names for dedicated hosts are calculated from `worker_node_min_count` and `worker_node_instance_type`.
+## Limitations when using a Dedicated Hosts
+{: #limitations-dedicated-host}
 
-Following are the key values for enabling a dedicated host:
+1. Single Profile Requirement
+  * When `enable_dedicated_host` is set to true, you must specify only one profile in `worker_node_instance_type` parameter.
 
-* When a dedicated host is enabled, you cannot have multiple profiles.
-  Dedicated host ensures no co-tenancy with other users offering enhanced privacy and security. It provides isolation at the hardware level, which is critical for sensitive workloads or regulated environments.
-
-* When a dedicated host is enabled, the length of the `worker_node_instance_type` should be equal to 1. But if the length is more than 1, then it displays an error.
+  * If more than one profile is provided, an error is displayed:
+  Error Example:
 
   ```console
   Error: Invalid value for variable
@@ -50,13 +68,18 @@ Following are the key values for enabling a dedicated host:
   ```
   {: codeblock}
 
-* When a single profile "bx2/mx2/cx2/cx2d/mx2d/bx2d" value is passed to the `worker_node_profile_type` parameter, then the dedicated host gets created from the same group and all worker nodes join the same dedicated host.
+2. Supported Profiles
+  If a single profile from bx2, cx2, mx2, cx2d, mx2d, or bx2d is specified, then the dedicated host is created from the same family and all the worker nodes are assigned to it.
 
-* When a third generation profile "mx3d,cx3d/bx3d" value that is only available on certain regions (Dallas,Frankurt,Toronto, and Madrid) are passed, then the build fails.
+3. Third-Generation Profile Limitation
 
-  For example, if a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
+* Third-generation profiles like mx3d, cx3d, and bx3d are only available in specific regions (Dallas, Frankfurt, Toronto, Madrid).
 
-  ```console
+* Deploying an unsupported profile in a different region results in a failure during the planning or early deployment stage.
+  Error Example:
+   If a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
+
+    ```console
   Error: Invalid index
   │
   │ on locals.tf line 316, in locals:
@@ -69,13 +92,16 @@ Following are the key values for enabling a dedicated host:
   ```
   {: codeblock}
 
-* Dedicated hosts are ideal for workloads with consistent and high-performance requirements for long-running workloads.
+## Benefits of Dedicated Hosts
+{: #benefits-dedicated-hosts}
 
-* Dedicated hosts allows you to manage your VSIs that are placed within a host, offering better control over workload distribution.
+Following are the benefits of dedicated host:
 
-* Dedicated host have high-security environments with physical isolation, compliance-driven industries with strict data isolation and residency requirements.
+* Consistent and High Performance – Ideal for long-running workloads with demanding performance needs.
 
-By setting the `enable_dedicated_host` value to true, a dedicated host is deployed and ensures that all the static worker nodes are created on the dedicated host.
+* Enhanced Workload Management – Provides better control over virtual server instance placement and resource allocation.
+
+* High Security and Compliance – Ensures physical isolation of workloads, making it suitable for compliance-driven industries with strict data isolation and residency requirements.
 
 ## Before you begin
 {: #before-you-begin}
@@ -89,7 +115,7 @@ Define the following variable to enable a dedicated host on an LSF cluster:
 
 | Dedicated host variable | Description | Example value |
 | ----- | ----------- | --------------- |
-| `enable_dedicated_host` | Set this option to `true` to enable dedicated hosts for VSI created for the workload servers, with the default value set to false. | true |
+| `enable_dedicated_host` | Set this option to `true` to enable dedicated hosts for the VSI created for workload servers. The default value is false. When a dedicated host is enabled, the solution supports only static worker nodes with a single profile. Multiple profile combinations are not supported. For example, you can select a profile from a single family, such as bx2, cx2, or mx2. If you are provisioning a static cluster with a third-generation profile, ensure that the dedicated hosts are supported in the chosen regions, as not all regions support dedicated hosts for third-generation profiles. For more information about dedicated host, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).| true |
 {: caption="Configuring dedicated host deployment values" caption-side="bottom"}
 
-To learn more about dedicated host, go to [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui).
+For more information about dedicated host, go to [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui).
