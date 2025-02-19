@@ -54,6 +54,21 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
 
   Error Example:
 
+    ```console
+    Error: Invalid value for variable
+    │
+    │ on terraform.tfvars line 82:
+    │ 82: enable_dedicated_host = true
+    │ ├────────────────
+    │ │ var.enable_dedicated_host is true
+    │ │ var.worker_node_instance_type is list of object with 2 elements
+    │
+    │ When 'enable_dedicated_host' is true, only one profile should be specified in 'worker_node_instance_type'.
+    │
+    │ This was checked by the validation rule at variables.tf:688,3-13.
+    ```
+    {: codeblock}
+
   ```console
   Error: Invalid value for variable
   │
