@@ -36,104 +36,166 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 * Select to use product version 2.7.0 or later.
 * [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
     1. Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+
     2. Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 
-        To integrate {{site.data.keyword.scale_short}} with your {{site.data.keyword.spectrum_full}} cluster, create a separate file set to share LSF configurations within the {{site.data.keyword.spectrum_full}} cluster. By default, the name of the `mount_path` value is **/mnt/scale/tools**. Include another entry for the **lsf** file set. For example:
+    3. Once the Scale cluster is successfully created, login to CES node to perform the below command:
 
-        ```text
-        [{ mount_path = "/mnt/scale/lsf", size = 0 }, { mount_path = "/mnt/scale/tools", size = 0 }, { mount_path = "/mnt/scale/data", size = 0 }]
-        ```
-        {: codeblock}
-    3. Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
+    Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
-To retrieve the NFS mount points from the storage scale cluster, run through the below commands:
+    ```text
+    # mmnfs export list
+    Path                Delegations                 Clients
+---------------------------------------------------------------
+    /gpfs/fs1/tools         NONE                 10.241.0.0/20
+    /gpfs/fs1/data          NONE                 10.241.0.0/20
+    ```
+    {: codeblock}
+
+    ```text
+    mmlscluster --ces
+
+    GPFS cluster information
+---------------------------------------------------------------
+    GPFS cluster name:         test-scale-poc.strgscale.com
+    GPFS cluster id:           70671008535366959
+    ```
+    {: codeblock}
+
+    ```text
+    Cluster Export Services global parameters
+    ---------------------------------------------------------------
+    Shared root directory:                /gpfs/fs1
+    Enabled Services:                     NFS
+    Log level:                            0
+    Address distribution policy:          even-coverage
+    ```
+    {: codeblock}
+
+    ```text
+    Node            Daemon node name                 IP address      CES IP address list
+    ----------------------------------------------------------------------------------------
+    6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
+    7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
+    ```
+    {: codeblock}
+
+    ```text
+    mmlsfileset fs1
+    Filesets in file system 'fs1':
+
+    Name          Status          Path                                    
+    root          Linked       /gpfs/fs1                               
+    data          Linked       /gpfs/fs1/data                          
+    tools         Linked       /gpfs/fs1/tools
+    ```
+    {: codeblock}
+
+## Integrating Scale NFS mount points on {{site.data.keyword.spectrum_full_notm}} cluster
+{: #integrate-scale-and-nfs}
+
+After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
+
+1. During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC to be created through the scale cluster.
+
+2. Create the LSF management node or compute worker nodes using the compute subnets from the Storage Scale cluster. Under the `cluster_subnet_ids` parameter, provide the compute subnet ID for the cluster.
+
+3. To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster even though there are existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1). It is highly advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture. {: #Step-3}
+
+4. Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details will cause the LSF deployment to fail.
+
+5. Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter.  This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
+
+6. To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
+
+Example:
 
 ```text
-# mmhealth cluster show
-Path                Delegations                Clients
------------------------------------------------------------
-/gpfs/fs1/lsf           NONE                 10.241.0.0/20
-/gpfs/fs1/tools         NONE                 10.241.0.0/20
-/gpfs/fs1/data          NONE                 10.241.0.0/20
+default = [{ mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
+```
+{: codeblock}
 
-mmlscluster --ces
+From the above example, the derivations are as follows:
 
-GPFS cluster information
+* /mnt/vpcstorage/tools - this is used to create and share all the LSF binaries as the shared directory. It stores all the logs and configurations.
+* /mnt/scale/tools - this is the NFS mount point created on the CES node.
+* /mnt/scale/data - this is the NFS mount point created on the CES node.
+* For sharing the `nfs_share`, the automation needs <cluster-prefix-ces.cesscale.com>.
+    1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **LSF**.
+    2. A hyphen (-).
+    3. The text **ces**.
+    4. A dot (.)
 
-GPFS cluster name:         eda-scale-poc.strgscale.com
-GPFS cluster id:           70671008535366959
+You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
+{: note}
 
-Cluster Export Services global parameters
---------------------------------------------
-Shared root directory:                /gpfs/fs1
-Enabled Services:                     NFS
-Log level:                            0
-Address distribution policy:          even-coverage
+6. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
 
-Node            Daemon node name                 IP address      CES IP address list
-----------------------------------------------------------------------------------------
-6        eda-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
-7        eda-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
+However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. These default mount points are created through the compute subnet CIDR range and when the login subnet are created through a different CIDR range a new exports should be created, failing which the LSF binaries cannot be shared with Scale cluster. Run the below commands:
 
-mmlsfileset fs1
-Filesets in file system 'fs1':
+```text
+# mmcrfileset fs1 new_fileset --inode-space new
+# mmlinkfileset fs1 new_fileset -J /gpfs/fs1/new_fileset
+```
+{: codeblock}
 
-Name          Status          Path                                    
-root          Linked       /gpfs/fs1                               
-data          Linked       /gpfs/fs1/data                          
-tools         Linked       /gpfs/fs1/tools
+Run the following command to export the NFS file set for the client CIDR:
 
+```text
+# mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/18(Access_Type=RW,SQUASH=NO_ROOT_SQUASH)" mmnfs: The NFS export was created successfully
+```
+{: codeblock}
+
+Run the following command to update the routing on all Storage Scale CES cluster nodes:
+
+```text
+# ip route add 10.241.0.0/18 via 10.241.17.1 dev eth1
+```
+{: codeblock}
+
+Run the following command to check if the `NO_ROOT_SQUASH` is applied successfully:
+
+```text
+mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
+```
+{: codeblock}
+
+When all the above steps are completed, you can use these endpoints as a common point for the LSF binaries to be shared with Scale.
+
+```text
+default = [{ mount_path = "/mnt/scale/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
+```
+{: codeblock}
+
+For sharing the LSF binaries, you can still use the VPC file storage, but as per the design the VPC file share supports maximum of 250 nodes only. But with this solution it is suggested that when you use the Scale NFS, create a new file export for LSF as `/gpfs/fs1/lsf` and share the same mount point.
+{: note}
+
+8. If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC, you could change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
+
+```text
+mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
+mmnfs: The NFS export was changed successfully.
+```
+{: codeblock}
+
+```text
+mmnfs export change /gpfs/fs1/tools --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
+mmnfs: The NFS export was changed successfully.
+```
+{: codeblock}
+
+```text
 # mmnfs export list
-
-Path                Delegations                Clients
------------------------------------------------------------
-/gpfs/fs1/lsf           NONE                 10.241.0.0/20
-/gpfs/fs1/tools         NONE                 10.241.0.0/20
-/gpfs/fs1/data          NONE                 10.241.0.0/20
+Path                Delegations                 Clients
+---------------------------------------------------------------
+/gpfs/fs1/data         NONE                10.241.0.0/20
+/gpfs/fs1/data         NONE                10.241.0.0/18
+/gpfs/fs1/lsf          NONE                10.241.0.0/18
+/gpfs/fs1/tools        NONE                10.241.0.0/20
 ```
 {: codeblock}
 
-### Verifying the {{site.data.keyword.scale_short}} cluster
-{: #scale-verify}
-
-After your {{site.data.keyword.scale_short}} cluster is up and running, as the `root` user on one of the {{site.data.keyword.scale_short}} nodes, you can verify the health of the cluster by running the [mmhealth cluster show](https://www.ibm.com/docs/en/storage-scale/5.2.2?topic=reference-mmhealth-command) command. For example:
-
-```text
-# mmhealth cluster show
-Component           Total         Failed       Degraded        Healthy          Other
--------------------------------------------------------------------------------------------
-NODE                   12              0              0             11              1
-GPFS                   12              0              0             11              1
-NETWORK                12              0              0             12              0
-FILESYSTEM              1              0              0              1              0
-DISK                   41              0              0             41              0
-FILESYSMGR              1              0              0              1              0
-CES                    12              0              0             12              0
-CESCLUSTER              1              0              0              1              0
-GUI                     1              0              0              1              0
-PERFMON                12              0              0             12              0
-THRESHOLD              12              0              0             12              0
-```
-{: codeblock}
-
-To verify the {{site.data.keyword.scale_short}} NFS exports, as the `root` user, connect to the {{site.data.keyword.scale_short}} CES cluster node and run the `mmnfs export list` command to list all current NFS exports. For example:
-
-```text
-# mmnfs export list
-
-Path               Delegations       Clients
--------------------------------------------------
-/gpfs/fs1/lsf      NONE              10.241.0.0/20
-/gpfs/fs1/tools    NONE              10.241.0.0/20
-/gpfs/fs1/data     NONE              10.241.0.0/20
-```
-{: codeblock}
-
-When the {{site.data.keyword.spectrum_full}} cluster is active and the NFS shares are mounted (you can use the `df-h` command to verify), the {{site.data.keyword.spectrum_full}} nodes have access to the integrated {{site.data.keyword.scale_short}} cluster.
-{:tip: .tip}
-
-### Updating the squash permission property for the NFS export
-{: #scale-update-squash}
+9. Updating the squash permission property for the NFS export.
 
 To enable {{site.data.keyword.scale_short}} integration with your {{site.data.keyword.spectrum_full}} cluster, change the squash permission property for the NFS export (for example, for the `/gpfs/fs1/lsf` export). Update the `SQUASH` property from **ROOT_SQUASH** to **NO_ROOT_SQUASH** so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full}} clusters can share configurations.
 
@@ -155,78 +217,6 @@ Path          Delegations Clients       Access_Type Protocols Transport Squash .
 ```
 {: codeblock}
 
-## Integrating {{site.data.keyword.scale_short}} values for your {{site.data.keyword.spectrum_full_notm}} cluster deployment
-{: #integrate-scale-and-hpc}
-
-After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
-
-To make sure that the {{site.data.keyword.spectrum_full_notm}} cluster uses {{site.data.keyword.scale_short}} (instead of {{site.data.keyword.filestorage_vpc_full}}) as your shared file storage system, update a list of values for the {{site.data.keyword.spectrum_short}} cluster deployment so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_short}} deployments are integrated:
-
-1. Set the `cluster_subnet_id` and `vpc_cluster_private_cidr_blocks` deployment value as the same values as the `vpc_compute_subnet` and `vpc_compute_cluster_private-subnets_cidr_block` values for your {{site.data.keyword.scale_short}} deployment.
-
-2. Derive the `custom_file_shares` value for your {{site.data.keyword.spectrum_full}} deployment from the `filesets` value of your {{site.data.keyword.scale_short}} deployment. The attributes of the `custom_file_shares` value are as follows:
-
-    * `mount_path` is the path where you expect the NFS exports to be mounted on the {{site.data.keyword.spectrum_full}} cluster (the default is **/mnt/scale/tools**). The `custom_file_shares` value contains a list of `mount_path` values, and one of these `mount_path` values must be the **/mnt/lsf** mount to indicate to use {{site.data.keyword.scale_short}} as the shared file storage for the {{site.data.keyword.spectrum_full}} cluster.
-
-    * `nfs_share` is the NFS file share between {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full}}. It is derived by concatenating the following criteria:
-        1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **LSF**.
-        2. A hyphen (-).
-        3. The text **ces**.
-        4. A dot (.).
-        5. The `vpc_protocol_cluster_dns_domain` values, such as **cesscale.com:/gpfs/fs1/lsf**.
-
-        Example `nfs_share` value:
-
-        ```text
-        nfs_share = "hpc-ces.cesscale.com:/gpfs/fs1/lsf"
-        ```
-        {: codeblock}
-
-        When you set the `nfs_share` as described, the `size` and `iops` values are not necessary and are ignored.
-
-    Example of the entire `custom_file_shares` value, with `mount_path` and `nfs_share`:
-
-    ```text
-    custom_file_shares = [
-    { mount_path = "/mnt/lsf", nfs_share = "hpc-ces.cesscale.com:/gpfs/fs1/lsf" },
-    { mount_path = "/mnt/scale/tools", nfs_share = "hpc-ces.cesscale.com:/gpfs/fs1/tools" },
-    { mount_path = "/mnt/scale/data", nfs_share = "hpc-ces.cesscale.com:/gpfs/fs1/data" }
-    ]
-    ```
-    {: codeblock}
-
-3. Provide the DNS custom resolver ID from the IBM Spec storage scale deployment. As we are using the existing VPC for the LSF deployment, it is reqd to provide the DNS resolver ID. If the resolver ID is not provided then the LSF deployment as it tries to create a new resolver ID and attaches to the existing VPC, while the VPC from the storage deployment already has the resolver ID attached.
-
-### Extending {{site.data.keyword.scale_short}} to a login node and subnet
-{: #integrate-scale-adavanced}
-
-You can optionally extend your {{site.data.keyword.scale_short}} shared file storage to your login node and subnet as follows:
-
-1. Connect to one of the {{site.data.keyword.scale_short}} CES cluster nodes and switch to the `root` user.
-
-2. (Optional) If you want to create an NFS share with values other than the values specified int eh {{site.data.keyword.scale_short}} `root` value, create and link an independent file set for the give file system:
-
-    ```text
-    # mmcrfileset fs1 new_fileset --inode-space new
-    # mmlinkfileset fs1 new_fileset -J /gpfs/fs1/new_fileset
-    ```
-    {: codeblock}
-
-3. Export the file set as the NFS export for the client CIDR:
-
-    ```text
-    # mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/18(Access_Type=RW,SQUASH=NO_ROOT_SQUASH)"
-    mmnfs: The NFS export was created successfully
-    ```
-    {: codeblock}
-
-4. Update routing by running the following command on all {{site.data.keyword.scale_short}} CES cluster nodes:
-
-    ```text
-    # ip route add 10.241.0.0/18 via 10.241.17.1 dev eth1
-    ```
-    {: codeblock}
-
 ### Associating the {{site.data.keyword.scale_short}} security group ID with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrate-scale-security-group-ID}
 
@@ -238,3 +228,6 @@ To determine and integrate your storage security group ID from {{site.data.keywo
 2. Search for the prefix that is used to create the {{site.data.keyword.scale_short}} cluster.
 3. Copy the security group ID of the security group.
 4. Update the ID under the {{site.data.keyword.spectrum_full}} clusters `storage_security_group_id` deployment input value.
+
+When the {{site.data.keyword.spectrum_full}} cluster is active and the NFS shares are mounted (you can use the `df-h` command to verify), the {{site.data.keyword.spectrum_full}} nodes have access to the integrated {{site.data.keyword.scale_short}} cluster.
+{:tip: .tip}
