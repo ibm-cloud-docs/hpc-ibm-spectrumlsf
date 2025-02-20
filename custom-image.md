@@ -223,19 +223,3 @@ To share private images and make them accessible by other accounts:
     4. From the **Versions** list, select **Validate** from the action menu. Validation triggers an automated task to deploy a new VSI with the custom image that you added to the catalog.
 
     For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](/docs/secure-enterprise?topic=secure-enterprise-catalog-enterprise-share&interface=ui).
-
-### Associating your custom image with the {{site.data.keyword.spectrum_full_notm}} deployable architecture
-{: #custom-image-crn}
-
-When you deploy your {{site.data.keyword.spectrum_full}} cluster with a custom image, you specify the `compute_image_name` deployment input value with the custom image that you want to use to create VSIs in your {{site.data.keyword.cloud_notm}} account to deploy the {{site.data.keyword.spectrum_full}} cluster dynamic compute nodes. Provide the [Cloud Resource Name (CRN)](/docs/account?topic=account-crn) of the custom image as the `compute_image_name` value.
-
-A CRN uniquely identifies {{site.data.keyword.cloud_notm}} resources. It is used to specify a resource in an unambiguous way. To determine the CRN for your custom image, use the `ibmcloud catalog offering search` {{site.data.keyword.cloud_notm}} CLI command. For example:
-
-```text
-ibmcloud catalog offering search  --catalog <private_catalog_name> --offering <product_name> --version <product_version> --output JSON
-```
-{: codeblock}
-
-The command output shows the CRN value for your product version. For details about this command, see the [{{site.data.keyword.cloud_notm}} CLI](docs/account?topic=account-manage-catalogs-plugin&interface=ui#search-catalog-offering-search).
-
-After you determine the CRN for your custom image, use it for the [{{site.data.keyword.spectrum_full_notm}} cluster `compute_image_name` deployment input value](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui).
