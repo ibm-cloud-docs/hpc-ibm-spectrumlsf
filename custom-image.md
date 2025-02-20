@@ -180,6 +180,7 @@ To create your custom image:
     {: codeblock}
 
   Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
+
   Outputs:
     ```text
     packer_vsi_name = "test-lsf-packer-ccf4-001"
