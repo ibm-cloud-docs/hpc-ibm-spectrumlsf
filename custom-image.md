@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -181,18 +181,19 @@ To create your custom image:
 
   Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
   Outputs:
-  ```
-  packer_vsi_name = "test-lsf-packer-ccf4-001"
-  ssh_to_packer_vsi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@165.192.133.183"
-  subnet_id = "02g7-fc720c96-ec50-43d2-919a-e33b4566ccf4"
-  vpc_id = "r022-016dbd43-fec6-4a81-9e85-c5d1cfe03ee5"
-  ```
-  {: pre}
+    ```text
+    packer_vsi_name = "test-lsf-packer-ccf4-001"
+    ssh_to_packer_vsi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@165.192.133.183"
+    subnet_id = "02g7-fc720c96-ec50-43d2-919a-e33b4566ccf4"
+    vpc_id = "r022-016dbd43-fec6-4a81-9e85-c5d1cfe03ee5"
+    ```
+    {: codeblock}
 
 4. Use validation logs to see the status and troubleshoot any issues:
-    * For Packer logs and script execution logs for the custom image builder, log in to VSI-1 (the bootstrap node) and check the `/var/log/cloud-init-output.log` user data log.
-    * For {{site.data.keyword.spectrum_full}} deployment with the new custom image, access the full run log from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/<log_file_name_with_date>`.
-    * For {{site.data.keyword.spectrum_full}} deployment validation, dynamic node creation, and catalog validation, view the log files from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/test_output/log_*.log`.
+
+* For Packer logs and script execution logs for the custom image builder, log in to VSI-1 (the bootstrap node) and check the `/var/log/cloud-init-output.log` user data log.
+* For {{site.data.keyword.spectrum_full}} deployment with the new custom image, access the full run log from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/<log_file_name_with_date>`.
+* For {{site.data.keyword.spectrum_full}} deployment validation, dynamic node creation, and catalog validation, view the log files from VSI-1 at `<mydirectory>/terraform-ibm-hpc-tools/tests/test_output/log_*.log`.
 
 ## Manually sharing the custom image to make it accessible to {{site.data.keyword.spectrum_full_notm}}
 {: #custom-image-share}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-02-20"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -106,7 +106,7 @@ subcollection: hpc-ibm-spectrumlsf
         ```
         {: codeblock}
 
-    8. List groups (Optional):
+    8. List groups (    ):
 
         ```text
         curl -k -X GET -H 'Content-Type: application/xml' -H "Cookie: $MYTOKEN" -H 'Accept:text/plain,application/xml,text/xml,multipart/mixed' -H 'Accept-Language:en-us'   https://$AC_HOST:$AC_PORT/platform/ws/usergroups

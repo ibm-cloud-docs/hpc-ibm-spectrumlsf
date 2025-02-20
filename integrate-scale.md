@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-02-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,21 +24,19 @@ subcollection: hpc-ibm-spectrumlsf
 # Integrating {{site.data.keyword.scale_full_notm}} with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrating-scale}
 
-After you deploy your {{site.data.keyword.scale_short}} cluster with CES, deploy your {{site.data.keyword.spectrum_full}} cluster and integrate the {{site.data.keyword.scale_short}} values so that {{site.data.keyword.spectrum_full}} uses {{site.data.keyword.scale_short}} as the shared file storage solution.
+After deploying your Storage Scale cluster with CES, set up your {{site.data.keyword.scale_short}} cluster to utilize the CES NFS mount points as a shared file storage solution.
 {: shortdesc}
 
 ## Deploying your {{site.data.keyword.scale_short}} cluster
 {: #scale-tile}
 
-Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) to create a workspace, generate a plan, and then apply the plan by using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
+Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
-* Select to use product version 2.3.2 or later.
+* Select to use product version 2.7.0 or later.
 * [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
     1. Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
     2. Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
-
-       You can also set the quota to control the storage capacity on individual NFS shared by updating the `size` attribute of the `fileshare` value. No quota is set if the size is set to **0**.
 
         To integrate {{site.data.keyword.scale_short}} with your {{site.data.keyword.spectrum_full}} cluster, create a separate file set to share LSF configurations within the {{site.data.keyword.spectrum_full}} cluster. By default, the name of the `mount_path` value is **/mnt/scale/tools**. Include another entry for the **lsf** file set. For example:
 
@@ -46,8 +44,54 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
         [{ mount_path = "/mnt/scale/lsf", size = 0 }, { mount_path = "/mnt/scale/tools", size = 0 }, { mount_path = "/mnt/scale/data", size = 0 }]
         ```
         {: codeblock}
+    3. Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
-    3. Configure the `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block` values. These subnet-related values are used to export the NFS mount that is needed for the {{site.data.keyword.spectrum_full}} cluster. The NFS mount can be an {{site.data.keyword.spectrum_full}} cluster subnet that you use for management and dynamic compute nodes. Note the values of `vpc_compute_subnet` and `vpc_compute_cluster_private_subnets_cidr_block`, as you use them when you deploy your {{site.data.keyword.spectrum_full}} cluster.
+To retrieve the NFS mount points from the storage scale cluster, run through the below commands:
+
+```text
+# mmhealth cluster show
+Path                Delegations                Clients
+-----------------------------------------------------------
+/gpfs/fs1/lsf           NONE                 10.241.0.0/20
+/gpfs/fs1/tools         NONE                 10.241.0.0/20
+/gpfs/fs1/data          NONE                 10.241.0.0/20
+
+mmlscluster --ces
+
+GPFS cluster information
+
+GPFS cluster name:         eda-scale-poc.strgscale.com
+GPFS cluster id:           70671008535366959
+
+Cluster Export Services global parameters
+--------------------------------------------
+Shared root directory:                /gpfs/fs1
+Enabled Services:                     NFS
+Log level:                            0
+Address distribution policy:          even-coverage
+
+Node            Daemon node name                 IP address      CES IP address list
+----------------------------------------------------------------------------------------
+6        eda-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
+7        eda-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
+
+mmlsfileset fs1
+Filesets in file system 'fs1':
+
+Name          Status          Path                                    
+root          Linked       /gpfs/fs1                               
+data          Linked       /gpfs/fs1/data                          
+tools         Linked       /gpfs/fs1/tools
+
+# mmnfs export list
+
+Path                Delegations                Clients
+-----------------------------------------------------------
+/gpfs/fs1/lsf           NONE                 10.241.0.0/20
+/gpfs/fs1/tools         NONE                 10.241.0.0/20
+/gpfs/fs1/data          NONE                 10.241.0.0/20
+```
+{: codeblock}
 
 ### Verifying the {{site.data.keyword.scale_short}} cluster
 {: #scale-verify}

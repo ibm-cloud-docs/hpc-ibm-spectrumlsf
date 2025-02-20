@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-02-22"
+  years: 2025
+lastupdated: "2025-02-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -35,7 +35,7 @@ After {{site.data.keyword.spectrum_full_notm}} cluster deployment, Schematics lo
     ```
     {: codeblock}
 
-    where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
+    Where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
 
 2. Verify the LDAP service status:
 

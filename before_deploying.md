@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-20"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -159,8 +159,8 @@ See the following example SSH command syntax for accessing different types of no
     ```
     {: codeblock}
 
-This worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
-For example, you could choose 100 instance to be created from `bx2-4x16` and you could choose 10 instance from `mx3d-8x80`. So you would get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
+This worker node instance type supports a combination of multiple instance profile type that might be chosen for different number of instance count.
+For example, you might choose 100 instance to be created from `bx2-4x16` and 10 instance from `mx3d-8x80`. So, you would get a total count of 110 static worker nodes with different instance profile, based on your requirement.
 
 ## Next steps
 {: #getting-started-next-steps}

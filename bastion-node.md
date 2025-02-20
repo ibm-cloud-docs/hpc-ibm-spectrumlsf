@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-07"
+lastupdated: "2025-02-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Bastion node
 {: #bastion-node-overview}
 
-A bastion node also known as a jump server is a secure entry point designed to provide controlled access to private network resources. It acts as an agent between the public internet and internal systems, allowing users to securely access internal servers without exposing sensitive resources directly to the public web.
+A bastion node also known as a jump server is a secure entry point that is designed to provide controlled access to private network resources. It acts as an agent between the public internet and internal systems, allowing users to securely access internal servers without exposing sensitive resources directly to the public web.
 
 The IBM Spectrum LSF solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to the cluster nodes. Users can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
 
@@ -44,17 +44,17 @@ It is not required to create a bastion node for every new deployment. If an exis
 
 The LSF solution supports the creation of a bastion node by default for each individual deployment. When a new cluster is deployed, a bastion node is provisioned alongside the worker nodes based on the architecture setup. Users can securely access these cluster nodes through the bastion node.
 
-As part of the VPC design, a dedicated subnet is created specifically for the bastion node. Additionally, a dedicated security group is assigned to the bastion node, configured to allow SSH access for secure connectivity to the cluster nodes. Internal automation ensures seamless communication between the bastion node (jump host) and the cluster nodes.
+As part of the VPC design, a dedicated subnet is created specifically for the bastion node. Also, a dedicated security group is assigned to the bastion node, which is configured to allow SSH access for secure connectivity to the cluster nodes. Internal automation ensures seamless communication between the bastion node (jump host) and the cluster nodes.
 
 To trigger the creation of a bastion node for a fresh deployment, set the variable `bastion_instance_name` to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
 
-Newly created bastion nodes are not automatically registered in the DNS domain for name resolution. As a result, access to these nodes can only be performed using their IP addresses.
+Newly created bastion nodes are not automatically registered in the DNS domain for name resolution. As a result, access to these nodes can only be performed by using their IP addresses.
 {: note}
 
 ## Support for existing bastion node
 {: #bastion-node-existing-support}
 
-The solution is designed to accommodate scenarios where an existing bastion node is already configured. This flexibility is particularly useful when:
+The solution is designed to accommodate scenarios where an existing bastion node is already configured. This flexibility is useful when:
 
 * A bastion node that has already been set up as part of a previous deployment.
 
@@ -70,7 +70,7 @@ To configure and use an existing bastion node, users must provide the following 
 
 * `bastion_security_group_id`: The security group associated with the bastion node. This ensures that the security group for the LSF cluster nodes allows traffic from the bastion node.
 
-* `bastion_ssh_private_key`: The private SSH key (e.g., id_rsa) used during the initial creation of the bastion node. This key is required for validation and for executing remote operations during the cluster setup process.
+* `bastion_ssh_private_key`: The private SSH key (for example, id_rsa) used during the initial creation of the bastion node. This key is required for validation and for running remote operations during the cluster setup process.
 
 By providing these details, the LSF cluster can be configured to use the existing bastion node, enabling secure access and efficient management.
 

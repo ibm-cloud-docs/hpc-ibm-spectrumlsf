@@ -35,7 +35,7 @@ Following are the key factors to deploy the dedicated host:
 
 * The number and profile names of dedicated hosts are determined by the `worker_node_instance_type` parameter.
 
-* The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, and so on.
+* The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, third-generation, and so on.
 
 For more information, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 
@@ -69,10 +69,9 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
     ```
     {: codeblock}
 
-2. Supported Profiles
-  If a single profile from bx2, cx2, mx2, cx2d, mx2d, or bx2d is specified, then the dedicated host is created from the same family and all the worker nodes are assigned to it.
+2. Supported Profiles - If a single profile from bx2, cx2, mx2, cx2d, mx2d, or bx2d is specified, then the dedicated host is created from the same family and all the worker nodes are assigned to it.
 
-3. Third-Generation Profile Limitation
+3. Third-Generation Profile Limitation:
 
 * Third-generation profiles like mx3d, cx3d, and bx3d are only available in specific regions (Dallas, Frankfurt, Toronto, Madrid).
 
