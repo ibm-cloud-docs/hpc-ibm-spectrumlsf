@@ -44,42 +44,43 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
     ```text
     # mmnfs export list
-    Path                Delegations                 Clients
-    /gpfs/fs1/tools         NONE                 10.241.0.0/20
-    /gpfs/fs1/data          NONE                 10.241.0.0/20
+       Path                Delegations                 Clients
+    /gpfs/fs1/tools           NONE                  10.241.0.0/20
+    /gpfs/fs1/data            NONE                  10.241.0.0/20
     ```
     {: codeblock}
+
 
     ```text
     mmlscluster --ces
     GPFS cluster information
-    GPFS cluster name:         test-scale-poc.strgscale.com
-    GPFS cluster id:           70671008535366959
+    GPFS cluster name:    test-scale-poc.strgscale.com
+    GPFS cluster id:      70671008535366959
     ```
     {: codeblock}
+
 
     ```text
     Cluster Export Services global parameters
-    ---------------------------------------------------
-    Shared root directory:                /gpfs/fs1
-    Enabled Services:                     NFS
-    Log level:                            0
-    Address distribution policy:          even-coverage
+    Shared root directory:         /gpfs/fs1
+    Enabled Services:              NFS
+    Log level:                      0
+    Address distribution policy:   even-coverage
     ```
     {: codeblock}
 
+
     ```text
-    Node            Daemon node name                 IP address      CES IP address list
-    -------------------------------------------------------------------------------------
-    6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
-    7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
+    Node            Daemon node name                    IP address      CES IP address list
+      6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
+      7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
     ```
     {: codeblock}
+
 
     ```text
     mmlsfileset fs1
     Filesets in file system 'fs1':
-
     Name          Status          Path                                    
     root          Linked       /gpfs/fs1                               
     data          Linked       /gpfs/fs1/data                          
@@ -122,8 +123,8 @@ From the above example, the derivations are as follows:
     3. The text **ces**.
     4. A dot (.)
 
-  You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
-  {: note}
+You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
+{: note}
 
 7. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
 
