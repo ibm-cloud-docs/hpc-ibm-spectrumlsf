@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Dedicated Hosts for Virtual Server Instances
 {: #dedicated-hosts-vsi}
 
-Dedicated hosts allows you to deploy virtual server instances on single-tenant compute hosts, ensuring isolation from other users. This setup helps prevent noisy neighbor issues such as performance interference caused by shared workloads in public virtual server instances. When using a dedicated host, billing is based on host usage rather than individual vCPU or RAM consumption.
+Dedicated hosts allow you to deploy virtual server instances on single-tenant compute hosts, ensuring isolation from other users. This setup helps prevent noisy neighbor issues such as performance interference caused by shared workloads in public virtual server instances. When using a dedicated host, billing is based on host usage rather than individual vCPU or RAM consumption.
 
 ## Key Considerations
 {: #key-considerations}
@@ -35,11 +35,11 @@ Following are the key factors to deploy the dedicated host:
 
 * The number and profile names of dedicated hosts are determined by the `worker_node_instance_type` parameter.
 
-* The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, etc.
+* The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, and so on.
 
 For more information, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 
-## Enabling Dedicated Host
+## Enabling a Dedicated Host
 {: #enable-dedicated-hosts}
 
 To enable a dedicated host, set the `enable_dedicated_host` parameter to true (default: false). Once enabled, all the static worker nodes are automatically attached to the same dedicated host.
@@ -77,6 +77,7 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
 * Third-generation profiles like mx3d, cx3d, and bx3d are only available in specific regions (Dallas, Frankfurt, Toronto, Madrid).
 
 * Deploying an unsupported profile in a different region results in a failure during the planning or early deployment stage.
+
   Error Example:
    If a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
 
@@ -96,7 +97,7 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
 ## Benefits
 {: #benefits-dedicated-hosts}
 
-Following are the benefits of dedicated host:
+Following are the benefits of a dedicated host:
 
 * Consistent and High Performance – Ideal for long-running workloads with demanding performance needs.
 
