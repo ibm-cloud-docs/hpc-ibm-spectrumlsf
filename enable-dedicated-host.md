@@ -79,7 +79,8 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
 * Deploying an unsupported profile in a different region results in a failure during the planning or early deployment stage.
 
   Error Example:
-   If a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
+
+  If a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
 
     ```console
     Error: Invalid index
