@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-19"
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -69,21 +69,6 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
     ```
     {: codeblock}
 
-  ```console
-  Error: Invalid value for variable
-  │
-  │ on terraform.tfvars line 82:
-  │ 82: enable_dedicated_host = true
-  │ ├────────────────
-  │ │ var.enable_dedicated_host is true
-  │ │ var.worker_node_instance_type is list of object with 2 elements
-  │
-  │ When 'enable_dedicated_host' is true, only one profile should be specified in 'worker_node_instance_type'.
-  │
-  │ This was checked by the validation rule at variables.tf:688,3-13.
-  ```
-  {: codeblock}
-
 2. Supported Profiles
   If a single profile from bx2, cx2, mx2, cx2d, mx2d, or bx2d is specified, then the dedicated host is created from the same family and all the worker nodes are assigned to it.
 
@@ -95,18 +80,18 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
   Error Example:
    If a profile "bx3d" is provided on us-east, then the build fails at planning or early stage of deployment stating that this profile is not supported.
 
-  ```console
-  Error: Invalid index
-  │
-  │ on locals.tf line 316, in locals:
-  │ 316: dh_profile = var.enable_dedicated_host ? local.dh_profiles[local.dh_profile_index] : null
-  │ ├────────────────
-  │ │ local.dh_profile_index is "Profile class bx3d for dedicated hosts does not exist in us-east.Check available class with ibmcloud target -r us-east; ibmcloud is dedicated-host-profiles and retry with another worker_node_instance_type."
-  │ │ local.dh_profiles is empty tuple
-  │
-  │ The given key does not identify an element in this collection value: a number is required.
-  ```
-  {: codeblock}
+    ```console
+    Error: Invalid index
+    │
+    │ on locals.tf line 316, in locals:
+    │ 316: dh_profile = var.enable_dedicated_host ? local.dh_profiles[local.dh_profile_index] : null
+    │ ├────────────────
+    │ │ local.dh_profile_index is "Profile class bx3d for dedicated hosts does not exist in us-east.  Check available class with ibmcloud target -r us-east; ibmcloud is dedicated-host-profiles and retry with another worker_node_instance_type."
+    │ │ local.dh_profiles is empty tuple
+    │
+    │ The given key does not identify an element in this collection value: a number is required.
+    ```
+    {: codeblock}
 
 ## Benefits
 {: #benefits-dedicated-hosts}
