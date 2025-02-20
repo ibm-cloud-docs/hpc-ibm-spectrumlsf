@@ -33,20 +33,18 @@ After deploying your Storage Scale cluster with CES, set up your {{site.data.key
 Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
-* Select to use product version 2.7.0 or later.
-* [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
-    1. Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+1. Select to use product version 2.7.0 or later.
+2. [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
+  * Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
 
-    2. Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
+  * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 
-    3. Once the Scale cluster is successfully created, login to CES node to perform the below command:
-
-    Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
+  * Once the Scale cluster is successfully created, login to CES node to run the below command.
+  Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
     ```text
     # mmnfs export list
     Path                Delegations                 Clients
----------------------------------------------------------------
     /gpfs/fs1/tools         NONE                 10.241.0.0/20
     /gpfs/fs1/data          NONE                 10.241.0.0/20
     ```
@@ -54,9 +52,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
     ```text
     mmlscluster --ces
-
     GPFS cluster information
----------------------------------------------------------------
     GPFS cluster name:         test-scale-poc.strgscale.com
     GPFS cluster id:           70671008535366959
     ```
@@ -64,7 +60,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
     ```text
     Cluster Export Services global parameters
-    ---------------------------------------------------------------
+    ---------------------------------------------------
     Shared root directory:                /gpfs/fs1
     Enabled Services:                     NFS
     Log level:                            0
@@ -74,7 +70,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
     ```text
     Node            Daemon node name                 IP address      CES IP address list
-    ----------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------
     6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
     7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
     ```
@@ -126,10 +122,10 @@ From the above example, the derivations are as follows:
     3. The text **ces**.
     4. A dot (.)
 
-You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
-{: note}
+  You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
+  {: note}
 
-6. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
+7. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
 
 However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. These default mount points are created through the compute subnet CIDR range and when the login subnet are created through a different CIDR range a new exports should be created, failing which the LSF binaries cannot be shared with Scale cluster. Run the below commands:
 
@@ -187,7 +183,7 @@ mmnfs: The NFS export was changed successfully.
 ```text
 # mmnfs export list
 Path                Delegations                 Clients
----------------------------------------------------------------
+---------------------------------------------------------
 /gpfs/fs1/data         NONE                10.241.0.0/20
 /gpfs/fs1/data         NONE                10.241.0.0/18
 /gpfs/fs1/lsf          NONE                10.241.0.0/18
