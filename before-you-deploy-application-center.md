@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-21"
 
 keywords:
 
@@ -52,4 +52,4 @@ For LSF Application Center high availability, you require a certificate for TLS 
     6. Select **Instance ID**, select the **string equals**, and select your Secrets Manager instance.
     7. In the **Roles** section, select **Writer** as the level of access to assign.
 
-With these settings complete, you can [deploy your {{site.data.keyword.cloud_notm}} HPC cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) with LSF Application Center high availability enabled. Once deployed, you can [access the LSF Application Center](/docs/allowlist/hpc-service?topic=hpc-service-accessing-lsf-gui).
+With these settings complete, you can [deploy your {{site.data.keyword.cloud_notm}} HPC cluster](/docs/allowlist/hpc-service?topic=hpc-service-before-you-begin-deploying&interface=ui) with LSF Application Center high availability enabled. Once deployed, you can [access the LSF Application Center](/docs/allowlist/hpc-service?topic=hpc-service-accessing-lsf-gui).

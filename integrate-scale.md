@@ -85,17 +85,17 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
 After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
 
-1. During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC created through the scale cluster.
+* During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC created through the scale cluster.
 
-2. To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_ids` parameter, provide the compute subnet ID for the cluster.
+* To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_ids` parameter, provide the compute subnet ID for the cluster.
 
-3. To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
+* To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
 
-4. Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details will cause the LSF deployment to fail.
+* Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details will cause the LSF deployment to fail.
 
-5. Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter.  This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
+* Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter.  This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
 
-6. To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
+* To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
 
 Example:
 
@@ -118,7 +118,7 @@ From the above example, the derivations are as follows:
 You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
 {: note}
 
-7. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
+* When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
 
 However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. The default mount points `/gpfs/fs1/data` and `/gpfs/fs1/tool` are created through the compute subnet CIDR range. When the login subnet is created through a different CIDR then the default mount points cannot be accessed as the ranges are different and from the login CIDR range a new exports should be created. Run the following commands:
 
@@ -159,7 +159,7 @@ When all the above steps are completed, you can use these endpoints as a common 
 For sharing the LSF binaries, you can still use the VPC file storage, but as per the design the VPC file share supports maximum of 250 nodes only. But with this solution it is suggested that when you use the Scale NFS, create a new file export for LSF as `/gpfs/fs1/lsf` and share the same mount point.
 {: note}
 
-8. If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC, you could change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
+* If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC, you could change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
 
 ```text
 # mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
@@ -184,7 +184,7 @@ Path                Delegations                 Clients
 ```
 {: codeblock}
 
-9. Updating the squash permission property for the NFS export.
+* Updating the squash permission property for the NFS export.
 
 To enable {{site.data.keyword.scale_short}} integration with your {{site.data.keyword.spectrum_full}} cluster, change the squash permission property for the NFS export (for example, for the `/gpfs/fs1/lsf` export). Update the `SQUASH` property from **ROOT_SQUASH** to **NO_ROOT_SQUASH** so that the {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full}} clusters can share configurations.
 
