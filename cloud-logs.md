@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-21"
 
 keywords:
 
@@ -42,7 +42,7 @@ Following are the key features of {{site.data.keyword.logs_full_notm}}:
 
 Solutions can be enabled for cloud logs to capture infrastructure and application logs from both management and compute nodes. In order to setup cloud logs, following are the variables:
 
-* `observability_logs_enable_for_management`: Set this value as "false" to disable the {{site.data.keyword.logs_full_notm}} integration. If enabled, infrastructure and LSF application logs from management nodes will be captured.
+* `observability_logs_enable_for_management`: Set this value as "false" to disable the {{site.data.keyword.logs_full_notm}} integration. If enabled, infrastructure and LSF application logs from management nodes are captured.
 
 * `observability_logs_enable_for_compute`: Set this value as "false" to disable the {{site.data.keyword.logs_full_notm}} integration. If enabled, infrastructure and LSF application logs from compute nodes (static nodes or worker nodes) are captured.
 
@@ -86,7 +86,7 @@ Users can apply filters based on the subsystem and application to refine the log
 
 * To view the logs from compute nodes only, select the **compute** subsystem.
 
-If your log instance is also configured as a target for {{site.data.keyword.atracker_short}}, additional application names may appear besides "LSF". To exclude audit events, filter by the LSF application names specifically.
+If your log instance is also configured as a target for {{site.data.keyword.atracker_short}}, additional application names might appear besides "LSF". To exclude audit events, filter by the LSF application names specifically.
 
 To check whether the cloud logs agent are running on your VSI, SSH into the VSI and run:
 
@@ -96,7 +96,7 @@ For more detailed logs, run:
 
 `journalctl -u fluent-bit -e`
 
-For IBM Cloud Logs, RHEL8.8 and above is supported.
+For IBM Cloud Logs, RHEL8.8 and above version is supported.
 {: note}
 
 For more information on {{site.data.keyword.logs_full_notm}}, go to the documentation [here](/docs/cloud-logs?topic=cloud-logs-getting-started).
