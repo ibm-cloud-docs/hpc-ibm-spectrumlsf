@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Integrating {{site.data.keyword.scale_full_notm}} with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrating-scale}
 
-After deploying your Storage Scale cluster with CES, set up your {{site.data.keyword.scale_short}} cluster to utilize the CES NFS mount points as a shared file storage solution.
+After deploying your Storage Scale cluster with CES, set up your {{site.data.keyword.spectrum_full_notm}} cluster to utilize the CES NFS mount points as a shared file storage solution.
 {: shortdesc}
 
 ## Deploying your {{site.data.keyword.scale_short}} cluster
@@ -56,21 +56,13 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
     GPFS cluster information
     GPFS cluster name:    test-scale-poc.strgscale.com
     GPFS cluster id:      70671008535366959
-    ```
-    {: codeblock}
 
-
-    ```text
     Cluster Export Services global parameters
     Shared root directory:         /gpfs/fs1
     Enabled Services:              NFS
     Log level:                      0
     Address distribution policy:   even-coverage
-    ```
-    {: codeblock}
 
-
-    ```text
     Node            Daemon node name                    IP address      CES IP address list
       6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
       7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
@@ -93,11 +85,11 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
 After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you [deploy your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
 
-1. During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC to be created through the scale cluster.
+1. During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC created through the scale cluster.
 
-2. Create the LSF management node or compute worker nodes using the compute subnets from the Storage Scale cluster. Under the `cluster_subnet_ids` parameter, provide the compute subnet ID for the cluster.
+2. To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_ids` parameter, provide the compute subnet ID for the cluster.
 
-3. To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster even though there are existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1). It is highly advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture. {: #Step-3}
+3. To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
 
 4. Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details will cause the LSF deployment to fail.
 
@@ -128,7 +120,7 @@ You can use 'n' number of exports that is created from the Scale cluster. Make s
 
 7. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
 
-However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. These default mount points are created through the compute subnet CIDR range and when the login subnet are created through a different CIDR range a new exports should be created, failing which the LSF binaries cannot be shared with Scale cluster. Run the below commands:
+However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. The default mount points `/gpfs/fs1/data` and `/gpfs/fs1/tool` are created through the compute subnet CIDR range. When the login subnet is created through a different CIDR then the default mount points cannot be accessed as the ranges are different and from the login CIDR range a new exports should be created. Run the following commands:
 
 ```text
 # mmcrfileset fs1 new_fileset --inode-space new
@@ -153,14 +145,14 @@ Run the following command to update the routing on all Storage Scale CES cluster
 Run the following command to check if the `NO_ROOT_SQUASH` is applied successfully:
 
 ```text
-mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
+# mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
 ```
 {: codeblock}
 
 When all the above steps are completed, you can use these endpoints as a common point for the LSF binaries to be shared with Scale.
 
 ```text
-default = [{ mount_path = "/mnt/scale/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
+# default = [{ mount_path = "/mnt/scale/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
 ```
 {: codeblock}
 
@@ -170,14 +162,14 @@ For sharing the LSF binaries, you can still use the VPC file storage, but as per
 8. If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC, you could change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
 
 ```text
-mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
-mmnfs: The NFS export was changed successfully.
+# mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
+# mmnfs: The NFS export was changed successfully.
 ```
 {: codeblock}
 
 ```text
-mmnfs export change /gpfs/fs1/tools --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
-mmnfs: The NFS export was changed successfully.
+# mmnfs export change /gpfs/fs1/tools --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
+# mmnfs: The NFS export was changed successfully.
 ```
 {: codeblock}
 
