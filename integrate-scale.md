@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-21"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -105,92 +105,92 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 6. To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
 
-Example:
+  Example:
 
-```text
-default = [{ mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
-```
-{: codeblock}
+  ```text
+  default = [{ mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
+  ```
+  {: codeblock}
 
-From the above example, the derivations are as follows:
+  From the above example, the derivations are as follows:
 
-* /mnt/vpcstorage/tools - this is used to create and share all the LSF binaries as the shared directory. It stores all the logs and configurations.
-* /mnt/scale/tools - this is the NFS mount point created on the CES node.
-* /mnt/scale/data - this is the NFS mount point created on the CES node.
-* For sharing the `nfs_share`, the automation needs <cluster-prefix-ces.cesscale.com>.
+  * /mnt/vpcstorage/tools - this is used to create and share all the LSF binaries as the shared directory. It stores all the logs and configurations.
+  * /mnt/scale/tools - this is the NFS mount point created on the CES node.
+  * /mnt/scale/data - this is the NFS mount point created on the CES node.
+  * For sharing the `nfs_share`, the automation needs <cluster-prefix-ces.cesscale.com>.
     1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **LSF**.
     2. A hyphen (-).
     3. The text **ces**.
     4. A dot (.)
 
-You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
-{: note}
+  You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
+  {: note}
 
 7. When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
 
 However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. These default mount points are created through the compute subnet CIDR range and when the login subnet are created through a different CIDR range a new exports should be created, failing which the LSF binaries cannot be shared with Scale cluster. Run the below commands:
 
-```text
-# mmcrfileset fs1 new_fileset --inode-space new
-# mmlinkfileset fs1 new_fileset -J /gpfs/fs1/new_fileset
-```
-{: codeblock}
+  ```text
+  # mmcrfileset fs1 new_fileset --inode-space new
+  # mmlinkfileset fs1 new_fileset -J /gpfs/fs1/new_fileset
+  ```
+  {: codeblock}
 
-Run the following command to export the NFS file set for the client CIDR:
+  Run the following command to export the NFS file set for the client CIDR:
 
-```text
-# mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/18(Access_Type=RW,SQUASH=NO_ROOT_SQUASH)" mmnfs: The NFS export was created successfully
-```
-{: codeblock}
+  ```text
+  # mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/18(Access_Type=RW,SQUASH=NO_ROOT_SQUASH)" mmnfs: The NFS export was created successfully
+  ```
+  {: codeblock}
 
-Run the following command to update the routing on all Storage Scale CES cluster nodes:
+  Run the following command to update the routing on all Storage Scale CES cluster nodes:
 
-```text
-# ip route add 10.241.0.0/18 via 10.241.17.1 dev eth1
-```
-{: codeblock}
+  ```text
+  # ip route add 10.241.0.0/18 via 10.241.17.1 dev eth1
+  ```
+  {: codeblock}
 
-Run the following command to check if the `NO_ROOT_SQUASH` is applied successfully:
+  Run the following command to check if the `NO_ROOT_SQUASH` is applied successfully:
 
-```text
-mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
-```
-{: codeblock}
+  ```text
+  mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
+  ```
+  {: codeblock}
 
-When all the above steps are completed, you can use these endpoints as a common point for the LSF binaries to be shared with Scale.
+  When all the above steps are completed, you can use these endpoints as a common point for the LSF binaries to be shared with Scale.
 
-```text
-default = [{ mount_path = "/mnt/scale/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
-```
-{: codeblock}
+  ```text
+  default = [{ mount_path = "/mnt/scale/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
+  ```
+  {: codeblock}
 
-For sharing the LSF binaries, you can still use the VPC file storage, but as per the design the VPC file share supports maximum of 250 nodes only. But with this solution it is suggested that when you use the Scale NFS, create a new file export for LSF as `/gpfs/fs1/lsf` and share the same mount point.
-{: note}
+  For sharing the LSF binaries, you can still use the VPC file storage, but as per the design the VPC file share supports maximum of 250 nodes only. But with this solution it is suggested that when you use the Scale NFS, create a new file export for LSF as `/gpfs/fs1/lsf` and share the same mount point.
+  {: note}
 
 8. If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC, you could change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
 
-```text
-mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
-mmnfs: The NFS export was changed successfully.
-```
-{: codeblock}
+  ```text
+  mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
+  mmnfs: The NFS export was changed successfully.
+  ```
+  {: codeblock}
 
-```text
-mmnfs export change /gpfs/fs1/tools --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
-mmnfs: The NFS export was changed successfully.
-```
-{: codeblock}
+  ```text
+  mmnfs export change /gpfs/fs1/tools --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 
+  mmnfs: The NFS export was changed successfully.
+  ```
+  {: codeblock}
 
-```text
-# mmnfs export list
-Path                Delegations                 Clients
----------------------------------------------------------
-/gpfs/fs1/data         NONE                10.241.0.0/20
-/gpfs/fs1/data         NONE                10.241.0.0/18
-/gpfs/fs1/lsf          NONE                10.241.0.0/18
-/gpfs/fs1/tools        NONE                10.241.0.0/20
-```
-{: codeblock}
+  ```text
+  # mmnfs export list
+  Path                Delegations                 Clients
+  ---------------------------------------------------------
+  /gpfs/fs1/data         NONE                10.241.0.0/20
+  /gpfs/fs1/data         NONE                10.241.0.0/18
+  /gpfs/fs1/lsf          NONE                10.241.0.0/18
+  /gpfs/fs1/tools        NONE                10.241.0.0/20
+  ```
+  {: codeblock}
 
 9. Updating the squash permission property for the NFS export.
 
