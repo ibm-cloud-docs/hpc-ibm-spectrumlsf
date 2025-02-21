@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-21"
 
 keywords:
 
@@ -54,9 +54,9 @@ You can access the LSF Application Center directly:
 
 2. Open a browser:
     * If you are on your local host, access https://localhost:8443.
-    * If you enabled a [VPN connection](/docs/allowlist/hpc-service?topic=hpc-service-install-vpn-hpc-cluster) or a direct link among your on-premises facilities and the VPC, access http://pac.<domain_name>, where `<domain_name>` is your {{site.data.keyword.cloud}} HPC cluster domain name.
+    * If you enabled a [VPN connection](/docs/iaas-vpn?topic=iaas-vpn-about-iaas-vpn) or a direct link among your on-premises facilities and the VPC, access http://pac.<domain_name>, where `<domain_name>` is your {{site.data.keyword.cloud}} HPC cluster domain name.
 
-3. Log in to LSF Application Center, by using the default user lsfadmin and the password that you configured when you [deployed your {{site.data.keyword.cloud_notm}} cluster](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) (for example, Admin@123).
+3. Log in to LSF Application Center, by using the default user lsfadmin and the password that you configured when you deployed your {{site.data.keyword.cloud_notm}} cluster (for example, Admin@123).
 
     If LDAP is enabled, you can access the LSF Application Center:
     * by using the LDAP username and password that you configured during {{site.data.keyword.cloud}} HPC cluster deployment.

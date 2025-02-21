@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-21"
 
 keywords:
 
@@ -71,7 +71,7 @@ To view access policies, complete the following steps:
    | VPC Infrastructure Services | All | Writer, Editor |
 {: caption="Verify access policies" caption-side="bottom"}
 
-The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center), which is enabled by default.
+The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-before-deploy-application-center), which is enabled by default.
 {:note: .note}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
@@ -128,7 +128,7 @@ Customer-managed encryption applies only to the bastion, login, and management n
 {: #select-method-for-accessing-cluster}
 {: step}
 
-Access the bastion node in the cluster directly or through a VPN gateway. You set your method during [cluster deployment](/docs/allowlist/hpc-service?topic=hpc-service-deploy-architecture&interface=ui) as optional deployment input values:
+Access the bastion node in the cluster directly or through a VPN gateway. You set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values:
 
 1. Directly through a floating IP that is attached to the bastion node. If you select a value of **true** for the `enable_fip` deployment input variable, then a floating IP is attached to the bastion node. If you are connecting to the LSF cluster through VPN gateway, set this value to **false**. If not specified, this deployment value is set to **true**.
 
