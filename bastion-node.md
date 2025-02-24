@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-24"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -26,7 +26,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 A bastion node also known as a jump server is a secure entry point that is designed to provide controlled access to private network resources. It acts as an agent between the public internet and internal systems, allowing users to securely access internal servers without exposing sensitive resources directly to the public web.
 
-The IBM Spectrum LSF solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to the cluster nodes. Users can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
+The {{site.data.keyword.spectrum_full_notm}} solution includes support for bastion nodes as part of its architectural design. By default, a bastion node is created to facilitate secure access to the cluster nodes. Users can use this bastion node to connect to login, management, and worker nodes within the cluster. For enhanced security, SSH connections are only permitted through the bastion node, which then provides access to other cluster nodes.
 
 The solution uses an Ubuntu-based operating system for the bastion node. To maintain security compliance and ensure up-to-date features, the automation code is regularly updated to deploy the latest Ubuntu 22.04 version.
 

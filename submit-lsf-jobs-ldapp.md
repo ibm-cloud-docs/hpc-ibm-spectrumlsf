@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-09-03"
+  years: 2025
+lastupdated: "2025-02-24"
 keywords:
 
 subcollection: hpc-ibm-spectrumlsf
@@ -27,7 +27,7 @@ After you integrate OpenLDAP with your {{site.data.keyword.spectrum_short}} clus
 All the following commands can also be run from the login node.
 {: note}
 
-1. Log in to the management node by using the `ssh_to_management_node` value as shown as part of output section of {{site.data.keyword.bpshort}} job log:
+1. Log in to the management node by using the `ssh_to_management_node` value as shown as part of the output section of {{site.data.keyword.bpshort}} job log:
 
     * Primary management node:
 

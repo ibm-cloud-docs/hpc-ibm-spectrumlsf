@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-24"
 
 keywords:
 
@@ -58,13 +58,13 @@ Use {{site.data.keyword.iamlong}} (IAM) to create or remove authorization that g
 
 You can set the IBM Spectrum LSF cluster deployment process to automatically enable service-to-service authorization between your KMS and Cloud Block Storage service by setting the `skip_iam_block_storage_authorization_policy` deployment input value as **false**. This way, the process automatically creates service authorization between Cloud Block Storage and the IBM Key Protect instance ID. This happens when the KMS instance is created through automation.
 
-When you use an existing kms instance which already has an autorisation enabled between Cloud Block Storage and the KMS instance ID, then set the `skip_iam_block_storage_authorization_policy` deployment input value as **true**. In this case, the process skips creating a new service authorization. Also, when you use an existing KMS instance ID and if the authorization is not enabled, then keep the value as **false** (by default) so the solution establishes the authorization.
+When you use an existing kms instance, which already has an autorisation that is enabled between Cloud Block Storage and the KMS instance ID, then set the `skip_iam_block_storage_authorization_policy` deployment input value as **true**. In this case, the process skips creating a new service authorization. Also, when you use an existing KMS instance ID and if the authorization is not enabled, then keep the value as **false** (by default) so the solution establishes the authorization.
 
 2. Enabling service-to-service authorization between the KMS and VPC File Storage service
 
 You can set the IBM Spectrum LSF cluster deployment process to automatically enable service-to-service authorization between your KMS and VPC file storage service by setting the `skip_iam_share_authorization_policy` deployment input value as **false**. This way, the process automatically creates service authorization between Cloud Block Storage and the VPC file storage service. This happens when the KMS instance is created through automation.
 
-When you use an existing KMS instance which already has an autorisation enabled between VPC file storage and the KMS instance ID, then set the `skip_iam_share_authorization_policy` deployment input value as **true**. In this case, the process skips creating a new service authorization. Also, when you use an existing KMS instance ID and if the authorization is not enabled, then keep the value as **false** (by default) so the solution establishes the authorization.
+When you use an existing KMS instance, which already has an autorisation that is enabled between VPC file storage and the KMS instance ID, then set the `skip_iam_share_authorization_policy` deployment input value as **true**. In this case, the process skips creating a new service authorization. Also, when you use an existing KMS instance ID and if the authorization is not enabled, then keep the value as **false** (by default) so the solution establishes the authorization.
 
 If the service authorization exists and you create a new one, you can encounter a message similar to: `Error creating authorization policy: The policy wasn't created because an access policy with identical attributes and roles already exists.`
 {: note}

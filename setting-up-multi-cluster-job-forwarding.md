@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-09-20"
+  years: 2025
+lastupdated: "2025-02-24"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -30,11 +30,11 @@ This example assumes that the on-premises cluster labeled with "OnPremiseCluster
 
     ```
     $ sudo ip link set mtu 1500 dev eth0
-    $ sudo ip route add {management host candidate/management host IP} dev eth0 mtu 9000 
+    $ sudo ip route add {management host candidate/management host IP} dev eth0 mtu 9000
     ```
     {: codeblock}
 
-2. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the host names for the LSF management hosts are DNS-resolveable.
+2. The following is an example of the `/etc/hosts` file for the cloud cluster. You need to make sure that the hostnames for the LSF management hosts are DNS-resolveable.
 
     ```
     ...

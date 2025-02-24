@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-02-24"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -30,7 +30,7 @@ After deploying your Storage Scale cluster with CES, set up your {{site.data.key
 ## Deploying your {{site.data.keyword.scale_short}} cluster
 {: #scale-tile}
 
-Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
+Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) by using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
 1. Select to use product version 2.7.0 or later.
@@ -39,7 +39,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
   * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 
-  * Once the Scale cluster is successfully created, login to CES node to run the below command.
+  * Once the Scale cluster is successfully created, login to the CES node to run the following command.
   Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
     ```text
@@ -91,7 +91,7 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
 
-* Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details will cause the LSF deployment to fail.
+* Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details cause the LSF deployment to fail.
 
 * Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter.  This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
 
@@ -104,11 +104,11 @@ default = [{ mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { 
 ```
 {: codeblock}
 
-From the above example, the derivations are as follows:
+From the preceding example, the derivations are as follows:
 
 * /mnt/vpcstorage/tools - this is used to create and share all the LSF binaries as the shared directory. It stores all the logs and configurations.
-* /mnt/scale/tools - this is the NFS mount point created on the CES node.
-* /mnt/scale/data - this is the NFS mount point created on the CES node.
+* /mnt/scale/tools - this is the NFS mount point that is created on the CES node.
+* /mnt/scale/data - this is the NFS mount point that is created on the CES node.
 * For sharing the `nfs_share`, the automation needs <cluster-prefix-ces.cesscale.com>.
     1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **LSF**.
     2. A hyphen (-).
@@ -118,9 +118,9 @@ From the above example, the derivations are as follows:
 You can use 'n' number of exports that is created from the Scale cluster. Make sure to update the values and the mount path names appropriately.
 {: note}
 
-* When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the above example, the management and the worker nodes get the NFS mounted as the shared file system.
+* When using the Scale NFS, it is expected that all the login, management, and worker nodes share the NFS mount points. From the preceding example, the management and the worker nodes get the NFS mounted as the shared file system.
 
-However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that needs to be done to export a new NFS called `/gpfs/fs1/lsf`. The default mount points `/gpfs/fs1/data` and `/gpfs/fs1/tool` are created through the compute subnet CIDR range. When the login subnet is created through a different CIDR then the default mount points cannot be accessed as the ranges are different and from the login CIDR range a new exports should be created. Run the following commands:
+However, from Step 3 when you create a new subnet for creating the login node, there are few configuration changes that need to be done to export a new NFS called `/gpfs/fs1/lsf`. The default mount points `/gpfs/fs1/data` and `/gpfs/fs1/tool` are created through the compute subnet CIDR range. When the login subnet is created through a different CIDR then the default mount points cannot be accessed as the ranges are different and from the login CIDR range a new export should be created. Run the following commands:
 
 ```text
 # mmcrfileset fs1 new_fileset --inode-space new
@@ -142,7 +142,7 @@ Run the following command to update the routing on all Storage Scale CES cluster
 ```
 {: codeblock}
 
-Run the following command to check if the `NO_ROOT_SQUASH` is applied successfully:
+Run the following command to check whether the `NO_ROOT_SQUASH` is applied successfully:
 
 ```text
 # mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
@@ -156,10 +156,10 @@ When all the above steps are completed, you can use these endpoints as a common 
 ```
 {: codeblock}
 
-For sharing the LSF binaries, you can still use the VPC file storage, but as per the design the VPC file share supports maximum of 250 nodes only. But with this solution it is suggested that when you use the Scale NFS, create a new file export for LSF as `/gpfs/fs1/lsf` and share the same mount point.
+For sharing the LSF binaries, you can still use the VPC file storage, but as the design the VPC file share supports a maximum of 250 nodes only. But with this solution it is suggested that when you use the Scale NFS, create a new file export for LSF as `/gpfs/fs1/lsf` and share the same mount point.
 {: note}
 
-* If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC, you could change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
+* If it is necessary to use the default endpoints on the login node, then you need to update the NFS mount points with right CIDR ranges to be mounted on the login node. Since, the default NFS points are created with compute subnet range. All the subnets are part of the VPC. You might change the export list to point to /18, so that any nodes that are part of this VPC range can be able to mount even the default nodes.
 
 ```text
 # mmnfs export change /gpfs/fs1/data --nfsadd "10.241.0.0/18(Access_Type=RW,SQUASH=no_root_squash)" 

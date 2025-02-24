@@ -1,8 +1,8 @@
 ---
 
-copyright: 
+copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-24"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -31,7 +31,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 Deploy the HPC cluster with your choice of configuration properties.
 
-## Architecture overview and VPC File Storage setup 
+## Architecture overview and VPC File Storage setup
 {: #hpc-cluster-architecture-overview}
 
 The LSF cluster consists of a bastion, lsf login client node, 1 - 10 LSF management nodes, and some LSF worker nodes. Where the VPC file storage is attached to lsf login client node/management and worker nodes.
@@ -52,7 +52,7 @@ The HPC cluster solution provides a base custom image, which includes the LSF in
 
 Complete the following steps to create your SSH key:
 
-1. Generate an SSH key on your system by running the following command: 
+1. Generate an SSH key on your system by running the following command:
 
     ```
     ssh-keygen -t rsa
@@ -68,7 +68,7 @@ Complete the following steps to create your SSH key:
 1. Log in to the [{{site.data.keyword.cloud}} console](https://cloud.ibm.com/){: external} by using your unique credentials.
 2. From the dashboard, click **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > SSH keys**.
 3. Click Create.
-4. Enter the SSH key name (for example, `po-ibm-ssh-key`), select the default resource group, add tags, and select the region. 
+4. Enter the SSH key name (for example, `po-ibm-ssh-key`), select the default resource group, add tags, and select the region.
 5. Copy and paste the public key into the _Public key_ field (the contents that you saved from `.ssh/id_rsa.pub`).
 6. Click Add SSH key.
 
@@ -90,16 +90,16 @@ Complete the following steps to create your API key:
 
 Complete the following steps to create and configure an HPC cluster from the {{site.data.keyword.cloud_notm}} catalog:
 
-1. In the {{site.data.keyword.cloud_notm}} catalog, search for _HPC_ or _Spectrum LSF_, and then select IBM Spectrum LSF. 
+1. In the {{site.data.keyword.cloud_notm}} catalog, search for _HPC_ or _Spectrum LSF_, and then select IBM Spectrum LSF.
 
     ![HPC Cluster solution page](images/hpc_catalog.png){: caption="HPC cluster solution page"}
 
-2. In the **Set the deployment values** section, supply the required values: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`. 
+2. In the **Set the deployment values** section, supply the required values: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`.
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 
 IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
-{: note} 
+{: note}
 
 ### Parameters for auto scaling
 {: #hpc-cluster-auto-scaling-parameters}
@@ -139,7 +139,7 @@ You have a minimum number of worker nodes (`worker_node_min_count`). This is the
 
 The following example shows `worker_node_min_count=2` and `worker_node_max_count=10`.
 
-1. To check the two worker nodes, run the following command: 
+1. To check the two worker nodes, run the following command:
 
     ```
     bhosts -w
@@ -165,7 +165,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
     bhosts -w
     ```
     {: pre}
-     
+
     You can see that now five nodes were added to your cluster:
 
     ![Two worker nodes](images/autoscaling.png){: caption="Five worker nodes added"}
