@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-02-24"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -51,33 +51,33 @@ However, when dynamic nodes are created based on the maximum node count, the aut
 
 Configuration example:
 
-  ```text
-  hcl
-  ```
-  {: codeblock}
+```text
+hcl
+```
+{: pre}
 
-  ```text
-  worker_node_instance_type = [
-  { count = 70, instance_type = "bx3d-176x880" },
-  { count = 30, instance_type = "cx3d-96x240" }
-  ]
-  ```
-  {: codeblock}
+```text
+worker_node_instance_type = [
+{ count = 70, instance_type = "bx3d-176x880" },
+{ count = 30, instance_type = "cx3d-96x240" }
+]
+```
+{: codeblock}
 
 In this scenario, the automation chooses the first profile `bx3d-176x880` to compute CPU, memory, and other specifications, leading to dynamic nodes being provisioned solely based on this profile, regardless of additional instance type definitions.
 
-For all of the configurations, the range of core count is 2 - 128 per virtual machine. There is a special ultra high memory virtual machine type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core. 
+For all of the configurations, the range of core count is 2 - 128 per virtual machine. There is a special ultra high memory virtual machine type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core.
 
-The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual machine. 
+The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual machine.
 
-By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual machine, so you get 2 vCPUs per physical core. But this can be disabled easily. 
+By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual machine, so you get 2 vCPUs per physical core. But this can be disabled easily.
 
 Most HPC applications perform best with one process or thread per physical core.
 {: note}
 
 For communication-intensive workloads that can fit on a single virtual machine, it might be good to pick the best match and go up to 128 core virtual machine instance instead of splitting the workload across multiple virtual machine instances of a smaller core count. This allows the process to take advantage of faster communication through shared memory on a single virtual machine rather than communication across multiple virtual machines over an ethernet network.
 
-To put it in perspective, two processes running on the same virtual machine might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual machine instances it can take more than 30 microseconds. A factor of 100 times faster communication when it is through shared memory in a single virtual machine. 
+To put it in perspective, two processes running on the same virtual machine might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual machine instances it can take more than 30 microseconds. A factor of 100 times faster communication when it is through shared memory in a single virtual machine.
 
 A very cost-effective configuration is cx2-128x256, which allows 128 cores and 2 GB memory per core. This can cover a broad range of MPI workloads.
 
@@ -108,11 +108,11 @@ The red line represents the HPC environment with the InfiniBand HDR that gives t
 
 SNAP and Quicksilver are two applications that the DoE uses for benchmarking and deciding the specific commodity technology systems.
 
-The following graphs show results on how {{site.data.keyword.cloud_notm}} compares with the state-of-the-art HPC system. 
+The following graphs show results on how {{site.data.keyword.cloud_notm}} compares with the state-of-the-art HPC system.
 
 On {{site.data.keyword.cloud_notm}}, the benchmarks use two different configurations:
 * bx2-8x32
-* bx2-16x64 
+* bx2-16x64
 
 As you can see, SNAP results show that `bx2-8x32` provides more performance because of higher effective network bandwidth ratio per core; where Quicksilver does well with bx2-16x64 as it has moderate communication requirements and is mostly near-neighbor to track particle motion across the global domain.
 
@@ -130,14 +130,14 @@ The choice of virtual machine profile type for {{site.data.keyword.cloud_notm}} 
 ### Single node virtual machine use cases
 {: #single-node-vm-use-cases}
 
-This should be the first evaluation as it can provide the best price and performance for running such jobs on {{site.data.keyword.cloud_notm}}. 
+This should be the first evaluation as it can provide the best price and performance for running such jobs on {{site.data.keyword.cloud_notm}}.
 
 You can choose from the following set of virtual machine profiles:
 * CX2-16x32 to CX2-128x256
 * BX2-16x64 to BX2-128x512
 * MX2-16x128 to MX2-128x1024
 
-Depending on the memory required per core, you might pick the MX2 configuration, which can support up to 1 TB on the MX2-128x1024 profile. 
+Depending on the memory required per core, you might pick the MX2 configuration, which can support up to 1 TB on the MX2-128x1024 profile.
 
 If the memory required per core is less than 2 GB, an appropriate CX2 profile might give you the best price and performance. The advantages of faster communication over shared memory help with the performance if the workload can run on a single virtual machine.
 
@@ -154,9 +154,9 @@ Some examples of such workloads:
 ### Scale out use case with multiple virtual machines
 {: #scale-out-multiple-vms}
 
-This is the second category of workloads where the requirement is to have multiple virtual machines for execution. Even for this category, depending on the network bandwidth and latency requirements, a significant set of HPC workloads would scale well on {{site.data.keyword.cloud_notm}}. 
+This is the second category of workloads where the requirement is to have multiple virtual machines for execution. Even for this category, depending on the network bandwidth and latency requirements, a significant set of HPC workloads would scale well on {{site.data.keyword.cloud_notm}}.
 
-There are cases where small updates might be needed to the application code to adjust it well to run in a cloud-like environment, and these changes are not specific to {{site.data.keyword.cloud_notm}} but would be desirable to burst to any cloud provider. 
+There are cases where small updates might be needed to the application code to adjust it well to run in a cloud-like environment, and these changes are not specific to {{site.data.keyword.cloud_notm}} but would be desirable to burst to any cloud provider.
 
 IBM carries deep HPC expertise and can provide specific recommendations to get you the best price and performance for an HPC cloud environment.
 
