@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Creating a custom image for compute nodes
 {: #custom-image}
 
-The custom image builder tool enables the creation of pre-optimized images for compute nodes with IBM Spectrum LSF and essential open-source packages. If additional need to customize or install any third-party packages, use this tool to build private custom images tailored for your Spectrum LSF deployment. This automated solution starts with an IBM Cloud base image (stock image) and installs essential IBM Spectrum LSF components along with any prerequiste packages for the LSF images to work as defined and validates the final image. These custom images can be version-controlled and accessed through your private image catalog, providing flexibility and efficiency for maintaining and updating compute environments.
+The custom image builder tool enables the creation of pre-optimized images for compute nodes with {{site.data.keyword.spectrum_full_notm}} and essential open-source packages. If additional need to customize or install any third-party packages, use this tool to build private custom images tailored for your Spectrum LSF deployment. This automated solution starts with an IBM Cloud base image (stock image) and installs essential {{site.data.keyword.spectrum_full_notm}} components along with any prerequiste packages for the LSF images to work as defined and validates the final image. These custom images can be version-controlled and accessed through your private image catalog, providing flexibility and efficiency for maintaining and updating compute environments.
 {: shortdesc}
 
 ## Features

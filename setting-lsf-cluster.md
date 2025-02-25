@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-02-25"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -44,7 +44,7 @@ The LSF cluster consists of a bastion, lsf login client node, 1 - 10 LSF managem
 
 * The {{site.data.keyword.cloud_notm}} File Storage for VPC is used for file sharing. By default, there are two file share volumes; each is 100 GB. To change this configuration, [set the custom_file_shares deployment value](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs&interface=ui#share).
 
-The HPC cluster solution provides a base custom image, which includes the LSF installation. You can still create customizable custom image with the installation of the required packages. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). You can then specify the custom image that is created in the IBM Spectrum LSF tile under the `compute_image_name`(worker nodes). The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
+The HPC cluster solution provides a base custom image, which includes the LSF installation. You can still create customizable custom image with the installation of the required packages. For more information, see [Create custom image](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial&interface=ui#create-custom-image). You can then specify the custom image that is created in the {{site.data.keyword.spectrum_full_notm}} tile under the `compute_image_name`(worker nodes). The image that is used by the login node and the storage node is not configurable at the moment (CentOS 7 by default).
 
 ## Create SSH key
 {: #hpc-ssh-key-creation-before}
@@ -98,7 +98,7 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 
-IBM Spectrum LSF supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
+{{site.data.keyword.spectrum_full_notm}} supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
 {: note}
 
 ### Parameters for auto scaling

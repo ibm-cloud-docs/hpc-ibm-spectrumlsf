@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -64,7 +64,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 |Management nodes| * Deploy highly available dedicated management nodes in a secured, IBM-owned infrastructure account for each cluster.  \n * Ensure the health of management nodes in OS level. | Use the provided console tools to request that management nodes are rebooted or reloaded, and troubleshoot issues such as when the management nodes are in an unhealthy state. |
 |Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n * Ensure that compute nodes successfully provision when the user account and permissions are correctly set up, and a sufficient quota exists.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Provide tools, such as the LSF Resource Connector to extend your cluster infrastructure.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster |
 |Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Fulfill requests for more infrastructure, such as attaching worker nodes to existing VPC or subnets upon resizing a compute pool.  \n * Provide the ability to set up a VPN connection with on-premises resources such as through the strongSwan IPSec VPN service or the IBM Cloud VPC VPN.  \n * Provide the ability to isolate network traffic with login nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload. |
-|Observability| * Provide standard IBM Spectrum LSF tools for monitoring the status of LSF cluster.  \n * Provide a standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, and so on). | Set up and monitor the health of your cluster health metrics. |
+|Observability| * Provide standard {{site.data.keyword.spectrum_full_notm}} tools for monitoring the status of LSF cluster.  \n * Provide a standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, and so on). | Set up and monitor the health of your cluster health metrics. |
 {: caption="Responsibilities for incident and operations" caption-side="bottom"}
 
 ## Change management

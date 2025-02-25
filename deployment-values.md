@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -30,10 +30,10 @@ The following deployment values can be used to configure the {{site.data.keyword
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
-| `enable_app_center` | Set to true to enable the IBM Spectrum LSF Application Center GUI (default: false). [System requirements](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14) for IBM Spectrum LSF Application Center Version 10.2 Fix Pack 14. | No | false |
+| `enable_app_center` | Set to true to enable the {{site.data.keyword.spectrum_full_notm}} Application Center GUI (default: false). [System requirements](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14) for {{site.data.keyword.spectrum_full_notm}} Application Center Version 10.2 Fix Pack 14. | No | false |
 | `existing_certificate_instance` | When `app_center_high_availability` is enable or set as true, The Application Center is configured for high availability and requires an Application Load Balancer Front-End listener to use a certificate CRN value stored in the Secret Manager. Provide the valid `existing_certificate_instance` to configure the Application load balancer. | No | "" |
-| `app_center_gui_pwd` | Password for IBM Spectrum LSF Application Center GUI. Note: Password should be at least 8 characters, must have one number, one lowercase letter, one uppercase letter, and at least one special character. | No | "" |
-| `app_center_high_availability` | Set to false to disable the IBM Spectrum LSF Application Center GUI High Availability (default: true). If the value is set as true, provide a certificate instance crn under the existing_certificate_instance value for the VPC load balancer to enable HTTPS connections [certificate instance requirements](https://cloud.ibm.com/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center). | No | true |
+| `app_center_gui_pwd` | Password for {{site.data.keyword.spectrum_full_notm}} Application Center GUI. Note: Password should be at least 8 characters, must have one number, one lowercase letter, one uppercase letter, and at least one special character. | No | "" |
+| `app_center_high_availability` | Set to false to disable the {{site.data.keyword.spectrum_full_notm}} Application Center GUI High Availability (default: true). If the value is set as true, provide a certificate instance crn under the existing_certificate_instance value for the VPC load balancer to enable HTTPS connections [certificate instance requirements](https://cloud.ibm.com/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center). | No | true |
 | `bastion_ssh_keys` | Provide the list of SSH key names configured in your IBM Cloud account to establish a connection to the IBM Cloud HPC bastion and login node. Ensure that the SSH key is present in the same resource group and region where the cluster is being provisioned. If you do not have an SSH key in your IBM Cloud account, create one by following the provided instructions [SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys). | Yes | None |
 | `bastion_instance_name` | Provide the name of the bastion instance. If none is given, then a new bastion is created. | No | "" |
 | `bastion_instance_public_ip` | Provide the public IP address of the bastion instance to establish the remote connection. | No | "" |

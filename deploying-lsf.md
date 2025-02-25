@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -207,7 +207,7 @@ When deployed, you can then access your deployed environment.
 Regardless of whether you deployed the {{site.data.keyword.spectrum_full}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
 
 * Verify that you have access to the bastion host by using an SSH key.
-* Verify that you can log in to all created IBM Spectrum LSF instances.
+* Verify that you can log in to all created {{site.data.keyword.spectrum_full_notm}} instances.
 * Verify that you can connect to the {{site.data.keyword.spectrum_full}} environment by using the following SSH commands:
 
 Run the command to login to the management node:

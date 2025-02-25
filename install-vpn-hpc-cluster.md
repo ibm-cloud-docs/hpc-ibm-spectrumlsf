@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-02-25"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -31,7 +31,7 @@ This example links a VPN gateway to the subnet for LSF nodes. By doing this, loc
 ## Before you begin
 {: #before-you-begin}
 
-Before you begin, make sure to complete the steps for [getting started with IBM Spectrum LSF](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial). Also, you need to know a public IP address of your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key to authenticate your VPN connection. The preshared key can be any random string.
+Before you begin, make sure to complete the steps for [getting started with {{site.data.keyword.spectrum_full_notm}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial). Also, you need to know a public IP address of your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key to authenticate your VPN connection. The preshared key can be any random string.
 
 ## Step 1. Configure VPN deployment variables
 {: #step-1-construct-lsf}
@@ -52,7 +52,7 @@ ibmcloud schematics logs --id <WORKSPACE_ID>
 
 ```
  2021/09/21 06:04:49 Terraform apply | Outputs:
- 2021/09/21 06:04:49 Terraform apply | 
+ 2021/09/21 06:04:49 Terraform apply |
  2021/09/21 06:04:49 Terraform apply | ssh_command = "ssh -J root@162.133.xxx.yy root@10.244.0.21"
  2021/09/21 06:04:49 Terraform apply | vpc_name = "symphony-test-vpc --  - raaa-lbbbbbbb-cccc-dddd-eeee-ffffffffffff"
  2021/09/21 06:04:49 Terraform apply | vpn_config_info = "IP: 162.133.aaa.bbb, CIDR: 10.244.0.16/28, UDP ports: 500, 4500"
