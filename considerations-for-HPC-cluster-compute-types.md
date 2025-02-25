@@ -52,14 +52,15 @@ However, when dynamic nodes are created based on the maximum node count, the aut
 Configuration example:
 
 ```text
-hcl
-```
-{: pre}
-
-```text
-worker_node_instance_type = [
-{ count = 70, instance_type = "bx3d-176x880" },
-{ count = 30, instance_type = "cx3d-96x240" }
+[
+  {
+    "count": 0,
+    "instance_type": "bx2-4x16"
+  },
+  {
+    "count": 0,
+    "instance_type": "cx2-8x16"
+  }
 ]
 ```
 {: codeblock}
