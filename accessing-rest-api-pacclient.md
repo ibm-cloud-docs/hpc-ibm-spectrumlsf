@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-25"
 
-keywords: 
+keywords: REST API, LSF, Application Center
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Accessing REST API calls with `pacclient.py`
 {: #access-rest-api-calls-pacclient}
 
-{{site.data.keyword.spectrum_full_notm}} Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Application Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`pacclient.py`](https://www.ibm.com/docs/en/slac/10.2.0?topic=services-pacclientpy){: external}, which is a Python 3-based client. 
+{{site.data.keyword.spectrum_full_notm}} Application Center provides standard RESTful web services for application submission, data management, job information query, job actions, and more. The LSF Application Center web service API can be integrated with many languages and methods. This example shows how to access the LSF Application Center REST API calls by using [`pacclient.py`](https://www.ibm.com/docs/en/slac/10.2.0?topic=services-pacclientpy){: external}, which is a Python 3-based client.
 {: shortdesc}
 
 This example assumes that the LSF Application Center is configured to use the REST APIs through `https`. For more information, see [LSF Application Center Web Services](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
@@ -104,8 +104,8 @@ $ ./pacclient.py help
  pacclient.py usage:
 
  ping      --- Check whether the web service is available
- logon     --- Log on to IBM Spectrum LSF Application Center
- logout    --- Log out from IBM Spectrum LSF Application Center
+ logon     --- Log on to {{site.data.keyword.spectrum_full_notm}} Application Center
+ logout    --- Log out from {{site.data.keyword.spectrum_full_notm}} Application Center
  app       --- List applications or parameters of an application
  submit    --- Submit a job
  job       --- Show information for one or more jobs
@@ -114,19 +114,19 @@ $ ./pacclient.py help
  download  --- Download job data for a job
  upload    --- Upload job data for a job
  usercmd   --- Perform a user command
- useradd   --- Add a user to IBM Spectrum LSF Application Center
- userdel   --- Remove a user from IBM Spectrum LSF Application Center
- userupd   --- Updates user email in CSV format from IBM Spectrum LSF Application Center.
- pacinfo   --- Displays IBM Spectrum LSF Application Center version, build number and build date
+ useradd   --- Add a user to {{site.data.keyword.spectrum_full_notm}} Application Center
+ userdel   --- Remove a user from {{site.data.keyword.spectrum_full_notm}} Application Center
+ userupd   --- Updates user email in CSV format from {{site.data.keyword.spectrum_full_notm}} Application Center.
+ pacinfo   --- Displays {{site.data.keyword.spectrum_full_notm}} Application Center version, build number and build date
  notification --- Displays the notification settings for the current user.
           --- Registers notifications for a workload.
- flow          --- Show details for one or more flow instances from IBM Spectrum LSF Process Manager.
- flowaction    --- Perform an action on a flow instance from IBM Spectrum LSF Process Manager.
- flowdef       --- Show details for one or more flow definitions from IBM Spectrum LSF Process Manager.
- flowdefaction --- Perform an action on a flow definition from IBM Spectrum LSF Process Manager.
+ flow          --- Show details for one or more flow instances from {{site.data.keyword.spectrum_full_notm}} Process Manager.
+ flowaction    --- Perform an action on a flow instance from {{site.data.keyword.spectrum_full_notm}} Process Manager.
+ flowdef       --- Show details for one or more flow definitions from {{site.data.keyword.spectrum_full_notm}} Process Manager.
+ flowdefaction --- Perform an action on a flow definition from {{site.data.keyword.spectrum_full_notm}} Process Manager.
  help      --- Display command usage
 
- # Login to the LSF Cluster. 
+ # Login to the LSF Cluster.
 $ ./pacclient.py logon -l https://$AC_HOST:$AC_PORT -u $AC_USER -p $AC_PASSWORD
 You have logged on to PAC as: lsfadmin
 
