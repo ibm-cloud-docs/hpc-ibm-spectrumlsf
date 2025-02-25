@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -35,7 +35,7 @@ Most of HPC workloads fall below the 1000 core range. There are some workloads t
 
 As an example, Electronic Design Simulation (EDA) workloads have component level simulation jobs that require millions of such jobs ran every day, but each single job requires a single core and approximately 10 seconds. Optical Proximity Correction can take multiple hours or even days depending on the size of the chip and the size of the HPC cluster.
 
-Typically HPC clusters contain a set of virtual machines and use the cluster to run multiple workloads. It all depends on the workload resource requirements and duration.
+Typically HPC clusters contain a set of virtual system and use the cluster to run multiple workloads. It all depends on the workload resource requirements and duration.
 
 To address this range of characteristics, {{site.data.keyword.cloud}} provides various VPC virtual machine (VM) configurations in different modes:
 
@@ -66,18 +66,18 @@ worker_node_instance_type = [
 
 In this scenario, the automation chooses the first profile `bx3d-176x880` to compute CPU, memory, and other specifications, leading to dynamic nodes being provisioned solely based on this profile, regardless of additional instance type definitions.
 
-For all of the configurations, the range of core count is 2 - 128 per virtual machine. There is a special ultra high memory virtual machine type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core.
+For all of the configurations, the range of core count is 2 - 128 per virtual system. There is a special ultra high memory virtual system type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core.
 
-The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual machine.
+The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual system.
 
-By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual machine, so you get 2 vCPUs per physical core. But this can be disabled easily.
+By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual system, so you get 2 vCPUs per physical core. But this can be disabled easily.
 
 Most HPC applications perform best with one process or thread per physical core.
 {: note}
 
-For communication-intensive workloads that can fit on a single virtual machine, it might be good to pick the best match and go up to 128 core virtual machine instance instead of splitting the workload across multiple virtual machine instances of a smaller core count. This allows the process to take advantage of faster communication through shared memory on a single virtual machine rather than communication across multiple virtual machines over an ethernet network.
+For communication-intensive workloads that can fit on a single virtual system, it might be good to pick the best match and go up to 128 core virtual system instance instead of splitting the workload across multiple virtual system instances of a smaller core count. This allows the process to take advantage of faster communication through shared memory on a single virtual system rather than communication across multiple virtual machines over an ethernet network.
 
-To put it in perspective, two processes running on the same virtual machine might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual machine instances it can take more than 30 microseconds. A factor of 100 times faster communication when it is through shared memory in a single virtual machine.
+To put it in perspective, two processes running on the same virtual system might be able to communicate in a fraction of a microsecond (for example, 0.3 microseconds) whereas across two virtual system instances it can take more than 30 microseconds. A factor of 100 times faster communication when it is through shared memory in a single virtual system.
 
 A very cost-effective configuration is cx2-128x256, which allows 128 cores and 2 GB memory per core. This can cover a broad range of MPI workloads.
 
@@ -97,7 +97,7 @@ IBM Systems and IBM Research work in this industry domain and have successfully 
 ### Weather (WRF Model)
 {: #weather-wrf-model}
 
-{{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual machine configuration that is used for this benchmark is `bx2-16x64`. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
+{{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual system configuration that is used for this benchmark is `bx2-16x64`. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
 
 ![Figure 2. EDA-diagram](images/Weather.png "EDA-diagram"){: caption="EDA-diagram" caption-side="bottom"}
 
@@ -122,24 +122,24 @@ As you can see, SNAP results show that `bx2-8x32` provides more performance beca
 
 Even though the scaling is not as good as the weather model, {{site.data.keyword.cloud_notm}} can scale up to thousands of cores reasonably with a linear curve.
 
-## Virtual machine use cases
-{: #virtual-machine-use-cases}
+## Virtual system use cases
+{: #virtual-system-use-cases}
 
-The choice of virtual machine profile type for {{site.data.keyword.cloud_notm}} depends on your workload details on cores, memory, and network requirements.
+The choice of virtual system profile type for {{site.data.keyword.cloud_notm}} depends on your workload details on cores, memory, and network requirements.
 
-### Single node virtual machine use cases
+### Single node virtual system use cases
 {: #single-node-vm-use-cases}
 
 This should be the first evaluation as it can provide the best price and performance for running such jobs on {{site.data.keyword.cloud_notm}}.
 
-You can choose from the following set of virtual machine profiles:
+You can choose from the following set of virtual system profiles:
 * CX2-16x32 to CX2-128x256
 * BX2-16x64 to BX2-128x512
 * MX2-16x128 to MX2-128x1024
 
 Depending on the memory required per core, you might pick the MX2 configuration, which can support up to 1 TB on the MX2-128x1024 profile.
 
-If the memory required per core is less than 2 GB, an appropriate CX2 profile might give you the best price and performance. The advantages of faster communication over shared memory help with the performance if the workload can run on a single virtual machine.
+If the memory required per core is less than 2 GB, an appropriate CX2 profile might give you the best price and performance. The advantages of faster communication over shared memory help with the performance if the workload can run on a single virtual system.
 
 Some examples of such workloads:
 
@@ -164,6 +164,6 @@ IBM carries deep HPC expertise and can provide specific recommendations to get y
 * Optical Proximity Correction (OPC) in EDA
 * Full chip Integrated Circuit Validator (ICV) in EDA
 * Any Hadoop map/reduce or Spark workload
-* MPI workloads that cannot fit on a single virtual machine
+* MPI workloads that cannot fit on a single virtual system
 
 The recommendation for such workloads is to start with BX2-16x64 as it gives the best performance in tests so far. Based on your results, you might get insight into alternative options that might better suit your specific workload. Some workloads might be network-latency sensitive, and {{site.data.keyword.cloud_notm}} configurations might not appear promising; yet even for these cases, engage with the offering owner and your sales team so the HPC experts can evaluate your specific requirements and provide assistance.
