@@ -23,14 +23,14 @@ subcollection: hpc-ibm-spectrumlsf
 # Deployment values
 {: #deployment-values}
 
-The following deployment values can be used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
+The followingg deployment values can be used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
 
 `NOT_SET` refers to an empty value in the {{site.data.keyword.cloud_notm}} catalog tile. If you are using other modes like CLI, API, or Schematics UI directly to provision the HPC cluster, leave the values empty.
 {: note}
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
-| `enable_app_center` | Set to true to enable the IBM Spectrum LSF Application Center GUI (default: false). [System requirements](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14) for IBM Spectrum LSF Application Center Version 10.2 Fix Pack 14. | No | false |
+| `enable_app_center` | Set to true to enable the {{site.data.keyword.spectrum_full_notm}} Application Center GUI (default: false). [System requirements](https://www.ibm.com/docs/en/slac/10.2.0?topic=requirements-system-102-fix-pack-14) for IBM Spectrum LSF Application Center Version 10.2 Fix Pack 14. | No | false |
 | `existing_certificate_instance` | When `app_center_high_availability` is enable or set as true, The Application Center is configured for high availability and requires an Application Load Balancer Front-End listener to use a certificate CRN value stored in the Secret Manager. Provide the valid `existing_certificate_instance` to configure the Application load balancer. | No | "" |
 | `app_center_gui_pwd` | Password for IBM Spectrum LSF Application Center GUI. Note: Password should be at least 8 characters, must have one number, one lowercase letter, one uppercase letter, and at least one special character. | No | "" |
 | `app_center_high_availability` | Set to false to disable the IBM Spectrum LSF Application Center GUI High Availability (default: true). If the value is set as true, provide a certificate instance crn under existing_certificate_instance value for the VPC load balancer to enable HTTPS connections [certificate instance requirements](https://cloud.ibm.com/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center). | No | true |
