@@ -45,28 +45,12 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `cluster_subnet_ids` | Provide the list of existing subnet ID under the existing VPC where the cluster will be provisioned. One subnet ID is required as input value. The management nodes, file storage shares, and compute nodes will be deployed in the same zone. | No | [] |
 | `compute_ssh_keys` | Provide the list of SSH key names configured in your IBM Cloud account to establish a connection to the Spectrum LSF cluster node. Ensure the SSH key is present in the same resource group and region where the cluster is being provisioned. If you do not have an SSH key in your IBM Cloud account, create one by following the provided instructions [SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys&interface=ui). | Yes | None |
 | `compute_image_name` | Name of the custom image that you want to use to create virtual server instances in your IBM Cloud account to deploy the IBM Cloud Spectrum LSF cluster compute (static/dynamic) nodes. By default, the solution uses a RHEL 8-10 base OS image with additional software packages mentioned [here](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial#create-custom-image). If you would like to include your application-specific binary files, follow the instructions in [Planning for custom images](https://cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images) to create your own custom image and use that to build the lsf cluster through this offering. | No | "hpcaas-lsf10-rhel810-compute-v8" |
-| `custom_file_shares` | Provide details for customizing your shared file storage layout, including mount points, sizes (in GB), and IOPS ranges for up to five file shares if using VPC file storage as the storage option.If using IBM Storage Scale as an NFS mount, update the appropriate mount path and nfs_share values created from the Storage Scale cluster. Note that VPC file storage supports attachment to a maximum of 256 nodes. Exceeding this limit may result in mount point failures due to attachment restrictions.For more information, see [Storage options](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale). | No | [
-  {
-    "mount_path": "/mnt/vpcstorage/tools",
-    "size": 100,
-    "iops": 2000
-  },
-  {
-    "mount_path": "/mnt/vpcstorage/data",
-    "size": 100,
-    "iops": 6000
-  },
-  {
-    "mount_path": "/mnt/scale/tools",
-    "nfs_share": ""
-  }
-] |
+| `custom_file_shares` | Provide details for customizing your shared file storage layout, including mount points, sizes (in GB), and IOPS ranges for up to five file shares if using VPC file storage as the storage option.If using IBM Storage Scale as an NFS mount, update the appropriate mount path and nfs_share values created from the Storage Scale cluster. Note that VPC file storage supports attachment to a maximum of 256 nodes. Exceeding this limit may result in mount point failures due to attachment restrictions.For more information, see [Storage options](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale). | No | [{ "mount_path": "/mnt/vpcstorage/tools", "size": 100,"iops": 2000},{"mount_path": "/mnt/vpcstorage/data","size": 100,"iops": 6000},{
+"mount_path": "/mnt/scale/tools","nfs_share": "" }] |
 | `cos_instance_name` | Provide the name of the existing COS instance where the logs for the enabled functionalities will be stored. | No | "" |
 | `cos_expiration_days` | Specify the retention period for objects in COS buckets by setting the number of days after their creation for automatic expiration. This configuration helps manage storage efficiently by removing outdated or unnecessary data, reducing storage costs, and maintaining data lifecycle policies. Ensure that the specified duration aligns with your data retention and compliance requirements. | No | 30 |
 | `dns_instance_id` | Provide the ID of an existing IBM Cloud DNS service instance to avoid creating a new one. Note: If dns_instance_id is not set to null, a new DNS zone will be created within the specified DNS service instance. | No | "" |
-| `dns_domain_name` | IBM Cloud DNS Services domain name to be used for the IBM Spectrum LSF cluster. | No | {
-    compute = "lsf.com"
-  }|
+| `dns_domain_name` | IBM Cloud DNS Services domain name to be used for the IBM Spectrum LSF cluster. | No | {compute = "lsf.com"}|
 | `dns_custom_resolver_id` | Provide the ID of existing IBM Cloud DNS custom resolver to skip creating a new custom resolver. If the value is set to null, a new dns custom resolver shall be created and associated to the vpc. Note: A VPC can be associated only to a single custom resolver, provide the ID of custom resolver if it is already associated to the VPC. | No | "" |
 | `enable_cos_integration` | Set to true to create an extra cos bucket to integrate with HPC cluster deployment. | No | false |
 | `enable_vpc_flow_logs` | This flag determines whether VPC flow logs are enabled. When set to true, a flow log collector will be created to capture and monitor network traffic data within the VPC. Enabling flow logs provides valuable insights for troubleshooting, performance monitoring, and security auditing by recording information about the traffic passing through your VPC. Consider enabling this feature to enhance visibility and maintain robust network management practices. | No | true |
@@ -131,16 +115,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `vpc_cluster_login_private_subnets_cidr_blocks` | Provide the CIDR block required for the creation of the login cluster's private subnet. Only one CIDR block is needed. If using a hybrid environment, modify the CIDR block to avoid conflicts with any on-premises CIDR blocks. Since the login subnet is used only for the creation of login virtual server instances, provide a CIDR range of /28. | No | ["10.241.16.0/28"] |
 | `vpn_enabled` | Set the value as true to deploy a VPN gateway for VPC in the cluster. | No | false |
 | `worker_node_min_count` | The minimum number of worker nodes. This is the number of static worker nodes that are provisioned at the time the cluster is created. If using NFS storage, enter a value in the range 0 - 500. If using Spectrum Scale storage, enter a value in the range 1 - 64. NOTE: Spectrum Scale requires a minimum of 3 compute nodes (combination of management-host, management-host-candidate, and worker nodes) to establish a [quorum](https://www.ibm.com/docs/en/spectrum-scale/5.1.5?topic=failure-quorum#nodequo) and maintain data consistency in the event of a node failure. Therefore, the minimum value of 1 may need to be larger if the value specified for management_node_count is less than 2. | No | 0 |
-| `worker_node_instance_type` | The minimum number of worker nodes represents the static nodes provisioned during cluster creation. The solution supports different instance types, so specify the node count based on the requirements for each instance profile. For dynamic node provisioning, the automation will select the first profile from the list. Ensure sufficient account-level capacity if specifying a higher instance profile.. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | No | [
-  {
-    "count": 0,
-    "instance_type": "bx2-4x16"
-  },
-  {
-    "count": 0,
-    "instance_type": "cx2-8x16"
-  }
-] |
+| `worker_node_instance_type` | The minimum number of worker nodes represents the static nodes provisioned during cluster creation. The solution supports different instance types, so specify the node count based on the requirements for each instance profile. For dynamic node provisioning, the automation will select the first profile from the list. Ensure sufficient account-level capacity if specifying a higher instance profile.. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | No | [{"count": 0,"instance_type": "bx2-4x16"},{"count": 0,"instance_type": "cx2-8x16"}] |
 | `worker_node_max_count` | The maximum number of worker nodes that can be deployed in the Spectrum LSF cluster. In order to use the [Resource Connector](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector) feature to dynamically create and delete worker nodes based on workload demand, the value selected for this parameter must be larger than the total count of worker_node_instance_type. If you plan to deploy only static worker nodes in the LSF cluster. | No | 10 |
 | `zones` | Specify the IBM Cloud zone within the chosen region where the IBM Spectrum LSF cluster will be deployed. A single zone input is required, and the management nodes, file storage shares, and compute nodes will all be provisioned in this zone.[Learn more](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli#get-zones-using-the-cli). | No | ["us-east-1"] |
 {: caption="Deployment Values" caption-side="bottom"}
