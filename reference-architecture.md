@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-02-26"
 
 keywords: # Not typically populated
 
@@ -18,7 +18,7 @@ docs: https://cloud.ibm.com/docs/solution-guide
 image_source:
 
 use-case: IBM Spectrum LSF
-industry: ElectronicDesignAutomation(EDA), Healthcare, LifeSciences, Automotive, AerospaceAndDefense
+industry: Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
 compliance:
 content-type: reference-architecture
 
@@ -30,7 +30,7 @@ production: false
 # IBM Spectrum LSF
 {: #ibm-spectrum-lsf}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="ElectronicDesignAutomation(EDA), Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
+{: toc-industry="Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="IBMSpectrumLSF"}
 
 {{site.data.keyword.spectrum_full}} enables High-Performance Computing (HPC) clusters by using LSF as the HPC scheduling software. This solution employs a deployable architecture to provision and configure IBM Cloud resources. It supports public virtual machines or virtual machines on dedicated hosts for static compute nodes. However, management nodes and dynamic compute nodes are exclusively deployed by using public virtual machines.
@@ -43,7 +43,7 @@ production: false
 ## Design concepts
 {: #design-concepts}
 
-The following architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
+The architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
 
 * **Data:** Data storage
 * **Compute:** Virtual servers

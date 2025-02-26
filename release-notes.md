@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-26"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,8 +26,8 @@ content-type: release-note
 The release notes describe the brief overview of the changes that are made to {{site.data.keyword.spectrum_full}}, feature enhancements or new features, which are known and fixed issues.
 {: shortdesc}
 
-## 30 January 2025
-{: #release-notes-jan3025}
+## 05 March 2025
+{: #release-notes-mar0525}
 {: release-note}
 
 [Introducing the {{site.data.keyword.spectrum_full_notm}} deployable architecture](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf)
