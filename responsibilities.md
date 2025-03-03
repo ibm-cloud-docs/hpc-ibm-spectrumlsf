@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-03-03"
 
 keywords:
 
@@ -59,7 +59,7 @@ Review the following sections for the specific responsibilities for you and for 
 
 Incident and operations management includes tasks such as monitoring, event management, high availability, problem determination, recovery, and full state backup and recovery.
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
+|{{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |Management nodes| * Deploy highly available dedicated management nodes in a secured, IBM-owned infrastructure account for each cluster.  \n * Ensure the health of management nodes in OS level. | Use the provided console tools to request that management nodes are rebooted or reloaded, and troubleshoot issues such as when the management nodes are in an unhealthy state. |
 |Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n * Ensure that compute nodes successfully provision when the user account and permissions are correctly set up, and a sufficient quota exists.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Provide tools, such as the LSF Resource Connector to extend your cluster infrastructure.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster |
@@ -74,7 +74,7 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 
 You and IBM share responsibilities for keeping your clusters at the supported platform and operating system versions, along with recovering infrastructure resources that might require changes. You are responsible for change management of your application data.
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
+|{{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |Management nodes| Provide management node patch operating system(OS), version, and security updates for image used for new cluster creation. | Use the IBM Cloud tools to apply the provided(existing) management nodes updates that include operating system; or to request that management nodes are rebooted. |
 |Compute nodes| Provide compute node patch operating system (OS), version, and security updates. Not supported on existing running VSIs, only for new VSIs with latest image. | Use IBM Cloud tools to apply the provided compute node updates that include operating system patches; or to raise ticket to request that worker nodes are rebooted. |
@@ -88,7 +88,7 @@ Identity and access management includes tasks such as authentication, authorizat
 
 You and IBM share responsibilities for controlling access to your {{site.data.keyword.spectrum_full_notm}} instances. For IBM Cloud® Identity and Access Management responsibilities, consult that product's documentation. You are responsible for identity and access management to your application data.
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
+|{{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |Observability| Provide the ability to integrate IBM Cloud Activity Tracker with your cluster to audit the actions that users take in the cluster. | Set up IBM Cloud Activity Tracker or other capabilities to track user activity in the cluster. |
 {: caption="Responsibilities for identity and access management" caption-side="bottom"}
@@ -100,7 +100,7 @@ Security and regulation compliance includes tasks such as security controls impl
 
 IBM is responsible for the security and compliance of HPC Clusters on IBM Cloud. Compliance with industry standards varies depending on the infrastructure provider that you use for the cluster. You are responsible for the security and compliance of any workloads that run in the cluster and your application data.
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
+|{{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |General| Provide security controls commensurate to best practice for {{site.data.keyword.spectrum_full_notm}} in Cloud.|
 Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
@@ -115,7 +115,7 @@ Disaster recovery includes tasks such as providing dependencies on disaster reco
 
 IBM is responsible for the recovery of Spectrum Computing on IBM Cloud components if there is disaster. You are responsible for the recovery of the workloads that run the cluster and your application data. If you integrate with other IBM Cloud services such as file, block, object, cloud database, logging, or audit event services, consult those services' disaster recovery information.
 
-|  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
+|{{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |General|  | * Set up and maintain disaster recovery capabilities for your apps and data. For example, to prepare your cluster for HA/DR scenarios, follow the guidance in High availability on IBM Cloud. Note that persistent storage of data such as application logs and cluster metrics are not set up by default.  \n * Creating resources in a secondary region and managing the application and data disaster recovery. |
 {: caption="Responsibilities for disaster recovery" caption-side="bottom"}
