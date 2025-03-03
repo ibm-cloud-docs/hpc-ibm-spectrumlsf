@@ -23,15 +23,14 @@ content-type: release-note
 # Release notes for {{site.data.keyword.spectrum_full_notm}}
 {: #my-service-relnotes}
 
-The release notes describe the brief overview of the changes that are made to {{site.data.keyword.spectrum_full}},the new features, enhancements, known and fixed issues.
+The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
 ## 05 March 2025
 {: #release-notes-mar0525}
 {: release-note}
 
-[Introducing the {{site.data.keyword.spectrum_full_notm}} deployable architecture](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf)
-:   {{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources.
+In this release, IBM Spectrum LSF deployable architecture is introduced. Spectrum LSF is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. For more information, refer [Overview of IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf).
 
 ### What's New
 {: #what-new}
