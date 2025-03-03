@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-03-03"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -44,15 +44,15 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
     ```text
     # mmnfs export list
-       Path                Delegations                 Clients
-    /gpfs/fs1/tools           NONE                  10.241.0.0/20
-    /gpfs/fs1/data            NONE                  10.241.0.0/20
+    Path                Delegations                 Clients
+    /gpfs/fs1/tools         NONE                  10.241.0.0/20
+    /gpfs/fs1/data          NONE                  10.241.0.0/20
     ```
     {: codeblock}
 
 
     ```text
-    mmlscluster --ces
+    # mmlscluster --ces
     GPFS cluster information
     GPFS cluster name:    test-scale-poc.strgscale.com
     GPFS cluster id:      70671008535366959
@@ -71,7 +71,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
 
     ```text
-    mmlsfileset fs1
+    # mmlsfileset fs1
     Filesets in file system 'fs1':
     Name          Status          Path                                    
     root          Linked       /gpfs/fs1                               
