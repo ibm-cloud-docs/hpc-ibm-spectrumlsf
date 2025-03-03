@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-03-03"
 
 keywords:
 
@@ -69,7 +69,7 @@ To view access policies, complete the following steps:
    | Activity Track Event Routing | All | Writer, Editor, Key manager, Service configuration reader |
    | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
    | VPC Infrastructure Services | All | Writer, Editor |
-{: caption="Verify access policies" caption-side="bottom"}
+   {: caption="Verify access policies" caption-side="bottom"}
 
 The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-before-deploy-application-center), which is enabled by default.
 {:note: .note}
@@ -77,7 +77,7 @@ The Database for MySQL access is required if your [{{site.data.keyword.spectrum_
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
 {: #public-endpoints}
 
-The {{site.data.keyword.spectrum_full}} deployable architecture requires access to the following {{site.data.keyword.cloud_notm}} service API public endpoints. For a successful deployment to provision the infrastructure and the associated services, ensure that you are aware of these endpoints and that you allow them access:
+The {{site.data.keyword.spectrum_full}} deployable architecture requires access to the following {{site.data.keyword.cloud_notm}} service API public endpoints. For a successful deployment to provision the infrastructure and the associated services, ensure that you are aware of these endpoints and allow them access:
 
 | Endpoint | Type | Notes |
    | ------- | --------- | ---- |
@@ -87,7 +87,7 @@ The {{site.data.keyword.spectrum_full}} deployable architecture requires access 
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}
 
-The offering uses BYOL (Bring your own licenses) for {{site.data.keyword.spectrum_short}} when you deploy an LSF cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.spectrum_full_notm}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
+The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.spectrum_short}} when you deploy an LSF cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.spectrum_full_notm}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
 
