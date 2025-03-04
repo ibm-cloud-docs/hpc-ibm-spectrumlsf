@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -28,7 +28,7 @@ subcollection: hpc-ibm-spectrumlsf
 ## Before you begin
 {: #before-you-begin}
 
-1. To access the LSF Application Center REST APIs from your command line, you need to establish an SSH connection:
+To access the LSF Application Center REST APIs from your command line, you need to establish an SSH connection:
 
     ```
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}

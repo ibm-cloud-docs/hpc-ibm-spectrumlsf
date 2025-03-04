@@ -39,7 +39,7 @@ Before you access the LSF Application Center GUI, review the following considera
 * You can open Application Center GUIs on the 8443 port.
 
 ## Gathering IP addresses
-{: #gathering-ip-addresses}
+{: #gathering-ip-address}
 
 To access the GUI, you must collect the IP addresses of the compute nodes and the floating IP address that is attached to the login node.
 
@@ -49,7 +49,7 @@ To access the GUI, you must collect the IP addresses of the compute nodes and th
 4. In addition to that IP address, pick up the floating IP address that is attached to the login node.
 
 ## Accessing the LSF Application Center GUI
-{: #accessing-lsf-application-center}
+{: #accessing-lsf-application-center-gui}
 
 Complete the following steps to access the LSF Application Center:
 
