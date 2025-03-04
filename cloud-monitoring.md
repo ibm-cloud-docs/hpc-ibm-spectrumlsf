@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -53,7 +53,7 @@ systemctl status dragent
 
   ![Architecture diagram.](images/cloud_monitoring_dashboard.png "Cloud Monitoring Dashboard"){: caption="Cloud Monitoring Dashboard" caption-side="bottom"}
 
-  Following are the steps to manually access the dashboard:
+Following are the steps to manually access the dashboard:
 
 1. Go to Observability > Monitoring > Instances.
 2. Search the name of the metrics instance.

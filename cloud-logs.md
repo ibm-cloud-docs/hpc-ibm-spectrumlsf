@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -40,7 +40,7 @@ Following are the key features of {{site.data.keyword.logs_full_notm}}:
 ## Functionality
 {: #cloud-log-functionality}
 
-Solutions can be enabled for cloud logs to capture infrastructure and application logs from both management and compute nodes. In order to setup cloud logs, following are the variables:
+Solutions can be enabled for cloud logs to capture infrastructure and application logs from both management and compute nodes. Following are the variables to setup cloud logs:
 
 * `observability_logs_enable_for_management`: Set this value as "false" to disable the {{site.data.keyword.logs_full_notm}} integration. If enabled, infrastructure and LSF application logs from management nodes are captured.
 
