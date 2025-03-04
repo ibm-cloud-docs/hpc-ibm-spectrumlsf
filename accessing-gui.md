@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-04"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:table: .aria-labeledby="caption"}
 
 # Accessing the GUI
-{: #accessing-lsf-gui}
+{: #accessing-gui}
 
 After the cluster setup is complete, you can monitor the resources and status of the service directly from the {{site.data.keyword.spectrum_full_notm}} Application Center GUI. For more information about the GUI, see the [LSF Application Center Web Services product documentation](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
 {: shortdesc}

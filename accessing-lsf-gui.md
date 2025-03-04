@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-21"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -62,7 +62,7 @@ You can access the LSF Application Center directly:
     * by using the LDAP username and password that you configured during {{site.data.keyword.cloud}} HPC cluster deployment.
     * by using an existing LDAP username and password.
 
-Clear the browser's cache if you encounter slowness in loading or accessing LSF Application Center.
+Clear the browsers cache if you encounter slowness in loading or accessing LSF Application Center.
 {: tip}
 
 ## Accessing LSF Application Center through VNC (remote) consoles

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-04"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Integrating OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrating-openldap}
 
-You enable OpenLDAP with your {{site.data.keyword.spectrum_full}} cluster, [during deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-using-hpc-cluster) by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connect it to {{site.data.keyword.spectrum_full}} cluster. If you have an existing LDAP server, you can provide LDAP information during the {{site.data.keyword.spectrum_full}} cluster deployment.
+You can enable OpenLDAP with your {{site.data.keyword.spectrum_full}} cluster [during deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-using-hpc-cluster) by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connect it to {{site.data.keyword.spectrum_full}} cluster. If you have an existing LDAP server, you can provide LDAP information during the {{site.data.keyword.spectrum_full}} cluster deployment.
 
 If you have an existing OpenLDAP server, you can use that with your {{site.data.keyword.spectrum_full}} cluster. Before you deploy the {{site.data.keyword.spectrum_full}} cluster with your existing LDAP server input values, ensure you complete the following LDAP requirements:
 1. OpenLDAP version 2.4 or later is installed and configured.

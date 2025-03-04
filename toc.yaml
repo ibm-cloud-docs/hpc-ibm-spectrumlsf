@@ -11,8 +11,8 @@ toc:
     category: solution_docs
     content-type: deployment
     label: IBM Spectrum LSF
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: overview
       topics:
       - overview.md
@@ -44,7 +44,7 @@ toc:
       - before_deploying.md
       - deployment-values.md
       - deploying-lsf.md
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
       - setting-lsf-cluster.md
@@ -88,15 +88,15 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - link: 
+      - link:
           label: Best practices for IBM Spectrum LSF
           href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=best-practices-tips
       - link:
           label: Configuring auto scaling or resource connector for IBM Cloud
           href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=providers-configuring-cloud-gen-2-lsf-resource-connector
       - topicgroup:
-          label: Hybrid connectivity 
-          topics: 
+          label: Hybrid connectivity
+          topics:
           - install-vpn-hpc-cluster.md
           - direct-link.md
           - setting-up-multi-cluster-job-forwarding.md
@@ -104,7 +104,7 @@ toc:
       - responsibilities.md
   - navgroup:
       id: help
-      topics: 
+      topics:
       - faqs.md
       - troubleshoot.md
       - getting-help.md
