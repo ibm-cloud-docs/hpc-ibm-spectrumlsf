@@ -48,8 +48,10 @@ systemctl status dragent
 ```
 {: pre}
 
-1. Go to the `cloud_monitoring_url` in the terraform output.
-  For example: https://cloud.ibm.com/observe/embedded-view/monitoring/e68481cb-21ff-45bb-90db-cee02cebed3d
+
+Go to the `cloud_monitoring_url` in the terraform output.
+
+For example: https://cloud.ibm.com/observe/embedded-view/monitoring/e68481cb-21ff-45bb-90db-cee02cebed3d
 
   ![Architecture diagram.](images/cloud_monitoring_dashboard.png "Cloud Monitoring Dashboard"){: caption="Cloud Monitoring Dashboard" caption-side="bottom"}
 
