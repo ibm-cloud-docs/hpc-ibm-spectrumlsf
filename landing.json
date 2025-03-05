@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "title": "IBM Spectrum LSF",
+  "introduction": "Find useful information to learn about IBM Spectrum LSF.",
+  "product_page": "https://www.ibm.com/products/hpc-workload-management",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Overview of IBM Spectrum LSF",
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf"
+      },
+      {
+        "title": "Deployment values",
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values"
+      },
+      {
+        "title": "Considerations for HPC cluster compute types",
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-considerations-for-HPC-custer-compute-types"
+      },
+      {
+        "title": "Responsibilities",
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-responsibilities"
+      },
+      {
+        "title": "FAQs",
+        "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs"
+      }
+    ]
+  },
+  "section_architectures": [
+    {
+      "title": "IBM Spectrum LSF",
+      "href": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-ibm-spectrum-lsf",
+      "deployable": true
+    }
+  ],
+  "section_updates": {
+    "view_more": "/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-my-service-relnotes"
+  }
+}

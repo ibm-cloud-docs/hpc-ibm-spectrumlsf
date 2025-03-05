@@ -1,0 +1,110 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs-internal/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: hpc-ibm-spectrumlsf
+    href: /docs/hpc-ibm-spectrumlsf
+    path: hpc-ibm-spectrumlsf
+    audience: solution
+    category: solution_docs
+    content-type: deployment
+    label: IBM Spectrum LSF
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - overview.md
+      - release-notes.md
+  - navgroup:
+      id: architecture
+      topics:
+      - reference-architecture.md
+  - navgroup:
+      id: plan
+      topics:
+      - considerations-for-HPC-cluster-compute-types.md
+      - topicgroup:
+          label: Integrating existing infrastructure resources
+          topics:
+          - vpc-lsf.md
+          - dns-service-instances.md
+          - key-protect-encrypyption-keys.md
+          - bastion-node.md
+      - topicgroup:
+            label: Using IBM Scale Storage as your storage solution
+            topics:
+            - about-scale.md
+            - integrate-scale.md
+      - custom-image.md
+  - navgroup:
+      id: deploy
+      topics:
+      - before_deploying.md
+      - deployment-values.md
+      - deploying-lsf.md
+  - navgroup:
+      id: howto
+      topics:
+      - setting-lsf-cluster.md
+      - topicgroup:
+          label: Using OpenLDAP with the deployed environment
+          topics:
+          - about-ldapp.md
+          - integrate-openldapp.md
+          - check-ldapp-status.md
+          - create-ldapp-user.md
+          - submit-lsf-jobs-ldapp.md
+      - topicgroup:
+          label: Schematics API
+          topics:
+          - retrieving-action-logs.md
+          - updating-variables.md
+      - topicgroup:
+          label: Managing worker nodes
+          topics:
+          - update-max-nodes.md
+          - update-idle-time.md
+          - adding-profile-types.md
+      - enable-dedicated-host.md
+      - topicgroup:
+            label: Using LSF Application Center
+            topics:
+             - before-you-deploy-application-center.md
+             - accessing-gui.md
+             - accessing-lsf-gui.md
+             - topicgroup:
+                  label: Accessing REST API calls
+                  topics:
+                   - accessing-rest-api-pacclient.md
+                   - accessing-rest-api-curl.md
+      - topicgroup:
+            label: Observability
+            topics:
+             - cloud-logs.md
+             - activity-tracker-event.md
+             - cloud-monitoring.md
+  - navgroup:
+      id: reference
+      topics:
+      - link:
+          label: Best practices for IBM Spectrum LSF
+          href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=best-practices-tips
+      - link:
+          label: Configuring auto scaling or resource connector for IBM Cloud
+          href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=providers-configuring-cloud-gen-2-lsf-resource-connector
+      - topicgroup:
+          label: Hybrid connectivity
+          topics:
+          - install-vpn-hpc-cluster.md
+          - direct-link.md
+          - setting-up-multi-cluster-job-forwarding.md
+          - data-management.md
+      - responsibilities.md
+  - navgroup:
+      id: help
+      topics:
+      - faqs.md
+      - troubleshoot.md
+      - getting-help.md

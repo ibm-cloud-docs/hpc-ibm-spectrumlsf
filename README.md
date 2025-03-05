@@ -1,2 +1,2 @@
-# template-repo
-Documentation repository for template-repo
+# ibm-spectrum-lsf
+Documentation repository for ibm-spectrum-lsf
