@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-05"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -30,7 +30,7 @@ subcollection: hpc-ibm-spectrumlsf
   * Replace the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable with your {{site.data.keyword.cloud_notm}} API key.
   * Change the API endpoint to the endpoint mentioned in this link according to the location where you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.get_workspace_activity` function, provide the following parameters:
-  * Provide the workspace ID that you generated in the [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace) task, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
+  * Provide the workspace ID that you generated in the creating a workspace task, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
   * Provide an activity ID that was generated as a successful response for the specific action for which you want to retrieve logs. You received an activity ID when you successfully completed the action in the {{site.data.keyword.bpshort}} workspace.
 5. Run the Python script by using `python3 <python-file-name>` to retrieve the logs for an action for your {{site.data.keyword.bpshort}} workspace in the {{site.data.keyword.cloud_notm}}.
 6. You get an action ID, name, and action status, such as `COMPLETED` or `FAILED`, in response when it is determined whether the parameters passed as part of the request are valid. You should be able to retrieve the logs for an action for a specific {{site.data.keyword.bpshort}} workspace. If you don’t get a successful response, the error response contains the errors that you need to resolve. Resolve those errors and run the script until you are able to get a valid response and can retrieve the logs.
@@ -72,7 +72,7 @@ logging.info("Completed Retrieving the Schematic logs")
 ## Example Python response
 {: #example-response-retrieve-action-logs}
 
-The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates. 
+The Python response is a generic example. Versioning and deployment values are subject to change due to frequent code updates.
 {: note}
 
 ```python
