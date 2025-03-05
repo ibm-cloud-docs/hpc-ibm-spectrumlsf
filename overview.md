@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-03-05"
 
 keywords:
 
@@ -27,7 +27,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 A deployable architecture involves components, modules, and dependencies in a way that allows for seamless deployment and makes it easy for developers and operations teams to quickly deploy new features and updates to the system, without requiring extensive manual intervention. Refer the [Deployable architecture](https://www.ibm.com/think/insights/deployable-architecture-on-ibm-cloud-simplifying-system-deployment) document for more detailed information.
 
-{{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual system, or virtual systems that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only. The dedicated host option allows you to have systems that are assigned just for your workloads and avoids issues like a noisy neighbor. You can pack a dedicated host to full capacity before spilling to another instance or spread the virtual server instances evenly across all dedicated hosts. Go to [Enabling dedicated hosts](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-enable-dedicated-hosts) for more information.
+{{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual system, or virtual systems that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only. The dedicated host option allows you to have systems that are assigned just for your workloads and avoids issues like a noisy neighbor. You can pack a dedicated host to full capacity before spilling to another instance or spread the virtual server instances evenly across all dedicated hosts. Go to [Dedicated Hosts for Virtual Server Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dedicated-hosts-vsi) for more information.
 
 In addition, {{site.data.keyword.spectrum_short}} provides two shared storage options to manage your application data:
 * File storage for VPC or

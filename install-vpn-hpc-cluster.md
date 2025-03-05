@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-03-05"
 
 keywords:
 
@@ -31,17 +31,17 @@ This example links a VPN gateway to the subnet for LSF nodes. By doing this, loc
 ## Before you begin
 {: #before-you-begin}
 
-Before you begin, make sure to complete the steps for [getting started with {{site.data.keyword.spectrum_full_notm}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial). Also, you need to know a public IP address of your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key to authenticate your VPN connection. The preshared key can be any random string.
+Before you begin, make sure to complete the steps for [getting started with {{site.data.keyword.spectrum_full_notm}}](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui). Also, you need to know a public IP address of your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key to authenticate your VPN connection. The preshared key can be any random string.
 
 ## Step 1. Configure VPN deployment variables
 {: #step-1-construct-lsf}
 
-Set VPN deployment variables when you [create your workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace). In addition to essential variables to construct your cluster (for example, `api_key`), you need to set `vpn_enabled` to be `true`, and then, specify `vpn_peer_address`, `vpn_peer_cidrs`, and `vpn_preshared_key` to be identical to the public IP address for your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key. In the example architecture, set `vpn_peer_address` to be `60.150.xxx.yyy`, and `vpn_peer_cidrs` to be `192.168.3.0/24`.
+Set VPN deployment variables when you create your workspace. In addition to essential variables to construct your cluster (for example, `api_key`), you need to set `vpn_enabled` to be `true`, and then, specify `vpn_peer_address`, `vpn_peer_cidrs`, and `vpn_preshared_key` to be identical to the public IP address for your local VPN server, a local CIDR accessing to the VPN environment, and a preshared key. In the example architecture, set `vpn_peer_address` to be `60.150.xxx.yyy`, and `vpn_peer_cidrs` to be `192.168.3.0/24`.
 
 ## Step 2. Apply a plan
 {: #step-2-apply-a-plan}
 
-[Apply a plan](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-applying-plan) to build your cluster with a VPN gateway. After a while, {{site.data.keyword.bpshort}} logs show you essential information to configure your local VPN environment. In the CLI, run the following command to check your log files:
+Apply a plan to build your cluster with a VPN gateway. After a while, {{site.data.keyword.bpshort}} logs show you essential information to configure your local VPN environment. In the CLI, run the following command to check your log files:
 
 ```
 ibmcloud schematics logs --id <WORKSPACE_ID>
@@ -71,4 +71,4 @@ Typical VPN configurations require a public IP address for the local VPN server,
 ## Next steps
 {: #next-steps-vpn-environment}
 
-After you have configured your local VPN environment, you are ready to set up the multi-cluster and job forwarding. For more information, see [Setting up multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-set-up-multi-cluster-job-forwarding).
+After you have configured your local VPN environment, you are ready to set up the multi-cluster and job forwarding. For more information, see [Setting up multi-cluster and job forwarding using {{site.data.keyword.spectrum_short}}](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-set-up-multi-cluster-job-forwarding).

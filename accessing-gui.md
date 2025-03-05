@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-03-05"
 
 keywords:
 
@@ -62,7 +62,7 @@ Complete the following steps to access the LSF Application Center:
     ```
     {: pre}
 
-    Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses).
+    Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-gui&interface=ui#gathering-ip-address).
 
     Example:
     ```

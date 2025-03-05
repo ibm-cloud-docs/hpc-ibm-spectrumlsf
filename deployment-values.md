@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-03-05"
 
 keywords:
 
@@ -69,7 +69,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `ldap_user_password` | The LDAP user password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required.It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server]. | No | "" |
 | `ldap_vsi_profile` | Specify the virtual server instance profile type to be used to create the ldap node for the {{site.data.keyword.spectrum_full_notm}} cluster. For choices on profile types, see [Instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles). | No | "cx2-2x4" |
 | `ldap_vsi_osimage_name` | Image name to be used for provisioning the LDAP instances. By default ldap server are created on Ubuntu based OS flavour. | No | "ibm-ubuntu-22-04-4-minimal-amd64-3" |
-| `management_image_name` | Name of the custom image that you want to use to create virtual server instances in your IBM Cloud account to deploy the IBM Cloud Spectrum LSF cluster management nodes. By default, the solution uses a RHEL810 base image with additional software packages mentioned [here](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-getting-started-tutorial#create-custom-image). If you would like to include your application-specific binary files, follow the instructions in [Planning for custom images](https://cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images) to create your own custom image and use that to build the lsf cluster through this offering. | No | "hpc-lsf10-rhel810-v1" |
+| `management_image_name` | Name of the custom image that you want to use to create virtual server instances in your IBM Cloud account to deploy the IBM Cloud Spectrum LSF cluster management nodes. By default, the solution uses a RHEL810 base image with additional software packages mentioned [here](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-custom-image&interface=ui#custom-image-builder-create). If you would like to include your application-specific binary files, follow the instructions in [Planning for custom images](https://cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images) to create your own custom image and use that to build the lsf cluster through this offering. | No | "hpc-lsf10-rhel810-v1" |
 | `management_node_instance_type` | Specify the virtual server instance profile type to be used to create the management nodes for the IBM Cloud LSF cluster. For choices on profile types, see [Instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles). | No | "bx2-16x64" |
 | `management_node_count` | Specify the total number of management nodes, with a value between 1 and 10. | No | 3 |
 | `observability_atracker_enable` | Configures Activity Tracker Event Routing to determine how audit events routed. While multiple Activity Tracker Event Routing can be created, only one is needed to capture all events. If an existing Activity Tracker is already integrated with a COS bucket or IBM Cloud Logs instance, set this value to false to avoid creating redundant trackers. All events can then be monitored and accessed through the existing tracker. | No | true |

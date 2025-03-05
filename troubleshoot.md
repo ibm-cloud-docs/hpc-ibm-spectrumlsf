@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-13"
+lastupdated: "2025-03-05"
 
 keywords: question about _xx_, _messageID_
 
@@ -70,13 +70,13 @@ Contact your account administrator and get assigned with the manager role on the
 Schematics are not able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
 {: tsSymptoms}
 
-You don't have the required access to get any VPC resources provisioned. 
+You don't have the required access to get any VPC resources provisioned.
 {: tsCauses}
 
 Contact your account administrator and get all the required accesses. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 {: tsResolve}
 
-## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique? 
+## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique?
 {: #troubleshoot-topic-6}
 {: troubleshoot}
 {: support}
@@ -126,7 +126,7 @@ If you are using a custom image for any of your virtual server instances, ensure
 You are receiving the following error when you try to apply a change to your workspace: `Apply failed due to "Error: Error Deleting Volume : The volume is still attached to an instance."`
 {: tsSymptoms}
 
-After reconfiguring the volume profile, capacity, or IOPS, your workspace needs to be cleaned up before applying the change. 
+After reconfiguring the volume profile, capacity, or IOPS, your workspace needs to be cleaned up before applying the change.
 {: tsCauses}
 
 You need to destroy your existing resources and try applying the change again. Your data on the storage node is deleted if you destroy your existing resources.
@@ -143,12 +143,12 @@ You are receiving the following error messages when the Ansible provisioner trie
 * `Error: Failed to connect to the host via ssh: Connection timed out during banner exchange", "unreachable`
 {: tsSymptoms}
 
-While {{site.data.keyword.bpshort}} deploys the infrastructure resources, the automation code is configured with a few Ansible playbooks, which are required to set up the {{site.data.keyword.scale_short}} function on the virtual server instance nodes with the help of the Ansible provisioner. When the Ansible provisioner tries to SSH to these nodes to se the {{site.data.keyword.scale_short}} feature, the nodes go to an `unreachable` state. 
+While {{site.data.keyword.bpshort}} deploys the infrastructure resources, the automation code is configured with a few Ansible playbooks, which are required to set up the {{site.data.keyword.scale_short}} function on the virtual server instance nodes with the help of the Ansible provisioner. When the Ansible provisioner tries to SSH to these nodes to se the {{site.data.keyword.scale_short}} feature, the nodes go to an `unreachable` state.
 {: tsCauses}
 
 To fix the issue, you can:
 1. Try to destroy the resources from the workspace and deploy again.
-2. If this issue is observed on all the deployments, raise a support issue with the {{site.data.keyword.cloud_notm}} support team to investigate if there is an infrastructure issue. 
+2. If this issue is observed on all the deployments, raise a support issue with the {{site.data.keyword.cloud_notm}} support team to investigate if there is an infrastructure issue.
 3. If there are no issues with the infrastructure, report this issue to the automation team who can investigate further.
 {: tsResolve}
 
@@ -166,7 +166,7 @@ You are receiving the following error messages during the creation of any specif
 While {{site.data.keyword.bpshort}} deploys the infrastructure resources, it authenticates with {{site.data.keyword.cloud_notm}} through API calls. If there are too many requests through the API to the cloud environment, {{site.data.keyword.bpshort}} won't be able to authenticate and might error out with the authentication error.
 {: tsCauses}
 
-To fix either issue (resource failing due to authentication error or the timeout error), destroy the resources from the {{site.data.keyword.bpshort}} workspace and retry deploying the resources. 
+To fix either issue (resource failing due to authentication error or the timeout error), destroy the resources from the {{site.data.keyword.bpshort}} workspace and retry deploying the resources.
 {: tsResolve}
 
 ## Why does the error occur with the provided `ssh_key_name` value?
@@ -245,7 +245,7 @@ su: user lsfuser05 does not exist
 The error occurs because the specified LDAP user (`lsfuser05` in this case) is not found on the LDAP server. The LDAP user might not be created or is not available in the LDAP directory.
 {: tsCauses}
 
-[Verify that the user exists](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user) by using the `ldapsearch` command. If the user does not exist, [create the user](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-create-ldap-user).
+[Verify that the user exists](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-create-ldap-user) by using the `ldapsearch` command. If the user does not exist, [create the user](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-create-ldap-user).
 {: tsResolve}
 
 ## Why does the LDAP user authentication fail?

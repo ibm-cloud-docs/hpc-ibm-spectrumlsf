@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-03-05"
 
 keywords:
 
@@ -104,8 +104,8 @@ By default, VPC volumes and file shares are encrypted with IBM-managed encryptio
 
 If you decide to use user-managed encryption, complete the following steps before you deploy your {{site.data.keyword.spectrum_full}} architecture:
 
-1. [Provision an instance of Key Protect](/docs/key-protect?topic=key-protect-provision#provision-gui).
-2. [Create or import key](/docs/key-protect?topic=key-protect-getting-started-tutorial#get-started-keys).
+1. [Provision an instance of Key Protect](/docs/key-protect?topic=key-protect-provision#provision-gui)
+2. [Create or import key](/docs/key-protect?topic=key-protect-getting-started-tutorial#get-started-keys)
 3. [Authorize access between](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs):
     * Cloud Block Storage and the key management service
     * File Storage for VPC and the key management service

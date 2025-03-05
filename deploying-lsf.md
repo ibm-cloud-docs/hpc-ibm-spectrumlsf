@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-03-05"
 
 keywords:
 
@@ -65,18 +65,18 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
     For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the LSF cluster by using {{site.data.keyword.spectrum_full_notm}}.
 
-    You can specify single availability zones, in the same supported IBM Cloud [region](/docs/allowlist/hpc-service?topic=hpc-service-ha-dr), for your Spectrum LSF cluster nodes. For example, zones `us-east-1` and `us-east-3` in the **us-east** region, and zones `eu-de-2` and `eu-de-3` in the **eu-de** region.
+    You can specify single availability zones, in the same supported IBM Cloud [region](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui#select-method-for-accessing-cluster), for your Spectrum LSF cluster nodes. For example, zones `us-east-1` and `us-east-3` in the **us-east** region, and zones `eu-de-2` and `eu-de-3` in the **eu-de** region.
 
     * In the **Optional** tab, specify deployment values for advanced configuration and for deeper customization of the provisioned elements.
 
         Also, take note of these optional deployment input values:
         * Specify between [two methods for accessing the bastion node in the cluster](/docs/allowlist/hpc-service?topic=hpc-service-before-you-begin-deploying&interface=ui#select-method-for-accessing-cluster): directly through a floating IP that is attached to the bastion node (`enable_fip`, **true** by default), or through a VPN gateway (`vpn_enabled`, **false** by default). Regardless of which access method you select, values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node.
 
-        * To use a [custom image for compute nodes](/docs/allowlist/hpc-service?topic=hpc-service-custom-image), provide the CRN for that image for the `compute_image_name` value.
+        * To use a [custom image for compute nodes](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-custom-image), provide the CRN for that image for the `compute_image_name` value.
 
-        * You use {{site.data.keyword.filestorage_vpc_full_notm}} for file sharing. By default, you can use two file share volumes; each is 100 GB. To change this configuration, [set the `custom_file_shares` deployment value](/docs/allowlist/hpc-service?topic=hpc-service-ibm-cloud-hpc-faqs#share).
+        * You use {{site.data.keyword.filestorage_vpc_full_notm}} for file sharing. By default, you can use two file share volumes; each is 100 GB. To change this configuration, [set the `custom_file_shares` deployment value](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs&interface=ui#share).
 
-        * To [integrate your {{site.data.keyword.scale_full}} cluster with {{site.data.keyword.spectrum_full_notm}}](/docs/allowlist/hpc-service?topic=hpc-service-integrating-scale), use the `cluster_subnet_id`, `custom_file_shares`, and `storeage_security_group_id` deployment values.
+        * To [integrate your {{site.data.keyword.scale_full}} cluster with {{site.data.keyword.spectrum_full_notm}}](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale), use the `cluster_subnet_id`, `custom_file_shares`, and `storeage_security_group_id` deployment values.
 
         * To create DNS zones, provide [an existing {{site.data.keyword.cloud}} DNS Service instance ID](/docs/dns-svcs?topic=dns-svcs-getting-started) for the `dns_instance_id` deployment input value. Alternatively, if you leave the `dns_instance_id` deployment input value as null, the deployment process creates a new DNS service instance ID and the respective DNS zone.
 
@@ -86,7 +86,7 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
         * To enable monitoring metrics for your {{site.data.keyword.spectrum_full}} cluster using {{site.data.keyword.monitoringfull_notm}}, [enable the monitoring settings](/docs/allowlist/hpc-service?topic=hpc-service-monitoring) using the `observability_monitoring_enable`, `observability_monitoring_on_compute_nodes_enable`, and `observability_monitoring_plan` input variables.
 
-        * To use [customer-managed encryption](/docs/allowlist/hpc-service?topic=hpc-service-before-you-begin-deploying&interface=ui#encryption), specify the encryption input variables: `enable_customer_managed_encryption`, `kms_instance_id`, and `kms_key_name`.
+        * To use [customer-managed encryption](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui#encryption), specify the encryption input variables: `enable_customer_managed_encryption`, `kms_instance_id`, and `kms_key_name`.
 
         * To create an {{site.data.keyword.compliance_short}} instance that checks to your environment for security issues and validates the deployable architecture code during {{site.data.keyword.spectrum_full}} cluster deployment, configure the `scc_enable`, `scc_location`, `scc_profile`, and `scc_profile_version` input variables.
 
@@ -96,9 +96,9 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
         * To configure and use [{{site.data.keyword.spectrum_full_notm}} Application Center](/docs/allowlist/hpc-service?topic=hpc-service-about-application-center) to submit and monitor LSF jobs for your {{site.data.keyword.spectrum_full}} cluster from a GUI interface, set `enable_app_center` to **true**, and `app_center_gui_pwd` to match your LSF Application Center password (which must be at least 8 characters, contain one number, one lowercase letter, one uppercase letter, and at least one special character (for example, **Admin@123**)). (For more information about detailed LSF Application Center usage, see [{{site.data.keyword.spectrum_full_notm}} Application Center product documentation](https://www.ibm.com/docs/en/slac/10.2.0){: external}.)
 
-            By default, LSF Application Center high availability is enabled (that is, the `app_center_high_availability` input variable is set to **true** by default). To fully configure high availability, also complete the [predeployment steps for LSF Application Center high availability](/docs/allowlist/hpc-service?topic=hpc-service-before-deploy-application-center).
+            By default, LSF Application Center high availability is enabled (that is, the `app_center_high_availability` input variable is set to **true** by default). To fully configure high availability, also complete the [predeployment steps for LSF Application Center high availability](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-before-deploy-application-center).
 
-        * To use [OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/allowlist/hpc-service?topic=hpc-service-integrate-openldap-spectrum-lsf)  for centralized user management, robust security, and simplified user authentication, configure the `enable_ldap`, `ldap_basedns`, `ldap_server`,`ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` input values.
+        * To use [OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-openldap)  for centralized user management, robust security, and simplified user authentication, configure the `enable_ldap`, `ldap_basedns`, `ldap_server`,`ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` input values.
 
     Click **Save** to save your configuration options.
 9. Click **Validate**.
