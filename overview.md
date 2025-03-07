@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-03-07"
 
 keywords:
 
@@ -33,7 +33,7 @@ In addition, {{site.data.keyword.spectrum_short}} provides two shared storage op
 * File storage for VPC or
 * {{site.data.keyword.scale_short}}
 
-The {{site.data.keyword.scale_short}} feature is designed to work with {{site.data.keyword.spectrum_short}} cluster nodes. To leverage this functionality, customers must first deploy an IBM {{site.data.keyword.scale_short}} cluster with CES enabled as a prerequisite. Once set up, CES-based NFS mount points can be exported to the LSF cluster as shared mount points. This integration allows the LSF cluster to access the same mount points and share data with the Storage Scale cluster, enabling the deployment of a high-performance file system within your HPC cluster.
+The {{site.data.keyword.scale_short}} feature is designed to work with {{site.data.keyword.spectrum_short}} cluster nodes. To leverage this functionality, users must first deploy an IBM {{site.data.keyword.scale_short}} cluster with CES enabled as a prerequisite. Once set up, CES-based NFS mount points can be exported to the LSF cluster as shared mount points. This integration allows the LSF cluster to access the same mount points and share data with the Storage Scale cluster, enabling the deployment of a high-performance file system within your HPC cluster.
 
 The offering supports the bring-your-own-license (BYOL) model for [{{site.data.keyword.spectrum_full_notm}}](https://www.ibm.com/products/hpc-workload-management){: external} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. For evaluation purposes, {{site.data.keyword.cloud_notm}} does enable limited access. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
 
@@ -44,4 +44,7 @@ The {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, 
 The LSF cluster is configured not only with the Application Center feature but also with the Application Center High Availability (HA) functionality. In the event of a failover, the PAC feature remains operational, ensuring that users can still access and interact with the GUI. Jobs continue to run as long as at least one LSF management host is available. The cluster deploys GUI services across three GUI servers, with the database hosted on one of these GUI hosts.
 
 The offering enables the initial Spectrum LSF-based HPC cluster creation. Any updates that are needed post-deployment regarding LSF configuration or setup must be performed by using LSF tools and commands. If you use the {{site.data.keyword.bpshort}} interface to change configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.spectrum_short}} cluster. Restoring it back to a working state might not be easy.
+{: important}
+
+The current solution no longer requires `ibm_customer_number`(ICN) for entitlement check before deploying the solution for non-production use. The solution is now available for use without ICN validation. Users can provision up to a maximum of 10 static worker nodes for evaluation or non-production use cases. If the number of worker nodes exceeds 10, it becomes the user responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. For production use or for evaluating greater than 10 worker nodes, the user must purchase the necessary LSF licenses. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
 {: important}
