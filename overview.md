@@ -22,9 +22,6 @@ subcollection: hpc-ibm-spectrumlsf
 # Overview of IBM Spectrum LSF
 {: #about-spectrum-lsf}
 
-The current solution no longer requires `ibm_customer_number`(ICN) for entitlement checks to verify if a customer is authorized to use the license. The solution is now available for use without ICN validation. However, customers can provision up to a maximum of 10 static worker nodes for their production use case. If the number of worker nodes exceeds 10, it becomes the customer responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
-{: important}
-
 {{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_short}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_short}} clusters can automatically add and remove worker nodes based on workload specifications. This allows to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
 {: shortdesc}
 
@@ -47,4 +44,7 @@ The {{site.data.keyword.spectrum_short}} enables all three interfaces: UI, API, 
 The LSF cluster is configured not only with the Application Center feature but also with the Application Center High Availability (HA) functionality. In the event of a failover, the PAC feature remains operational, ensuring that users can still access and interact with the GUI. Jobs continue to run as long as at least one LSF management host is available. The cluster deploys GUI services across three GUI servers, with the database hosted on one of these GUI hosts.
 
 The offering enables the initial Spectrum LSF-based HPC cluster creation. Any updates that are needed post-deployment regarding LSF configuration or setup must be performed by using LSF tools and commands. If you use the {{site.data.keyword.bpshort}} interface to change configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.spectrum_short}} cluster. Restoring it back to a working state might not be easy.
+{: important}
+
+The current solution no longer requires `ibm_customer_number`(ICN) for entitlement checks to verify if a user is authorized to use the license. The solution is now available for use without ICN validation. However, users can provision up to a maximum of 10 static worker nodes for their production use case. If the number of worker nodes exceeds 10, it becomes the user responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
 {: important}
