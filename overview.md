@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-03-07"
 
 keywords:
 
@@ -22,6 +22,9 @@ subcollection: hpc-ibm-spectrumlsf
 # Overview of IBM Spectrum LSF
 {: #about-spectrum-lsf}
 
+The current solution no longer requires the use of the `ibm_customer_number`(ICN) for entitlement checks to verify if a customer is authorized to use the license. The solution is now available for use without ICN validation. However, customers can provision up to a maximum of 10 static worker nodes for their production use case. If the number of worker nodes exceeds 10, it becomes the customers responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment.
+{: important}
+
 {{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_short}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_short}} clusters can automatically add and remove worker nodes based on workload specifications. This allows to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
 {: shortdesc}
 
@@ -33,7 +36,7 @@ In addition, {{site.data.keyword.spectrum_short}} provides two shared storage op
 * File storage for VPC or
 * {{site.data.keyword.scale_short}}
 
-The {{site.data.keyword.scale_short}} feature is designed to work with {{site.data.keyword.spectrum_short}} cluster nodes. To leverage this functionality, customers must first deploy an IBM {{site.data.keyword.scale_short}} cluster with CES enabled as a prerequisite. Once set up, CES-based NFS mount points can be exported to the LSF cluster as shared mount points. This integration allows the LSF cluster to access the same mount points and share data with the Storage Scale cluster, enabling the deployment of a high-performance file system within your HPC cluster.
+The {{site.data.keyword.scale_short}} feature is designed to work with {{site.data.keyword.spectrum_short}} cluster nodes. To leverage this functionality, users must first deploy an IBM {{site.data.keyword.scale_short}} cluster with CES enabled as a prerequisite. Once set up, CES-based NFS mount points can be exported to the LSF cluster as shared mount points. This integration allows the LSF cluster to access the same mount points and share data with the Storage Scale cluster, enabling the deployment of a high-performance file system within your HPC cluster.
 
 The offering supports the bring-your-own-license (BYOL) model for [{{site.data.keyword.spectrum_full_notm}}](https://www.ibm.com/products/hpc-workload-management){: external} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. For evaluation purposes, {{site.data.keyword.cloud_notm}} does enable limited access. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
 
