@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-03-13"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -152,7 +152,7 @@ Run the following command to check whether the `NO_ROOT_SQUASH` is applied succe
 When all the above steps are completed, you can use these endpoints as a common point for the LSF binaries to be shared with Scale.
 
 ```text
-# default = [{ mount_path = "/mnt/scale/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
+# default = [{ mount_path = "/mnt/lsf", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/lsf" }, { mount_path = "/mnt/scale/tools", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/tools" }, { mount_path = "/mnt/scale/data", nfs_share = "test-scale-poc-ces.cesscale.com:/gpfs/fs1/data" }]
 ```
 {: codeblock}
 
