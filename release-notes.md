@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-03-21"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -25,6 +25,13 @@ content-type: release-note
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
+
+## 21 March 2025
+{: #release-notes-mar2125}
+{: release-note}
+
+Bug Fix
+:   To support the removal of ICN feature, created a new custom image for the creation of PAC.
 
 ## 07 March 2025
 {: #release-notes-mar0725}
