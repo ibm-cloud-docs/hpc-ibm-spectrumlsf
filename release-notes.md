@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,8 +26,8 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-## 21 March 2025
-{: #release-notes-mar2125}
+## 24 March 2025
+{: #release-notes-mar2425}
 {: release-note}
 
 Bug Fix
