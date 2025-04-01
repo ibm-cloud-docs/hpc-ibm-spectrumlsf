@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-04-01"
 
 keywords:
 
@@ -157,6 +157,12 @@ See the following example SSH command syntax for accessing different types of no
 
 This worker node instance type supports a combination of multiple instance profile type that might be chosen for different number of instance count.
 For example, you might choose 100 instance to be created from `bx2-4x16` and 10 instance from `mx3d-8x80`. So, you would get a total count of 110 static worker nodes with different instance profile, based on your requirement.
+
+The required permissions for the cluster deployment for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
+
+![Granting user permissions - Platform roles](images/platform_roles.png "Granting user permissions - Platform roles"){: caption="Granting user permissions - Platform roles" caption-side="bottom"}
+
+![Granting user permissions - Service roles](images/service_roles.png "Granting user permissions - Service roles"){: caption="Granting user permissions - Service roles" caption-side="bottom"}
 
 ## Next steps
 {: #getting-started-next-steps}
