@@ -67,9 +67,9 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
     * In the **Optional** tab, specify deployment values for advanced configuration and for deeper customization of the provisioned elements.
 
-For example, to enable the `observability_monitoring_enable` variable, you need to set the value to **true**.
+    For example, to enable the `observability_monitoring_enable` variable, you need to set the value to **true**.
 
-Click **Save** to save your configuration options.
+    Click **Save** to save your configuration options.
 
 9. Click **Validate**.
    {{site.data.keyword.cloud_notm}} projects run a Code Risk Analyzer scan that includes a [supported set of {{site.data.keyword.compliance_short}} rules](/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-scc-goals). It checks controls that are part of the {{site.data.keyword.spectrum_full}} deployment and that {{site.data.keyword.cloud_notm}} projects support. Any extra controls that are not included in the list of supported {{site.data.keyword.compliance_short}} rules are not checked when you validate the configuration.
