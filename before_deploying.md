@@ -175,11 +175,5 @@ After you gather the necessary input values to define your cluster configuration
 
 After you create and gathered your information and reviewed any additional prerequisites for your interface of choice, you are ready to begin [Deploying IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
 
-Required IAM permissions to deploy the {{site.data.keyword.spectrum_full_notm}} cluster:
-
-![Granting user permissions - Platform roles](images/platform_roles.png "Granting user permissions - Platform roles"){: caption="Granting user permissions - Platform roles" caption-side="bottom"}
-
-![Granting user permissions - Service roles](images/service_roles.png "Granting user permissions - Service roles"){: caption="Granting user permissions - Service roles" caption-side="bottom"}
-
 Before an actual deployment is done, you need to analysis the required amount of capacity in terms of vCPU and memory, so that the deployment does not fail due to capacity concerns.
 {: note}
