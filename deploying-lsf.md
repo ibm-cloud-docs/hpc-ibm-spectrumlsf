@@ -70,10 +70,12 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 For example, to enable the `observability_monitoring_enable` variable, you need to set the value to **true**.
 
 Click **Save** to save your configuration options.
+
 9. Click **Validate**.
    {{site.data.keyword.cloud_notm}} projects run a Code Risk Analyzer scan that includes a [supported set of {{site.data.keyword.compliance_short}} rules](/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-scc-goals). It checks controls that are part of the {{site.data.keyword.spectrum_full}} deployment and that {{site.data.keyword.cloud_notm}} projects support. Any extra controls that are not included in the list of supported {{site.data.keyword.compliance_short}} rules are not checked when you validate the configuration.
 
    Provide a comment to approve the validation and proceed to deployment.
+
 10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.spectrum_full}} project.
 
 When deployed, you can then access your deployed environment.
