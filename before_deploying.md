@@ -105,7 +105,7 @@ Make sure that you have an SSH key that you can use for authentication and that 
 
 Generate an public IP address that is required to access the Spectrum LSF cluster nodes. click [here](https://ipv4.icanhazip.com).
 
-If the cluster access is required for an Admin, then provide the IP address from anywhere and the cluster will be accessed. If the access is requried for more users, then you can open access to a CIDR range also.
+If an Admin requires cluster access, they should provide the IP address from which the cluster will be accessed, whether from a local system or a virtual server instance. For multiple users, access can be granted by specifying a CIDR range.
 {: note}
 
 ## Choose between IBM-managed or user-managed encryption
