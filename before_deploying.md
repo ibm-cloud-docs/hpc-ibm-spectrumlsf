@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-04-02"
 
 keywords:
 
@@ -99,6 +99,15 @@ Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more infor
 
 Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
+## Generate the remote IP to access Spectrum LSF cluster
+{: #generate-remote-ip}
+{: step}
+
+Generate an public IP address that is required to access the Spectrum LSF cluster nodes. click [here](https://ipv4.icanhazip.com).
+
+If an Admin requires cluster access, they should provide the IP address from which the cluster will be accessed, whether from a local system or a virtual server instance. For multiple users, access can be granted by specifying a CIDR range.
+{: note}
+
 ## Choose between IBM-managed or user-managed encryption
 {: #encryption}
 {: step}
@@ -164,4 +173,7 @@ For example, you might choose 100 instance to be created from `bx2-4x16` and 10 
 
 After you gather the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster.
 
-After you create and gathered your information and reviewed any additional prerequisites for your interface of choice, you are ready to begin [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace).
+After you create and gathered your information and reviewed any additional prerequisites for your interface of choice, you are ready to begin [Deploying IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
+
+Before an actual deployment is done, you need to analysis the required amount of capacity in terms of vCPU and memory, so that the deployment does not fail due to capacity concerns.
+{: note}
