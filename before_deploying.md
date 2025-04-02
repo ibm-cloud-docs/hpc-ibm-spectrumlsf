@@ -181,5 +181,5 @@ Required IAM permissions to deploy the {{site.data.keyword.spectrum_full_notm}} 
 
 ![Granting user permissions - Service roles](images/service_roles.png "Granting user permissions - Service roles"){: caption="Granting user permissions - Service roles" caption-side="bottom"}
 
-Before an actual deployment is done, you need to analysis the required amount of capacity in terms of vCPU, memory, and so on, so that the deployment does not fail due to capacity concerns.
+Before an actual deployment is done, you need to analysis the required amount of capacity in terms of vCPU and memory, so that the deployment does not fail due to capacity concerns.
 {: note}
