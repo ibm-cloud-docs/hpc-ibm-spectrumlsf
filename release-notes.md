@@ -26,6 +26,18 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
+## April 2025
+{: #subcollection-apr25}
+
+### 15 April 2025
+{: #subcollection-apr1525}
+{: release-note}
+
+Following are the breaking change updates made for the release:
+* All the VNI’s are placed under the same resource groups.
+* Updated the DA `landing_zone` and `landing_zone_vsi` module version along with the IBM provider version.
+* Fixed the custom image builder bug, to support custom image deployment through Mac and Linux based VSI.
+
 ## March 2025
 {: #subcollection-mar25}
 
@@ -61,15 +73,3 @@ The following new features are added as part of this release:
 * [IBM Storage Scale support](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale): By using Storage Scale as your storage solution, you first set up a Storage Scale cluster, and then integrate a list of values from the Storage Scale deployment with the IBM Spectrum LSF cluster deployment. This provides more performance and scalability than standard file storage solutions.
 * [IBM Cloud Monitoring](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-cloud-monitoring-overview): This is a cloud-native and container-intelligence management system that is included as part of your IBM Cloud architecture.
 * [IBM Cloud Logs](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-cloud-logs-overview): This is a scalable logging service which is designed to persist logs while providing users with robust capabilities for querying, tailing, and visualizing their logs efficiently.
-
-## April 2025
-{: #subcollection-apr25}
-
-### 15 April 2025
-{: #subcollection-apr1525}
-{: release-note}
-
-Following are the breaking change updates made for the release:
-* All the VNI’s are placed under the same resource groups.
-* Updated the DA `landing_zone` and `landing_zone_vsi` module version along with the IBM provider version.
-* Fixed the custom image builder bug, to support custom image deployment through Mac and Linux based VSI.
