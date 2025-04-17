@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-04-16"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,22 +26,37 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-## 24 March 2025
-{: #release-notes-mar2425}
+## April 2025
+{: #subcollection-apr25}
+
+### 15 April 2025
+{: #subcollection-apr1525}
+{: release-note}
+
+Following are the breaking change updates made for the release:
+* All the VNI’s are placed under the same resource groups.
+* Updated the DA `landing_zone` and `landing_zone_vsi` module version along with the IBM provider version.
+* Fixed the custom image builder bug, to support custom image deployment through Mac and Linux based VSI.
+
+## March 2025
+{: #subcollection-mar25}
+
+### 24 March 2025
+{: #subcollection-mar2425}
 {: release-note}
 
 Bug Fix
 :   To support the removal of ICN feature, created a new custom image for the creation of PAC.
 
-## 07 March 2025
-{: #release-notes-mar0725}
+### 07 March 2025
+{: #subcollection-mar0725}
 {: release-note}
 
 IBM Customer Number (ICN) is not supported.
 :   The current solution no longer requires `ibm_customer_number`(ICN) for entitlement check before deploying the solution for non-production use. The solution is now available for use without ICN validation. Users can provision up to a maximum of 10 static worker nodes for evaluation or non-production use cases. If the number of worker nodes exceeds 10, it becomes the user responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. For production use or for evaluating greater than 10 worker nodes, the user must purchase the necessary LSF licenses. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
 
-## 05 March 2025
-{: #release-notes-mar0525}
+### 05 March 2025
+{: #subcollection-mar0525}
 {: release-note}
 
 In this release, IBM Spectrum LSF deployable architecture is introduced. Spectrum LSF is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. For more information, refer [Overview of IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-spectrum-lsf).
