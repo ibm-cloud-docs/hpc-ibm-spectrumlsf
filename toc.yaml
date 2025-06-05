@@ -56,12 +56,6 @@ toc:
           - check-ldapp-status.md
           - create-ldapp-user.md
           - submit-lsf-jobs-ldapp.md
-      - cleanup_deployed_envn.md
-      - topicgroup:
-          label: Schematics API
-          topics:
-          - retrieving-action-logs.md
-          - updating-variables.md
       - topicgroup:
           label: Managing worker nodes
           topics:
@@ -72,7 +66,6 @@ toc:
       - topicgroup:
             label: Using LSF Application Center
             topics:
-             - before-you-deploy-application-center.md
              - accessing-gui.md
              - accessing-lsf-gui.md
              - topicgroup:
@@ -86,6 +79,12 @@ toc:
              - cloud-logs.md
              - activity-tracker-event.md
              - cloud-monitoring.md
+      - topicgroup:
+          label: Schematics API
+          topics:
+          - retrieving-action-logs.md
+          - updating-variables.md
+      - cleanup_deployed_envn.md
   - navgroup:
       id: reference
       topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-06-05"
 
 keywords:
 
@@ -63,9 +63,6 @@ To view access policies, complete the following steps:
    | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
    | VPC Infrastructure Services | All | Writer, Editor |
    {: caption="Verify access policies" caption-side="bottom"}
-
-The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-before-deploy-application-center), which is enabled by default.
-{:note: .note}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
 {: #public-endpoints}
@@ -133,13 +130,14 @@ Customer-managed encryption applies only to the bastion, login, and management n
 {: #select-method-for-accessing-cluster}
 {: step}
 
-Access the bastion node in the cluster directly or through a VPN gateway. You set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values:
+Access the bastion node in the cluster through a VPN gateway. If the `vpn_enabled` deployment input variable value is set to **true**, then it results in the creation of a VPN gateway. If not specified, this deployment value is set to **false**.
 
-1. Directly through a floating IP that is attached to the bastion node. If you select a value of **true** for the `enable_fip` deployment input variable, then a floating IP is attached to the bastion node. If you are connecting to the LSF cluster through VPN gateway, set this value to **false**. If not specified, this deployment value is set to **true**.
+You set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values.
 
-2. Through a VPN gateway. If you select a value of **true** for the `vpn_enabled` deployment input variables, it results in the creation of a VPN gateway. If you select the use of a VPN gateway, a floating IP is not attached to the bastion node. If not specified, this deployment value is set to **false**.
+The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
 
-Regardless of which access method you select, values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
+Creating floating IP to attach to the bastion node is not supported.
+{: note}
 
 See the following example SSH command syntax for accessing different types of nodes:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-06-05"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -35,12 +35,10 @@ Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
 1. Select to use product version 2.7.0 or later.
 2. [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
-  * Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
-
-  * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
-
-  * Once the Scale cluster is successfully created, login to the CES node to run the following command.
-  Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
+* Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+* Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
+* Once the Scale cluster is successfully created, login to the CES node to run the following command.
+Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
     ```text
     # mmnfs export list

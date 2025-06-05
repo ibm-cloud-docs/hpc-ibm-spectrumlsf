@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-07"
+lastupdated: "2025-06-05"
 
 keywords:
 
@@ -45,7 +45,6 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `dns_custom_resolver_id` | Provide the ID of existing IBM Cloud DNS custom resolver to skip creating a new custom resolver. If the value is set to null, a new DNS custom resolver is created and associated to the VPC. Note: A VPC can be associated only to a single custom resolver, provide the ID of custom resolver if it is already associated to the VPC. | No | "" |
 | `enable_cos_integration` | Set to true to create an extra cos bucket to integrate with HPC cluster deployment. | No | false |
 | `enable_vpc_flow_logs` | This flag determines whether VPC flow logs are enabled. When set to true, a flow log collector will be created to capture and monitor network traffic data within the VPC. Enabling flow logs provides valuable insights for troubleshooting, performance monitoring, and security auditing by recording information about the traffic passing through your VPC. Consider enabling this feature to enhance visibility and maintain robust network management practices. | No | true |
-| `enable_fip` | The solution supports multiple ways to connect to your {{site.data.keyword.spectrum_full_notm}} cluster. For example, using a login node, or using VPN or direct connection. If connecting to the lsf cluster using VPN or direct connection, set this value to false. | No | true |
 | `enable_ldap` | Set this option to true to enable LDAP for {{site.data.keyword.spectrum_full_notm}}, with the default value set to false. | No | false |
 | `enable_dedicated_host` | Set this option to true to enable dedicated hosts for the VSI created for workload servers. The default value is false. When a dedicated host is enabled, the solution supports only static worker nodes with a single profile, and multiple profile combinations are not supported. For example, you can select a profile from a single family, such as bx2, cx2, or mx2. If you are provisioning a static cluster with a third-generation profile, ensure that dedicated hosts are supported in the chosen regions, as not all regions support dedicated hosts for third-gen profiles. To learn more about dedicated host, [click here](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui) | No | false |
 | `existing_bastion_instance_name` | Provide the name of the bastion instance. If none given then new bastion will be created. | No | "" |

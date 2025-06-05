@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-06-05"
 
 keywords:
 
@@ -120,8 +120,6 @@ If you are enabling a VPN, you do not require creating floating IP addresses. Fo
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@${packer_vsi_1_private_ip}
 ```
 {: codeblock}
-
-By default, a floating IP is created and attached to VSI-1. If you do not require a floating IP, then set the `enable_fip` value to false.
 
 ## Creating a custom image
 {: #custom-image-builder-create}
