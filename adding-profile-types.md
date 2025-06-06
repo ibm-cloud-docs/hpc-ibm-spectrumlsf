@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-06-06"
 
 keywords:
 
@@ -27,7 +27,7 @@ Complete the following steps to add compute profile types when worker nodes are 
 If you need to add multiple profiles, step 1 is sufficient and the restart `mbatchd` command is enough. The remaining steps are for submitting a job to a specific profile by tagging the virtual system with templateID as a string resource.
 {: note}
 
-1. Add a new template section to the templates list. Review the values for all the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
+1. Add a new template section to the templates list. Review the values for all the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} have this file in `/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
 
     ```
     {
@@ -63,7 +63,7 @@ If you need to add multiple profiles, step 1 is sufficient and the restart `mbat
     Error in select section: Operator "-" cannot be used with type to get type. Job not submitted.
     {: note}
 
-2. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, templateID String () () (template ID for the external hosts).
+2. When the template is added, you can use the `lsf.shared` file to map the new template to a specific job. The `lsf.shared` file is located in `$LSF_ENVDIR` (same location as `lsf.conf`). In a typical installation, this would be found in the `/opt/ibm/lsfsuite/lsf/conf` folder. Add _templateId_ as a resource in the resource section in the `lsf.shared` file. For example, templateID String () () (template ID for the external hosts).
 
 3. Add the following section to `user_data.sh` to the virtual machines add _templateId_ as `LSF_LOCAL_RESOURCES`.
 
@@ -77,11 +77,11 @@ If you need to add multiple profiles, step 1 is sufficient and the restart `mbat
     ```
     {: screen}
 
-    The `user_data.sh` is specified by the `IBMCLOUDGEN2_PROVISION_FILE` variable in the `ibmcloudgen2_config.json` file. `ibmcloudgen2_config.json` is located in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample file content for an example:
+    The `user_data.sh` is specified by the `IBMCLOUDGEN2_PROVISION_FILE` variable in the `ibmcloudgen2_config.json` file. `ibmcloudgen2_config.json` is located in `/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample file content for an example:
 
     ```
-    "IBMCLOUDGEN2_KEY_FILE": "/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/credentials",
-    "IBMCLOUDGEN2_PROVISION_FILE": "/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/user_data.sh",
+    "IBMCLOUDGEN2_KEY_FILE": "/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/credentials",
+    "IBMCLOUDGEN2_PROVISION_FILE": "/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/user_data.sh",
     "IBMCLOUDGEN2_MACHINE_PREFIX": "icgen2host",
     "LogLevel": "INFO"
     ```

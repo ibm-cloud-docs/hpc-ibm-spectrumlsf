@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-06-06"
 
 keywords: # Not typically populated
 
@@ -79,7 +79,7 @@ The following table outlines the requirements that are addressed in this archite
 |  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
 |  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
 |  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
-| Networking | * Isolate bastion, login, and LSF management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and users host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+| Networking | * Isolate bastion, login, deployer, and LSF management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and users host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
 |  | Enable a public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the LSF management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the HPC compute nodes | DNS service | Helps with the IP and name resolution for the HPC compute nodes. |
 |  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the user. |

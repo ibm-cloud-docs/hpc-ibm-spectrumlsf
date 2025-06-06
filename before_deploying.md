@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-06-06"
 
 keywords:
 
@@ -132,11 +132,11 @@ Customer-managed encryption applies only to the bastion, login, and management n
 
 Access the bastion node in the cluster through a VPN gateway. If the `vpn_enabled` deployment input variable value is set to **true**, then it results in the creation of a VPN gateway. If not specified, this deployment value is set to **false**.
 
-You set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values.
+For more information on optional deployment input values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
 
 The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
 
-Creating floating IP to attach to the bastion node is not supported.
+Creating and disabling of floating IP is not supported.
 {: note}
 
 See the following example SSH command syntax for accessing different types of nodes:
