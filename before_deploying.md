@@ -136,9 +136,6 @@ For more information on optional deployment input values, see [Deployment values
 
 The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
 
-Creating and disabling of floating IP is not supported.
-{: note}
-
 See the following example SSH command syntax for accessing different types of nodes:
 
 * Primary management node:
