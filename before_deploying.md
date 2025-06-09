@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-06"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -130,11 +130,14 @@ Customer-managed encryption applies only to the bastion, login, and management n
 {: #select-method-for-accessing-cluster}
 {: step}
 
-Access the bastion node in the cluster through a VPN gateway. If the `vpn_enabled` deployment input variable value is set to **true**, then it results in the creation of a VPN gateway. If not specified, this deployment value is set to **false**.
+Access the bastion node in the cluster directly or through a VPN gateway. You can set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values:
 
-For more information on optional deployment input values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
+* Through a VPN gateway. If you select a value **true** for the `vpn_enabled` deployment input variables, then it results in the creation of a VPN gateway. If you select the use of a VPN gateway, a floating IP is not attached to the bastion node. If not specified, this deployment value is set to **false**.
 
-The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
+If you do not want to create the floating IP during the cluster creation, then you need to manually delete and reattach before any operation.
+{: note}
+
+* The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
 
 See the following example SSH command syntax for accessing different types of nodes:
 
