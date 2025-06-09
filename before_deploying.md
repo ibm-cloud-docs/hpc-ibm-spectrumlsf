@@ -100,7 +100,7 @@ Make sure that you have an SSH key that you can use for authentication and that 
 {: #generate-remote-ip}
 {: step}
 
-Generate an public IP address that is required to access the Spectrum LSF cluster nodes. click [here](https://ipv4.icanhazip.com).
+Generate an public IP address that is required to access the Spectrum LSF cluster nodes. Click [here](https://ipv4.icanhazip.com).
 
 If an Admin requires cluster access, they should provide the IP address from which the cluster will be accessed, whether from a local system or a virtual server instance. For multiple users, access can be granted by specifying a CIDR range.
 {: note}
