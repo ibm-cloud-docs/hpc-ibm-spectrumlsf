@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-06-11"
 
 keywords:
 
@@ -105,6 +105,8 @@ Generate an public IP address that is required to access the Spectrum LSF cluste
 If an Admin requires cluster access, they should provide the IP address from which the cluster will be accessed, whether from a local system or a virtual server instance. For multiple users, access can be granted by specifying a CIDR range.
 {: note}
 
+For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
+
 ## Choose between IBM-managed or user-managed encryption
 {: #encryption}
 {: step}
@@ -116,9 +118,11 @@ If you decide to use user-managed encryption, complete the following steps befor
 1. [Provision an instance of Key Protect](/docs/key-protect?topic=key-protect-provision#provision-gui)
 2. [Create or import key](/docs/key-protect?topic=key-protect-getting-started-tutorial#get-started-keys)
 3. [Authorize access between](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs):
+
     * Cloud Block Storage and the key management service
     * File Storage for VPC and the key management service
 4. Gather information for the following boot volume encryption deployment values (you provide this information when you deploy your {{site.data.keyword.spectrum_full}} architecture):
+
     * `enable_customer_managed_encryption`: Gives you toggling options.
     * `kms_instance_id`: Instance ID of the Key Protect instance that you create.
     * `kms_key_name`: Name of the KMS key that you create
@@ -134,7 +138,7 @@ Access the bastion node in the cluster directly or through a VPN gateway. You ca
 
 * Through a VPN gateway. If you select a value **true** for the `vpn_enabled` deployment input variables, then it results in the creation of a VPN gateway. If not specified, this deployment value is set to **false**.
 
-If you do not want to create the floating IP during the cluster creation, then you need to manually delete and reattach the IP before any further operation.
+If you do not want to create the floating IP during the cluster creation, then you should manually delete and reattach the IP before any further operation.
 {: note}
 
 * The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
