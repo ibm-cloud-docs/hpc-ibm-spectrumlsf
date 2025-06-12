@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-06"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{: note .note}
+{:note .note}
 {:important: .important}
 
 # Adding compute profile types for auto scaling
@@ -29,7 +29,7 @@ If you need to add multiple profiles, step 1 is sufficient and the restart `mbat
 
 1. Add a new template section to the templates list. Review the values for all the properties to ensure that they map to the correct VPC configuration. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud_notm}} have this file in `/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample content for an example:
 
-    ```
+    ```pre
     {
     "templates": [
     {
@@ -67,7 +67,7 @@ If you need to add multiple profiles, step 1 is sufficient and the restart `mbat
 
 3. Add the following section to `user_data.sh` to the virtual machines add _templateId_ as `LSF_LOCAL_RESOURCES`.
 
-    ```
+    ```pre
     if [ -n "$template_id" ]; then
     sed -i "s/\(LSF_LOCAL_RESOURCES=.*\)\"/\1 [resourcemap $template_id*templateID]\"/" $LSF_CONF_FILE
     echo "update LSF_LOCAL_RESOURCES in $LSF_CONF_FILE successfully, add [resourcemap ${template_id}*templateID]" >> $logfile
@@ -75,27 +75,24 @@ If you need to add multiple profiles, step 1 is sufficient and the restart `mbat
     echo "templateID doesn't exist in environment variable" >> $logfile
     fi
     ```
-    {: screen}
 
     The `user_data.sh` is specified by the `IBMCLOUDGEN2_PROVISION_FILE` variable in the `ibmcloudgen2_config.json` file. `ibmcloudgen2_config.json` is located in `/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/conf`. See the following sample file content for an example:
 
-    ```
+    ```pre
     "IBMCLOUDGEN2_KEY_FILE": "/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/credentials",
     "IBMCLOUDGEN2_PROVISION_FILE": "/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/user_data.sh",
     "IBMCLOUDGEN2_MACHINE_PREFIX": "icgen2host",
     "LogLevel": "INFO"
     ```
-    {: screen}
 
 4. Run the following commands to restart the process and apply the changes:
-     ```
+     ```pre
      $lsadmin reconfig
      $badmin mbdrestart
       ```
 
 5. You can submit the change by using the `-R` option. In the following, "Template2" is an example value for Template ID:
 
-    ```
+    ```pre
     bsub -R “templateId=Template2” sleep 1000
     ```
-    {: pre}

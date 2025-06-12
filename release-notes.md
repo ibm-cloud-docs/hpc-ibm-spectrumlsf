@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-06-12"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -25,6 +25,46 @@ content-type: release-note
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
+
+## June 2025
+{: #subcollection-june25}
+
+### 30 June 2025
+{: #subcollection-june3025}
+{: release-note}
+
+Following are the change updates made for this release:
+
+Support for Fix Pack 15 (FP15)
+:   For this release, Fix Pack 15 is supported along with Fix Pack 14 (FP14). This fix pack contains all the security fixes, vulnerabilities fixes,resource connectors and so on.
+User can still do the cluster deployment through FP14.
+
+
+Support for Web service
+:   Content
+
+Support for Process manager
+:   Content
+
+Support for deployment using stock image.
+:   For this release, user can do the deployment using the stock image also
+The stock images can be used only for management and compute nodes and not for deployer and dynamic nodes.
+If the user does not want to do the deployment with FP14 and FP15 then it can still be done using the stock images.
+
+Updated the DA `landing_zone` and `landing_zone_vsi` module version along with the IBM provider version.
+:   The DA module versions are updated.
+
+Support for Security and Compliance Center (SCC) Workload Protection
+:   For this release, SCC instances are deprecated but the new version of SCC Workload Protection is supported. Cloud-Native Application Protection Platform solution to manage your security and compliance posture, allowing you to monitor misconfigurations and detect and respond to vulnerabilities and threats in real-time.
+
+Support for Deployer node
+:   For this release, dedicatedly we have the virtual server instnace where the entire cluster deployment will be handled by deployer node.
+
+End to end deployment done through Ansible playbooks
+:   Previously, all the configurations for LSF were done using the user data script through shell script. Now the cluster deployments are done through Ansible playbooks.
+
+Application centre option is enabled by default for FP14 and FP15
+:   Previously, application centre was an optional feature, where the users had a choice to enable or disbale. But for this release, application centre option is set as default for FP14 and FP15. The cluster comes with application centre enabled.
 
 ## April 2025
 {: #subcollection-apr25}

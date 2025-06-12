@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -23,7 +23,12 @@ subcollection: hpc-ibm-spectrumlsf
 # Deployment values
 {: #deployment-values}
 
-The following are the Mandatory deployment values used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
+The following deployment values can be used to configure the used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
+
+## Mandatory deployment values
+{: #mandatory-deployment-values}
+
+The following are the mandatory deployment values used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
@@ -32,9 +37,12 @@ The following are the Mandatory deployment values used to configure the {{site.d
 | `compute_ssh_keys` | Provide the list of SSH key names configured in your IBM Cloud account to establish a connection to the Spectrum LSF cluster node. Ensure the SSH key is present in the same resource group and region where the cluster is being provisioned. To pass multiple SSH keys, use the format [\"key-name-1\", \"key-name-2\"]. If you do not have an SSH key in your IBM Cloud account, create one by following the provided instructions [SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys). | Yes | None |
 | `ibmcloud_api_key` | IBM Cloud API key for the {{site.data.keyword.cloud_notm}} account where the {{site.data.keyword.spectrum_full_notm}} cluster needs to be deployed. For more information on how to create an API key, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui). | Yes | None |
 | `remote_allowed_ips` | Comma-separated list of IP addresses that can access the {{site.data.keyword.spectrum_full_notm}} cluster instance through an SSH interface. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, ["169.45.117.34"]). To fetch the IP address of the device, use [https://ipv4.icanhazip.com/](https://ipv4.icanhazip.com/). | Yes | None |
-{: caption="Mandatory deployment Values" caption-side="bottom"}
+{: caption="Mandatory deployment values" caption-side="bottom"}
 
-The following are the Optional deployment values used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
+## Optional deployment values
+{: #optional-deployment-values}
+
+The following are the optional deployment values used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
@@ -104,4 +112,4 @@ The following are the Optional deployment values used to configure the {{site.da
 | `worker_node_instance_type` | The minimum number of worker nodes represents the static nodes provisioned during cluster creation. The solution supports different instance types, so specify the node count based on the requirements for each instance profile. For dynamic node provisioning, the automation will select the first profile from the list. Ensure sufficient account-level capacity if specifying a higher instance profile.. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | No | [{"count": 0,"instance_type": "bx2-4x16"},{"count": 0,"instance_type": "cx2-8x16"}] |
 | `worker_node_max_count` | The maximum number of worker nodes that can be deployed in the Spectrum LSF cluster. In order to use the [Resource Connector](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector) feature to dynamically create and delete worker nodes based on workload demand, the value selected for this parameter must be larger than the total count of `worker_node_instance_type`. If you plan to deploy only static worker nodes in the LSF cluster. | No | 10 |
 | `zones` | Specify the IBM Cloud zone within the chosen region where the {{site.data.keyword.spectrum_full_notm}} cluster will be deployed. A single zone input is required, and the management nodes, file storage shares, and compute nodes will all be provisioned in this zone.[Learn more](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli#get-zones-using-the-cli). | No | "us-east-1" |
-{: caption="Optional deployment Values" caption-side="bottom"}
+{: caption="Optional deployment values" caption-side="bottom"}

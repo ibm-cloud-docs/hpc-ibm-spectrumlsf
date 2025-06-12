@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -138,33 +138,39 @@ Access the bastion node in the cluster directly or through a VPN gateway. You ca
 
 * Through a VPN gateway. If you select a value **true** for the `vpn_enabled` deployment input variables, then it results in the creation of a VPN gateway. If not specified, this deployment value is set to **false**.
 
-If you do not want to create the floating IP during the cluster creation, then you should manually delete and reattach the IP before any further operation.
-{: note}
-
 * The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
 
 See the following example SSH command syntax for accessing different types of nodes:
 
-* Primary management node:
+* Deployer node:
 
     ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@149.81.242.172 lsfadmin@10.241.0.8
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your deployer_node IP address>
     ```
     {: codeblock}
 
 * Login node:
 
     ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@149.81.216.117 lsfadmin@10.241.16.5
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> lsfadmin@<replace this with your login_node IP address>
     ```
     {: codeblock}
 
-* Compute node:
+* Management node:
 
     ```ssh
-    ssh lsfadmin@10.241.0.11
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> lsfadmin@<replace this with your management_node IP address>
     ```
     {: codeblock}
+
+* Static compute node:
+
+    ```ssh
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> lsfadmin@<replace this with your static_compute_node IP address>
+    ```
+    {: codeblock}
+
+![Command output](images/SSH_command_output.png "Command output"){: caption="Command output" caption-side="bottom"}
 
 This worker node instance type supports a combination of multiple instance profile type that might be chosen for different number of instance count.
 For example, you might choose 100 instance to be created from `bx2-4x16` and 10 instance from `mx3d-8x80`. So, you would get a total count of 110 static worker nodes with different instance profile, based on your requirement.
