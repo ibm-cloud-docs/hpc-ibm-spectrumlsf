@@ -47,7 +47,6 @@ Support for Process manager
 
 Support for deployment using stock image
 :   For this release, along with the custom image, user can do the deployment using the **stock image** also. The stock images can be used only for management and compute nodes and not for deployer and dynamic nodes.
-If the user do not want to do the deployment with FP14 and FP15 then it can still be done using the stock images.
 
 Updated the DA `landing_zone` and `landing_zone_vsi` module version along with the IBM provider version.
 :   The DA module versions for the landing zones are updated.
@@ -56,13 +55,13 @@ Support for Security and Compliance Center (SCC) Workload Protection
 :   For this release, previously used SCC instances are deprecated and the new version of **SCC Workload Protection** is supported. Cloud-Native Application Protection Platform solution to manage your security and compliance posture, allowing you to monitor misconfigurations and detect and respond to vulnerabilities and threats in real-time.
 
 Support for Deployer node
-:   For this release, you have a dedicated virtual server instance where the entire cluster deployment will be handled by the **deployer** node.
+:   For this release, the entire cluster deployment is handled by the **deployer** node for a  virtual server instance.
 
 End to end deployment done through Ansible playbooks
 :   Previously, all the configurations for {{site.data.keyword.spectrum_short}} were done using the user data through shell script. Now the cluster deployments are done through **Ansible** playbooks.
 
 Application centre option is enabled by default for FP14 and FP15
-:   For the last release, **application centre** was an optional feature, where the user had a choice to enable or disable the application centre. But for this release, application centre option is set as default for FP14 and FP15. The cluster comes with application centre enabled.
+:   For the previous release, user had a choice to enable or disable the application centre feature as it was an option. But now, **application centre** option is set as **default** for FP14 and FP15. The cluster comes with application centre enabled.
 
 ## April 2025
 {: #subcollection-apr25}
