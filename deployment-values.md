@@ -23,7 +23,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Deployment values
 {: #deployment-values}
 
-The following deployment values can be used to configure the used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
+The following deployment values can be used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}:
 
 ## Mandatory deployment values
 {: #mandatory-deployment-values}
