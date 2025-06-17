@@ -49,6 +49,7 @@ To view access policies, complete the following steps:
    | Service | Resources | Role |
    | ------- | --------- | ---- |
    | Cloud Object Storage | All | Service Configuration Reader |
+   | IBM Cloud Monitoring | All | Administrator |
    | DNS Services | All | Editor |
    | IBM Key Protect | All | Service Configuration Reader |
    | IBM Cloud Security and Compliance Center | All | Administrator |
@@ -57,7 +58,6 @@ To view access policies, complete the following steps:
    | IAM Identity Service | All | Administrator |
    | Virtual Private Cloud | All | Editor |
    | IBM Cloud Flow Logs for VPC | All | Editor |
-   | IBM Cloud Monitoring with Sysdig| All | Administrator |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
