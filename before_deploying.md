@@ -48,16 +48,16 @@ To view access policies, complete the following steps:
 
    | Service | Resources | Role |
    | ------- | --------- | ---- |
+   | Cloud Monitoring | All | Administrator |
    | Cloud Object Storage | All | Service Configuration Reader |
-   | IBM Cloud Monitoring | All | Administrator |
    | DNS Services | All | Editor |
-   | IBM Key Protect | All | Service Configuration Reader |
-   | IBM Cloud Security and Compliance Center | All | Administrator |
-   | Secrets Manager | All | Administrator |
    | File Storage for VPC | All | Editor |
-   | IAM Identity Service | All | Administrator |
+   | Flow Logs for VPC | All | Editor |
+   | Key Protect | All | Service Configuration Reader |
+   | Secrets Manager | All | Administrator |
+   | IBM Cloud Security and Compliance Center | All | Administrator |
    | Virtual Private Cloud | All | Editor |
-   | IBM Cloud Flow Logs for VPC | All | Editor |
+   | IAM Identity Service | All | Administrator |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
