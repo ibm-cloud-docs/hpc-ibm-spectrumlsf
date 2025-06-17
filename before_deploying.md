@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-17"
 
 keywords:
 
@@ -48,20 +48,16 @@ To view access policies, complete the following steps:
 
    | Service | Resources | Role |
    | ------- | --------- | ---- |
-   | Database for MySQL (see note)| All | Administrator |
-   | {{site.data.keyword.cloud_notm}} Project | All | Administrator |
-   | All IAM Account Management services| All | Editor, Operator, Service ID creator, VPN Administrator, User API key creator, API key reviewer |
-   | Security and Compliance Center | All | Editor, Viewer, Reader, Manager |
-   | Resource group only | All resource groups in the account | Editor, Viewer |
-   | Schematics | All | Manager, Editor |
-   | DNS Services | All | Manager, Editor |
-   | Key Protect | All | Manager, Editor |
-   | Cloud Monitoring| All | Reader, Manager, Editor, Viewer |
-   | Cloud Logs| All | Reader, Manager, Editor, Viewer |
-   | Cloud Object Storage | All | Writer, Editor |
-   | Activity Track Event Routing | All | Writer, Editor, Key manager, Service configuration reader |
-   | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
-   | VPC Infrastructure Services | All | Writer, Editor |
+   | Cloud Object Storage | All | Service Configuration Reader |
+   | DNS Services | All | Editor |
+   | IBM Key Protect | All | Service Configuration Reader |
+   | IBM Cloud Security and Compliance Center | All | Administrator |
+   | Secrets Manager | All | Administrator |
+   | File Storage for VPC | All | Editor |
+   | IAM Identity Service | All | Administrator |
+   | Virtual Private Cloud | All | Editor |
+   | IBM Cloud Flow Logs for VPC | All | Editor |
+   | IBM Cloud Monitoring with Sysdig| All | Administrator |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints

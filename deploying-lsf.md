@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-06-17"
 
 keywords:
 
@@ -61,7 +61,7 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
         * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.spectrum_full}} cluster to fulfill the `ibmcloud_api_key` input variable.
         * **Security and compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.spectrum_full}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
 
-    * In the **Required** tab, specify the deployment values for the mandatory input variables: `cluster_name`, `remote_allowed_ips`, `existing_resource_group`, `bastion_ssh_keys`, `compute_ssh_keys`, and `zones`.
+    * In the **Required** tab, specify the deployment values for the mandatory input variables: `cluster_name`, `remote_allowed_ips`, `existing_resource_group`, `bastion_ssh_keys`, `compute_ssh_keys`, and `zone`.
 
     For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the LSF cluster by using {{site.data.keyword.spectrum_full_notm}}.
 
@@ -111,7 +111,7 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 2. The CLI requires a `values.json` file with your configuration settings. Use the following example `values.json` file as a reference: you can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
 
     Take note of these mandatory deployment input values:
-    * Provide the mandatory deployment values for your {{site.data.keyword.spectrum_full}} cluster, specifically, replace the **Fill here** text with values for `cluster_name`, `remote_allowed_ips`, `existing_resource_group`, `bastion_ssh_keys`, `compute_ssh_keys`, and `zones`.
+    * Provide the mandatory deployment values for your {{site.data.keyword.spectrum_full}} cluster, specifically, replace the **Fill here** text with values for `cluster_name`, `remote_allowed_ips`, `existing_resource_group`, `bastion_ssh_keys`, `compute_ssh_keys`, and `zone`.
 
 3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your {{site.data.keyword.spectrum_full}} cluster with the configuration you specified in your `values.json` file; you use your `version_locator_value` copied and saved in a previous step, here:
 

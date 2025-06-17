@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-17"
 
 keywords:
 
@@ -111,5 +111,5 @@ The following are the optional deployment values used to configure the {{site.da
 | `vpn_enabled` | Set the value as true to deploy a VPN gateway for VPC in the cluster. | No | false |
 | `worker_node_instance_type` | The minimum number of worker nodes represents the static nodes provisioned during cluster creation. The solution supports different instance types, so specify the node count based on the requirements for each instance profile. For dynamic node provisioning, the automation will select the first profile from the list. Ensure sufficient account-level capacity if specifying a higher instance profile.. For choices on profile types, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | No | [{"count": 0,"instance_type": "bx2-4x16"},{"count": 0,"instance_type": "cx2-8x16"}] |
 | `worker_node_max_count` | The maximum number of worker nodes that can be deployed in the Spectrum LSF cluster. In order to use the [Resource Connector](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-resource-connnector) feature to dynamically create and delete worker nodes based on workload demand, the value selected for this parameter must be larger than the total count of `worker_node_instance_type`. If you plan to deploy only static worker nodes in the LSF cluster. | No | 10 |
-| `zones` | Specify the IBM Cloud zone within the chosen region where the {{site.data.keyword.spectrum_full_notm}} cluster will be deployed. A single zone input is required, and the management nodes, file storage shares, and compute nodes will all be provisioned in this zone.[Learn more](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli#get-zones-using-the-cli). | No | "us-east-1" |
+| `zone` | Specify the IBM Cloud zone within the chosen region where the {{site.data.keyword.spectrum_full_notm}} cluster will be deployed. A single zone input is required, and the management nodes, file storage shares, and compute nodes will all be provisioned in this zone.[Learn more](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli#get-zones-using-the-cli). | No | "us-east-1" |
 {: caption="Optional deployment values" caption-side="bottom"}

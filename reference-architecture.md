@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-17"
 
 keywords: # Not typically populated
 
@@ -76,12 +76,12 @@ The following table outlines the requirements that are addressed in this archite
 |-------------|-------------|-----------|--------------------|
 | Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial)| Creates file shares for configuring user file data sharing. |
 | Compute | Provide infrastructure and administration access | VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
-|  | Create virtual server instances to support management. | Deployer node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
+|  | Create virtual server instances to support deployment. | Deployer node | Creates a  virtual server instance for performing the entire LSF cluster deployment. |
 |  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
-|  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
+|  | Create virtual server instances to support login. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
 |  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
-|  | Create virtual server instances to support management. | Static compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
-|  | Create virtual server instances to support management. | Dynamic compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
+|  | Create virtual server instances to support static compute nodes. | Static compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
+|  | Create virtual server instances to support dynamic compute nodes. | Dynamic compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
 | Networking | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the VPC. |
 |  | Enable a public gateway for the management subnet. | Public gateway for management subnet | Allows outbound communication for the LSF management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the compute nodes | DNS service | Helps with the IP and name resolution for the compute nodes. |
