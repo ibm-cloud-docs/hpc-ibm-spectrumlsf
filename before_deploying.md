@@ -47,7 +47,7 @@ To view access policies, complete the following steps:
 3. Select **Access** to view the associated access policies and access groups. See the following table for the permissions that you need for this deployable architecture:
 
    | Service | Resources | Platform roles | Service roles |
-   | ------- | --------- | ---- |
+   | ------- | --------- | ---- | ---- |
    | Cloud Monitoring | All | Administrator | Manager |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
