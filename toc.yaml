@@ -38,6 +38,7 @@ toc:
             - about-scale.md
             - integrate-scale.md
       - custom-image.md
+      - fixpack-support.md
   - navgroup:
       id: deploy
       topics:
