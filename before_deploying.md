@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-06-19"
 
 keywords:
 
@@ -46,18 +46,18 @@ To view access policies, complete the following steps:
 2. In the _IAM_ navigation menu, select **Users** and then select the account user.
 3. Select **Access** to view the associated access policies and access groups. See the following table for the permissions that you need for this deployable architecture:
 
-   | Service | Resources | Role |
+   | Service | Resources | Platform roles | Service roles |
    | ------- | --------- | ---- |
-   | Cloud Monitoring | All | Administrator |
-   | Cloud Object Storage | All | Service Configuration Reader |
-   | DNS Services | All | Editor |
-   | File Storage for VPC | All | Editor |
-   | Flow Logs for VPC | All | Editor |
-   | Key Protect | All | Service Configuration Reader |
-   | Secrets Manager | All | Administrator |
-   | IBM Cloud Security and Compliance Center | All | Administrator |
-   | Virtual Private Cloud | All | Editor |
-   | IAM Identity Service | All | Administrator |
+   | Cloud Monitoring | All | Administrator | Manager |
+   | Cloud Object Storage | All | Service Configuration Reader | Writer |
+   | DNS Services | All | Editor | Manager |
+   | File Storage for VPC | All | Editor | - |
+   | Flow Logs for VPC | All | Editor | - |
+   | IAM Identity Service | All | Administrator | - |
+   | Key Protect | All | Service Configuration Reader | Manager |
+   | Secrets Manager | All | Administrator | Manager |
+   | Security and Compliance Center | All | Administrator | Manager |
+   | Virtual Private Cloud | All | Editor | - |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
