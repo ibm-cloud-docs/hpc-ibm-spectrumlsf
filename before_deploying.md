@@ -51,13 +51,13 @@ To view access policies, complete the following steps:
    | Cloud Monitoring | All | Administrator | Manager |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
-   | File Storage for VPC | All | Editor | - |
-   | Flow Logs for VPC | All | Editor | - |
-   | IAM Identity Service | All | Administrator | - |
+   | File Storage for VPC | All | Editor | -- |
+   | Flow Logs for VPC | All | Editor | -- |
+   | IAM Identity Service | All | Administrator | -- |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
    | Security and Compliance Center | All | Administrator | Manager |
-   | Virtual Private Cloud | All | Editor | - |
+   | Virtual Private Cloud | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
