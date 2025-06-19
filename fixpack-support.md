@@ -23,7 +23,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Fix Pack support
 {: #fixpack-overview}
 
-Fix Pack is the cumulative package that contains the repository files, security fixes, vulnerabilities fixes, resource connectors and so on. For {{site.data.keyword.spectrum_full}} Fix Pack 14 (FP14) and Fix Pack 15 (FP15) packages are used.
+Fix Pack is the cumulative package that contains the repository files, security fixes, vulnerabilities fixes, resource connectors, and so on. For {{site.data.keyword.spectrum_full}} Fix Pack 14 (FP14) and Fix Pack 15 (FP15) packages are used.
 
 In last release, for {{site.data.keyword.spectrum_short}} cluster deployment Fix Pack 14 was supported. But now **Fix Pack 15** is supported along with Fix Pack 14.
 
@@ -33,9 +33,9 @@ The following table shows the different images used for FP14 and FP15:
 | ----- | ----------- | --------------- | ------------ | ------------ |
 | Fix Pack 14 | "hpc-lsf-fp14-deployer-rhel810-v1" | "hpc-lsf-fp14-rhel810-v1" | hpc-lsf-fp14-compute-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 |
 | Fix Pack 15 | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
-{: caption="Fix Pack Images" caption-side="bottom"}
+{: caption="Fix Pack images" caption-side="bottom"}
 
-The images used for login, compute, and dynamic nodes are the same.
+The images used for login node, compute node, and dynamic nodes are the same.
 {: note}
 
 If you are using the `lsf_version` as FP14, then by default FP14 images should be used. This implies same for FP15 also. If you are using different images for different LSF versions, then the deployment will fail stating that some of the packages are not available.
