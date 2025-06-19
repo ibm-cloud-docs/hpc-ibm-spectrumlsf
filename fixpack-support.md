@@ -41,10 +41,11 @@ The images used for login, compute, and dynamic nodes are the same.
 If you are using the `lsf_version` as FP14, then by default FP14 images should be used. This implies same for FP15 also. If you are using different images for different LSF versions, then the deployment will fail stating that some of the packages are not available.
 The RPM versions and RPM files are different for the LSF versions.
 
-**Example**
+**Example:**
 ![Images and LSF versions example](images/example_LSF_versions.png "Images and LSF versions example"){: caption="Images and LSF versions example" caption-side="bottom"}
 
-**Post deployment valaidations**
-If the deployment is done using the FP14 images, then you can see the LSID output as `[root@test-14dyw-mgmt-1-ea6d-001 lsf]# lsid`
+**Post deployment valaidations:**
 
-If the deployment is done using the FP15 images, then you can see the LSID output as `[root@test-15dyw-mgmt-1-ea6d-001 lsf]# lsid`
+* If the deployment is done using the FP14 images, then you can see the LSID output as `[root@test-14dyw-mgmt-1-ea6d-001 lsf]# lsid`
+
+* If the deployment is done using the FP15 images, then you can see the LSID output as `[root@test-15dyw-mgmt-1-ea6d-001 lsf]# lsid`
