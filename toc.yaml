@@ -24,11 +24,13 @@ toc:
   - navgroup:
       id: plan
       topics:
+      - fixpack-support.md
       - considerations-for-HPC-cluster-compute-types.md
       - topicgroup:
           label: Integrating existing infrastructure resources
           topics:
           - vpc-lsf.md
+          - enable-vpn.md
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
           - bastion-node.md
@@ -38,7 +40,6 @@ toc:
             - about-scale.md
             - integrate-scale.md
       - custom-image.md
-      - fixpack-support.md
   - navgroup:
       id: deploy
       topics:

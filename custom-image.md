@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-06-20"
 
 keywords:
 
@@ -107,19 +107,6 @@ For example:
     * For the `kms_key_name` variable, specify the name of the existing KMS encryption key to be used for boot volume encryption for VSI-1.
 
 If these KMS values are not provided, the automation creates a new KMS instance and key.
-
-## Enabling a VPN
-{: #custom-image-builder-vpn}
-
-A VPN helps connect your on-premises network to the {{site.data.keyword.vpc_short}} network, which enables secure communication between the two environments.
-
-The custom image automation supports creating a VPN gateway if you set the `enable_vpn` value as true (by default, it is set to false). After the automation creates the VPN gateway, you need to create VPN connections, and any other security group rule changes as necessary, under that VPN gateway. See the {{site.data.keyword.vpc_short}} documentation for details on [adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
-
-If you are enabling a VPN, you do not require creating floating IP addresses. For example, if you enabled a VPN, to connect to VSI-1 without a floating IP address, run:
-```text
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@${packer_vsi_1_private_ip}
-```
-{: codeblock}
 
 ## Creating a custom image
 {: #custom-image-builder-create}

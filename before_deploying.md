@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-19"
+lastupdated: "2025-06-20"
 
 keywords:
 
@@ -60,16 +60,6 @@ To view access policies, complete the following steps:
    | Virtual Private Cloud | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
-## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
-{: #public-endpoints}
-
-The {{site.data.keyword.spectrum_full}} deployable architecture requires access to the following {{site.data.keyword.cloud_notm}} service API public endpoints. For a successful deployment to provision the infrastructure and the associated services, ensure that you are aware of these endpoints and allow them access:
-
-| Endpoint | Type | Notes |
-   | ------- | --------- | ---- |
-   | `iam.cloud.ibm.com` | IAM | The IAM endpoint is protected by Akamai under the [Akamai IP ranges](https://techdocs.akamai.com/origin-ip-acl/docs/update-your-origin-server){: external} |
-{: caption="{{site.data.keyword.cloud_notm}} public endpoints required for {{site.data.keyword.cloud_notm}} HPC deployment" caption-side="bottom"}
-
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}
 
@@ -96,45 +86,43 @@ Make sure that you have an SSH key that you can use for authentication and that 
 {: #generate-remote-ip}
 {: step}
 
-Generate an public IP address that is required to access the Spectrum LSF cluster nodes. Click [here](https://ipv4.icanhazip.com).
+This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster.
 
-If an Admin requires cluster access, they should provide the IP address from which the cluster will be accessed, whether from a local system or a virtual server instance. For multiple users, access can be granted by specifying a CIDR range.
-{: note}
+If this field is left empty (for example, [""]) or not provided, then the cluster deployment will fail during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
 For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
 
-## Choose between IBM-managed or user-managed encryption
-{: #encryption}
+## Support for `lsf_version`
+{: #lsf-version}
 {: step}
 
-By default, VPC volumes and file shares are encrypted with IBM-managed encryption. However, you can opt for user-managed encryption per your security requirements. Customer-managed encryption uses your root key, which gives you complete control over your data. You can provision or import existing encrypted keys by using {{site.data.keyword.keymanagementservicefull_notm}}.
+IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
 
-If you decide to use user-managed encryption, complete the following steps before you deploy your {{site.data.keyword.spectrum_full}} architecture:
+By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack-overview).
 
-1. [Provision an instance of Key Protect](/docs/key-protect?topic=key-protect-provision#provision-gui)
-2. [Create or import key](/docs/key-protect?topic=key-protect-getting-started-tutorial#get-started-keys)
-3. [Authorize access between](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs):
+## Application center password
+{: #app-center}
+{: step}
 
-    * Cloud Block Storage and the key management service
-    * File Storage for VPC and the key management service
-4. Gather information for the following boot volume encryption deployment values (you provide this information when you deploy your {{site.data.keyword.spectrum_full}} architecture):
+For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
 
-    * `enable_customer_managed_encryption`: Gives you toggling options.
-    * `kms_instance_id`: Instance ID of the Key Protect instance that you create.
-    * `kms_key_name`: Name of the KMS key that you create
+To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails.
 
-Customer-managed encryption applies only to the bastion, login, and management nodes. The compute nodes are still IBM-managed.
-{: note}
+## Enabling optional values
+{: #optional-values}
+{: step}
+
+IBM Spectrum LSF also provides some optional or advanced features such as Observability, Monitoring, Cloud Logs, SCC integration, Hyperthreading, Existing Bastion Support, KMS and more.
+
+If you intend to enable and configure any of these features for your cluster, ensure to update the corresponding values accordingly. Note that certain features may be enabled by default.
+
+Additionally, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies)
 
 ## Select the method for accessing the cluster
 {: #select-method-for-accessing-cluster}
 {: step}
 
-Access the bastion node in the cluster directly or through a VPN gateway. You can set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values:
-
-* Through a VPN gateway. If you select a value **true** for the `vpn_enabled` deployment input variables, then it results in the creation of a VPN gateway. If not specified, this deployment value is set to **false**.
-
-* The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
+The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. All the cluster nodes can be directly accessed through bastion nodes (except dynamic nodes).
 
 See the following example SSH command syntax for accessing different types of nodes:
 
