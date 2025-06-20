@@ -97,7 +97,6 @@ For more information on mandatory and optional deployment values, see [Deploymen
 {: step}
 
 IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
-
 By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack-overview).
 
 ## Application center password
@@ -105,7 +104,6 @@ By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to p
 {: step}
 
 For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
-
 To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails.
 
 ## Enabling optional values
@@ -114,9 +112,9 @@ To access the GUI, a valid password must be provided. If an appropriate password
 
 IBM Spectrum LSF also provides some optional or advanced features such as Observability, Monitoring, Cloud Logs, SCC integration, Hyperthreading, Existing Bastion Support, KMS and more.
 
-If you intend to enable and configure any of these features for your cluster, ensure to update the corresponding values accordingly. Note that certain features may be enabled by default.
+If you want to enable and configure any of these features for your cluster, ensure to update the corresponding values accordingly. Note that certain features may be enabled by default.
 
-Additionally, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies)
+Additionally, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies).
 
 ## Select the method for accessing the cluster
 {: #select-method-for-accessing-cluster}
