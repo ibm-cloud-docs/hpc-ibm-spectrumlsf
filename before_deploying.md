@@ -92,7 +92,7 @@ If this field is left empty (for example, [""]) or not provided, then the cluste
 
 For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
 
-## Support for `lsf_version`
+## Support for lsf_version
 {: #lsf-version}
 {: step}
 
