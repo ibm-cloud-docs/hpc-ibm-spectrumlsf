@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-21"
 
 keywords:
 
@@ -45,7 +45,7 @@ The same image is now used across login nodes, compute nodes, and dynamic worker
 ## Scenarios
 {: #fixpack-scenario}
 
-If you set the `lsf_version` to FP14, the corresponding FP14 images must be used. The same applies for FP15. Using mismatched images for different LSF versions, result in deployment failure, as required packages may be missing.
+If you set the `lsf_version` to FP14, corresponding FP14 images must be used across all the LSF cluster nodes (Deployer/Login/Management/Compute). The same applies for FP15. Using mismatched images for different LSF versions, result in deployment failure, as required packages may be missing.
 
 **For example:** When the `lsf_version` is set as fixpack_15 and the image under `login_instance` is set as "hpc-lsf-fp14-compute-rhel810-v1" then our automation ensures to validate and throws an error message. So always ensure that the images are set based upon the required fixpack version.
 

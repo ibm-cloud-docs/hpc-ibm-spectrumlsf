@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-21"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Before you begin deploying
 {: #getting-started-tutorial}
 
-{{site.data.keyword.spectrum_full}} enables users to deploy HPC clusters that use LSF as a scheduling software. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks.
+{{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
 
 ## Confirm your {{site.data.keyword.cloud}} settings
 {: #confirm-cloud-settings}
