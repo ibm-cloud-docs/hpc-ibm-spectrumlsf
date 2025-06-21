@@ -336,6 +336,8 @@ nameserver 10.241.0.10
 {: troubleshoot}
 {: support}
 
+The following error messages displays when the GetInstanceProfileWithContext fails as the provided instance ID does not exist:
+
 ```console
 2025/06/20 11:41:23 Terraform plan | id: terraform-6cd8478b
  2025/06/20 11:41:23 Terraform plan | summary: 'GetInstanceProfileWithContext failed: the provided instance profile ID does
@@ -356,6 +358,6 @@ The value provided for instance profile are validated through the data source fr
 {: tsCauses}
 
 1. Ensure that the ID exists on the cloud region.
-2. Validate there are no errors in the instance profiles while passing.
+2. Validate for no errors in the instance profiles while passing.
 3. Provide an available instance profile.
 {: tsResolve}
