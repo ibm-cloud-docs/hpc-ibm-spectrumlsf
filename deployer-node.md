@@ -26,9 +26,6 @@ subcollection: hpc-ibm-spectrumlsf
 
 In IBM Spectrum LSF solution, a deployer node is provisioned by default to facilitate and streamline the entire deployment and management process of the HPC cluster.
 
-## Background
-{: #background-dn}
-
 In the earlier releases, all the cluster infrastructure, including networking, compute, DNS, monitoring, and security services were provisioned through an IBM Cloud Schematics workspace. In this setup, users interacted with the solution through the Project UI whereas the back-end depended entirely on the Schematics automation.
 
 Although, this approach enabled full-stack provisioning but it had a few limitations as well:
@@ -52,17 +49,6 @@ Following are the key benefits of deployable architecture:
 
 * **Code and Playbook access:** All the automation logic, including the Ansible playbooks and Terraform configurations reside on the deployer node. This allows inspection, modification, or reruns as needed.
 
-## IBM Spectrum LSF software deployment and management
-{: #lsf-sw-mgmt-dn}
-
-All the deployments in this solution leverage the LSF Enterprise Suite, supporting both Fix Pack 14 and Fix Pack 15. The relevant Ansible playbooks tailored for the specific fix pack version, are stored on the deployer node. This ensures consistency and reliability in the deployment process.
-
-**Additionally:**
-
-* All the required LSF software packages and dependencies are preloaded on the deployer node.
-* This setup eliminates the need for external downloads during deployment, speeding up installation, and reducing dependency issues.
-* The deployer node acts as the central source for LSF package distribution across compute nodes in the cluster.
-
 ## Deployment Workflow Overview
 {: #workflow-dn}
 
@@ -81,3 +67,14 @@ The deployment process is divided into two stages:
 This hybrid model improves modularity, enhances user control, and ensures a transparent, maintainable, and scalable HPC solution.
 
 **Command to ssh** - `ssh_to_deployer = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@52.116.127.21 vpcuser@10.241.16.4"`
+
+## IBM Spectrum LSF software deployment and management
+{: #lsf-sw-mgmt-dn}
+
+All the deployments in this solution leverage the LSF Enterprise Suite, supporting both Fix Pack 14 and Fix Pack 15. The relevant Ansible playbooks tailored for the specific fix pack version, are stored on the deployer node. This ensures consistency and reliability in the deployment process.
+
+**Additionally:**
+
+* All the required LSF software packages and dependencies are preloaded on the deployer node.
+* This setup eliminates the need for external downloads during deployment, speeding up installation, and reducing dependency issues.
+* The deployer node acts as the central source for LSF package distribution across compute nodes in the cluster.
