@@ -26,7 +26,7 @@ Connect to the LSF management node through SSH. The details are available in the
 
 `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6`
 
-**Viewing existing flow definitions:**
+* **Viewing existing flow definitions:**
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
@@ -40,9 +40,9 @@ pm_test_flow   lsfadmin       OnHold        6(Killed)
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-**Creating a flow definition file based on your requirements:**
+* **Creating a flow definition file based on your requirements:**
 
-The following example defines a flow with two jobs, where the second job starts only after the first job completes successfully. Save the content in a file with a .xml extension, For example: pm_test_flow.xml
+The following example defines the flow with two jobs, where the second job starts only after the first job completes successfully. Save the content in a file with a .xml extension, For example: **pm_test_flow.xml**
 
 ```pre
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,7 +80,7 @@ The following example defines a flow with two jobs, where the second job starts 
 </JobFlowReq>
 ```
 
-**Creating a flow definition with `jcommit`:**
+* **Creating a flow definition with `jcommit` command:**
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jcommit pm_test_flow.xml 
@@ -88,15 +88,14 @@ Flow <lsfadmin:test_pm_flow> is committed. Version <1.0>.
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-**Triggering the flow definition:**
+* **Triggering the flow definition:**
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jtrigger test_pm_flow
-Flow <lsfadmin:test_pm_flow> is triggered: Flow id <7>.
-[lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ 
+Flow <lsfadmin:test_pm_flow> is triggered: Flow id <7>.[lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ 
 ```
 
-**Verifying the status of the job:**
+* **Verifying the status of the job:**
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs test_pm_flow
@@ -105,7 +104,7 @@ test_pm_flow   lsfadmin       OnHold         7(Done)
 [lsfadmin@-re1-mgmt-1-9e6e-001 ~]$ 
 ```
 
-**Killing the running job:**
+* **Killing the running job:**
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jtrigger test_pm_flow
@@ -124,7 +123,7 @@ test_pm_flow   lsfadmin       OnHold         7(Done)
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-**Removing the flow definition from Process Manager:**
+* **Removing the flow definition from Process Manager:**
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jremove test_pm_flow
@@ -139,4 +138,4 @@ hpc123         lsfadmin       OnHold         2(Done)
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-For more information on Process Manager CLI commands, see [IBM Spectrum LSF Process Manager Command Reference](https://www.ibm.com/docs/en/slpm/10.2.0?topic=reference-commands)
+For more information on Process Manager CLI commands, see [IBM Spectrum LSF Process Manager Command Reference](https://www.ibm.com/docs/en/slpm/10.2.0?topic=reference-commands).
