@@ -34,12 +34,19 @@ toc:
           - dns-service-instances.md
           - key-protect-encrypyption-keys.md
           - bastion-node.md
+          - deployer-node.md
       - topicgroup:
             label: Using IBM Scale Storage as your storage solution
             topics:
             - about-scale.md
             - integrate-scale.md
       - custom-image.md
+      - topicgroup:
+            label: IBM Spectrum LSF Process Manager
+            topics:
+            - process-manager.md
+            - process-manager-cli.md
+            - process-manager-gui.md
   - navgroup:
       id: deploy
       topics:

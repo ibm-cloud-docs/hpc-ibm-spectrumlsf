@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-06-25"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -33,6 +33,8 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-june3025}
 {: release-note}
 
+For this release, the DA tile version is ...
+
 Following are the change updates made for this release:
 
 Support for Fix Pack 15 (FP15)
@@ -43,7 +45,7 @@ Support for Web service
 :   Content
 
 Support for Process manager
-:   Content
+:   IBM Spectrum LSF Process Manager is enabled by default as part of the LSF suite deployment. It helps to automate, monitor, and control application workflows and dependencies across distributed computing environments.
 
 Support for deployment using stock image
 :   For this release, along with the custom image, user can do the deployment using the **stock image** also. The stock images can be used only for management and compute nodes and not for the deployer and dynamic nodes.

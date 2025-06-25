@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-21"
+lastupdated: "2025-06-25"
 
 keywords: question about _xx_, _messageID_
 
@@ -336,7 +336,7 @@ nameserver 10.241.0.10
 {: troubleshoot}
 {: support}
 
-The following error messages displays when the GetInstanceProfileWithContext fails as the provided instance ID does not exist:
+The following error message displays when the `GetInstanceProfileWithContext` fails as the provided instance ID does not exist:
 
 ```console
 2025/06/20 11:41:23 Terraform plan | id: terraform-6cd8478b
