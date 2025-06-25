@@ -27,9 +27,9 @@ IBM Spectrum LSF Process Manager is a component of the IBM Spectrum LSF (Load Sh
 ## Configuring IBM Spectrum LSF Process Manager
 {: #config-process-manager}
 
-IBM Spectrum LSF Process Manager is enabled by default as part of the LSF suite deployment. By default, the process manager is installed and runs on the primary management node (typically Management Node 1).
+IBM Spectrum LSF Process Manager is enabled by default as part of the LSF suite deployment. The process manager is installed and runs on the primary management node (typically Management Node 1).
 
-By default, High Availability (HA) for Process Manager is not enabled. The service runs as a standalone instance on a single node. If the node goes down, process manager and application center UI will become temporarily unavailable.
+By default, High Availability (HA) for Process Manager is not enabled. The service runs as a stand-alone instance on a single node. If the node goes down, process manager and application center UI will become temporarily unavailable.
 {: note}
 
 ## Checking IBM Spectrum LSF Process Manager
