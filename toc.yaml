@@ -41,12 +41,6 @@ toc:
             - about-scale.md
             - integrate-scale.md
       - custom-image.md
-      - topicgroup:
-            label: IBM Spectrum LSF Process Manager
-            topics:
-            - process-manager.md
-            - process-manager-cli.md
-            - process-manager-gui.md
   - navgroup:
       id: deploy
       topics:
@@ -82,6 +76,12 @@ toc:
                   topics:
                    - accessing-rest-api-pacclient.md
                    - accessing-rest-api-curl.md
+      - topicgroup:
+            label: IBM Spectrum LSF Process Manager
+            topics:
+            - process-manager.md
+            - process-manager-cli.md
+            - process-manager-gui.md
       - topicgroup:
             label: Observability
             topics:

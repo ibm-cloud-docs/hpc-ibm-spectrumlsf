@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-25"
+lastupdated: "2025-06-26"
 
 keywords:
 
@@ -19,20 +19,23 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# Handling Process Manager through GUI
+# Managing Process Manager using GUI
 {: #about-process-manager-gui}
 
-Following are the steps to manage and run the process manager using the GUI:
+Perform the following steps to create and verify the Process Manager using GUI:
 
-1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` instance:
+1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` variable:
 
-    `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6`
+```pre
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+```
 
 2. Open a browser on your local system and run https://localhost:8443.
 
 3. To access the Process Manager, open the **LSF Application Center GUI** in your browser. Log in using the default username `lsfadmin` and the password you set during workspace creation.
 
 4. Navigate to **Workload** > **Definitions** > **Flow Definitions** > **New** > **Flow Definition** > **Import an example definition** in the Flow Editor.
+
 For more information, see [Exploring the flow definition examples](/docs/en/slac/10.2.0?topic=flow-exploring-definition-examples).
 
 5. Creating a flow definition:
@@ -55,7 +58,7 @@ For more information, see [Exploring the flow definition examples](/docs/en/slac
 
 6. Submitting your flow:
 
-    To run a flow, you don't need to have a submission template. You can directly submit a flow from the flow definition. The flow definition must be committed to the server as a new version.
+    You don't need to have a submission template to run the flow. You can directly submit a flow from the flow definition. The flow definition must be committed to the server as a new version.
 
     * In IBM Spectrum LSF Application Center, on the **Workload** tab, select **Definitions** > **Flow Definitions**.
 

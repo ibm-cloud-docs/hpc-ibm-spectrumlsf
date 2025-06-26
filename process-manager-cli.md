@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-25"
+lastupdated: "2025-06-26"
 
 keywords:
 
@@ -19,14 +19,18 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# Handling Process Manager through CLI
+# Managing Process Manager using CLI
 {: #about-process-manager-cli}
 
-Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` instance:
+Perform the following steps to create and verify the Process Manager using CLI:
 
-`ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6`
+1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` variable:
 
-* **Viewing existing flow definitions:**
+```pre
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+```
+
+2. Run the following commands to view the existing flow definitions:
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
@@ -40,9 +44,9 @@ pm_test_flow   lsfadmin       OnHold        6(Killed)
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-* **Creating a flow definition file based on your requirements:**
+2. Create a flow definition file based on your requirements.
 
-The following example defines the flow with two jobs, where the second job starts only after the first job completes successfully. Save the content in a file with a .xml extension, For example: **pm_test_flow.xml**
+The following example defines the flow with two jobs, where the second job starts only after the first job completes successfully. Save the content of the file with a **.xml** extension, For example: **pm_test_flow.xml**
 
 ```pre
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,7 +84,7 @@ The following example defines the flow with two jobs, where the second job start
 </JobFlowReq>
 ```
 
-* **Creating a flow definition with `jcommit` command:**
+3. Create a flow definition with `jcommit` command as shown:
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jcommit pm_test_flow.xml 
@@ -88,14 +92,14 @@ Flow <lsfadmin:test_pm_flow> is committed. Version <1.0>.
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-* **Triggering the flow definition:**
+4. Run the following commands to trigger the flow definition:
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jtrigger test_pm_flow
 Flow <lsfadmin:test_pm_flow> is triggered: Flow id <7>.[lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ 
 ```
 
-* **Verifying the status of the job:**
+5. Verify the status of the job by:
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs test_pm_flow
@@ -104,7 +108,7 @@ test_pm_flow   lsfadmin       OnHold         7(Done)
 [lsfadmin@-re1-mgmt-1-9e6e-001 ~]$ 
 ```
 
-* **Killing the running job:**
+6. Run the following commands to kill/destroy the running jobs:
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jtrigger test_pm_flow
@@ -123,7 +127,7 @@ test_pm_flow   lsfadmin       OnHold         7(Done)
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
 ```
 
-* **Removing the flow definition from Process Manager:**
+7. Remove the flow definition from Process Manager, by running the commands:
 
 ```pre
 [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jremove test_pm_flow
