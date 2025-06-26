@@ -37,10 +37,10 @@ By default, High Availability (HA) for Process Manager is not enabled. The servi
 
 The Process Notification Controller (PNC) is the core service of LSF Process Manager. This is responsible for managing and executing job flows.
 
-1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with `application_center_tunnel` variable.
+1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with `ssh_to_management_node` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241. 0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
     ```
 
 2. To verify the process manager installation, run the below commands:

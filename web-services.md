@@ -32,8 +32,8 @@ IBM Spectrum LSF Web Services is enabled by default with the LSF Suite installat
 By default, High Availability (HA) for Process Manager is not enabled. The service runs as a stand-alone instance on a single node. If the node becomes unavailable, then the Web Services will also be temporarily inaccessible.
 {: note}
 
-### Verifying Web Services Installation:
-{: #verify-web-services}
+### Verifying Web Service installation:
+{: #verify-web-service}
 
 1. Check the status of the Web Service by running the command: `systemctl status lwsd`
 
@@ -67,7 +67,7 @@ By default, High Availability (HA) for Process Manager is not enabled. The servi
     lsf cluster logon --username lsfadmin --password xxxxxxx --url http://test-re1-mgmt-1-9e6e-001:8088
     ```
 
-    The password refers to your App Center GUI password provided during cluster creation.
+    The password refers to your Application Center GUI password provided during cluster creation.
     {: note}
 
     `test-re1-mgmt-1-9e6e-001` is your Management Node 1, where the web service is running.
