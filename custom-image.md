@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-26"
 
 keywords:
 
@@ -207,4 +207,4 @@ To share private images and make them accessible by other accounts:
     3. From the **Products** list, click the product that you created in the previous step, and select the **Versions** view.
     4. From the **Versions** list, select **Validate** from the action menu. Validation triggers an automated task to deploy a new VSI with the custom image that you added to the catalog.
 
-    For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](/docs/secure-enterprise?topic=secure-enterprise-catalog-enterprise-share&interface=ui).
+    For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](https://cloud.ibm.com/catalog#all_products).

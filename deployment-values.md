@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-19"
+lastupdated: "2025-06-26"
 
 keywords:
 
@@ -78,7 +78,7 @@ image = "hpc-lsf-fp15-deployer-rhel810-v1" profile = "bx2-8x32"} |
 | `login_instance` | Specify the list of login node configurations, including instance profile and image name. By default, login nodes is created using Fix Pack 15. If deploying with Fix Pack 14, set `lsf_version` to fixpack_14 and use the corresponding image hpc-lsf-fp14-compute-rhel810-v1. The selected image must align with the specified lsf_version, any mismatch may lead to deployment failures. | No | [{profile = "bx2-2x8" image = "hpc-lsf-fp15-compute-rhel810-v1"}] |
 | `ldap_basedns` | The dns domain name used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name. | No | "lsf.com" |
 |`ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | No | None |
-| `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, please refer [existing LDAP server certificate](https://cloud.ibm.com/docs/allowlist/hpc-service?topic=hpc-service-integrating-openldap). | No | None |
+| `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. | No | None |
 | `ldap_admin_password` | The LDAP administrative password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required. It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server]. | No | None |
 | `ldap_user_name` | Custom LDAP user for performing cluster operations. Note: Username should be between 4 to 32 characters, (any combination of lowercase and uppercase letters).[This value is ignored for an existing LDAP server]. | No | "" |
 | `ldap_user_password` | The LDAP user password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required.It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server]. | No | "" |
