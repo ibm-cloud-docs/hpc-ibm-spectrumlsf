@@ -39,31 +39,31 @@ The Process Notification Controller (PNC) is the core service of LSF Process Man
 
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with `application_center_tunnel` variable.
 
-```pre
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
-```
+    ```pre
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241. 0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+    ```
 
 2. To verify the process manager installation, run the below commands:
 
-```pre
-[lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ rpm -qa |grep "lsf-pm-server"
-lsf-pm-server-10.2.0.15-25050119.x86_64
-[lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
-```
+    ```pre
+    [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ rpm -qa |grep "lsf-pm-server"
+    lsf-pm-server-10.2.0.15-25050119.x86_64
+    [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
+    ```
 
 3. To check the process manager runtime status, run the below commands:
 
-```pre
-[root@test-re1-mgmt-1-9e6e-001 ~]# pmcadmin list | grep PNC
-PNC            STARTED        1002459        8081           test-re1-mgmt-1-9e6e-001
-[root@test-re1-mgmt-1-9e6e-001 ~]#
-```
+    ```pre
+    [root@test-re1-mgmt-1-9e6e-001 ~]# pmcadmin list | grep PNC
+    PNC            STARTED        1002459        8081           test-re1-mgmt-1-9e6e-001
+    [root@test-re1-mgmt-1-9e6e-001 ~]#
+    ```
 
 4. Manage the the process manager service by:
 
-* Start Process Manager - `jadmin start`
+    * Start Process Manager - `jadmin start`
 
-* Stop Process Manager - `jadmin stop`
+    * Stop Process Manager - `jadmin stop`
 
 5. Troubleshoot - If the `pmcadmin list` shows services in a stop state, then it is possible that the Application Control Daemon (ACD) is not running. To restart, run the command: `systemctl restart acd`
 

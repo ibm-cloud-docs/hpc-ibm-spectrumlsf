@@ -26,9 +26,9 @@ Perform the following steps to create and verify the Process Manager using GUI:
 
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` variable:
 
-```pre
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
-```
+    ```pre
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+    ```
 
 2. Open a browser on your local system and run https://localhost:8443.
 
@@ -36,7 +36,7 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveIn
 
 4. Navigate to **Workload** > **Definitions** > **Flow Definitions** > **New** > **Flow Definition** > **Import an example definition** in the Flow Editor.
 
-For more information, see [Exploring the flow definition examples](/docs/en/slac/10.2.0?topic=flow-exploring-definition-examples).
+    For more information, see [Exploring the flow definition examples](/docs/en/slac/10.2.0?topic=flow-exploring-definition-examples).
 
 5. Creating a flow definition:
 
