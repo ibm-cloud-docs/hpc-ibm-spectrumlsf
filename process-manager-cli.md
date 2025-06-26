@@ -46,7 +46,9 @@ Perform the following steps to create and verify the Process Manager using CLI:
 
 2. Create a flow definition file based on your requirements.
 
-The following example defines the flow with two jobs, where the second job starts only after the first job completes successfully. Save the content of the file with a **.xml** extension, For example: **pm_test_flow.xml**
+    The following example defines the flow with two jobs, where the second job starts only after the first job completes successfully. Save the content of the file with a **.xml** extension, For example: **pm_test_flow.xml**
+
+The command to execute th e vchanges are made as below:
 
     ```pre
     <?xml version="1.0" encoding="UTF-8"?>
