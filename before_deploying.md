@@ -26,7 +26,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 {{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
 
-IBM Spectrum LSF solution does not support baremetal based deployments. All the deployments are based upon the VSI, make sure to provide the valid instance profiles.
+IBM Spectrum LSF solution does not support bare metal based deployments. All the deployments are based upon the VSI, make sure to provide the valid instance profiles.
 {: important}
 
 ## Confirm your {{site.data.keyword.cloud}} settings
