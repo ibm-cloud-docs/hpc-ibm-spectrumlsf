@@ -36,7 +36,7 @@ Perform the following steps to create and verify the Process Manager using GUI:
 
 4. Navigate to **Workload** > **Definitions** > **Flow Definitions** > **New** > **Flow Definition** > **Import an example definition** in the Flow Editor.
 
-    For more information, see [Exploring the flow definition examples](/docs/en/slac/10.2.0?topic=flow-exploring-definition-examples).
+    For more information, see [Exploring the flow definition examples](https://www.ibm.com/docs/en/slac/10.2.0?topic=flow-exploring-definition-examples).
 
 5. Creating a flow definition:
 

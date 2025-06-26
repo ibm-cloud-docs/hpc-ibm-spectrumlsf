@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-25"
+lastupdated: "2025-06-26"
 
 keywords: question about _xx_, _messageID_
 
@@ -286,7 +286,7 @@ Reset the LDAP password:
       New password:
       Re-enter new password:
       Enter LDAP Password:
-      ubuntu@anand-ga-ldap-1:~$
+      ubuntu@test-ga-ldap-1:~$
       ```
      {: codeblock}
 
