@@ -182,10 +182,8 @@ For sharing the LSF binaries, you can still use the VPC file storage, but as the
 Path                Delegations                 Clients
 ---------------------------------------------------------
 /gpfs/fs1/data         NONE                10.241.0.0/20
-```tag
 /gpfs/fs1/data         NONE                10.241.0.0/18
 /gpfs/fs1/tools        NONE                10.241.0.0/18
-```
 /gpfs/fs1/tools        NONE                10.241.0.0/20
 /gpfs/fs1/lsf          NONE                10.241.0.0/18
 ```
