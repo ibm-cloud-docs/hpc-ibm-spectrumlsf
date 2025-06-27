@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -29,34 +29,6 @@ subcollection: hpc-ibm-spectrumlsf
 If you no longer need your deployed {{site.data.keyword.spectrum_full_notm}} cluster, you can clean it up from your environment. The process is threefold: verify that the cluster is free of running jobs or working compute nodes, destroy all the associated VPC resources and remove them from your {{site.data.keyword.cloud_notm}} account, and remove the workspace.
 {: shortdesc}
 
-## Verifying that the cluster is free of running jobs and working compute nodes
-{: #drain-cluster}
-
-Verify that it is safe to destroy resources:
-
-1. As the `lsfadmin` user, close all LSF queues and kill all jobs:
-    ```console
-    badmin qclose all
-    bkill -u all 0
-    ```
-    {: codeblock}
-
-2. Wait ten minutes (this value is the default idle time), and then check for running jobs:
-    ```console
-    bjobs -u all
-    ```
-    {: codeblock}
-
-   Look for a `No unfinished job found` message.
-
-3. Check that no working compute nodes (only management nodes) are listed:
-  ```console
-    bhosts -w
-    ```
-    {: codeblock}
-
-If the cluster has no running jobs and no working compute nodes, then it is safe to destroy resources from this environment.
-
 ## Destroying resources by using the UI
 {: #deleting-resources-ui}
 {: ui}
@@ -75,6 +47,8 @@ If successful, the **Jobs** view, you should see a `Workspace destroy successful
 2. Confirm the action by entering the workspace name in the text box and click **Delete**.
 
 If unsuccessful, Schematics throws an error and shows a failure status.
+
+![Destroy and delete resources](images/destroy_delete.png "Destroy and delete resources"){: caption="Destroy and delete resources" caption-side="bottom"}
 
 ## Destroying resources by using the CLI
 {: #deleting-resources-cli}
@@ -107,3 +81,31 @@ You can monitor the log files to view the deletion progress of your workspace.
 {: note}
 
 If unsuccessful, Schematics throws an error and shows a failure status.
+
+Verify that the cluster is free of running jobs and working compute nodes.
+{: note}
+
+Verify that it is safe to destroy resources:
+
+1. As the `lsfadmin` user, close all LSF queues and kill all jobs:
+    ```console
+    badmin qclose all
+    bkill -u all 0
+    ```
+    {: codeblock}
+
+2. Wait ten minutes (this value is the default idle time), and then check for running jobs:
+    ```console
+    bjobs -u all
+    ```
+    {: codeblock}
+
+   Look for a `No unfinished job found` message.
+
+3. Check that no working compute nodes (only management nodes) are listed:
+  ```console
+    bhosts -w
+    ```
+    {: codeblock}
+
+If the cluster has no running jobs and no working compute nodes, then it is safe to destroy resources from this environment.

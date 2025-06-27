@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -62,6 +62,9 @@ To view access policies, complete the following steps:
    | Security and Compliance Center | All | Administrator | Manager |
    | Virtual Private Cloud | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
+
+   The above mentioned permissions are mandatory, failing to have these permissions will lead to deployment failure. Contact the account administrator for the permissions.
+   {: tip}
 
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}

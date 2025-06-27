@@ -89,11 +89,6 @@ toc:
              - cloud-logs.md
              - activity-tracker-event.md
              - cloud-monitoring.md
-      - topicgroup:
-          label: Schematics API
-          topics:
-          - retrieving-action-logs.md
-          - updating-variables.md
       - cleanup_deployed_envn.md
   - navgroup:
       id: reference
@@ -104,6 +99,9 @@ toc:
       - link:
           label: Configuring auto scaling or resource connector for IBM Cloud
           href: https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=providers-configuring-cloud-gen-2-lsf-resource-connector
+      - link:
+          label: IBM Cloud Security and Compliance Center Workload Protection
+          href: https://cloud.ibm.com/docs/workload-protection?topic=workload-protection-getting-started
       - topicgroup:
           label: Hybrid connectivity
           topics:

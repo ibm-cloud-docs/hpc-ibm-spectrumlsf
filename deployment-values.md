@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -55,8 +55,7 @@ The following are the optional deployment values used to configure the {{site.da
 | `custom_file_shares` | Provide details for customizing your shared file storage layout, including mount points, sizes (in GB), and IOPS ranges for up to five file shares if using VPC file storage as the storage option. If using IBM Storage Scale as an NFS mount, update the appropriate mount path and `nfs_share` values created from the Storage Scale cluster. Note that VPC file storage supports attachment to a maximum of 256 nodes. Exceeding this limit may result in mount point failures due to attachment restrictions. For more information, see [Storage options](https://test.cloud.ibm.com/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale#integrate-scale-and-hpc). | No | [{ mount_path = "/mnt/vpcstorage/tools", size = 100, iops = 2000 }, { mount_path = "/mnt/vpcstorage/data", size = 100, iops = 6000 }, { mount_path = "/mnt/scale/tools", nfs_share = "" }] |
 | `cos_instance_name` | Provide the name of the existing COS instance where the logs for the enabled functionalities will be stored. | No | None |
 | `cos_expiration_days` | Specify the retention period for objects in COS buckets by setting the number of days after their creation for automatic expiration. This configuration helps manage storage efficiently by removing outdated or unnecessary data, reducing storage costs, and maintaining data lifecycle policies. Ensure that the specified duration aligns with your data retention and compliance requirements. | No | 30 |
-| `deployer_instance` | Configuration for the deployer node, including the custom image and instance profile. By default, uses fixpack_15 image and a bx2-8x32 profile. | No | {
-image = "hpc-lsf-fp15-deployer-rhel810-v1" profile = "bx2-8x32"} |
+| `deployer_instance` | Configuration for the deployer node, including the custom image and instance profile. By default, uses fixpack_15 image and a bx2-8x32 profile. | No | [{ image = "hpc-lsf-fp15-deployer-rhel810-v1" profile = "bx2-8x32"}] |
 | `dns_instance_id` | Specify the ID of an existing IBM Cloud DNS service instance. When provided, domain names are created within the specified instance. If set to null, a new DNS service instance is created, and the required DNS zones are associated with it. | No | None |
 | `dns_domain_name` | IBM Cloud DNS service domain name to be used for the IBM Spectrum LSF cluster. | No | {compute = "comp.com"}|
 | `dns_custom_resolver_id` | Specify the ID of an existing IBM Cloud DNS custom resolver to avoid creating a new one. If set to null, a new custom resolver will be created and associated with the VPC. Note: A VPC can be associated with only one custom resolver. When using an existing VPC, if a custom resolver is already associated and this ID is not provided, the deployment will fail. | No | None |

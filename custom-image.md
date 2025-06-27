@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -103,7 +103,7 @@ For example:
 
 * You can provide an existing key management service (KMS) instance and key for start volume encryption for VSI-1:
     * For the `key_management` variable, specify the type of encryption you want to use. To use provider-managed encryption instead of {{site.data.keyword.keymanagementservicelong_notm}}, set the `key_management` value to null.
-    * For the `key_instance_name` variable, specify the name of the existing {{site.data.keyword.keymanagementservicelong_notm}} instance to be used for boot volume encryption for VSI-1.
+    * For the `kms_instance_name` variable, specify the name of the existing {{site.data.keyword.keymanagementservicelong_notm}} instance to be used for boot volume encryption for VSI-1.
     * For the `kms_key_name` variable, specify the name of the existing KMS encryption key to be used for boot volume encryption for VSI-1.
 
 If these KMS values are not provided, the automation creates a new KMS instance and key.

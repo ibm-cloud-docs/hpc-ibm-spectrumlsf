@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-06-27"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -60,17 +60,19 @@ The solution is designed to accommodate scenarios where an existing bastion node
 
 * The environment uses LDAP-based authentication.
 
-For instance, if a Spectrum Scale Storage cluster is already deployed and configured. The solution is associated with a bastion node, users can repurpose this bastion node to manage and access the LSF cluster nodes. This provides a single, secure access point for both solutions.
+For instance, if a Spectrum Scale Storage cluster is already deployed and configured. The solution is associated with a bastion node already, users can repurpose this bastion node to manage and access the LSF cluster nodes. This provides a single, secure access point for both solutions.
 
 To configure and use an existing bastion node, users must provide the following details:
 
-* `bastion_instance_name`: The hostname of the pre-configured bastion node.
+* `existing_bastion_instance_name`: The hostname of the pre-configured bastion node.
 
-* `bastion_instance_public_ip`: The public IP address of the bastion node.
+* `existing_bastion_instance_public_ip`: The public IP address of the bastion node.
 
-* `bastion_security_group_id`: The security group associated with the bastion node. This ensures that the security group for the LSF cluster nodes allows traffic from the bastion node.
+* `existing_bastion_security_group_id`: The security group associated with the bastion node. This ensures that the security group for the LSF cluster nodes allows traffic from the bastion node.
+    Failing to provide a correct security ID or leaving the value as empty, the deployments will fail.
+    {: note}
 
-* `bastion_ssh_private_key`: The private SSH key (for example, id_rsa) used during the initial creation of the bastion node. This key is required for validation and for running remote operations during the cluster setup process.
+* `existing_bastion_ssh_private_key`: The private SSH key (for example, id_rsa) used during the initial creation of the bastion node. This key is required for validation and for running remote operations during the cluster setup process. For more information, see [Getting started with SSH keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys&interface=ui).
 
 By providing these details, the LSF cluster can be configured to use the existing bastion node, enabling secure access and efficient management.
 

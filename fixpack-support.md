@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-21"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -27,7 +27,7 @@ A Fix Pack is a cumulative update package that includes repository files, securi
 
 As of May 09, 2025, IBM officially released a new version of Fix Pack 15, which includes the latest critical fixes, enhancements, and compatibility updates tailored for evolving workload demands. IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
 
-By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. However, in recognition of existing deployments and customer needs, the solution also continues to fully support Fix Pack 14 (FP14). This backward compatibility ensures customers can maintain stable cluster environments while planning or performing upgrades at their convenience.
+By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. However, in recognition of existing deployments and customer needs, the solution also continues to fully support Fix Pack 14 (FP14). This backward compatibility ensures customers to maintain stable cluster environments while planning or performing upgrades at their convenience.
 
 To maintain operational efficiency and security, IBM recommends keeping your cluster environment up-to-date with the latest supported Fix Pack unless specific version dependencies are in place for your workloads.
 
