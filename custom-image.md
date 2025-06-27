@@ -164,9 +164,9 @@ To create your custom image:
     ```
     {: codeblock}
 
-  Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
+    Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
 
-  Outputs:
+    Outputs:
     ```text
     packer_vsi_name = "test-lsf-packer-ccf4-001"
     ssh_to_packer_vsi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@165.192.133.183"

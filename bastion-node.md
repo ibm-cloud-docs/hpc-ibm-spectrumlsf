@@ -69,8 +69,9 @@ To configure and use an existing bastion node, users must provide the following 
 * `existing_bastion_instance_public_ip`: The public IP address of the bastion node.
 
 * `existing_bastion_security_group_id`: The security group associated with the bastion node. This ensures that the security group for the LSF cluster nodes allows traffic from the bastion node.
-    Failing to provide a correct security ID or leaving the value as empty, the deployments will fail.
-    {: note}
+
+Failing to provide a correct security group ID or leaving the value as empty, the deployments will fail.
+{: note}
 
 * `existing_bastion_ssh_private_key`: The private SSH key (for example, id_rsa) used during the initial creation of the bastion node. This key is required for validation and for running remote operations during the cluster setup process. For more information, see [Getting started with SSH keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys&interface=ui).
 

@@ -38,6 +38,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 * Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
 * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 * Once the Scale cluster is successfully created, login to the CES node to run the following command.
+
 Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
     ```text
@@ -176,13 +177,15 @@ For sharing the LSF binaries, you can still use the VPC file storage, but as the
 ```
 {: codeblock}
 
-```text
+```pre
 # mmnfs export list
 Path                Delegations                 Clients
 ---------------------------------------------------------
 /gpfs/fs1/data         NONE                10.241.0.0/20
+```tag
 /gpfs/fs1/data         NONE                10.241.0.0/18
 /gpfs/fs1/tools        NONE                10.241.0.0/18
+```
 /gpfs/fs1/tools        NONE                10.241.0.0/20
 /gpfs/fs1/lsf          NONE                10.241.0.0/18
 ```
