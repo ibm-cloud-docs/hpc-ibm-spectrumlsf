@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -24,10 +24,10 @@ subcollection: hpc-ibm-spectrumlsf
 
 Perform the following steps to create, submit, and verify the jobs through Process Manager using GUI:
 
-1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `ssh_to_management_node` variable:
+1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` variable:
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
     ```
 
 2. Open a browser on your local system and go to https://localhost:8443 to access the LSF Application Center GUI. Log in using the default username `lsfadmin` and the password you set during workspace creation.
@@ -70,10 +70,14 @@ Perform the following steps to create, submit, and verify the jobs through Proce
 
     * From the list of available flow definitions, locate and select your desired flow definition by clicking on its name.
 
-    * In the Flow Job Details pane, select the **Flows** option to view the current status of running or completed workloads associated with that definition.
+    * In the Flow Definition pane, select the **Flows** option to view the current status of running or completed workloads associated with that definition.
 
     * Click on the **Flow Name ID** to view detailed information about the completed workload.
 
     ![Monitoring flow](images/lsf_monitoring_flow.png "Monitoring flow"){: caption="Monitoring flow" caption-side="bottom"}
+
+    * **Completed workload:**
+
+    ![Completed workload](images/flow_name_completed_wf.png "Completed workload"){: caption="Completed workload" caption-side="bottom"}
 
     For more information, see [Monitoring your flow](https://www.ibm.com/docs/en/slac/10.2.0?topic=basics-monitoring-your-flow).
