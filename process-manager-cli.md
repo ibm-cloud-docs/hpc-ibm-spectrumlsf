@@ -131,13 +131,12 @@ Perform the following steps to create, submit, and verify the jobs through Proce
     [lsfadmin@anand-re1-mgmt-1-9e6e-001 ~]$ jremove test_pm_flow
     Flow <lsfadmin:test_pm_flow> is removed.
     [lsfadmin@anand-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
-    [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
     NAME           USER           STATUS         FLOW_IDS
     test571       lsfadmin       OnHold         1(Done)
-    hpc123         lsfadmin       OnHold         2(Done)
-                                                 3(Done)
-                                                 4(Done)
-                                                 5(Done)
+    hpc123        lsfadmin       OnHold         2(Done)
+                                                3(Done)
+                                                4(Done)
+                                                5(Done)
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
     ```
 
