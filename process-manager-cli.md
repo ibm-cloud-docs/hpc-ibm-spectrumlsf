@@ -44,7 +44,7 @@ Perform the following steps to create, submit, and verify the jobs through Proce
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
     ```
 
-2. Create a flow definition file based on your requirements.
+3. Create a flow definition file based on your requirements.
 
     The following example defines the flow with two jobs, where the second job starts only after the first job completes successfully. Save the content of the file with a **.xml** extension, For example: **pm_test_flow.xml**
 
@@ -84,7 +84,7 @@ Perform the following steps to create, submit, and verify the jobs through Proce
     </JobFlowReq>
     ```
 
-3. Create a flow definition with `jcommit` command as shown:
+4. Create a flow definition with `jcommit` command as shown:
 
     ```pre
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jcommit pm_test_flow.xml 
@@ -92,14 +92,14 @@ Perform the following steps to create, submit, and verify the jobs through Proce
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
     ```
 
-4. Run the following commands to trigger the flow definition:
+5. Run the following commands to trigger the flow definition:
 
     ```pre
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jtrigger test_pm_flow
     Flow <lsfadmin:test_pm_flow> is triggered: Flow id <7>.[lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ 
     ```
 
-5. Verify the status of the job by:
+6. Verify the status of the job by:
 
     ```pre
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs test_pm_flow
@@ -108,11 +108,9 @@ Perform the following steps to create, submit, and verify the jobs through Proce
     [lsfadmin@-re1-mgmt-1-9e6e-001 ~]$ 
     ```
 
-6. Run the following commands to kill/destroy the running jobs:
+7. Run the following commands to kill/destroy the running jobs:
 
     ```pre
-    [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jtrigger test_pm_flow
-    Flow <lsfadmin:test_pm_flow> is triggered: Flow id <8>.
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs test_pm_flow
     NAME           USER           STATUS         FLOW_IDS
     test_pm_flow   lsfadmin       OnHold         7(Done)
@@ -127,9 +125,12 @@ Perform the following steps to create, submit, and verify the jobs through Proce
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$
     ```
 
-7. Remove the flow definition from Process Manager, by running the commands:
+8. Remove the flow definition from Process Manager, by running the commands:
 
     ```pre
+    [lsfadmin@anand-re1-mgmt-1-9e6e-001 ~]$ jremove test_pm_flow
+    Flow <lsfadmin:test_pm_flow> is removed.
+    [lsfadmin@anand-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
     [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
     NAME           USER           STATUS         FLOW_IDS
     test571       lsfadmin       OnHold         1(Done)
