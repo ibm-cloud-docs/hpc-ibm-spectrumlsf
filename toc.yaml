@@ -90,6 +90,7 @@ toc:
              - activity-tracker-event.md
              - cloud-monitoring.md
       - cleanup_deployed_envn.md
+      - scc-workload-protect.md
   - navgroup:
       id: reference
       topics:
