@@ -180,8 +180,6 @@ Path                Delegations                 Clients
 ```
 {: codeblock}
 
-![Command output](images/nfs_result_highlight.png "Command output"){: caption="Command output" caption-side="bottom"}
-
 This is expected result after running the command.
 
 * Updating the squash permission property for the NFS export.
