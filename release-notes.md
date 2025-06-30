@@ -38,7 +38,7 @@ For this release, the DA tile version is 3.0.0
 Following are the change updates made for this release:
 
 Support for Fix Pack 15 (FP15)
-:   For this release, **Fix Pack 15** is supported along with Fix Pack 14 (FP14). This fix pack contains all the security fixes, vulnerabilities fixes, resource connectors and so on.
+:   For this release, by default **Fix Pack 15** is supported along with Fix Pack 14 (FP14). This fix pack contains all the security fixes, vulnerabilities fixes, resource connectors and so on.
 User can still do the cluster deployment through FP14.
 
 Support for Web service
