@@ -46,9 +46,7 @@ Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are
     Path                Delegations                 Clients
     /gpfs/fs1/tools         NONE                  10.241.0.0/20
     /gpfs/fs1/data          NONE                  10.241.0.0/20
-    ```
 
-    ```pre
     # mmlscluster --ces
     GPFS cluster information
     GPFS cluster name:    test-scale-poc.strgscale.com
@@ -63,9 +61,7 @@ Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are
     Node            Daemon node name                    IP address      CES IP address list
       6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
       7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
-    ```
 
-    ```pre
     # mmlsfileset fs1
     Filesets in file system 'fs1':
     Name          Status          Path                                    
@@ -177,8 +173,8 @@ For sharing the LSF binaries, you can still use the VPC file storage, but as the
 Path                Delegations                 Clients
 ---------------------------------------------------------
 /gpfs/fs1/data         NONE                10.241.0.0/20
-**/gpfs/fs1/data         NONE                10.241.0.0/18
-/gpfs/fs1/tools        NONE                10.241.0.0/18**
+/gpfs/fs1/data         NONE                10.241.0.0/18
+/gpfs/fs1/tools        NONE                10.241.0.0/18
 /gpfs/fs1/tools        NONE                10.241.0.0/20
 /gpfs/fs1/lsf          NONE                10.241.0.0/18
 ```
