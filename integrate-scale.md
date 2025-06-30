@@ -41,34 +41,34 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
 Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
-    ```pre
-    # mmnfs export list
-    Path                Delegations                 Clients
-    /gpfs/fs1/tools         NONE                  10.241.0.0/20
-    /gpfs/fs1/data          NONE                  10.241.0.0/20
+```pre
+# mmnfs export list
+Path                Delegations                 Clients
+/gpfs/fs1/tools         NONE                  10.241.0.0/20
+/gpfs/fs1/data          NONE                  10.241.0.0/20
 
-    # mmlscluster --ces
-    GPFS cluster information
-    GPFS cluster name:    test-scale-poc.strgscale.com
-    GPFS cluster id:      70671008535366959
+# mmlscluster --ces
+GPFS cluster information
+GPFS cluster name:    test-scale-poc.strgscale.com
+GPFS cluster id:      70671008535366959
 
-    Cluster Export Services global parameters
-    Shared root directory:         /gpfs/fs1
-    Enabled Services:              NFS
-    Log level:                      0
-    Address distribution policy:   even-coverage
+Cluster Export Services global parameters
+Shared root directory:         /gpfs/fs1
+Enabled Services:              NFS
+Log level:                      0
+Address distribution policy:   even-coverage
 
-    Node            Daemon node name                    IP address      CES IP address list
-      6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
-      7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
+Node            Daemon node name                    IP address      CES IP address list
+  6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
+  7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
 
-    # mmlsfileset fs1
-    Filesets in file system 'fs1':
-    Name          Status          Path                                    
-    root          Linked       /gpfs/fs1                               
-    data          Linked       /gpfs/fs1/data                          
-    tools         Linked       /gpfs/fs1/tools
-    ```
+# mmlsfileset fs1
+Filesets in file system 'fs1':
+Name          Status          Path                                    
+root          Linked       /gpfs/fs1                               
+data          Linked       /gpfs/fs1/data                          
+tools         Linked       /gpfs/fs1/tools
+```
 
 ## Integrating Scale NFS mount points on {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrate-scale-and-nfs}
@@ -179,6 +179,8 @@ Path                Delegations                 Clients
 /gpfs/fs1/lsf          NONE                10.241.0.0/18
 ```
 {: codeblock}
+
+![Command output](images/nfs_result_highlight.png "Command output"){: caption="Command output" caption-side="bottom"}
 
 This is expected result after running the command.
 
