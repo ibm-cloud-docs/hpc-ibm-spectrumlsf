@@ -33,7 +33,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-july0225}
 {: release-note}
 
-**For this release, the DA tile version is 3.0.0**
+**For this release, the DA tile version is 3.1.0**
 Following are the change updates made for this release:
 
 Support for Fix Pack 15 (FP15)
