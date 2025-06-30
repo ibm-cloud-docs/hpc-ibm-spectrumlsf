@@ -32,15 +32,15 @@ Workload protection is supported majorly in these 3 pillars:
 2. Vulnerability management
 3. Threat detection and response
 
-1. **Posture Management:**
+* **Posture Management:**
 
 Provides a unified and centralized platform to manage the security and compliance of applications, workloads, and infrastructure that run on IBM Cloud. In other clouds, and on-prem, covering managed services, hosts. Cloud Security Posture Management (CSPM) help you to identify misconfigurations and validate compliance across IBM Cloud. This also offers an inventory to all your Cloud assets (compute resources, managed services, identities, entitlements, hosts, virtual machines, and clusters), whether they are in the Cloud or on-premises.
 
-2. **Vulnerability management**
+* **Vulnerability management**
 
 Scanning for vulnerabilities on OS packages and third-party libraries such as Java, Python, Golang, Javascript, or Ruby. This offers vulnerability management overview dashboard, advanced and customizable reporting, alerting of new vulnerabilities or unscanned images and routing to ticketing systems. Advanced policies to customize vulnerability criteria and blocking per environment or any scope.
 
-3. **Threat detection and response**
+* **Threat detection and response**
 
 In addition to rules, behavioral analysis allows detection of common threats and malware such as crypto mining activities and workload profiling to automatically define expected behavior that can extend detection capabilities. Advanced remediation, allowing to automatically run corrective actions including killing processes, killing or pausing containers, and so on.
 
@@ -80,26 +80,28 @@ The module brings many features for your CSPM in your hybrid environments:
 
 When you access the UI for the service, all the above mentioned pillars are covered (Threat/Vulnerabilities/Compliance).
 
-1. Go to the {{site.data.keyword.cloud_notm}} console, in the **Navigation Menu**, click **Security** > **Compliance**. In the **Search** field, type the name and you will find the SCC Workload Protection page. To view the dashboard, click **Open dashboard**.
+1. Go to the {{site.data.keyword.cloud_notm}} console, in the **Navigation Menu**, click **Security** > **Compliance**.
 
-![Security and Compliance Workload protection dashboard](images/security_compliance_workload_protection.png "Security and Compliance Workload protection dashboard"){: caption="Security and Compliance Workload protection dashboard" caption-side="bottom"}
+    In the **Search** field, type the name and you will find the SCC Workload Protection page. To view the dashboard, click **Open dashboard**.
+
+    ![Security and Compliance Workload protection dashboard](images/security_compliance_workload_protection.png "Security and Compliance Workload protection dashboard"){: caption="Security and Compliance Workload protection dashboard" caption-side="bottom"}
 
 2. Once the CSPM is enabled, all the data from the back-end will be pushed to the dashboard as shown below:
 
-![SCC Compliance](images/compliance_scc.png "SCC Compliance"){: caption="SCC Compliance" caption-side="bottom"}
+    ![SCC Compliance](images/compliance_scc.png "SCC Compliance"){: caption="SCC Compliance" caption-side="bottom"}
 
-3. When the `app_config_plan` is enabled, the dashboard is as shown:
+3. When the `app_config_plan` is enabled, the configuration aggregator records the data from all the resources across regions in your account.
 
-![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
 4. Inventory is agentless, which is provided by IBM cloud. In the account we have 1000 resources, you can add the filters and validate all the resources of the inventory (Security groups/Instances/FIP) etc. For an example, when a certain security group does not have the rules set, then all of them can be monitored here.
 
-![SCC Inventory](images/inventory_scc.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Inventory](images/inventory_scc.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
 5. Under **Policies**, you can go ahead and configure the policies. Based on Linux or RHEL platform, certain policies can be set. These are set of rules, based on which you can configure the policy.
 
-![SCC runtime policies](images/policies_scc.png "SCC runtime policies"){: caption="SCC runtime policies" caption-side="bottom"}
+    ![SCC runtime policies](images/policies_scc.png "SCC runtime policies"){: caption="SCC runtime policies" caption-side="bottom"}
 
 6. On **Vulnerabilities**, you can run the scans and this shows the severity of the issues and that could be helped to be scanned. You can filter based on high, medium, and low. For more information, see [Scanning Guidelines](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/){: external}.
 
-![SCC Vulnerabilities](images/vulnerabilities_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
+    ![SCC Vulnerabilities](images/vulnerabilities_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
