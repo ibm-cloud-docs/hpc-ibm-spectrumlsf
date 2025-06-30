@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-06-30"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -41,16 +41,14 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 
 Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
-    ```text
+    ```pre
     # mmnfs export list
     Path                Delegations                 Clients
     /gpfs/fs1/tools         NONE                  10.241.0.0/20
     /gpfs/fs1/data          NONE                  10.241.0.0/20
     ```
-    {: codeblock}
 
-
-    ```text
+    ```pre
     # mmlscluster --ces
     GPFS cluster information
     GPFS cluster name:    test-scale-poc.strgscale.com
@@ -66,10 +64,8 @@ Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are
       6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
       7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
     ```
-    {: codeblock}
 
-
-    ```text
+    ```pre
     # mmlsfileset fs1
     Filesets in file system 'fs1':
     Name          Status          Path                                    
@@ -77,7 +73,6 @@ Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are
     data          Linked       /gpfs/fs1/data                          
     tools         Linked       /gpfs/fs1/tools
     ```
-    {: codeblock}
 
 ## Integrating Scale NFS mount points on {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrate-scale-and-nfs}
@@ -182,8 +177,8 @@ For sharing the LSF binaries, you can still use the VPC file storage, but as the
 Path                Delegations                 Clients
 ---------------------------------------------------------
 /gpfs/fs1/data         NONE                10.241.0.0/20
-/gpfs/fs1/data         NONE                10.241.0.0/18
-/gpfs/fs1/tools        NONE                10.241.0.0/18
+**/gpfs/fs1/data         NONE                10.241.0.0/18
+/gpfs/fs1/tools        NONE                10.241.0.0/18**
 /gpfs/fs1/tools        NONE                10.241.0.0/20
 /gpfs/fs1/lsf          NONE                10.241.0.0/18
 ```
