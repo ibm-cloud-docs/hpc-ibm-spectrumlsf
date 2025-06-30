@@ -25,7 +25,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 The following deployment values can be used to configure the {{site.data.keyword.spectrum_short}} cluster instance on {{site.data.keyword.cloud}}.
 
-Ensure all of your permissions are set, failing to have these permissions will lead to deployment failure. Contact the account administrator for the permissions.
+All the permissions are mandatory, therefore ensure that all your permissions are set, failing to have these permissions will lead to deployment failure. Contact the account administrator for the permissions.
 {: important}
 
 ## Mandatory deployment values
