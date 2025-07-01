@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-19"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -203,3 +203,26 @@ LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certifi
 {: faq}
 
 The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
+
+## Why does platform logs display error `CreateTenantWithContext failed: Forbidden`?
+{: #logs}
+{: faq}
+
+If the output contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like `CreateTenantWithContext failed: Forbidden`.
+
+```pre
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ Error: ---
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ id: terraform-30ad67fe
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ summary: 'CreateTenantWithContext failed: Conflict'
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ severity: error
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ resource: ibm_logs_router_tenant
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ operation: create
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ component:
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  name: github.com/IBM-Cloud/terraform-provider-ibm
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  version: 1.78.4
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ ---
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  with module.cloud_monitoring_instance_creation.module.observability_instance[0].module.cloud_logs[0].ibm_logs_router_tenant.logs_router_tenant_instances["jp-tok"],
+module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  on .terraform/modules/cloud_monitoring_instance_creation.observability_instance/modules/cloud_logs/main.tf line 166, in resource "ibm_logs_router_tenant" "logs_router_tenant_instances":
+```
