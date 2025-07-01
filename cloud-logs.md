@@ -56,36 +56,38 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
 
 [CLI]{: tag-blue}
 
-    ```pre
-    curl -X GET "https://management.us-south.logs-router.cloud.ibm.com:443/v1/tenants" \
-    -H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
-    -H "IBM-API-Version: $(date +%Y-%m-%d)"
+```pre
+curl -X GET "https://management.us-south.logs-router.cloud.ibm.com:443/v1/tenants" \
+-H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
+-H "IBM-API-Version: $(date +%Y-%m-%d)"
 
-    {"tenants":[{"name":"us-south-1751346798861","id":"4844257c-47d6-4d3c-b022-d2691ebb0711","crn":"crn:v1:bluemix:public:logs-router:us-south:a/19066a3fe4ca466a810f7278fc902dc9:4844257c-47d6-4d3c-b022-d2691ebb0711::","created_at":"2025-07-01 05:13:20.607943 +0000 UTC","updated_at":"2025-07-01 05:13:20.607943 +0000 UTC","write_status":{"status":"unknown"},"etag":"\"62ffe53666dbf646de2b9dfc8a31e6bb2a6915dcd2296dce80ca52040f4a6b04\"","targets":[{"name":"target-36aafd11-80f5-44b6-ab0","id":"f7226f32-b9d3-4067-8ec3-bfcc66e6e333","type":"logs","log_sink_crn":"crn:v1:bluemix:public:logs:us-south:a/19066a3fe4ca466a810f7278fc902dc9:750533e1-9d91-46dc-81be-af92179c8786::","created_at":"2025-07-01 05:13:20.607943 +0000 UTC","updated_at":"2025-07-01 05:13:20.607943 +0000 UTC","etag":"\"07b35eceed90ce9a18c1f83b9ba52a470213d77da6d543bd9ae26d09dec35007\"","parameters":{"host":"750533e1-9d91-46dc-81be-af92179c8786.ingress.us-south.logs.cloud.ibm.com","port":443}}]}]}
-    ```
+{"tenants":[{"name":"us-south-1751346798861","id":"4844257c-47d6-4d3c-b022-d2691ebb0711","crn":"crn:v1:bluemix:public:logs-router:us-south:a/19066a3fe4ca466a810f7278fc902dc9:4844257c-47d6-4d3c-b022-d2691ebb0711::","created_at":"2025-07-01 05:13:20.607943 +0000 UTC","updated_at":"2025-07-01 05:13:20.607943 +0000 UTC","write_status":{"status":"unknown"},"etag":"\"62ffe53666dbf646de2b9dfc8a31e6bb2a6915dcd2296dce80ca52040f4a6b04\"","targets":[{"name":"target-36aafd11-80f5-44b6-ab0","id":"f7226f32-b9d3-4067-8ec3-bfcc66e6e333","type":"logs","log_sink_crn":"crn:v1:bluemix:public:logs:us-south:a/19066a3fe4ca466a810f7278fc902dc9:750533e1-9d91-46dc-81be-af92179c8786::","created_at":"2025-07-01 05:13:20.607943 +0000 UTC","updated_at":"2025-07-01 05:13:20.607943 +0000 UTC","etag":"\"07b35eceed90ce9a18c1f83b9ba52a470213d77da6d543bd9ae26d09dec35007\"","parameters":{"host":"750533e1-9d91-46dc-81be-af92179c8786.ingress.us-south.logs.cloud.ibm.com","port":443}}]}]}
+```
 
-    ```pre
-    curl -X GET "https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants" \
-    -H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
-    -H "IBM-API-Version: $(date +%Y-%m-%d)"
 
-    {"tenants":[]}
-    ```
+```pre
+curl -X GET "https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants" \
+-H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
+-H "IBM-API-Version: $(date +%Y-%m-%d)"
 
-    If the output contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them.
-    However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
+{"tenants":[]}
+```
 
-    The empty tenants list output looks `{“tenants”:[]}`
+If the output contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them.
 
-    If the tenants list is not empty, then the platform logs are already enabled.Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
-    {: note}
+However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
 
-    You can have only one tenant per region in an account.
-    {: note}
+The empty tenants list output looks `{“tenants”:[]}`
+
+If the tenants list is not empty, then the platform logs are already enabled.Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
+{: note}
+
+You can have only one tenant per region in an account.
+{: note}
 
 [UI]{: tag-blue}
 
-    ![Logs Routing](images/UI_logs-routing.png "Logs Routing"){: caption="Logs Routing" caption-side="bottom"}
+![Logs Routing](images/UI_logs-routing.png "Logs Routing"){: caption="Logs Routing" caption-side="bottom"}
 
 * `observability_logs_retention_period`: The number of days {{site.data.keyword.logs_full_notm}} retains the log data in priority insights. By default the value is set as 7, but the allowed values are 14, 30, 60, and 90.
 
