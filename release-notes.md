@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-07-01"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -34,6 +34,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: release-note}
 
 **For this release, the DA tile version is 3.1.0**
+
 Following are the change updates made for this release:
 
 Support for Fix Pack 15 (FP15)
