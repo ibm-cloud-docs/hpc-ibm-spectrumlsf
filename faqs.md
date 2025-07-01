@@ -204,7 +204,7 @@ LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certifi
 
 The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
 
-## Why does platform logs display error `CreateTenantWithContext failed: Forbidden`?
+## Why does `CreateTenantWithContext failed: Forbidden` error occur?
 {: #logs}
 {: faq}
 
