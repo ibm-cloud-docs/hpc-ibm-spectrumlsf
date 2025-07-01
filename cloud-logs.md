@@ -54,7 +54,11 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
     -H "IBM-API-Version: $(date +%Y-%m-%d)"
     ```
 
-[CLI]{: tag-blue}
+If the output contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
+
+The empty tenants list output looks `{“tenants”:[]}`
+
+**CLI output**
 
 ```pre
 curl -X GET "https://management.us-south.logs-router.cloud.ibm.com:443/v1/tenants" \
@@ -65,6 +69,7 @@ curl -X GET "https://management.us-south.logs-router.cloud.ibm.com:443/v1/tenant
 ```
 
 
+
 ```pre
 curl -X GET "https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants" \
 -H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
@@ -73,21 +78,15 @@ curl -X GET "https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants
 {"tenants":[]}
 ```
 
-If the output contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them.
+**UI output**
 
-However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
-
-The empty tenants list output looks `{“tenants”:[]}`
+![Logs Routing](images/UI_logs-routing.png "Logs Routing"){: caption="Logs Routing" caption-side="bottom"}
 
 If the tenants list is not empty, then the platform logs are already enabled.Attempting to enable them again may result in an error like **CreateTenantWithContext failed: Forbidden**.
 {: note}
 
 You can have only one tenant per region in an account.
 {: note}
-
-[UI]{: tag-blue}
-
-![Logs Routing](images/UI_logs-routing.png "Logs Routing"){: caption="Logs Routing" caption-side="bottom"}
 
 * `observability_logs_retention_period`: The number of days {{site.data.keyword.logs_full_notm}} retains the log data in priority insights. By default the value is set as 7, but the allowed values are 14, 30, 60, and 90.
 
