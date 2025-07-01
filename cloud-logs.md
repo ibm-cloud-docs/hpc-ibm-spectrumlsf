@@ -54,7 +54,7 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
     -H "IBM-API-Version: $(date +%Y-%m-%d)"
     ```
 
-[CLI]{: tag-cli}
+[CLI]{: tag-blue}
 
     ```pre
     curl -X GET "https://management.us-south.logs-router.cloud.ibm.com:443/v1/tenants" \
@@ -83,7 +83,7 @@ Solutions can be enabled for cloud logs to capture infrastructure and applicatio
     You can have only one tenant per region in an account.
     {: note}
 
-[UI]{: tag-ui}
+[UI]{: tag-blue}
 
     ![Logs Routing](images/UI_logs-routing.png "Logs Routing"){: caption="Logs Routing" caption-side="bottom"}
 
