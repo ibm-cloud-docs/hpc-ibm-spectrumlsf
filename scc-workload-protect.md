@@ -96,6 +96,8 @@ When you access the UI for the service, all the above mentioned pillars are cove
 
 If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
 `Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
+{: note}
+
 So below are the required permissions for SCC Workload Protection are:
 | Service | Resources | Platform roles | Service roles |
 | ------- | --------- | ---- | ---- |
@@ -103,4 +105,3 @@ So below are the required permissions for SCC Workload Protection are:
 | All Identity and Access enabled services | All | Administrator | Manager |
 | Security and Compliance Center Workload Protection | All | Administrator | -- |
 {: caption="SCC permissions" caption-side="bottom"}
-{: note}

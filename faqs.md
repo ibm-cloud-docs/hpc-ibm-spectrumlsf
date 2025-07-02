@@ -255,6 +255,7 @@ module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] 
 {: faq}
 
 If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
+
 `Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
 
 So below are the required permissions for SCC Workload Protection are:
