@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-02"
 
 keywords:
 
@@ -37,7 +37,7 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
 2. In the _Works with_ section, select **LSF** and then select the {{site.data.keyword.spectrum_full_notm}} tile.
-3. In the _Variation_ section, select **Cluster with LSF v10.1.0.14** to indicate {{site.data.keyword.spectrum_full_notm}} and version as the scheduler to use for the deployment.
+3. In the _Variation_ section, select **Cluster with LSF v10.1.0.15** to indicate {{site.data.keyword.spectrum_full_notm}} and version as the scheduler to use for the deployment.
 4. Select the **Product version** (in **Architecture**) that you want to install.
 5. Click **Review deployment options**.
 6. In the _Deployment options_ section, click **Add to project** to add this deployment to an {{site.data.keyword.cloud_notm}} project and combine it with other deployments, if applicable. {{site.data.keyword.cloud_notm}} projects include several more pipeline steps before deployment, including deployment validation, cost calculation, compliance verification, and approval process.
