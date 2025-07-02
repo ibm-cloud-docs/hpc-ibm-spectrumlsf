@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-07-02"
 
 keywords:
 
@@ -45,15 +45,13 @@ The available regions and zones for deploying VPC resources, mapping of those to
 
 The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
 
-![Granting user permissions - Platform roles](images/platform_roles.png "Granting user permissions - Platform roles"){: caption="Granting user permissions - Platform roles" caption-side="bottom"}
-
-![Granting user permissions - Service roles](images/service_roles.png "Granting user permissions - Service roles"){: caption="Granting user permissions - Service roles" caption-side="bottom"}
+![Granting user permissions - Platform and Service roles](images/permissions_platform_service_roles.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}
 
 ## How do I SSH among nodes?
 {: #ssh-among-nodes}
 {: faq}
 
-All the nodes in the HPC cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
+All the nodes in the LSF cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
 
 To securely forward private keys to remote nodes, you need to do `ssh-add` and `ssh -A`.
 
@@ -82,10 +80,16 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
 Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
-The maximum number of worker nodes that are supported for the deployment value is 500, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values). The `static_compute_instances` variable specifies the number of worker nodes that are provisioned at the time the cluster is created, which exist throughout the life of the cluster. The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+By default, the number of worker nodes supported for the deployment value for `dynamic_compute_instances` variable is 500.
 
-This worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
+For the `static_compute_instances` variable, this worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
 For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
+
+For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
+
+The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+
+If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
 
 ## Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
 {: #resource-group-parameters}
@@ -103,15 +107,19 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 {: #custom-image-mappings}
 {: faq}
 
-The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
+The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
 
 ## Which Spectrum LSF and Spectrum Scale versions are used in cluster nodes deployed with this offering?
 {: #versions-used}
 {: faq}
 
-Cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1.0.14 Standard Edition plus Data Manager plus License Scheduler. See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
+By default, the cluster nodes supported for the deployment with this offering is 10.1.0.15 IBM Spectrum LSF Suite for Enterprise version.
 
-If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.2.2-0 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
+But if you set the LSF version to 14, then the cluster nodes are deployed in 10.1.0.14.
+
+See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
+
+If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.2.3 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
 
 ## Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?
 {: #cpu-number-different-lsf-worker-nodes-and-application-center}
@@ -149,9 +157,17 @@ Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [c
 {: #dynamic-node-creation}
 {: faq}
 
-You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image `hpcaas-lsf10-rhel810-compute-v8` is used for the `compute_image_name` deployment input value, to dynamically create nodes for the applicable operating system.
+You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for static_compute_instances/dynamic_compute_instances/login_compute_instances variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
+
+The supported image for static_compute_instances/dynamic_compute_instances/login_compute_instances variables for Fix Pack 14 is `hpc-lsf-fp14-compute-rhel810-v1`.
 
 As part of dynamic node provisioning, Ubuntu based operating system is not supported.
+
+| LSF version | Deployer node | Management node | Login node | Compute node |
+| ----- | ----------- | --------------- | ------------ | ------------ |
+| Fix Pack 14 | "hpc-lsf-fp14-deployer-rhel810-v1" | "hpc-lsf-fp14-rhel810-v1" | hpc-lsf-fp14-compute-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 |
+| Fix Pack 15 | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
+{: caption="Fix Pack images" caption-side="bottom"}
 
 ## As a cluster administrator, how do I best restart the LSF daemon processes?
 {: #restarting_lsf-daemons}
@@ -208,7 +224,17 @@ The offering automatically selects instance profiles for dedicated hosts to be t
 {: #logs}
 {: faq}
 
-If the output contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like `CreateTenantWithContext failed: Forbidden`.
+**Output**
+
+```pre
+curl -X GET "https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants" \
+-H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
+-H "IBM-API-Version: $(date +%Y-%m-%d)"
+
+{"tenants":[]}
+```
+
+If the output (above) contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like `CreateTenantWithContext failed: Forbidden`.
 
 ```pre
 module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ Error: ---
