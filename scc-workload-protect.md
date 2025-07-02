@@ -94,7 +94,7 @@ When you access the UI for the service, all the above mentioned pillars are cove
 
     ![SCC Vulnerabilities](images/vulnerabilities_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
 
-If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
+If the IAM permissions for the SCC Workload Protection are not enabled right, then the error occurs stating:
 `Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
 {: note}
 
