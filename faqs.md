@@ -80,16 +80,14 @@ You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
 Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
-By default, the number of worker nodes supported for the deployment value for `dynamic_compute_instances` variable is 500.
+By default, the number of worker nodes supported for `dynamic_compute_instances` variable is 500 for the deployment. For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
 
 For the `static_compute_instances` variable, this worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
 For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
 
-For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
-
 The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
 
-If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
+If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as the VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
 
 ## Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
 {: #resource-group-parameters}
@@ -113,9 +111,8 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 {: #versions-used}
 {: faq}
 
-By default, the cluster nodes supported for the deployment with this offering is 10.1.0.15 IBM Spectrum LSF Suite for Enterprise version.
-
-But if you set the LSF version to 14, then the cluster nodes are deployed in 10.1.0.14.
+By default, the cluster nodes supported with this offering is **10.1.0.15** IBM Spectrum LSF Suite for Enterprise.
+But if you set the LSF version to 14, then the cluster nodes are deployed in **10.1.0.14** IBM Spectrum LSF Suite for Enterprise.
 
 See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
 
@@ -157,9 +154,9 @@ Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [c
 {: #dynamic-node-creation}
 {: faq}
 
-You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for static_compute_instances/dynamic_compute_instances/login_compute_instances variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
+You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for `static_compute_instances`/`dynamic_compute_instances`/`login_compute_instances` variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
 
-The supported image for static_compute_instances/dynamic_compute_instances/login_compute_instances variables for Fix Pack 14 is `hpc-lsf-fp14-compute-rhel810-v1`.
+The supported image for `static_compute_instances`/`dynamic_compute_instances`/`login_compute_instances` variables for Fix Pack 14 is `hpc-lsf-fp14-compute-rhel810-v1`.
 
 As part of dynamic node provisioning, Ubuntu based operating system is not supported.
 
