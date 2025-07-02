@@ -111,8 +111,8 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 {: #versions-used}
 {: faq}
 
-By default, the cluster nodes supported with this offering is **10.1.0.15** IBM Spectrum LSF Suite for Enterprise.
-But if you set the LSF version to 14, then the cluster nodes are deployed in **10.1.0.14** IBM Spectrum LSF Suite for Enterprise.
+By default, cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1.0.15 IBM Spectrum LSF Suite for Enterprise.
+And if you set the LSF version to 14, then the cluster nodes are deployed in **10.1.0.14** IBM Spectrum LSF Suite for Enterprise.
 
 See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
 
@@ -154,9 +154,9 @@ Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [c
 {: #dynamic-node-creation}
 {: faq}
 
-You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for `static_compute_instances`/`dynamic_compute_instances`/`login_compute_instances` variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
+You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
 
-The supported image for `static_compute_instances`/`dynamic_compute_instances`/`login_compute_instances` variables for Fix Pack 14 is `hpc-lsf-fp14-compute-rhel810-v1`.
+The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 14 is `hpc-lsf-fp14-compute-rhel810-v1`.
 
 As part of dynamic node provisioning, Ubuntu based operating system is not supported.
 
