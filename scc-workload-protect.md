@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-07-02"
 
 keywords:
 
@@ -93,3 +93,14 @@ When you access the UI for the service, all the above mentioned pillars are cove
 6. On **Vulnerabilities**, you can run the scans and this shows the severity of the issues and that could be helped to be scanned. You can filter based on high, medium, and low. For more information, see [Scanning Guidelines](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/){: external}.
 
     ![SCC Vulnerabilities](images/vulnerabilities_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
+
+If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
+`Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
+So below are the required permissions for SCC Workload Protection are:
+| Service | Resources | Platform roles | Service roles |
+| ------- | --------- | ---- | ---- |
+| App configuration | All | Administrator | Manager |
+| All Identity and Access enabled services | All | Administrator | Manager |
+| Security and Compliance Center Workload Protection | All | Administrator | -- |
+{: caption="SCC permissions" caption-side="bottom"}
+{: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-02"
 
 keywords:
 
@@ -51,6 +51,8 @@ To view access policies, complete the following steps:
 
    | Service | Resources | Platform roles | Service roles |
    | ------- | --------- | ---- | ---- |
+   | App configuration | All | Administrator | Manager |
+   | All Identity and Access enabled services | All | Administrator | Manager |
    | Cloud Monitoring | All | Administrator | Manager |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
@@ -59,7 +61,7 @@ To view access policies, complete the following steps:
    | IAM Identity Service | All | Administrator | -- |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
-   | Security and Compliance Center | All | Administrator | Manager |
+   | Security and Compliance Center Workload Protection | All | Administrator | -- |
    | Virtual Private Cloud | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 

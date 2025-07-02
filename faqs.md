@@ -249,3 +249,19 @@ module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] 
 module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  with module.cloud_monitoring_instance_creation.module.observability_instance[0].module.cloud_logs[0].ibm_logs_router_tenant.logs_router_tenant_instances["jp-tok"],
 module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  on .terraform/modules/cloud_monitoring_instance_creation.observability_instance/modules/cloud_logs/main.tf line 166, in resource "ibm_logs_router_tenant" "logs_router_tenant_instances":
 ```
+
+## Why does `Error getting trusted profile policy` error occur?
+{: #scc}
+{: faq}
+
+If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
+`Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
+
+So below are the required permissions for SCC Workload Protection are:
+
+| Service | Resources | Platform roles | Service roles |
+| ------- | --------- | ---- | ---- |
+| App configuration | All | Administrator | Manager |
+| All Identity and Access enabled services | All | Administrator | Manager |
+| Security and Compliance Center Workload Protection | All | Administrator | -- |
+{: caption="SCC permissions" caption-side="bottom"}
