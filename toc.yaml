@@ -82,7 +82,6 @@ toc:
             - process-manager.md
             - process-manager-cli.md
             - process-manager-gui.md
-      - web-services.md
       - topicgroup:
             label: Observability
             topics:
