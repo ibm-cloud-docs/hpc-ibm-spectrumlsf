@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-03"
 
 keywords:
 
@@ -104,5 +104,3 @@ My master name is test-fi-mgmt-1-c613-001.lsf.com
 While both Fix Pack 14 (FP14) and Fix Pack 15 (FP15) are supported in the IBM Spectrum LSF solution, there are differences in the default feature enablement.
 
 For both FP14 and FP15, Application Center and Process Manager are enabled by default to support job submission, workflow management, and monitoring.
-
-However, with FP15, an additional enhancement is included — Web Services are also enabled by default. This provides out-of-the-box support for RESTful APIs, enabling seamless integration with external tools and automation frameworks. This makes FP15 a more complete and integration-ready package for modern workload environments.
