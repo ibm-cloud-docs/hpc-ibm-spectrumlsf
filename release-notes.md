@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-03"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -29,8 +29,8 @@ The release notes describes the brief overview of the new features, enhancements
 ## July 2025
 {: #subcollection-june25}
 
-### 02 July 2025
-{: #subcollection-july0225}
+### 03 July 2025
+{: #subcollection-july0325}
 {: release-note}
 
 **For this release, the DA tile version is 3.0.0**
