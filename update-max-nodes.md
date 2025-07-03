@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-06-22"
+  years: 2025
+lastupdated: "2025-06-06"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -22,9 +22,9 @@ subcollection: hpc-ibm-spectrumlsf
 # Updating the maximum number of worker nodes
 {: #update-max-worker-nodes-count}
 
-Complete the following steps if you want to update the maximum number of worker nodes. 
+Complete the following steps if you want to update the maximum number of worker nodes.
 
-1. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud}} would have this file in `/opt/ibm/lsf/conf/resource_connector/ibmcloudgen2/conf`.
+1. Update the file `ibmcloudgen2_templates.json` in `$LSF_ENDIR/resource_connector/ibmcloudgen2/conf`. A typical HPC cluster that is installed on {{site.data.keyword.cloud}} would have this file in `/opt/ibm/lsfsuite/lsf/conf/resource_connector/ibmcloudgen2/conf`.
 2. Update the value for field `maxNumber` to the number of your choice. See the following sample code for an example:
 
     ```
@@ -50,11 +50,11 @@ Complete the following steps if you want to update the maximum number of worker 
     "zone": "us-south-2"
     }
     ]
-    }  
+    }
     ```
     {: screen}
 
-    Make sure that the value for `maxNumber` is within the range that your specific subnet can accommodate. You can check the available IPs in the subnet page in the {{site.data.keyword.cloud_notm}} console, or you can check by running the following command in the {{site.data.keyword.cloud_notm}} CLI: 
+    Make sure that the value for `maxNumber` is within the range that your specific subnet can accommodate. You can check the available IPs in the subnet page in the {{site.data.keyword.cloud_notm}} console, or you can check by running the following command in the {{site.data.keyword.cloud_notm}} CLI:
 
     ```
     ic is subnet <SUBNET_ID> --output JSON | jq .available_ipv4_address_count

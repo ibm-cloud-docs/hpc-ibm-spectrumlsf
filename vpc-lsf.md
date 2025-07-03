@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-06-27"
 
 keywords: vpc, lsf
 
@@ -56,7 +56,7 @@ If you use your existing VPC for your {{site.data.keyword.spectrum_full}} cluste
 
 With an existing VPC, you can also choose to use existing subnets to create {{site.data.keyword.spectrum_full_notm}} cluster nodes. Cluster deployment needs two subnets:
 
-* Provide a larger subnet ID for the `cluster_subnet_ids` deployment input value, as it is used to create all management nodes or VPC file shares, and the compute nodes.
+* Provide a larger subnet ID for the `cluster_subnet_id` deployment input value, as it is used to create all management nodes or VPC file shares, and the compute nodes.
 * Provide another subnet ID for the `login_subnet_id` to create the bastion and login nodes.
 
 ### An existing VPC and automatically creating two new subnets from the {{site.data.keyword.spectrum_full}} cluster deployment

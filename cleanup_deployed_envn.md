@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -26,11 +26,35 @@ subcollection: hpc-ibm-spectrumlsf
 # Cleaning up deployed environments
 {: #cleaning-up-deployed-environments}
 
-If you no longer need your deployed {{site.data.keyword.spectrum_full_notm}} cluster, you can clean it up from your environment. The process is threefold: verify that the cluster is free of running jobs or working compute nodes, destroy all the associated VPC resources and remove them from your {{site.data.keyword.cloud_notm}} account, and remove the workspace.
+You can clean up the {{site.data.keyword.spectrum_full_notm}} cluster from the environment if no longer needed. The process is in three phases:
+1. Destroy all the associated VPC resources and remove them from your {{site.data.keyword.cloud_notm}} account
+2. Remove the workspace
+3. Verify that the cluster is free of running jobs or working compute nodes
 {: shortdesc}
 
-## Verifying that the cluster is free of running jobs and working compute nodes
-{: #drain-cluster}
+## Destroying resources by using the UI
+{: #deleting-resources-ui}
+{: ui}
+
+1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Projects > _project_name_ > Configurations > _project_configuration_name_ > Resources** tab, and click the link for the workspace, and select **Actions > Destroy resources** to delete all of the related VPC resources that were deployed as part of that workspace.
+2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone.
+3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
+
+If successful, the **Jobs** view, you should see a `Workspace destroy successful` message. If unsuccessful, Schematics throws an error and shows a failure status.
+
+## Deleting a workspace by using the UI
+{: #deleting-workspace-ui}
+{: ui}
+
+1. In the {{site.data.keyword.cloud_notm}} console, the navigate to **Projects > _project_name_ > Configurations > _project_configuration_name_ > Resources** tab, and click the link for the workspace, and select **Actions > Delete workspace** to delete the workspace.
+2. Confirm the action by entering the workspace name in the text box and click **Delete**.
+
+If unsuccessful, Schematics throws an error and shows a failure status.
+
+![Destroy and delete resources](images/destroy_delete.png "Destroy and delete resources"){: caption="Destroy and delete resources" caption-side="bottom"}
+
+Verify that the cluster is free of running jobs and working compute nodes.
+{: note}
 
 Verify that it is safe to destroy resources:
 
@@ -56,25 +80,6 @@ Verify that it is safe to destroy resources:
     {: codeblock}
 
 If the cluster has no running jobs and no working compute nodes, then it is safe to destroy resources from this environment.
-
-## Destroying resources by using the UI
-{: #deleting-resources-ui}
-{: ui}
-
-1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Projects > _project_name_ > Configurations > _project_configuration_name_ > Resources** tab, and click the link for the workspace, and select **Actions > Destroy resources** to delete all of the related VPC resources that were deployed as part of that workspace.
-2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone.
-3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
-
-If successful, the **Jobs** view, you should see a `Workspace destroy successful` message. If unsuccessful, Schematics throws an error and shows a failure status.
-
-## Deleting a workspace by using the UI
-{: #deleting-workspace-ui}
-{: ui}
-
-1. In the {{site.data.keyword.cloud_notm}} console, the navigate to **Projects > _project_name_ > Configurations > _project_configuration_name_ > Resources** tab, and click the link for the workspace, and select **Actions > Delete workspace** to delete the workspace.
-2. Confirm the action by entering the workspace name in the text box and click **Delete**.
-
-If unsuccessful, Schematics throws an error and shows a failure status.
 
 ## Destroying resources by using the CLI
 {: #deleting-resources-cli}
@@ -107,3 +112,31 @@ You can monitor the log files to view the deletion progress of your workspace.
 {: note}
 
 If unsuccessful, Schematics throws an error and shows a failure status.
+
+Verify that the cluster is free of running jobs and working compute nodes.
+{: note}
+
+Verify that it is safe to destroy resources:
+
+1. As the `lsfadmin` user, close all LSF queues and kill all jobs:
+    ```console
+    badmin qclose all
+    bkill -u all 0
+    ```
+    {: codeblock}
+
+2. Wait ten minutes (this value is the default idle time), and then check for running jobs:
+    ```console
+    bjobs -u all
+    ```
+    {: codeblock}
+
+   Look for a `No unfinished job found` message.
+
+3. Check that no working compute nodes (only management nodes) are listed:
+  ```console
+    bhosts -w
+    ```
+    {: codeblock}
+
+If the cluster has no running jobs and no working compute nodes, then it is safe to destroy resources from this environment.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-07-03"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -25,6 +25,45 @@ content-type: release-note
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
+
+## July 2025
+{: #subcollection-june25}
+
+### 03 July 2025
+{: #subcollection-july0325}
+{: release-note}
+
+**For this release, the DA tile version is 3.0.0**
+
+Following are the change updates made for this release:
+
+Support for Fix Pack 15 (FP15)
+:   For this release, by default **Fix Pack 15** is supported along with Fix Pack 14 (FP14). This fix pack contains all the security fixes, vulnerabilities fixes, resource connectors and so on.
+User can still do the cluster deployment through FP14.
+
+Support for Web service
+:   IBM Spectrum LSF Web Services is introduced in Fix Pack 15, which provides a RESTful HTTP(s) interface for remotely interacting with LSF clusters. This allow users to programmatically submit, monitor, and manage jobs, enabling seamless integration of LSF workload management into custom applications, web portals, and automation workflows.
+
+Support for Process manager
+:   IBM Spectrum LSF Process Manager is enabled by default as part of the LSF suite deployment. This helps users to automate, monitor, and control application workflows and dependencies across distributed computing environments.
+
+Support for deployment using stock image
+:   For this release, along with the custom image, user can do the deployment using the **stock image** also. The stock images can be used only for management and compute nodes and not for the deployer and dynamic nodes.
+
+Updated the DA `landing_zone` and `landing_zone_vsi` module version.
+:   The DA module versions for the landing zones are updated.
+
+Support for Security and Compliance Center (SCC) Workload Protection
+:   For this release, previously used SCC instances are deprecated and the new version of **SCC Workload Protection** is supported. Cloud-Native Application Protection Platform solution to manage your security and compliance posture, allowing you to monitor misconfigurations and detect and respond to vulnerabilities and threats in real-time.
+
+Support for Deployer node
+:   For this release, the entire cluster deployment is handled by the **deployer** node.
+
+End to end deployment done through Ansible playbooks
+:   Previously, all the configurations for {{site.data.keyword.spectrum_short}} were done using the user data through shell script. Now the cluster deployments and configurations are managed and handled by **Ansible** playbooks.
+
+Application centre option is enabled by default for FP14 and FP15
+:   From the previous release, user had a choice to enable or disable the application centre feature as an option. For this release, **application centre** option is enabled by **default** for both FP14 and FP15.
 
 ## April 2025
 {: #subcollection-apr25}

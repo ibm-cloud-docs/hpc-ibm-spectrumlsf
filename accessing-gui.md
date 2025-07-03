@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -57,18 +57,16 @@ Complete the following steps to access the LSF Application Center:
 
 2. Run the following command to access the LSF Application Center GUI:
 
-    ```
+    ```pre
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}
     ```
-    {: pre}
 
     Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-gui&interface=ui#gathering-ip-address).
 
     Example:
-    ```
+    ```pre
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@52.116.124.34 lsfadmin@10.241.16.5
     ```
-    {: pre}
 
 3. Open a browser on your local system and run https://localhost:8443.
 4. To access the LSF Application Center GUI, enter the default user as `lsfadmin` and enter the password that you configured when you created your workspace.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-06-19"
 
 keywords:
 
@@ -33,7 +33,7 @@ Following are the key factors to deploy the dedicated host:
 
 * This offering supports only static compute nodes on dedicated hosts.
 
-* The number and profile names of dedicated hosts are determined by the `worker_node_instance_type` parameter.
+* The number and profile names of dedicated hosts are determined by the `static_compute_instances` parameter.
 
 * The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, third-generation, and so on.
 
@@ -48,7 +48,7 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
 {: #limitations-dedicated-host}
 
 1. Single Profile Requirement
-  * When `enable_dedicated_host` is set to true, you must specify only one profile in `worker_node_instance_type` parameter.
+  * When `enable_dedicated_host` is set to true, you must specify only one profile in `static_compute_instances` parameter.
 
   * If more than one profile is provided, an error is displayed:
 
@@ -61,9 +61,9 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
     │ 82: enable_dedicated_host = true
     │ ├────────────────
     │ │ var.enable_dedicated_host is true
-    │ │ var.worker_node_instance_type is list of object with 2 elements
+    │ │ var.static_compute_instances is list of object with 2 elements
     │
-    │ When 'enable_dedicated_host' is true, only one profile should be specified in 'worker_node_instance_type'.
+    │ When 'enable_dedicated_host' is true, only one profile should be specified in 'static_compute_instances'.
     │
     │ This was checked by the validation rule at variables.tf:688,3-13.
     ```
@@ -87,7 +87,7 @@ To enable a dedicated host, set the `enable_dedicated_host` parameter to true (d
     │ on locals.tf line 316, in locals:
     │ 316: dh_profile = var.enable_dedicated_host ? local.dh_profiles[local.dh_profile_index] : null
     │ ├────────────────
-    │ │ local.dh_profile_index is "Profile class bx3d for dedicated hosts does not exist in us-east.  Check available class with ibmcloud target -r us-east; ibmcloud is dedicated-host-profiles and retry with another worker_node_instance_type."
+    │ │ local.dh_profile_index is "Profile class bx3d for dedicated hosts does not exist in us-east.  Check available class with ibmcloud target -r us-east; ibmcloud is dedicated-host-profiles and retry with another static_compute_instances."
     │ │ local.dh_profiles is empty tuple
     │
     │ The given key does not identify an element in this collection value: a number is required.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-06-27"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -50,7 +50,7 @@ Error: remote-exec provisioner error
 | validate_ldap_server_connection[0],
 | on modules/null/ldap_remote_exec/ldap_remote_exec.tf line 16, in resource
 | "null_resource" "validate_ldap_server_connection": 16: provisioner
-| "remote-exec" {
+| "remote-exec"
 │
 │ error executing "/tmp/terraform_888134906.sh": Process exited with status 1
 ```

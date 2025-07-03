@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-07-02"
 
 keywords:
 
@@ -24,7 +24,10 @@ subcollection: hpc-ibm-spectrumlsf
 # Before you begin deploying
 {: #getting-started-tutorial}
 
-{{site.data.keyword.spectrum_full}} enables users to deploy HPC clusters that use LSF as a scheduling software. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks.
+{{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
+
+IBM Spectrum LSF solution does not support bare metal based deployments. All the deployments are based upon the VSI, make sure to provide the valid instance profiles.
+{: important}
 
 ## Confirm your {{site.data.keyword.cloud}} settings
 {: #confirm-cloud-settings}
@@ -46,36 +49,24 @@ To view access policies, complete the following steps:
 2. In the _IAM_ navigation menu, select **Users** and then select the account user.
 3. Select **Access** to view the associated access policies and access groups. See the following table for the permissions that you need for this deployable architecture:
 
-   | Service | Resources | Role |
-   | ------- | --------- | ---- |
-   | Database for MySQL (see note)| All | Administrator |
-   | {{site.data.keyword.cloud_notm}} Project | All | Administrator |
-   | All IAM Account Management services| All | Editor, Operator, Service ID creator, VPN Administrator, User API key creator, API key reviewer |
-   | Security and Compliance Center | All | Editor, Viewer, Reader, Manager |
-   | Resource group only | All resource groups in the account | Editor, Viewer |
-   | Schematics | All | Manager, Editor |
-   | DNS Services | All | Manager, Editor |
-   | Key Protect | All | Manager, Editor |
-   | Cloud Monitoring| All | Reader, Manager, Editor, Viewer |
-   | Cloud Logs| All | Reader, Manager, Editor, Viewer |
-   | Cloud Object Storage | All | Writer, Editor |
-   | Activity Track Event Routing | All | Writer, Editor, Key manager, Service configuration reader |
-   | All Identity and Access enabled services | All | Writer, Reader, Viewer, Operator |
-   | VPC Infrastructure Services | All | Writer, Editor |
+   | Service | Resources | Platform roles | Service roles |
+   | ------- | --------- | ---- | ---- |
+   | App configuration | All | Administrator | Manager |
+   | All Identity and Access enabled services | All | Administrator | Manager |
+   | Cloud Object Storage | All | Service Configuration Reader | Writer |
+   | DNS Services | All | Editor | Manager |
+   | File Storage for VPC | All | Editor | -- |
+   | Flow Logs for VPC | All | Editor | -- |
+   | IAM Identity Service | All | Administrator | -- |
+   | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
+   | Key Protect | All | Service Configuration Reader | Manager |
+   | Secrets Manager | All | Administrator | Manager |
+   | Security and Compliance Center Workload Protection | All | Administrator | -- |
+   | Virtual Private Cloud | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
-The Database for MySQL access is required if your [{{site.data.keyword.spectrum_full}} cluster deployment includes LSF Application Center with high availability](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-before-deploy-application-center), which is enabled by default.
-{:note: .note}
-
-## Allow access to {{site.data.keyword.cloud_notm}} public endpoints
-{: #public-endpoints}
-
-The {{site.data.keyword.spectrum_full}} deployable architecture requires access to the following {{site.data.keyword.cloud_notm}} service API public endpoints. For a successful deployment to provision the infrastructure and the associated services, ensure that you are aware of these endpoints and allow them access:
-
-| Endpoint | Type | Notes |
-   | ------- | --------- | ---- |
-   | `iam.cloud.ibm.com` | IAM | The IAM endpoint is protected by Akamai under the [Akamai IP ranges](https://techdocs.akamai.com/origin-ip-acl/docs/update-your-origin-server){: external} |
-{: caption="{{site.data.keyword.cloud_notm}} public endpoints required for {{site.data.keyword.cloud_notm}} HPC deployment" caption-side="bottom"}
+   The above mentioned permissions are mandatory, failing to have these permissions will lead to deployment failure. Contact the account administrator for the permissions.
+   {: tip}
 
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}
@@ -103,66 +94,73 @@ Make sure that you have an SSH key that you can use for authentication and that 
 {: #generate-remote-ip}
 {: step}
 
-Generate an public IP address that is required to access the Spectrum LSF cluster nodes. click [here](https://ipv4.icanhazip.com).
+This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster.
 
-If an Admin requires cluster access, they should provide the IP address from which the cluster will be accessed, whether from a local system or a virtual server instance. For multiple users, access can be granted by specifying a CIDR range.
-{: note}
+If this field is left empty (for example, [""]) or not provided, then the cluster deployment will fail during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
-## Choose between IBM-managed or user-managed encryption
-{: #encryption}
+For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
+
+## Support for lsf_version
+{: #lsf-version}
 {: step}
 
-By default, VPC volumes and file shares are encrypted with IBM-managed encryption. However, you can opt for user-managed encryption per your security requirements. Customer-managed encryption uses your root key, which gives you complete control over your data. You can provision or import existing encrypted keys by using {{site.data.keyword.keymanagementservicefull_notm}}.
+IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
+By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
 
-If you decide to use user-managed encryption, complete the following steps before you deploy your {{site.data.keyword.spectrum_full}} architecture:
+## Application center password
+{: #app-center}
+{: step}
 
-1. [Provision an instance of Key Protect](/docs/key-protect?topic=key-protect-provision#provision-gui)
-2. [Create or import key](/docs/key-protect?topic=key-protect-getting-started-tutorial#get-started-keys)
-3. [Authorize access between](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs):
-    * Cloud Block Storage and the key management service
-    * File Storage for VPC and the key management service
-4. Gather information for the following boot volume encryption deployment values (you provide this information when you deploy your {{site.data.keyword.spectrum_full}} architecture):
-    * `enable_customer_managed_encryption`: Gives you toggling options.
-    * `kms_instance_id`: Instance ID of the Key Protect instance that you create.
-    * `kms_key_name`: Name of the KMS key that you create
+For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
+To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails.
 
-Customer-managed encryption applies only to the bastion, login, and management nodes. The compute nodes are still IBM-managed.
-{: note}
+## Enabling optional values
+{: #optional-values}
+{: step}
+
+IBM Spectrum LSF also provides some optional or advanced features such as Observability, Monitoring, Cloud Logs, SCC integration, Hyperthreading, Existing Bastion Support, KMS and more.
+
+If you want to enable and configure any of these features for your cluster, ensure to update the corresponding values accordingly. Note that certain features may be enabled by default.
+
+Additionally, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies).
 
 ## Select the method for accessing the cluster
 {: #select-method-for-accessing-cluster}
 {: step}
 
-Access the bastion node in the cluster directly or through a VPN gateway. You set your method during [cluster deployment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) as optional deployment input values:
-
-1. Directly through a floating IP that is attached to the bastion node. If you select a value of **true** for the `enable_fip` deployment input variable, then a floating IP is attached to the bastion node. If you are connecting to the LSF cluster through VPN gateway, set this value to **false**. If not specified, this deployment value is set to **true**.
-
-2. Through a VPN gateway. If you select a value of **true** for the `vpn_enabled` deployment input variables, it results in the creation of a VPN gateway. If you select the use of a VPN gateway, a floating IP is not attached to the bastion node. If not specified, this deployment value is set to **false**.
-
-Regardless of which access method you select, values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. From the bastion node, you can SSH into the primary management or login nodes, and from there, you can access compute nodes that are active in the cluster.
+The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. All the cluster nodes can be directly accessed through bastion nodes (except dynamic nodes).
 
 See the following example SSH command syntax for accessing different types of nodes:
 
-* Primary management node:
+* Deployer node:
 
     ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@149.81.242.172 lsfadmin@10.241.0.8
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your deployer_node IP address>
     ```
     {: codeblock}
 
 * Login node:
 
     ```ssh
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@149.81.216.117 lsfadmin@10.241.16.5
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> lsfadmin@<replace this with your login_node IP address>
     ```
     {: codeblock}
 
-* Compute node:
+* Management node:
 
     ```ssh
-    ssh lsfadmin@10.241.0.11
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> lsfadmin@<replace this with your management_node IP address>
     ```
     {: codeblock}
+
+* Static compute node:
+
+    ```ssh
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> lsfadmin@<replace this with your static_compute_node IP address>
+    ```
+    {: codeblock}
+
+![Command output](images/SSH_command_output.png "Command output"){: caption="Command output" caption-side="bottom"}
 
 This worker node instance type supports a combination of multiple instance profile type that might be chosen for different number of instance count.
 For example, you might choose 100 instance to be created from `bx2-4x16` and 10 instance from `mx3d-8x80`. So, you would get a total count of 110 static worker nodes with different instance profile, based on your requirement.

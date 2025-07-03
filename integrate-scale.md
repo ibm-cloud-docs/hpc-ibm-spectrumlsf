@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-06-30"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -35,50 +35,40 @@ Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
 1. Select to use product version 2.7.0 or later.
 2. [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
-  * Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+* Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+* Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
+* Once the Scale cluster is successfully created, login to the CES node to run the following command.
 
-  * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
+Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
 
-  * Once the Scale cluster is successfully created, login to the CES node to run the following command.
-  Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
+```pre
+# mmnfs export list
+Path                Delegations                 Clients
+/gpfs/fs1/tools         NONE                  10.241.0.0/20
+/gpfs/fs1/data          NONE                  10.241.0.0/20
 
-    ```text
-    # mmnfs export list
-    Path                Delegations                 Clients
-    /gpfs/fs1/tools         NONE                  10.241.0.0/20
-    /gpfs/fs1/data          NONE                  10.241.0.0/20
-    ```
-    {: codeblock}
+# mmlscluster --ces
+GPFS cluster information
+GPFS cluster name:    test-scale-poc.strgscale.com
+GPFS cluster id:      70671008535366959
 
+Cluster Export Services global parameters
+Shared root directory:         /gpfs/fs1
+Enabled Services:              NFS
+Log level:                      0
+Address distribution policy:   even-coverage
 
-    ```text
-    # mmlscluster --ces
-    GPFS cluster information
-    GPFS cluster name:    test-scale-poc.strgscale.com
-    GPFS cluster id:      70671008535366959
+Node            Daemon node name                    IP address      CES IP address list
+  6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
+  7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
 
-    Cluster Export Services global parameters
-    Shared root directory:         /gpfs/fs1
-    Enabled Services:              NFS
-    Log level:                      0
-    Address distribution policy:   even-coverage
-
-    Node            Daemon node name                    IP address      CES IP address list
-      6        test-scale-poc-ces-001.strgscale.com     10.241.16.12          10.241.17.4
-      7        test-scale-poc-ces-002.strgscale.com     10.241.16.13          10.241.17.5
-    ```
-    {: codeblock}
-
-
-    ```text
-    # mmlsfileset fs1
-    Filesets in file system 'fs1':
-    Name          Status          Path                                    
-    root          Linked       /gpfs/fs1                               
-    data          Linked       /gpfs/fs1/data                          
-    tools         Linked       /gpfs/fs1/tools
-    ```
-    {: codeblock}
+# mmlsfileset fs1
+Filesets in file system 'fs1':
+Name          Status          Path                                    
+root          Linked       /gpfs/fs1                               
+data          Linked       /gpfs/fs1/data                          
+tools         Linked       /gpfs/fs1/tools
+```
 
 ## Integrating Scale NFS mount points on {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrate-scale-and-nfs}
@@ -87,15 +77,20 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC created through the scale cluster.
 
-* To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_ids` parameter, provide the compute subnet ID for the cluster.
+* To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_id` parameter, provide the compute subnet ID for the cluster.
 
-* To create the bastion and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
+* To create the bastion/deployer and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture. Provide the subnet ID for the cluster under the `login_subnet_id` parameter.
+
+    The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
+    {: note}
 
 * Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details cause the LSF deployment to fail.
 
-* Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter.  This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
+* Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter. This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
 
 * To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
+
+If you want choose or opt the existing bastion setup on LSF, then refer the documentation for [Bastion node](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-bastion-node-overview).
 
 Example:
 
@@ -173,16 +168,19 @@ For sharing the LSF binaries, you can still use the VPC file storage, but as the
 ```
 {: codeblock}
 
-```text
+```pre
 # mmnfs export list
 Path                Delegations                 Clients
 ---------------------------------------------------------
 /gpfs/fs1/data         NONE                10.241.0.0/20
 /gpfs/fs1/data         NONE                10.241.0.0/18
-/gpfs/fs1/lsf          NONE                10.241.0.0/18
+/gpfs/fs1/tools        NONE                10.241.0.0/18
 /gpfs/fs1/tools        NONE                10.241.0.0/20
+/gpfs/fs1/lsf          NONE                10.241.0.0/18
 ```
 {: codeblock}
+
+This is expected result after running the command.
 
 * Updating the squash permission property for the NFS export.
 

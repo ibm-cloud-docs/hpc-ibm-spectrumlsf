@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-06-19"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -94,21 +94,12 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
     ![HPC Cluster solution page](images/hpc_catalog.png){: caption="HPC cluster solution page"}
 
-2. In the **Set the deployment values** section, supply the required values: `api_key`, `ibm_customer_number`, `remote_allowed_ips`, `ssh_key_name`, and `zone`.
+2. In the **Set the deployment values** section, supply the required values: `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `lsf_version`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 
 {{site.data.keyword.spectrum_full_notm}} supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values&interface=ui) section.
 {: note}
-
-### Parameters for auto scaling
-{: #hpc-cluster-auto-scaling-parameters}
-
-You can set the following parameters for auto scaling:
-
-* `worker_node_min_count`: The minimum number of worker nodes that are provisioned at the time the cluster is created and remain running regardless of job demands in the cluster.
-
-* `worker_node_max_count`: The maximum number of worker nodes in your HPC cluster, which limits the number of systems that can be added to an HPC cluster. LSF auto scaling scales up the cluster to this number of nodes when needed for your workloads and scales back for keeping only`worker_node_min_count` workers when no job is in the queues.
 
 ### Parameters for instance profiles
 {: #hpc-cluster-instance-profiles-deployment-parameters}

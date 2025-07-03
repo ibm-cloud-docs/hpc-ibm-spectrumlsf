@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -103,25 +103,10 @@ For example:
 
 * You can provide an existing key management service (KMS) instance and key for start volume encryption for VSI-1:
     * For the `key_management` variable, specify the type of encryption you want to use. To use provider-managed encryption instead of {{site.data.keyword.keymanagementservicelong_notm}}, set the `key_management` value to null.
-    * For the `key_instance_name` variable, specify the name of the existing {{site.data.keyword.keymanagementservicelong_notm}} instance to be used for boot volume encryption for VSI-1.
+    * For the `kms_instance_name` variable, specify the name of the existing {{site.data.keyword.keymanagementservicelong_notm}} instance to be used for boot volume encryption for VSI-1.
     * For the `kms_key_name` variable, specify the name of the existing KMS encryption key to be used for boot volume encryption for VSI-1.
 
 If these KMS values are not provided, the automation creates a new KMS instance and key.
-
-## Enabling a VPN
-{: #custom-image-builder-vpn}
-
-A VPN helps connect your on-premises network to the {{site.data.keyword.vpc_short}} network, which enables secure communication between the two environments.
-
-The custom image automation supports creating a VPN gateway if you set the `enable_vpn` value as true (by default, it is set to false). After the automation creates the VPN gateway, you need to create VPN connections, and any other security group rule changes as necessary, under that VPN gateway. See the {{site.data.keyword.vpc_short}} documentation for details on [adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
-
-If you are enabling a VPN, you do not require creating floating IP addresses. For example, if you enabled a VPN, to connect to VSI-1 without a floating IP address, run:
-```text
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@${packer_vsi_1_private_ip}
-```
-{: codeblock}
-
-By default, a floating IP is created and attached to VSI-1. If you do not require a floating IP, then set the `enable_fip` value to false.
 
 ## Creating a custom image
 {: #custom-image-builder-create}
@@ -179,9 +164,9 @@ To create your custom image:
     ```
     {: codeblock}
 
-  Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
+    Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
 
-  Outputs:
+    Outputs:
     ```text
     packer_vsi_name = "test-lsf-packer-ccf4-001"
     ssh_to_packer_vsi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@165.192.133.183"
@@ -222,4 +207,4 @@ To share private images and make them accessible by other accounts:
     3. From the **Products** list, click the product that you created in the previous step, and select the **Versions** view.
     4. From the **Versions** list, select **Validate** from the action menu. Validation triggers an automated task to deploy a new VSI with the custom image that you added to the catalog.
 
-    For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](/docs/secure-enterprise?topic=secure-enterprise-catalog-enterprise-share&interface=ui).
+    For more information about sharing private catalog products, see [{{site.data.keyword.cloud_notm}} documentation](https://cloud.ibm.com/catalog#all_products).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-06-26"
 
 keywords:
 
@@ -35,7 +35,7 @@ To access the LSF Application Center REST APIs from your command line, you need 
     ```
     {: codeblock}
 
-    Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses). The default user is `lsfadmin`.
+Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses). The default user is `lsfadmin`.
 
 ## Connecting to LSF Application Center with `curl`
 {: #connect-lsf-application-center-curl}

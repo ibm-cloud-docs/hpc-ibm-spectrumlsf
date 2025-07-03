@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-09-20"
+  years: 2025
+lastupdated: "2025-06-06"
 
-keywords: 
+keywords:
 
 subcollection: hpc-ibm-spectrumlsf
 
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 Complete the following steps to adjust the idle time for dynamic hosts that are returning to {{site.data.keyword.cloud}}. By default the value is set to 10 minutes.
 
-1. Find the `lsf.conf` file on your management host. Typically, the file is located in the folder `$LSF_ENVDIR environment variable`. In a typical installation, it would be in the `/opt/ibm/lsf/conf/lsf.conf` folder.
+1. Find the `lsf.conf` file on your management host. Typically, the file is located in the folder `$LSF_ENVDIR environment variable`. In a typical installation, it would be in the `/opt/ibm/lsfsuite/lsf/conf/lsf.conf` folder.
 2. Update the `LSB_RC_EXTERNAL_HOST_IDLE_TIME` property. See the following sample content for an example:
 
     ```
