@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-10"
 
 keywords:
 
@@ -124,9 +124,19 @@ If you want to enable and configure any of these features for your cluster, ensu
 
 Additionally, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies).
 
-## Select the method for accessing the cluster
-{: #select-method-for-accessing-cluster}
+## Next steps
+{: #getting-started-next-steps}
 {: step}
+
+After you gather the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster.
+
+After you create and gathered your information and reviewed any additional prerequisites for your interface of choice, you are ready to begin [Deploying IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
+
+Before an actual deployment is done, you need to analysis the required amount of capacity in terms of vCPU and memory, so that the deployment does not fail due to capacity concerns.
+{: note}
+
+## Select the method for accessing the cluster (Post deployment)
+{: #select-method-for-accessing-cluster}
 
 The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. All the cluster nodes can be directly accessed through bastion nodes (except dynamic nodes).
 
@@ -164,14 +174,3 @@ See the following example SSH command syntax for accessing different types of no
 
 This worker node instance type supports a combination of multiple instance profile type that might be chosen for different number of instance count.
 For example, you might choose 100 instance to be created from `bx2-4x16` and 10 instance from `mx3d-8x80`. So, you would get a total count of 110 static worker nodes with different instance profile, based on your requirement.
-
-## Next steps
-{: #getting-started-next-steps}
-{: step}
-
-After you gather the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.spectrum_full_notm}} cluster.
-
-After you create and gathered your information and reviewed any additional prerequisites for your interface of choice, you are ready to begin [Deploying IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deploy-architecture&interface=ui).
-
-Before an actual deployment is done, you need to analysis the required amount of capacity in terms of vCPU and memory, so that the deployment does not fail due to capacity concerns.
-{: note}
