@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-10"
 
 keywords:
 
@@ -266,3 +266,9 @@ So below are the required permissions for SCC Workload Protection are:
 | All Identity and Access enabled services | All | Administrator | Manager |
 | Security and Compliance Center Workload Protection | All | Administrator | -- |
 {: caption="SCC permissions" caption-side="bottom"}
+
+## Is noVNC supported for this release?
+{: #vnc}
+{: faq}
+
+For this release, noVNC is not supported due to platform issues. Team is working on it.

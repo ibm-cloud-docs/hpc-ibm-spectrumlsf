@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-07-10"
 
 keywords:
 
@@ -68,7 +68,7 @@ Clear the browsers cache if you encounter slowness in loading or accessing LSF A
 ## Accessing LSF Application Center through VNC (remote) consoles
 {: #accessing-lsf-application-center-vnc}
 
-You can also access LSF Application Center by using a remote console, which opens a remote desktop on the LSF Application Center server through Virtual network computing (VNC):
+You can also access LSF Application Center by using a remote console, which opens a remote desktop on the LSF Application Center server through Virtual Network Computing (VNC):
 
 1. In LSF Application Center, select the Workload tab.
 2. Perform one of the following actions:
