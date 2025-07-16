@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-16"
 
 keywords: vpc, lsf
 
@@ -68,5 +68,5 @@ If you have an existing VPC but there are no existing subnets to use, then provi
 
 When you provide existing VPC detail, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
 
-Always the name of the VPC variable is a name and the ID is the ID and not the CRN.
+`vpc_name` is the name of the VPC variable and the **cluster subnet id** is the ID of the subnet and not the CRN.
 {: note}
