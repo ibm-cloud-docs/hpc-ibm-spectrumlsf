@@ -36,10 +36,10 @@ During the automation process, a VPN gateway is created in your IBM Cloud VPC. T
 
 Below are the steps after creating the VPN gateway:
 
-1. **Create VPN Connections -** Define the actual VPN tunnels by creating connections under the VPN gateway. This includes specifying peer IP addresses, pre-shared keys, and IKE/IPSec policies.
+1. **Creating VPN connections -** Define the actual VPN tunnels by creating connections under the VPN gateway. This includes specifying peer IP addresses, pre-shared keys, and IKE/IPSec policies.
 
-2. **Configure Routing -** Ensure that appropriate routes are added to route tables in the VPC subnet(s) to forward traffic to the VPN gateway.
+2. **Configuring routing -** Ensure that appropriate routes are added to route tables in the VPC subnet(s) to forward traffic to the VPN gateway.
 
-3. **Update Security Group Rules -** Modify or add security group rules to allow traffic from your on-premises IP ranges to the required VPC resources (for example, port 22 for SSH, port 443 for HTTPS).
+3. **Updating Security Group rules -** Modify or add security group rules to allow traffic from your on-premises IP ranges to the required VPC resources (for example, port 22 for SSH, port 443 for HTTPS).
 
-4. **Network ACLs and Firewall Rules -** If Network ACLs or additional firewalls (on-prem or in-cloud) are in use, ensure that they are configured to permit VPN traffic.
+4. **Network ACLs and Firewall Rules -** If network ACLs or additional firewalls (on-prem or in-cloud) are in use, ensure that they are configured to permit VPN traffic.
