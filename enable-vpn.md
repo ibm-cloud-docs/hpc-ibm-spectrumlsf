@@ -23,7 +23,8 @@ subcollection: hpc-ibm-spectrumlsf
 # Enabling a Virtual Private Network (VPN)
 {: #enable-vpn}
 
-A VPN provides a secure and encrypted connection between your on-premises network and the IBM Cloud Virtual Private Cloud (VPC) environment. This allows seamless communication across both environments as if they are part of the same private network.
+A Virtual Private Network (VPN) provides a secure and encrypted connection between your on-premises network and the IBM Cloud Virtual Private Cloud (VPC) environment. This allows seamless communication across both environments as if they are part of the same private network.
+
 Once the VPN gateway is provisioned through automation, you must configure the necessary VPN connections to establish the actual data path between the networks. In addition, review and update any required security group rules or routing settings to ensure proper traffic flow and access control. For more information, see the {{site.data.keyword.vpc_short}} documentation on [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
 
 ## Creating VPN gateway (Automation)
