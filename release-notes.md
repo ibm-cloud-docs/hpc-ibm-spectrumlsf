@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-08-04"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -25,6 +25,21 @@ content-type: release-note
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
+
+## August 2025
+{: #subcollection-aug25}
+
+### 18 August 2025
+{: #subcollection-aug1825}
+{: release-note}
+
+**For this release, the DA tile version is 4.0.0**
+
+Bug Fix
+:
+
+Support of new regions in IBM Cloud.
+:   For this release, Madrid and Montreal are the two new regions supported.
 
 ## July 2025
 {: #subcollection-june25}

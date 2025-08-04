@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-08-04"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -79,7 +79,7 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_id` parameter, provide the compute subnet ID for the cluster.
 
-* To create the bastion/deployer and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture. Provide the subnet ID for the cluster under the `login_subnet_id` parameter.
+* To create the bastion/deployer and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. There is already an existing `login_subnet_id` created for the Storage Scale cluster. Provide the subnet ID for the cluster under the `login_subnet_id` parameter. Using the `storage_subnet_id` is not advised due to security issues. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
 
     The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
     {: note}
@@ -89,6 +89,9 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 * Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter. This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
 
 * To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
+
+When client subnets are created, you can still use client subnets also as a login subnet.
+{: tip},
 
 If you want choose or opt the existing bastion setup on LSF, then refer the documentation for [Bastion node](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-bastion-node-overview).
 
@@ -140,7 +143,10 @@ Run the following command to update the routing on all Storage Scale CES cluster
 Run the following command to check whether the `NO_ROOT_SQUASH` is applied successfully:
 
 ```text
-# mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
+# mmnfs export list --nfsdefs /gpfs/fs1/lsf
+Path Delegations Clients Access_Type Protocols Transport Squash ...
+------------- ----------- ------------- ----------- --------- ---------
+/gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
 ```
 {: codeblock}
 

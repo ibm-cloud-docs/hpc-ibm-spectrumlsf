@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-08-04"
 
 keywords: vpc, lsf
 
@@ -39,7 +39,7 @@ With a new VPC, the {{site.data.keyword.spectrum_full}} cluster deployment autom
 
 * It splits the larger CIDR range from in `vpc_cidr`, into two different networks ranges based on number of IP addresses needed under that subnet.
 
-* After the CIDR ranges are passed in the `vpc_cidr`, `vpc_cluster_private_subnets_cidr_blocks`, and `vpc_cluster_login_private_subnets_cidr_blocks` input values, the {{site.data.keyword.spectrum_full}} cluster deployment automatically creates the VPC and subnets. One subnet range with the same CIDR range is used only for the creation of bastion and login nodes. The other subnets are used to create management nodes or VPC file shares and compute nodes.
+* After the CIDR ranges are passed in the `vpc_cidr`, `vpc_cluster_private_subnets_cidr_blocks`, and `vpc_cluster_login_private_subnets_cidr_blocks` input values, the {{site.data.keyword.spectrum_full}} cluster deployment automatically creates the VPC and subnets. One subnet range with the same CIDR range is used only for the creation of bastion/deployer and login nodes. The other subnets are used to create management nodes or VPC file shares and compute nodes.
 
    Since on the `vpc_cluster_login_private_subnets_cidr_blocks` value is used to create only the bastion and login nodes, use a smaller CIDR. If a larger range is specified, they go unused.
    {: tip}
