@@ -90,7 +90,7 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
 
-When client subnets are created, you can still use the them as the login subnet.
+When client subnets are created, you can still use them as the login subnet.
 {: tip}
 
 If you want choose or opt the existing bastion setup on LSF, then refer the documentation for [Bastion node](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-bastion-node-overview).

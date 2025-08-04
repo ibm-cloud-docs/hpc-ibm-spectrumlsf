@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-08-04"
 
 keywords:
 
@@ -26,8 +26,11 @@ subcollection: hpc-ibm-spectrumlsf
 # Deploying {{site.data.keyword.spectrum_full_notm}}
 {: #deploy-architecture}
 
-Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture with Spectrum LSF cluster using either the {{site.data.keyword.cloud_notm}} console UI, or the {{site.data.keyword.cloud_notm}} catalog CLI, and then access the deployed environment.
-{: shortdesc}
+Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture  using the {{site.data.keyword.cloud_notm}} console.
+{: ui}
+
+Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture  using the {{site.data.keyword.cloud_notm}} CLI.
+{: cli}
 
 ## Creating the project by using the UI
 {: #deploy-project-gui}
@@ -85,8 +88,6 @@ When deployed, you can then access your deployed environment.
 {: cli}
 
 To generate the API key, refer [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=cli).
-{: note}
-
 To login to the IBM Cloud CLI, refer [ibmcloud login](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
 {: note}
 
