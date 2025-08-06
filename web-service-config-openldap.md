@@ -19,7 +19,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# Configuring the LSF Client with OpenLDAP
+# Configuring the LSF client using OpenLDAP
 {: #config-openldap}
 
 To configure Web Services client with OpenLDAP users, enable LDAP support in a new LSF cluster or integrate your existing LDAP server with the LSF Cluster by following these documents.
@@ -44,10 +44,10 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
     test@MacBook-Pro WebService_Certs % 
     ```
 
-## Configure LSF Client with LDAP User and Password
+## Configuring LSF client with LDAP user and password
 {: #config-lsf-client}
 
-1. Use the following command to configure LSF client with LDAP user and password:
+1. Use the following command to configure the LSF client with LDAP user and password:
 
     ```pre
     test@MacBook-Pro Cluster1 % lsf cluster logon --username test --password Admin@123 --url https://localhost:8448
@@ -55,7 +55,7 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
     test@MacBook-Pro Cluster1 %
     ```
 
-    Here, `test` is the  LDAP user and password is the “LDAP” user password.
+    Here, `test` is the LDAP user and “LDAP” is the user password.
     {: note}
 
 2. Once the LDAP user is configured, run the workloads like the `lsfadmin` user.
@@ -69,17 +69,17 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
 
     test@MacBook-Pro ~ % lsf --cluster abc-vnc bjobs -a          
 
-    JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+    JOBID   USER    STAT  QUEUE    FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
 
-    103     test   RUN   normal     abc-vnc-m 2*abc-vnc sleep 20   Jul 16 08:07
+    103     test    RUN    normal   abc-vnc-m   2*abc-vnc   sleep 20    Jul 16 08:07
 
     test@MacBook-Pro ~ % 
 
     test@MacBook-Pro ~ % lsf --cluster abc-vnc bjobs -a
 
-    JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+    JOBID   USER    STAT    QUEUE   FROM_HOST    EXEC_HOST   JOB_NAME   SUBMIT_TIME
 
-    103     test   DONE  normal     abc-vnc-m 2*abc-vnc sleep 20   Jul 16 08:07
+    103     test     DONE   normal  abc-vnc-m     2*abc-vnc   sleep 20   Jul 16 08:07
 
     test@MacBook-Pro ~ %
     ```

@@ -19,7 +19,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# Configure LSF Web Services with Clients
+# Configuring LSF Web Services with clients
 {: #configure-web-service}
 
 The LSF client is the primary interface that allows users to connect to an LSF cluster from their local environment. It enables users to submit jobs, monitor job status, and efficiently manage workloads across distributed computing resources.
@@ -143,7 +143,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 5. Change the directory to “/usr/local/bin/”
     `cd /usr/local/bin/`
 
-6. Install the LSF plugin:
+6. Install the LSF plugin.
 
     ```pre
     test@MacBook-Pro bin % ibmcloud plugin install lsf   
@@ -153,26 +153,26 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     test@MacBook-Pro bin %
     ```
 
-7. Verify the IBM Cloud LSF client:
+7. Verify the IBM Cloud LSF client.
 
     ```pre
     test@MacBook-Pro bin % ibmcloud lsf               
     NAME:
-        lsf, lsf - LSF web service client.
+    lsf, lsf - LSF web service client.
     USAGE:
-        ibmcloud lsf [global_options...] command [arguments...] [options...]
+    ibmcloud lsf [global_options...] command [arguments...] [options...]
     GLOBAL OPTIONS:
-        --cluster value  Set a target LSF cluster by its name
-                   Alias: -c value
-        --env            Submit job with user's local environment variables
-                   Alias: -e
+    --cluster value  Set a target LSF cluster by its name
+    Alias: -c value
+     --env Submit job with user's local environment variables
+    Alias: -e
     COMMANDS:
-        cluster, cl    Manage LSF clusters.
-        config, conf   Manage configuration.
-        file, f        Manage LSF File.
-        help, h        Show help.
-        version, v     Display the 'lsf' command-line interface version.
-        $LSFCOMMAND    Execute LSF CLI command.
+    cluster, cl    Manage LSF clusters.
+    config, conf   Manage configuration.
+    file, f        Manage LSF File.
+    help, h        Show help.
+    version, v     Display the 'lsf' command-line interface version.
+    $LSFCOMMAND    Execute LSF CLI command.
     ```
 
     The available LSF commands are:
@@ -218,7 +218,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 12. Once the configuration is complete, you will be able to run any LSF commands from the same client node.
 
     ```pre
-    test@Anands-MacBook-Pro WebService_Certs % ibmcloud lsf lsid
+    test@MacBook-Pro WebService_Certs % ibmcloud lsf lsid
     IBM Spectrum LSF 10.1.0.15, Apr 14 2025
     Suite Edition: IBM Spectrum LSF Suite for Enterprise 10.2.0.15
     Copyright International Business Machines Corp. 1992, 2016.

@@ -19,12 +19,12 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# Configuring LSF Client for Multiple IBM Spectrum LSF Clusters
+# Configuring LSF client for multiple IBM Spectrum LSF clusters
 {: #config-multiple-lsf-clients}
 
 LSF Web Services are configured to run over HTTPS and use port 8443 for secure communication. Since the management nodes are not directly accessible from external networks, SSH tunneling is set up to securely access the clusters from a local machine.
 
-## Connect to Cluster-1
+## Connecting to Cluster 1
 {: #cluster1}
 
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
@@ -58,7 +58,7 @@ LSF Web Services are configured to run over HTTPS and use port 8443 for secure c
     Here `lsfadmin` is the default LSF user and password is the “AppCenter” UI password.
     {: note}
 
-## Connect to Cluster-2:
+## Connecting to Cluster 2
 {: #cluster2}
 
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
@@ -67,7 +67,7 @@ LSF Web Services are configured to run over HTTPS and use port 8443 for secure c
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -L 8449:localhost:8448 -J ubuntu@165.192.135.237 lsfadmin@10.241.0.4
     ```
 
-    Cluster-1 is already utilizing the 8448 locally. So, we can use any other port to access the WebService locally, like 8449 and so on.
+    Cluster-1 is already utilizing the 8448 locally. So, you can use any other port to access the WebService locally, like 8449 and so on.
     {: note}
 
 2. Open another terminal and run the command to copy the `cacert.pem` file from the management node to your local system:
@@ -97,16 +97,16 @@ LSF Web Services are configured to run over HTTPS and use port 8443 for secure c
 
 After successful configuration, validate and run the workloads on different clusters from Localhost.
 
-1. List out all the LSF clusters.
+1. List all the LSF clusters.
 
     ```pre
     test@MacBook-Pro ~ % lsf cluster list
 
-    Default      Name                 Version                          URL
+    Default      Name                 Version                             URL
 
-    *         abc-vnc     IBM Spectrum LSF 10.1.0.15, Apr 14 2025   https://localhost:8448
+    *           abc-vnc      IBM Spectrum LSF 10.1.0.15, Apr 14 2025   https://localhost:8448
 
-              abc-jul10   IBM Spectrum LSF 10.1.0.15, Apr 14 2025   https://localhost:8449
+                abc-jul10    IBM Spectrum LSF 10.1.0.15, Apr 14 2025   https://localhost:8449
 
     test@MacBook-Pro ~ %
     ```
@@ -169,7 +169,7 @@ After successful configuration, validate and run the workloads on different clus
     test@MacBook-Pro ~ %
     ```
 
-4. List out all the jobs from the specific cluster.
+4. List all the jobs from the specific cluster.
 
     ```pre
     test@MacBook-Pro ~ % lsf --cluster abc-jul10 bjobs -a
