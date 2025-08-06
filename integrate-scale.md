@@ -84,13 +84,13 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Scale cluster. Under the `compute_subnet_id` parameter, provide the compute subnet ID for the cluster.
 
-* To create the bastion/deployer and login nodes on the LSF, there is already an existing **login subnet** created as part of the Scale cluster. Provide that subnet ID under the `login_subnet_id` parameter. Using the **storage subnet** created from Scale is not advisable to use due to security issues. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
+* To create the bastion/deployer and login nodes on the LSF, there is an existing **login subnet** created already as part of the Scale cluster. Provide that subnet ID under the `login_subnet_id` parameter. Using the **storage subnet** created from Scale is not advisable to use due to security issues. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
 
-You can use either login subnet or client subnet or protocol subnets which are created through the Scale cluster. You can pass either of them during deployment.
-{: note}
-
-    The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
+    You can use either login subnet or client subnet or protocol subnets which are created through the Scale cluster. You can pass either of them during deployment.
     {: note}
+
+The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
+{: note}
 
 * Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details cause the LSF deployment to fail.
 
