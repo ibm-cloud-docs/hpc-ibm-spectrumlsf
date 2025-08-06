@@ -35,7 +35,8 @@ After deploying your Storage Scale cluster with CES, set up your {{site.data.key
 ## Deploying your {{site.data.keyword.scale_short}} cluster
 {: #scale-tile}
 
-Deploy your {{site.data.keyword.scale_short}} cluster using the deployable architecture variant [Scale tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global). Refer to the [{{site.data.keyword.scale_short}} documentation](https://test.cloud.ibm.com/docs-draft/storage-scale-da) for more information.
+Deploy your {{site.data.keyword.scale_short}} cluster using the deployable architecture variant [Scale tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global).
+Refer to the [{{site.data.keyword.scale_short}} documentation](https://test.cloud.ibm.com/docs-draft/storage-scale-da) for more information.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
 1. Select to use product version 4.0.0.
@@ -89,8 +90,8 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
     You can use either login subnet or client subnet or protocol subnets which are created through the Scale cluster. You can pass either of them during deployment.
     {: note}
 
-The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
-{: note}
+    The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
+    {: note}
 
 * Provide the existing custom resolver ID under the `dns_custom_resolver_id` parameter. Since a custom resolver ID was already created under the Scale VPC, failing to provide this details cause the LSF deployment to fail.
 
