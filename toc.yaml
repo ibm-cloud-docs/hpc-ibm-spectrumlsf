@@ -41,7 +41,7 @@ toc:
   - navgroup:
       id: deploy
       topics:
-      - before_deploying.md
+      - before-deploying.md
       - deployment-values.md
       - deploying-lsf.md
   - navgroup:
@@ -92,7 +92,7 @@ toc:
              - cloud-logs.md
              - activity-tracker-event.md
              - cloud-monitoring.md
-      - cleanup_deployed_envn.md
+      - cleanup-deployed-envn.md
       - scc-workload-protect.md
   - navgroup:
       id: reference
