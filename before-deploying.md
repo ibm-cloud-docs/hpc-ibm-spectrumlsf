@@ -37,7 +37,7 @@ Complete the following steps before you deploy the {{site.data.keyword.spectrum_
 
 1. Confirm that you have an {{site.data.keyword.cloud_notm}} Pay-As-You-Go or Subscription account. If you have a Trial or Lite account, [upgrade your account](/docs/account?topic=account-upgrading-account).
 
-2. Log in to your [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com){: external} account with your IBMid.
+2. Log in to your [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com){: external} account with your IBM ID.
 
 ## Verify access policies
 {: #verify-access-policies}
