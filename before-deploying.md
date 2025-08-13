@@ -84,25 +84,28 @@ The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.spectru
 The current solution no longer requires `ibm_customer_number`(ICN) for entitlement check before deploying the solution for non-production use. The solution is now available for use without ICN validation. Users can provision up to a maximum of 10 static worker nodes for evaluation or non-production use cases. If the number of worker nodes exceeds 10, it becomes the user responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. For production use or for evaluating greater than 10 worker nodes, the user must purchase the necessary LSF licenses. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
 {: important}
 
-Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
+## Before you begin
+{: #before-begin}
+
+Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps.
 
 ## Create an IBM Cloud API key
 {: #create-api-key}
 {: step}
 
-Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
+Verify that you have an {{site.data.keyword.cloud_notm}} API key. This value is required for variable `ibmcloud_api_key`. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
 ## Create an SSH key
 {: #create-ssh-key}
 {: step}
 
-Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). This value is required for variable `ssh_keys`. For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## Generate the remote IP to access Spectrum LSF cluster
 {: #generate-remote-ip}
 {: step}
 
-This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster.
+This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster. This value is required for variable `remote_allowed_ips`.
 
 If this field is left empty (for example, [""]) or not provided, then the cluster deployment will fail during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
@@ -112,7 +115,7 @@ For more information on mandatory and optional deployment values, see [Deploymen
 {: #lsf-version}
 {: step}
 
-IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
+IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15). This value is required for variable `lsf_version`.
 By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
 
 ## Application center password
@@ -120,7 +123,7 @@ By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to p
 {: step}
 
 For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
-To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails.
+To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails. This value is required for variable `app_center_gui_password`.
 
 ## Enabling optional values
 {: #optional-values}
