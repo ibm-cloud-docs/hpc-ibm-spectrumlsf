@@ -93,13 +93,13 @@ Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you nee
 {: #create-api-key}
 {: step}
 
-Verify that you have an {{site.data.keyword.cloud_notm}} API key. `ibmcloud_api_key` is the value required for the variable. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
+Verify that you have an {{site.data.keyword.cloud_notm}} API key. `ibmcloud_api_key` is the value required for this variable. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
 ## Create an SSH key
 {: #create-ssh-key}
 {: step}
 
-Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). `ssh_keys` is the value required for the variable. For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). `ssh_keys` is the value required for this variable. For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## Generate the remote IP to access Spectrum LSF cluster
 {: #generate-remote-ip}
@@ -115,7 +115,7 @@ For more information on mandatory and optional deployment values, see [Deploymen
 {: #lsf-version}
 {: step}
 
-IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15). `lsf_version` is the value required for the variable.
+IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15). `lsf_version` is the value required for this variable.
 By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
 
 ## Application center password
@@ -123,7 +123,7 @@ By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to p
 {: step}
 
 For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
-To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails. `app_center_gui_password` is the value required for the variable.
+To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails. `app_center_gui_password` is the value required for this variable.
 
 ## Enabling optional values
 {: #optional-values}
