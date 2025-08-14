@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Configuring the LSF client using OpenLDAP
 {: #config-openldap}
 
-To configure Web Services client with OpenLDAP users, enable LDAP support in a new LSF cluster or integrate your existing LDAP server with the LSF Cluster by following these documents.
+To configure Web Services client with OpenLDAP users, enable LDAP support in a new LSF cluster or integrate your existing LDAP server with the LSF cluster by following the [Using OpenLDAP with the deployed environment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-openldap) document.
 
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
 
@@ -55,7 +55,7 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
     test@MacBook-Pro Cluster1 %
     ```
 
-    Here, `test` is the LDAP user and “LDAP” is the user password.
+    Here, `test` is the LDAP user and "Admin@123" is the user password.
     {: note}
 
 2. Once the LDAP user is configured, run the workloads like the `lsfadmin` user.

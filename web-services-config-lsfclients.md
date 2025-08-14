@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -42,10 +42,10 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 3. Run the following command to check whether the LSF client is set up correctly:
 
     ```pre
-    root@abc-re1-bastion-ce46-001:~# lsf version
+    test@abc-MacBook-Pro WebService_Certs % lsf version
     version:  v0.0.1  
     commit:   0.0.1  
-    root@abc-re1-bastion-ce46-001:~#
+    test@abc-MacBook-Pro WebService_Certs %
     ```
 
 4. If the .bluemix folder exists, then delete the LSF plugin directory by removing `$HOME/.bluemix/plugins/lsf` using the command:
@@ -90,7 +90,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 9. Once the configuration is complete, you will be able to run any LSF commands from the same client node.
 
     ```pre
-    root@abc-re1-bastion-ce46-001:~# lsf lsid
+    test@abc-MacBook-Pro WebService_Certs % lsf lsid
     IBM Spectrum LSF 10.1.0.15, Apr 14 2025
     Suite Edition: IBM Spectrum LSF Suite for Enterprise 10.2.0.15
     Copyright International Business Machines Corp. 1992, 2016.
@@ -98,23 +98,23 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
     My cluster name is abc-re1
     My master name is abc-re1-mgmt-1-9e6e-001.lsf.com
-    root@abc-re1-bastion-ce46-001:~#
+    test@abc-MacBook-Pro WebService_Certs %
 
-    root@abc-re1-bastion-ce46-001:~# lsf bhosts -w
+    test@abc-MacBook-Pro WebService_Certs % lsf bhosts -w
     HOST_NAME          STATUS          JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV
     abc-re1-comp-1-9e6e-001.lsf.com ok              -      8      0      0      0      0      0
     abc-re1-mgmt-1-9e6e-001.lsf.com closed_Full     -      0      0      0      0      0      0
     abc-re1-mgmt-1-9e6e-002.lsf.com closed_Full     -      0      0      0      0      0      0
-    root@abc-re1-bastion-ce46-001:~#
-    root@abc-re1-bastion-ce46-001:~# lsf bsub -n 5 sleep 10
+    test@abc-MacBook-Pro WebService_Certs %
+    test@abc-MacBook-Pro WebService_Certs % lsf bsub -n 5 sleep 10
     Job <228> is submitted to default queue <normal>.
-    root@abc-re1-bastion-ce46-001:~#
-    root@abc-re1-bastion-ce46-001:~# lsf bjobs -a -w
+    test@abc-MacBook-Pro WebService_Certs %
+    test@abc-MacBook-Pro WebService_Certs % lsf bjobs -a -w
     JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
     227     lsfadmin DONE  normal     abc-re1-mgmt-1-9e6e-001.lsf.com abc-re1-comp-1-9e6e-001.lsf.com sleep 10   Jun 25 14:52
     228     lsfadmin DONE  normal     abc-re1-mgmt-1-9e6e-001.lsf.com 5*abc-re1-comp-1-9e6e-001.lsf.com sleep 10   Jun 25 15:04
-    root@abc-re1-bastion-ce46-001:~#
-    root@abc-re1-bastion-ce46-001:~#
+    test@abc-MacBook-Pro WebService_Certs %
+    test@abc-MacBook-Pro WebService_Certs %
     ```
 
 10. Log out of the cluster connection.
@@ -158,27 +158,27 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     ```pre
     test@MacBook-Pro bin % ibmcloud lsf               
     NAME:
-    lsf, lsf - LSF web service client.
+    lsf, lsf - LSF web service client.
     USAGE:
-    ibmcloud lsf [global_options...] command [arguments...] [options...]
+    ibmcloud lsf [global_options...] command [arguments...] [options...]
     GLOBAL OPTIONS:
-    --cluster value  Set a target LSF cluster by its name
-    Alias: -c value
-     --env Submit job with user's local environment variables
-    Alias: -e
+    --cluster value  Set a target LSF cluster by its name
+    Alias: -c value
+    --env Submit job with user's local environment variables
+    Alias: -e
     COMMANDS:
-    cluster, cl    Manage LSF clusters.
-    config, conf   Manage configuration.
-    file, f        Manage LSF File.
-    help, h        Show help.
-    version, v     Display the 'lsf' command-line interface version.
-    $LSFCOMMAND    Execute LSF CLI command.
-    ```
-
+    cluster, cl    Manage LSF clusters.
+    config, conf   Manage configuration.
+    file, f        Manage LSF File.
+    help, h        Show help.
+    version, v     Display the 'lsf' command-line interface version.
+    $LSFCOMMAND    Execute LSF CLI command.
     The available LSF commands are:
+
     bacct, bapp, bbot, bchkpnt, bconf, bentags, bgadd, bgdel, bgmod, bgpinfo, bhist, bhosts, bhpart, bjdepinfo, bjgroup, bjobs, bkill, blaunch, blimits, bmgroup, bmig, bmod, bparams, bpeek, bpost, bqueues, bread, brequeue, bresize, bresources, brestart, bresume, brlainfo, brsvadd, brsvdel, brsvmod, brsvs, brun, bsla, bslots, bstatus, bstop, bsub, bswitch, btop, bugroup, busers, lsacct, lsacctmrg, lsclusters, lseligible, lsrun, lsgrun, lshosts, lsid, lsinfo, lsload, lsloadadj, lsltasks, lsplace, lsrtasks, qdel, qsub
 
     Type `ibmcloud lsf help` in the terminal to get more details on any of the above commands.
+    ```
 
 8. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -29,7 +29,7 @@ IBM Spectrum LSF Web Services provides a RESTful HTTP(s) interface for remotely 
 
 IBM Spectrum LSF Web Services is enabled by default with the LSF Suite installation. The service is installed and runs on the primary management node (usually Management Node 1).
 
-By default, High Availability (HA) for Process Manager is not enabled. The service runs as a stand-alone instance on a single node. If the node becomes unavailable, then the Web Services will also be temporarily inaccessible.
+By default, High Availability (HA) for Web Services is not enabled. The service runs as a stand-alone instance on a single node. If the node becomes unavailable, then the Web Services will also be temporarily inaccessible.
 {: note}
 
 ## Checking the IBM Spectrum LSF Web Services

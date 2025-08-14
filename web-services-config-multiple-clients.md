@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -51,7 +51,8 @@ LSF Web Services are configured to run over HTTPS and use port 8443 for secure c
 
     ```pre
     test@MacBook-Pro WebService_Certs % lsf cluster logon --username lsfadmin --
-    password Anand@123 --url https://localhost:8448OK
+    password abc@123 --url https://localhost:8448
+    OK
     test@MacBook-Pro WebService_Certs % 
     ```
 
@@ -101,13 +102,9 @@ After successful configuration, validate and run the workloads on different clus
 
     ```pre
     test@MacBook-Pro ~ % lsf cluster list
-
     Default      Name                 Version                             URL
-
     *           abc-vnc      IBM Spectrum LSF 10.1.0.15, Apr 14 2025   https://localhost:8448
-
                 abc-jul10    IBM Spectrum LSF 10.1.0.15, Apr 14 2025   https://localhost:8449
-
     test@MacBook-Pro ~ %
     ```
 
@@ -115,41 +112,27 @@ After successful configuration, validate and run the workloads on different clus
 
     ```pre
     test@MacBook-Pro ~ % lsf --cluster abc-jul10 lsid
-
     IBM Spectrum LSF 10.1.0.15, Apr 14 2025
-
     Suite Edition: IBM Spectrum LSF Suite for Enterprise 10.2.0.15
-
     Copyright International Business Machines Corp. 1992, 2016.
-
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
     ```
 
     ```pre
     My cluster name is abc-jul10
-
     My master name is abc-jul10-mgmt-1-2fe8-001.lsf.com
-
     test@MacBook-Pro ~ %
-
     test@MacBook-Pro ~ %
-
     test@MacBook-Pro ~ % lsf --cluster abc-vnc lsid
-
     IBM Spectrum LSF 10.1.0.15, Apr 14 2025
-
     Suite Edition: IBM Spectrum LSF Suite for Enterprise 10.2.0.15
-
     Copyright International Business Machines Corp. 1992, 2016.
-
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
     ```
 
     ```pre
     My cluster name is abc-vnc
-
     My master name is abc-vnc-mgmt-1-8ab5-001.lsf.com
-
     test@MacBook-Pro ~ %
     ```
 
@@ -157,15 +140,10 @@ After successful configuration, validate and run the workloads on different clus
 
     ```pre
     test@MacBook-Pro ~ % lsf --cluster abc-vnc bsub -n 1 sleep 1
-
     Job <102> is submitted to default queue <normal>.
-
     test@MacBook-Pro ~ % lsf --cluster abc-vnc bjobs -a
-
     JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-
     102     lsfadmi DONE  normal     abc-vnc-m abc-vnc-c sleep 1    Jul 16 07:10
-
     test@MacBook-Pro ~ %
     ```
 
@@ -173,9 +151,7 @@ After successful configuration, validate and run the workloads on different clus
 
     ```pre
     test@MacBook-Pro ~ % lsf --cluster abc-jul10 bjobs -a
-
     No job found
-
     test@MacBook-Pro ~ %
     ```
 
@@ -183,8 +159,6 @@ After successful configuration, validate and run the workloads on different clus
 
     ```pre
     test@MacBook-Pro ~ % lsf cluster logout --url https://localhost:8448
-
     lsfadmin is logged out.
-
     test@MacBook-Pro ~ %
     ```
