@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-19"
 
 keywords:
 
@@ -93,7 +93,7 @@ LSF Web Services are configured to run over HTTPS and use port 8443 for secure c
     test@MacBook-Pro WebService_Certs % 
     ```
 
-    Here `lsfadmin` is the default LSF user and the password is the “AppCenter” UI password.
+    Here "lsfadmin" is the default LSF user and “AppCenter” is the UI password.
     {: note}
 
 After successful configuration, validate and run the workloads on different clusters from Localhost.
@@ -116,9 +116,6 @@ After successful configuration, validate and run the workloads on different clus
     Suite Edition: IBM Spectrum LSF Suite for Enterprise 10.2.0.15
     Copyright International Business Machines Corp. 1992, 2016.
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-    ```
-
-    ```pre
     My cluster name is abc-jul10
     My master name is abc-jul10-mgmt-1-2fe8-001.lsf.com
     test@MacBook-Pro ~ %
@@ -128,9 +125,6 @@ After successful configuration, validate and run the workloads on different clus
     Suite Edition: IBM Spectrum LSF Suite for Enterprise 10.2.0.15
     Copyright International Business Machines Corp. 1992, 2016.
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-    ```
-
-    ```pre
     My cluster name is abc-vnc
     My master name is abc-vnc-mgmt-1-8ab5-001.lsf.com
     test@MacBook-Pro ~ %

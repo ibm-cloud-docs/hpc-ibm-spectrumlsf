@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-19"
 
 keywords:
 
@@ -84,7 +84,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     test@abc-MacBook-Pro WebService_Certs % 
     ```
 
-    Here `lsfadmin` is the default LSF user and password is the “AppCenter” UI password.
+    Here "lsfadmin" is the default LSF user and “AppCenter” is the UI password.
     {: note}
 
 9. Once the configuration is complete, you will be able to run any LSF commands from the same client node.
@@ -212,7 +212,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     test@MacBook-Pro WebService_Certs %
     ```
 
-    Here `lsfadmin` is the default LSF user and password is the “AppCenter” UI password.
+    Here "lsfadmin" is the default LSF user and “AppCenter” is the UI password.
     {: note}
 
 12. Once the configuration is complete, you will be able to run any LSF commands from the same client node.

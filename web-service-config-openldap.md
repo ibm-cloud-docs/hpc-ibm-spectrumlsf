@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-19"
 
 keywords:
 
@@ -55,7 +55,7 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
     test@MacBook-Pro Cluster1 %
     ```
 
-    Here, `test` is the LDAP user and "Admin@123" is the user password.
+    Here, "test" is the LDAP user and "Admin@123" is the user password.
     {: note}
 
 2. Once the LDAP user is configured, run the workloads like the `lsfadmin` user.
