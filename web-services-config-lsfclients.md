@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -97,22 +97,22 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 
     My cluster name is abc-re1
-    My master name is abc-re1-mgmt-1-9e6e-001.lsf.com
+    My master name is abc-re1-mgmt-1-9e6e-001.hpc.local
     test@abc-MacBook-Pro WebService_Certs %
 
     test@abc-MacBook-Pro WebService_Certs % lsf bhosts -w
     HOST_NAME          STATUS          JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV
-    abc-re1-comp-1-9e6e-001.lsf.com ok              -      8      0      0      0      0      0
-    abc-re1-mgmt-1-9e6e-001.lsf.com closed_Full     -      0      0      0      0      0      0
-    abc-re1-mgmt-1-9e6e-002.lsf.com closed_Full     -      0      0      0      0      0      0
+    abc-re1-comp-1-9e6e-001.hpc.local ok              -      8      0      0      0      0      0
+    abc-re1-mgmt-1-9e6e-001.hpc.local closed_Full     -      0      0      0      0      0      0
+    abc-re1-mgmt-1-9e6e-002.hpc.local closed_Full     -      0      0      0      0      0      0
     test@abc-MacBook-Pro WebService_Certs %
     test@abc-MacBook-Pro WebService_Certs % lsf bsub -n 5 sleep 10
     Job <228> is submitted to default queue <normal>.
     test@abc-MacBook-Pro WebService_Certs %
     test@abc-MacBook-Pro WebService_Certs % lsf bjobs -a -w
     JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    227     lsfadmin DONE  normal     abc-re1-mgmt-1-9e6e-001.lsf.com abc-re1-comp-1-9e6e-001.lsf.com sleep 10   Jun 25 14:52
-    228     lsfadmin DONE  normal     abc-re1-mgmt-1-9e6e-001.lsf.com 5*abc-re1-comp-1-9e6e-001.lsf.com sleep 10   Jun 25 15:04
+    227     lsfadmin DONE  normal     abc-re1-mgmt-1-9e6e-001.hpc.local abc-re1-comp-1-9e6e-001.hpc.local sleep 10   Jun 25 14:52
+    228     lsfadmin DONE  normal     abc-re1-mgmt-1-9e6e-001.hpc.local 5*abc-re1-comp-1-9e6e-001.hpc.local sleep 10   Jun 25 15:04
     test@abc-MacBook-Pro WebService_Certs %
     test@abc-MacBook-Pro WebService_Certs %
     ```
@@ -224,7 +224,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     Copyright International Business Machines Corp. 1992, 2016.
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
     My cluster name is cluster_prefix-jul10
-    My master name is cluster_prefix-jul10-mgmt-1-2fe8-001.lsf.com
+    My master name is cluster_prefix-jul10-mgmt-1-2fe8-001.hpc.local
     test@MacBook-Pro WebService_Certs % 
     test@MacBook-Pro WebService_Certs % 
     test@MacBook-Pro WebService_Certs % ibmcloud lsf lshosts

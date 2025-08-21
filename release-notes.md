@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-21"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -38,7 +38,7 @@ The release notes describes the brief overview of the new features, enhancements
 Bug Fix
 :
 
-Support of new regions in IBM Cloud
+Support for new regions in IBM Cloud
 :   For this release, Madrid and Montreal are the two new regions supported.
 
 ## July 2025

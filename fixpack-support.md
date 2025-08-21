@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-04"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -95,7 +95,7 @@ Copyright International Business Machines Corp. 1992, 2016.
 US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 
 My cluster name is test-fi
-My master name is test-fi-mgmt-1-c613-001.lsf.com
+My master name is test-fi-mgmt-1-c613-001.hpc.local
 ```
 
 ## Conclusion

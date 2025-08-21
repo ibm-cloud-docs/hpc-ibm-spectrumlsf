@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -117,7 +117,7 @@ After successful configuration, validate and run the workloads on different clus
     Copyright International Business Machines Corp. 1992, 2016.
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
     My cluster name is abc-jul10
-    My master name is abc-jul10-mgmt-1-2fe8-001.lsf.com
+    My master name is abc-jul10-mgmt-1-2fe8-001.hpc.local
     test@MacBook-Pro ~ %
     test@MacBook-Pro ~ %
     test@MacBook-Pro ~ % lsf --cluster abc-vnc lsid
@@ -126,7 +126,7 @@ After successful configuration, validate and run the workloads on different clus
     Copyright International Business Machines Corp. 1992, 2016.
     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
     My cluster name is abc-vnc
-    My master name is abc-vnc-mgmt-1-8ab5-001.lsf.com
+    My master name is abc-vnc-mgmt-1-8ab5-001.hpc.local
     test@MacBook-Pro ~ %
     ```
 

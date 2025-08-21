@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -86,10 +86,10 @@ The following are the optional deployment values used to configure the {{site.da
 | `observability_monitoring_on_compute_nodes_enable` | Enables or disables IBM Cloud Monitoring integration. When enabled, metrics from both the infrastructure and LSF application running on compute Nodes will be collected. This must be set to true if monitoring is required on compute nodes. | No | false |
 | `observability_monitoring_plan` | Type of service plan for IBM Cloud Monitoring instance. You can choose one of the following: lite, graduated-tier. For more information, see [IBM Cloud Monitoring Service Plans](https://cloud.ibm.com/docs/monitoring?topic=monitoring-service_plans). | No | "graduated-tier" |
 | `dns_instance_id` | Specify the ID of an existing IBM Cloud DNS service instance. When provided, domain names are created within the specified instance. If set to null, a new DNS service instance is created, and the required DNS zones are associated with it. | No | None |
-| `dns_domain_name` | IBM Cloud DNS service domain name to be used for the IBM Spectrum LSF cluster. | No | {compute = "comp.com"}|
+| `dns_domain_name` | IBM Cloud DNS service domain name to be used for the IBM Spectrum LSF cluster. | No | {compute = "hpc.local"}|
 | `dns_custom_resolver_id` | Specify the ID of an existing IBM Cloud DNS custom resolver to avoid creating a new one. If set to null, a new custom resolver will be created and associated with the VPC. Note: A VPC can be associated with only one custom resolver. When using an existing VPC, if a custom resolver is already associated and this ID is not provided, the deployment will fail. | No | None |
 | `enable_ldap` | Set this option to true to enable LDAP for IBM Spectrum LSF, with the default value set to false. | No | false |
-| `ldap_basedns` | The dns domain name used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name. | No | "lsf.com" |
+| `ldap_basedns` | The dns domain name used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name. | No | "hpc.local" |
 |`ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | No | None |
 | `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. | No | None |
 | `ldap_admin_password` | The LDAP administrative password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required. It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server]. | No | None |
