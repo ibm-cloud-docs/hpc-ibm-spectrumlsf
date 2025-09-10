@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-09-10"
 
 keywords:
 
@@ -24,17 +24,23 @@ subcollection: hpc-ibm-spectrumlsf
 
 To configure Web Services client with OpenLDAP users, enable LDAP support in a new LSF cluster or integrate your existing LDAP server with the LSF cluster by following the [Using OpenLDAP with the deployed environment](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-about-openldap) document.
 
-1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
+1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -L 8448:localhost:8448 -J ubuntu@165.192.135.237 lsfadmin@10.241.0.4
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
     ```
 
-2. Open another terminal and run the command to copy the `cacert.pem` file from the management node to your local system:
+2. Open another terminal and run the command to copy the **cacert.pem** file from the management node to your local system:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@165.192.143.29 lsfadmin@10.241.0.4:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP> :/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
     ```
+
+    Note:
+
+    * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
+
+    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
 
 3. Open another terminal and set up https certificate on Client or Localhost.
 
@@ -50,12 +56,13 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
 1. Use the following command to configure the LSF client with LDAP user and password:
 
     ```pre
-    test@MacBook-Pro Cluster1 % lsf cluster logon --username test --password Admin@123 --url https://localhost:8448
+    test@abc-MacBook-Pro Cluster1 % lsf cluster logon --username test --url https://localhost:8448
+    Password>
     OK
-    test@MacBook-Pro Cluster1 %
+    test@abc-MacBook-Pro Cluster1 %
     ```
 
-    Here, "test" is the LDAP user and "Admin@123" is the user password.
+    In this example, "test" is the LDAP user. When prompted, provide the Application Center password that was set during the cluster creation.
     {: note}
 
 2. Once the LDAP user is configured, run the workloads like the `lsfadmin` user.

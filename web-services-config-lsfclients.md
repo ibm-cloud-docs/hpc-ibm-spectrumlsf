@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-09-10"
 
 keywords:
 
@@ -36,8 +36,13 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
 1. Download the `lws_client10.1.0.15.tar.Z` package from the [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true).
 
-2. Extract the zip folder and choose the operating system to set up the `lws client`. Choose the binary and copy into "/usr/local/bin/" path.
-    Example: `cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/`
+2. Extract the zip folder and choose the operating system to set up the lws client. Choose the binary and copy into "/usr/local/bin/" path.
+
+    Example:
+
+    ```pre
+    cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
+    ```
 
 3. Run the following command to check whether the LSF client is set up correctly:
 
@@ -51,19 +56,22 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 4. If the .bluemix folder exists, then delete the LSF plugin directory by removing `$HOME/.bluemix/plugins/lsf` using the command:
     `rm -rf "$HOME/.bluemix"`
 
-5. Copy the `cacert.pem` file from the management node to your local system using the command:
+5. Copy the **cacert.pem** file from the management node to your local system using the command:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J
-    ubuntu@165.192.143.29
-    lsfadmin@10.241.0.4:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem
-    /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP> :/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
     ```
 
-6. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
+    Note:
+
+    * For clusters with a single management node, all the configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
+
+    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
+
+6. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -L 8448:localhost:8448 -J ubuntu@165.192.135.237 lsfadmin@10.241.0.4
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
     ```
 
 7. Open another terminal and set up the https certificate on the Client or Localhost.
@@ -75,16 +83,16 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     test@abc-MacBook-Pro WebService_Certs % 
     ```
 
-8. Login to the LSF cluster using HTTPS on port 8448.
+8. Log in to the LSF cluster using HTTPS on port 8448.
 
     ```pre
-    test@abc-MacBook-Pro WebService_Certs % lsf cluster logon --username
-    lsfadmin --password lsf@123 --url https://localhost:8448
+    test@abc-MacBook-Pro bin % ibmcloud lsf cluster logon --username lsfadmin --url https://localhost:8449
+    Password>
     OK
-    test@abc-MacBook-Pro WebService_Certs % 
+    test@abc-MacBook-Pro bin %  
     ```
 
-    Here "lsfadmin" is the default LSF user and “AppCenter” is the UI password.
+    The default LSF user is lsfadmin. When prompted for a password, enter the Application Center password that was provided during cluster creation.
     {: note}
 
 9. Once the configuration is complete, you will be able to run any LSF commands from the same client node.
@@ -130,7 +138,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
 The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that allows users to interact with LSF clusters deployed in IBM Cloud environments.
 
-1. Remove the `$HOME/.bluemix/plugins/lsf` if it exists from your client or local system using the command - `rm –fr  ~/.bluemix`
+1. Remove the $HOME/.bluemix/plugins/lsf file if it exists from your client or local system using the command: `rm -rf "$HOME/.bluemix"`
 
 2. Download the `lws_client10.1.0.15.tar.Z` package from the [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true).
 
@@ -180,20 +188,25 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     Type `ibmcloud lsf help` in the terminal to get more details on any of the above commands.
     ```
 
-8. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `connect_to_web_services` variable.
+8. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -L 8448:localhost:8448 -J ubuntu@165.192.135.237 lsfadmin@10.241.0.4
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
     ```
 
-9. Open another terminal and run the command to copy the `cacert.pem` file from the management node to your local system:
+9. Open another terminal and run the command to copy the “cacert.pem” file from the management node to your local system:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J
-    ubuntu@165.192.143.29
-    lsfadmin@10.241.0.4:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem
-    /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP> :/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
     ```
+
+    Note:
+
+    * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
+
+    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
+
+
 
 10. Set up the https certificate on the client host using the command:
 
