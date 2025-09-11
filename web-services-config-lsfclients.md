@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-11"
 
 keywords:
 
@@ -59,7 +59,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 5. Copy the **cacert.pem** file from the management node to your local system using the command:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP> :/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP>lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
     ```
 
     Note:
@@ -86,7 +86,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 8. Log in to the LSF cluster using HTTPS on port 8448.
 
     ```pre
-    test@abc-MacBook-Pro bin % ibmcloud lsf cluster logon --username lsfadmin --url https://localhost:8449
+    test@abc-MacBook-Pro bin % lsf cluster logon --username lsfadmin --url https://localhost:8448
     Password>
     OK
     test@abc-MacBook-Pro bin %  
@@ -197,7 +197,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 9. Open another terminal and run the command to copy the “cacert.pem” file from the management node to your local system:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP> :/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
     ```
 
     Note:
@@ -205,8 +205,6 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
 
     * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
-
-
 
 10. Set up the https certificate on the client host using the command:
 
@@ -220,12 +218,13 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 11. Login to the LSF cluster using HTTPS on port 8448.
 
     ```pre
-    test@MacBook-Pro WebService_Certs % ibmcloud lsf cluster logon --username lsfadmin --password abc@123 --url https://localhost:8448
+    test@abc-MacBook-Pro bin % ibmcloud lsf cluster logon --username lsfadmin --url https://localhost:8448
+    Password>
     OK
-    test@MacBook-Pro WebService_Certs %
+    test@abc-MacBook-Pro bin %
     ```
 
-    Here "lsfadmin" is the default LSF user and “AppCenter” is the UI password.
+    The default LSF user is lsfadmin. When prompted for a password, enter the Application Center password that was provided during cluster creation.
     {: note}
 
 12. Once the configuration is complete, you will be able to run any LSF commands from the same client node.

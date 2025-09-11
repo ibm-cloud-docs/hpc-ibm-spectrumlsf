@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-11"
 
 keywords:
 
@@ -33,7 +33,7 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
 2. Open another terminal and run the command to copy the **cacert.pem** file from the management node to your local system:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP> :/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
     ```
 
     Note:
@@ -62,7 +62,7 @@ To configure Web Services client with OpenLDAP users, enable LDAP support in a n
     test@abc-MacBook-Pro Cluster1 %
     ```
 
-    In this example, "test" is the LDAP user. When prompted, provide the Application Center password that was set during the cluster creation.
+    In this example, "test" is the LDAP user. When prompted, provide the LDAP user password that was set during the cluster creation.
     {: note}
 
 2. Once the LDAP user is configured, run the workloads like the `lsfadmin` user.
