@@ -59,7 +59,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 5. Copy the **cacert.pem** file from the management node to your local system using the command:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP>lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP>lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
     Note:
@@ -197,7 +197,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 9. Open another terminal and run the command to copy the “cacert.pem” file from the management node to your local system:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
     Note:
