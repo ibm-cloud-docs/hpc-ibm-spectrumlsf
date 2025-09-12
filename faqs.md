@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-09-12"
 
 keywords:
 
@@ -272,3 +272,21 @@ So below are the required permissions for SCC Workload Protection are:
 {: faq}
 
 For this release, noVNC is not supported due to platform issues. Team is working on it.
+
+## Why do I see "Unable to authenticate user" error when connecting to LSF Web Services using the LSF client?
+{: #security}
+{: faq}
+
+This error usually indicates that the password entered during the login attempt is incorrect. Verify that you are using the correct credentials for the specified user. If you have forgotten the password, please contact your cluster administrator to reset the password.
+
+```pre
+test@abc-MacBook-Pro ~ % lsf cluster logon --username lsfadmin --url https://localhost:8448
+Password>
+FAILED
+Unable to authenticate user: lsfadmin
+test@abc-MacBook-Pro ~ %
+```
+
+For troubleshooting and audit purposes, failed authentication attempts are logged on the Web Service node. You can review the log file at:
+
+`/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
