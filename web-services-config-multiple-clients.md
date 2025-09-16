@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -30,7 +30,7 @@ LSF Web Services are configured to run over HTTPS and use port 8448 for secure c
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:localhost:8448 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
 2. Open another terminal and run the command to copy the **cacert.pem** file from the management node to your local system:
@@ -71,7 +71,7 @@ LSF Web Services are configured to run over HTTPS and use port 8448 for secure c
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8449:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8449:localhost:8448 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
     Since cluster-1 is already using port 8448 locally, you can map the Web Service to an alternative port (for example, 8449, 8450, etc.) for local access.

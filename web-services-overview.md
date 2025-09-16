@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -27,7 +27,9 @@ IBM Spectrum LSF Web Services provides a RESTful HTTP(s) interface for remotely 
 ## Configuring IBM Spectrum LSF Web Services
 {: #config-web-services}
 
-IBM Spectrum LSF Web Services is enabled by default with the LSF Suite installation. The service is installed and runs on the secondary management node (typically Management Node 2). If the cluster is created with only one management node, Web Services are configured on that same node.
+IBM Spectrum LSF Web Services is enabled by default with the LSF Suite installation. The service is installed and runs on the secondary management node (typically Management Node 2).
+
+If the cluster is created with only one management node, Web Services are configured on that same node.
 
 By default, High Availability (HA) for Web Services is not enabled. The service runs as a stand-alone instance on a single node. If the node becomes unavailable, then the Web Services will also be temporarily inaccessible.
 {: note}

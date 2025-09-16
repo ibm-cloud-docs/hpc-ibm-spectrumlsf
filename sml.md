@@ -69,14 +69,13 @@ ACCOUNT_GUID="ACCOUNT_GUID"
 ZONES="ZONES"
 RESOURCE_GROUP="RESOURCE_GROUP"
 
-# SSH key name (must exist in your account)
+# SSH key name
 SSH_KEY="SSH_KEY"
 
 # Template JSON file (choose as per your deployment type)
 TEMPLATE_FILE="catalog_values_minimal_deployment.json"
 
 # LSF tile version locator
-# Example below is for 3.0.1 version
 LSF_TILE_VERSION="1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.2ad06fe1-6125-45c5-b8b6-6454eb4907e6-global"
 
 # App Center GUI password
@@ -84,6 +83,15 @@ LSF_TILE_VERSION="1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.2ad06fe1-6125-45c5-b8b6-6
 # and 1 special character (!@#$%^&*()_+=-). No spaces allowed.
 APP_CENTER_GUI_PASSWORD="APP_CENTER_GUI_PASSWORD"
 ```
+
+* API_KEY - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
+* ACCOUNT_GUID -
+* ZONES - The IBM Cloud zone within the chosen region where the IBM Spectrum LSF cluster will be deployed.
+* RESOURCE_GROUP - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
+* SSH_KEY - A list of SSH key names already configured in your IBM Cloud account to establish a connection to the Spectrum LSF nodes.
+* TEMPLATE_FILE -
+* LSF_TILE_VERSION -
+* APP_CENTER_GUI_PASSWORD -
 
 ## Deploy the LSF environment
 {: #deploy-env}

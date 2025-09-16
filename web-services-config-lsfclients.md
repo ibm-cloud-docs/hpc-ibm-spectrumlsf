@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -28,6 +28,43 @@ There are two types of LSF clients:
 
 1. Standalone LSF Client (lsf)
 2. IBM Cloud LSF Plugin (ibmcloud lsf)
+
+## Accessing LSF Web Service through SSH Local Port Forwarding
+{: #webservice-ssh-tunnel}
+
+We need to securely access the LSF Web Service running on the management node from
+our local system. Since the management node is not directly accessible from the
+internet, you need to connect through the Bastion Node (jump host) using SSH local port
+forwarding.
+
+Run the following command from your local terminal:
+
+```pre
+ssh -L 8448:localhost:8448 -J ubuntu@<Bastion_Node> lsfadmin@<Management_Node>
+```
+
+How does the Local Port Forwarding command works?
+
+```pre
+[ Local Machine:8448 ] --> [ Bastion Node ] --> [ Management Node:8448 ]
+        ^                                                    |
+        |                                                    |
+Access via browser/CLI ----------- SSH Tunnel ---------------
+```
+
+Local Port Forwarding creates an encrypted SSH tunnel that maps a port on your local system to a service port on a remote host.
+
+This enables you to reach services that are not directly accessible (for example,
+those behind firewalls or only available through a Bastion/Jump host).
+
+It allows you to access the LSF Web Service at:
+
+```pre
+https://localhost:8448
+```
+
+Keep this terminal session open to maintain the tunnel; the connection will be lost
+if the SSH tunnel times out or disconnects.
 
 ## Standalone LSF Client (lsf)
 {: #standalone-lsf-client}
@@ -71,8 +108,12 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 6. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:localhost:8448 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
+
+    * For clusters with a single management node, all the configurations run on that same node.
+
+    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
 
 7. Open another terminal and set up the https certificate on the Client or Localhost.
 
@@ -191,8 +232,12 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 8. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:10.241.0.5:8448 -J ubuntu@162.133.143.84 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:localhost:8448 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
+
+    * For clusters with a single management node, all the configurations run on that same node.
+
+    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
 
 9. Open another terminal and run the command to copy the “cacert.pem” file from the management node to your local system:
 
