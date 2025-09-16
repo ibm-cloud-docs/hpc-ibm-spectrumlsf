@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Small Medium Large Deployments
 {: #sml-intro}
 
-The current LSF deployment setup is designed for production and is expensive for trying before-you-buy option and demonstration use cases. As a solution, now users can select the deployment options using three different t-shirt sizes. This has the ability to deploy a smaller, less expensive environment on IBM Cloud to try out the capability or to provide a demonstration.
+The current LSF deployment setup is designed for production and is expensive for trying before-you-buy option and demonstration use cases. As a solution, now users can select the deployment options using three different t-shirt sizes. This solution has the ability to deploy a smaller and less expensive environment on IBM Cloud to try the capability or to provide a demonstration.
 
 ## Deployment types
 {: #deploy-types}
@@ -98,7 +98,7 @@ Run the following commands to deploy the LSF environment:
 
 ## Connect the LSF cluster and run the jobs
 {: #connect-lsf-jobs}
-{: steps}
+{: step}
 
 Now that your environment is set up, you can connect to the LSF cluster and perform operations such as submitting jobs, monitoring workloads, viewing infrastructure details.
 There are two ways to connect:
@@ -108,10 +108,10 @@ There are two ways to connect:
 
 Run the `web_service.sh` to configure LSF web services for local client access (Standalone LSF Client):
 
-    ```pre
-    chmod +x web_service.sh
-    ./web_service.sh <cluster_prefix>
-    ```
+```pre
+chmod +x web_service.sh
+./web_service.sh <cluster_prefix>
+```
 
 This allows you to connect to an LSF cluster from their local environment.
 
