@@ -94,6 +94,7 @@ toc:
              - cloud-monitoring.md
       - cleanup-deployed-envn.md
       - scc-workload-protect.md
+      - sml.md
   - navgroup:
       id: reference
       topics:
