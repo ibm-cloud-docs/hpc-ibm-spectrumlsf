@@ -33,19 +33,19 @@ There are 3 deployment size options, you will be able to choose from:
 
 1. **Minimal**
 
-This deploys the smallest possible environment (a single management instance) for the fastest setup. All optional services like observability, logging, SCC, Atracker, and LDAP are disabled.
+    This deploys the smallest possible environment (a single management instance) for the fastest setup. All optional services like observability, logging, SCC, Atracker, and LDAP are disabled.
 
 2. **Demo**
 
-This displays the full set of capabilities. All optional services like observability, logging, and SCC are enabled. The deployment takes longer compared to minimal.
+    This displays the full set of capabilities. All optional services like observability, logging, and SCC are enabled. The deployment takes longer compared to minimal.
 
 3. **Production**
 
-This option allows customization for production grade deployments. The optional services like observability, logging, and SCC are enabled by default but can be changed as required.
+    This option allows customization for production grade deployments. The optional services like observability, logging, and SCC are enabled by default but can be changed as required.
 
-All the JSON files are customizable (users can make configuration changes as needed). But the **.env** file is mandatory because it contains the required variables that must be filled always.
+    All the JSON files are customizable (users can make configuration changes as needed). But the **.env** file is mandatory because it contains the required variables that must be filled always.
 
-## Fill the .env file
+## Update the .env file
 {: #env-file}
 {: step}
 
@@ -96,7 +96,7 @@ Run the following commands to deploy the LSF environment:
 2. ./create_lsf_environment.sh <cluster_prefix>
 ```
 
-## Connect to the LSF cluster and run the jobs
+## Connect the LSF cluster and run the jobs
 {: #connect-lsf-jobs}
 {: steps}
 
@@ -106,7 +106,8 @@ There are two ways to connect:
 ### Option 1: Using Web Services
 {: #using-web-services}
 
-Run the `web_service.sh` to configure LSF Web Services for local client access (Standalone LSF Client):
+Run the `web_service.sh` to configure LSF web services for local client access (Standalone LSF Client):
+
     ```pre
     chmod +x web_service.sh
     ./web_service.sh <cluster_prefix>
@@ -114,7 +115,7 @@ Run the `web_service.sh` to configure LSF Web Services for local client access (
 
 This allows you to connect to an LSF cluster from their local environment.
 
-## Option 2: Using Utility Scripts
+### Option 2: Using Utility Scripts
 {: #using-utility-scripts}
 
 1. Run the following command to view the infra details:
