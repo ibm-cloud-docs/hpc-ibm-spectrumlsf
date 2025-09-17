@@ -84,6 +84,8 @@ LSF_TILE_VERSION="1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.2ad06fe1-6125-45c5-b8b6-6
 APP_CENTER_GUI_PASSWORD="APP_CENTER_GUI_PASSWORD"
 ```
 
+From the above snippet, below are the descriptions for the parameters:
+
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
 * **ACCOUNT_GUID** - Login to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID for the resources.
 * **ZONES** - The IBM Cloud zone within the chosen region where the IBM Spectrum LSF cluster will be deployed.
@@ -104,7 +106,7 @@ Run the following commands to deploy the LSF environment:
 2. ./create_lsf_environment.sh <cluster_prefix>
 ```
 
-* `create_lsf_environment` - This script automates the end-to-end deployment of an IBM Cloud LSF environment. It installs required plugins, generates configuration files from your **.env**, triggers the Schematics workspace deployment, and finally the prints access details (Bastion, Login, Management IPs) with next steps for connecting and submitting jobs.
+* `create_lsf_environment` - This script automates the end-to-end deployment of an IBM Cloud LSF environment. It installs required plugins, generates configuration files from your **.env**, triggers the Schematics workspace deployment, and finally the prints access details (bastion, login, management IPs) with next steps for connecting and submitting jobs.
 
 ## Connect the LSF cluster and run the jobs
 {: #connect-lsf-jobs}
@@ -142,7 +144,7 @@ chmod +x web_service.sh
     ./show.sh <cluster_prefix>
     ```
 
-    * `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures you're logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
+    * `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures you are logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
 
 2. Copy the job submission script to the cluster by using the command:
     ```pre
@@ -173,3 +175,5 @@ chmod +x web_service.sh
     bjobs
     lshosts -w
     ```
+
+    * `submit.sh` - This script demonstrates how to submit a sample job to the LSF scheduler. It provides a simple command (sleep 30) wrapped in an LSF job submission request (bsub). By default, it requests 8 CPU cores for the job.
