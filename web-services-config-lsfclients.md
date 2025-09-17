@@ -29,49 +29,29 @@ There are two types of LSF clients:
 1. Standalone LSF Client (lsf)
 2. IBM Cloud LSF Plugin (ibmcloud lsf)
 
-## Accessing LSF Web Service through SSH Local Port Forwarding
-{: #webservice-ssh-tunnel}
-
-We need to securely access the LSF Web Service running on the management node from
-our local system. Since the management node is not directly accessible from the
-internet, you need to connect through the Bastion Node (jump host) using SSH local port
-forwarding.
-
-Run the following command from your local terminal:
-
-```pre
-ssh -L 8448:localhost:8448 -J ubuntu@<Bastion_Node> lsfadmin@<Management_Node>
-```
-
-How does the local port forwarding command works?
-
-```pre
-[ Local Machine:8448 ] --> [ Bastion Node ] --> [ Management Node:8448 ]
-        ^                                                    |
-        |                                                    |
-Access via browser/CLI ----------- SSH Tunnel ---------------
-```
-
-Local Port Forwarding creates an encrypted SSH tunnel that maps a port on your local system to a service port on a remote host. This enables you to reach services that are not directly accessible (for example, those behind firewalls or only available through a Bastion/Jump host).
-
-It allows you to access the LSF Web Service at: `https://localhost:8448`
-
-Keep this terminal session open to maintain the tunnel; the connection will be lost
-if the SSH tunnel times out or disconnects.
-
 ## Standalone LSF Client (lsf)
 {: #standalone-lsf-client}
 
 The Standalone LSF Client is a traditional command-line tool installed locally and is used to connect directly to an on-premise or remote LSF cluster.
 
-1. Download the `lws_client10.1.0.15.tar.Z` package from the [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true).
+1. Download the Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes). If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
 
-2. Extract the zip folder and choose the operating system to set up the lws client. Choose the binary and copy into "/usr/local/bin/" path.
+    ```pre
+    wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z
+    ```
 
-    Example:
+2. Extract the downloaded file and select the folder for your operating system.
+
+* For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
+    ```
+
+* For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
+
+    ```pre
+    cp -pr lws_client10.1.0.15/x86_64/lsf /usr/bin/
     ```
 
 3. Run the following command to check whether the LSF client is set up correctly:
@@ -83,8 +63,11 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     test@abc-MacBook-Pro WebService_Certs %
     ```
 
-4. If the .bluemix folder exists, then delete the LSF plugin directory by removing `$HOME/.bluemix/plugins/lsf` using the command:
-    `rm -rf "$HOME/.bluemix"`
+4. Delete the **.bluemix** folder to remove the outdated LSF plugin configs and credentials, a mandatory cleanup to ensure fresh tokens and avoid login or connectivity issues when switching clusters, updating the client, or fixing authentication errors.
+
+    ```pre
+    rm -rf "$HOME/.bluemix"
+    ```
 
 5. Copy the **cacert.pem** file from the management node to your local system using the command:
 
@@ -104,10 +87,6 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:localhost:8448 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
-    * For clusters with a single management node, all the configurations run on that same node.
-
-    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
-
 7. Open another terminal and set up the https certificate on the Client or Localhost.
 
     ```pre
@@ -117,7 +96,8 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     test@abc-MacBook-Pro WebService_Certs % 
     ```
 
-8. Log in to the LSF cluster using HTTPS on port 8448.
+8. Log in to the LSF cluster using HTTPS on port 8448. Port 8448 is the default secure port for LSF Web Services, ensuring all client-to-cluster communication is encrypted and isolated from other LSF services.
+
 
     ```pre
     test@abc-MacBook-Pro bin % lsf cluster logon --username lsfadmin --url https://localhost:8448
@@ -172,12 +152,31 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
 The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that allows users to interact with LSF clusters deployed in IBM Cloud environments.
 
-1. Remove the $HOME/.bluemix/plugins/lsf file if it exists from your client or local system using the command: `rm -rf "$HOME/.bluemix"`
+1. Delete the **.bluemix** folder to remove the outdated LSF plugin configs and credentials, a mandatory cleanup to ensure fresh tokens and avoid login or connectivity issues when switching clusters, updating the client, or fixing authentication errors.
 
-2. Download the `lws_client10.1.0.15.tar.Z` package from the [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true).
+    ```pre
+    rm -rf "$HOME/.bluemix"
+    ```
 
-3. Extract the zip folder and choose the operating system to set up the `lws client`. Choose the binary and copy into "/usr/local/bin/" path.
-    `cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/`
+2. Download the Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes). If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
+
+    ```pre
+    wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z
+    ```
+
+3. Extract the downloaded file and select the folder for your operating system.
+
+* For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
+
+    ```pre
+    cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
+    ```
+
+* For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
+
+    ```pre
+    cp -pr lws_client10.1.0.15/x86_64/lsf /usr/bin/
+    ```
 
 4. Install the IBM Cloud CLI on your client or local system:
     `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
@@ -228,11 +227,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8448:localhost:8448 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
-    * For clusters with a single management node, all the configurations run on that same node.
-
-    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
-
-9. Open another terminal and run the command to copy the “cacert.pem” file from the management node to your local system:
+9. Open another terminal and run the command to copy the **cacert.pem** file from the management node to your local system:
 
     ```pre
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
@@ -297,3 +292,33 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     lsfadmin is logged out.
     test@MacBook-Pro WebService_Certs % 
     ```
+
+## Accessing LSF Web Service through SSH Local Port Forwarding
+{: #webservice-ssh-tunnel}
+
+We need to securely access the LSF Web Service running on the management node from
+our local system. Since the management node is not directly accessible from the
+internet, you need to connect through the Bastion Node (jump host) using SSH local port
+forwarding.
+
+Run the following command from your local terminal:
+
+```pre
+ssh -L 8448:localhost:8448 -J ubuntu@<Bastion_Node> lsfadmin@<Management_Node>
+```
+
+How does the local port forwarding command works?
+
+```pre
+[ Local Machine:8448 ] --> [ Bastion Node ] --> [ Management Node:8448 ]
+        ^                                                    |
+        |                                                    |
+Access via browser/CLI ----------- SSH Tunnel ---------------
+```
+
+Local Port Forwarding creates an encrypted SSH tunnel that maps a port on your local system to a service port on a remote host. This enables you to reach services that are not directly accessible (for example, those behind firewalls or only available through a Bastion/Jump host).
+
+It allows you to access the LSF Web Service at: `https://localhost:8448`
+
+Keep this terminal session open to maintain the tunnel; the connection will be lost
+if the SSH tunnel times out or disconnects.

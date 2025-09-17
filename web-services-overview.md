@@ -29,17 +29,19 @@ Spectrum LSF Web Services is introduced in Fix Pack 15. This eliminates the need
 ## Key Benefits
 {: #key-benefits}
 
-* **Direct Cluster Access** – Connect securely to LSF clusters from any client/location without requiring Application Center.
+* **Direct Cluster Access** – Connects securely to LSF clusters from any client/location without requiring Application Center.
 
-* **Standard Offering** – Included as part of the LSF standard package.
+* **Standard Offering** – This is included as part of the LSF standard package.
 
 * **Familiar Syntax** – Supports original LSF CLI syntax with minimal client-side changes.
 
-* **Multi-Cluster Support** – Manage multiple clusters with Global Job ID support.
+* **Multi-Cluster Support** – Manages multiple clusters with Global Job ID support.
 
-* **Secure Communication** – All traffic is encrypted with HTTPS by default.
+* **Secure Communication** – All the traffic is encrypted with HTTPS by default.
 
 * **Flexible Authentication** – Supports both user authentication and API keys.
+
+* **RESTful API Access** – Provides an HTTP(s)-based interface to remotely interact with and manage LSF clusters.
 
 * **OpenAPI Integration** – Self-documenting APIs with auto-generated language bindings.
 
