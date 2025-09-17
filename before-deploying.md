@@ -58,6 +58,19 @@ How does this script work?
 * **Assigns required permissions for LSF deployment** - Grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
 * **Avoids duplicates** - Skips the assignment if a matching policy already exists.
 
+You can run the script using the command:
+
+```pre
+ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
+chmod +x permissions.sh
+./permissions.sh
+```
+
+* Under tools/access-management you will get `permissions.sh` file.
+* Under tools/minimal-demo-prod-scripts you will get other scripts for minimal demo production setup.
+* **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
+* **RESOURCE_GROUP** - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
+
 This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
 
 ## Verify access policies
