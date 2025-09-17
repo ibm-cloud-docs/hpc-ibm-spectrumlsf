@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -22,7 +22,26 @@ subcollection: hpc-ibm-spectrumlsf
 # About IBM Spectrum LSF Web Services
 {: #about-web-services}
 
-IBM Spectrum LSF Web Services provides a RESTful HTTP(s) interface for remotely interacting with LSF clusters. This helps users to programmatically submit, monitor, and manage jobs, enabling seamless integration of LSF workload management into custom applications, web portals, and automation workflows. Spectrum LSF Web Services is introduced in Fix Pack 15. This eliminates the need for direct command-line access and offers secure, scalable access through standard APIs.
+IBM Spectrum LSF Web Services provides a RESTful HTTP(s) interface for remotely interacting with LSF clusters. This helps users to programmatically submit, monitor, and manage jobs, enabling seamless integration of LSF workload management into custom applications, web portals, and automation workflows.
+
+Spectrum LSF Web Services is introduced in Fix Pack 15. This eliminates the need for direct command-line access and offers secure, scalable access through standard APIs.
+
+## Key Benefits
+{: #key-benefits}
+
+* **Direct Cluster Access** – Connect securely to LSF clusters from any client/location without requiring Application Center.
+
+* **Standard Offering** – Included as part of the LSF standard package.
+
+* **Familiar Syntax** – Supports original LSF CLI syntax with minimal client-side changes.
+
+* **Multi-Cluster Support** – Manage multiple clusters with Global Job ID support.
+
+* **Secure Communication** – All traffic is encrypted with HTTPS by default.
+
+* **Flexible Authentication** – Supports both user authentication and API keys.
+
+* **OpenAPI Integration** – Self-documenting APIs with auto-generated language bindings.
 
 ## Configuring IBM Spectrum LSF Web Services
 {: #config-web-services}

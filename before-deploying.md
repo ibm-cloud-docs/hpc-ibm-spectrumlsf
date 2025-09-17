@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -48,6 +48,17 @@ Complete the following steps before you deploy the {{site.data.keyword.spectrum_
 
 ## Setting IAM permissions
 {: #setting-iam-permissions}
+
+Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The IAM script automates that process.
+
+How does this script work?
+
+* **Interactive input collection** - Prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
+* **Permission check** - Verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
+* **Assigns required permissions for LSF deployment** - Grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
+* **Avoids duplicates** - Skips the assignment if a matching policy already exists.
+
+This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
 
 ## Verify access policies
 {: #verify-access-policies}
