@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -43,7 +43,7 @@ Run the following command from your local terminal:
 ssh -L 8448:localhost:8448 -J ubuntu@<Bastion_Node> lsfadmin@<Management_Node>
 ```
 
-How does the Local Port Forwarding command works?
+How does the local port forwarding command works?
 
 ```pre
 [ Local Machine:8448 ] --> [ Bastion Node ] --> [ Management Node:8448 ]
@@ -52,16 +52,9 @@ How does the Local Port Forwarding command works?
 Access via browser/CLI ----------- SSH Tunnel ---------------
 ```
 
-Local Port Forwarding creates an encrypted SSH tunnel that maps a port on your local system to a service port on a remote host.
+Local Port Forwarding creates an encrypted SSH tunnel that maps a port on your local system to a service port on a remote host. This enables you to reach services that are not directly accessible (for example, those behind firewalls or only available through a Bastion/Jump host).
 
-This enables you to reach services that are not directly accessible (for example,
-those behind firewalls or only available through a Bastion/Jump host).
-
-It allows you to access the LSF Web Service at:
-
-```pre
-https://localhost:8448
-```
+It allows you to access the LSF Web Service at: `https://localhost:8448`
 
 Keep this terminal session open to maintain the tunnel; the connection will be lost
 if the SSH tunnel times out or disconnects.
