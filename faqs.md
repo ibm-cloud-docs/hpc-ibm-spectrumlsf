@@ -297,11 +297,11 @@ For troubleshooting and audit purposes, failed authentication attempts are logge
 
 ```pre
 [lsfadmin@test-mgmt-1-f86c-001 ~]$ bhosts -w
-HOST_NAME                       STATUS          JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV
-test-comp-1-f86c-002.hpc.local    ok              -      4      0      0        0       0        0
-test-comp-1-f86c-001.hpc.local    ok              -      4      0      0      0       0        0
-test-mgmt-1-f86c-001.hpc.local  closed_Full       -      0      0      0      0       0        0
-test-mgmt-1-f86c-002.hpc.local    unreach         -      0      0      0      0       0        0
+HOST_NAME                       STATUS          JL/U    MAX  NJOBS    RUN     SSUSP     USUSP       RSV
+test-comp-1-f86c-002.hpc.local    ok              -      4      0    0           0          0
+test-comp-1-f86c-001.hpc.local    ok              -      4      0      0      0           0          0
+test-mgmt-1-f86c-001.hpc.local  closed_Full       -      0      0      0      0           0          0
+test-mgmt-1-f86c-002.hpc.local    unreach         -      0      0      0      0           0          0
 [lsfadmin@test-mgmt-1-f86c-001 ~]$
 ```
 
