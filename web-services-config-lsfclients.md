@@ -34,7 +34,9 @@ There are two types of LSF clients:
 
 The Standalone LSF Client is a traditional command-line tool installed locally and is used to connect directly to an on-premise or remote LSF cluster.
 
-1. Download the Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes). If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
+1. Download the LSF Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes).
+
+If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
 
     ```pre
     wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z

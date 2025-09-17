@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-12"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -290,3 +290,31 @@ test@abc-MacBook-Pro ~ %
 For troubleshooting and audit purposes, failed authentication attempts are logged on the Web Service node. You can review the log file at:
 
 `/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
+
+## What should I do if a management node in the LSF cluster shows as "unreach" in the "bhosts -w" output?
+{: #unreach}
+{: faq}
+
+```pre
+[lsfadmin@test-mgmt-1-f86c-001 ~]$ bhosts -w
+HOST_NAME          STATUS          JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV
+test-comp-1-f86c-002.hpc.local ok              -      4      0      0      0      0      0
+test-comp-1-f86c-001.hpc.local ok              -      4      0      0      0      0      0
+test-mgmt-1-f86c-001.hpc.local closed_Full     -      0      0      0      0      0      0
+test-mgmt-1-f86c-002.hpc.local unreach         -      0      0      0      0      0      0
+[lsfadmin@test-mgmt-1-f86c-001 ~]$
+```
+
+If a management node appears as unreach, log in to that node through SSH and restart the lsfd service using the following command: `sudo service lsfd restart`.
+
+## Can I use a password file for authenticating with the LSF Web Service client instead of typing the password manually?
+{: #passwordfile}
+{: faq}
+
+Yes, you can store the Application Center password in a file and use it during login. For example, if your password is saved in **~/.lsf_password**, then run the command:
+
+```pre
+lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
+```
+
+This allows the client to authenticate without prompting for the password interactively. For more information, see [Configure Web Service – IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
