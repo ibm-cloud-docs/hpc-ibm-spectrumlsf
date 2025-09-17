@@ -64,7 +64,8 @@ By default, High Availability (HA) for Web Services is not enabled. The service 
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
-    Note:
+    **Note:**
+
     * For clusters with a single management node, all the configurations run on that same node. You can use the `ssh_to_management_node` tunnel for validation.
 
     * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.

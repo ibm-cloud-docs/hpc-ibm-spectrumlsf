@@ -113,29 +113,8 @@ Run the following commands to deploy the LSF environment:
 {: step}
 
 Now that your environment is set up, you can connect to the LSF cluster and perform operations such as submitting jobs, monitoring workloads, viewing infrastructure details.
-There are two ways to connect:
 
-### Option 1: Using Web Services
-{: #using-web-services}
-
-Run the `web_service.sh` to configure LSF web services for local client access (Standalone LSF Client):
-
-```pre
-chmod +x web_service.sh
-./web_service.sh <cluster_prefix>
-```
-
-* `web_service.sh` - This script configures LSF Web Services for local client access (Standalone LSF Client). This will allow users to connect to an LSF cluster from their local environment.
-
-    * Installs required IBM Cloud plugins and the LSF client package.
-    * Configures environment values, logs in to IBM Cloud, and targets the right region.
-    * Retrieves the Schematics workspace outputs to establish a secure web service tunnel to the cluster.
-    * Copies the required TLS certificate, configures the client, and logs into the LSF cluster.
-    * Verifies the cluster with `lsid` and `bhosts`.
-
-    This allows you to connect to an LSF cluster from their local environment.
-
-### Option 2: Using Utility Scripts
+### Using Utility Scripts
 {: #using-utility-scripts}
 
 1. Run the following command to view the infra details:

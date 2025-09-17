@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -39,7 +39,7 @@ LSF Web Services are configured to run over HTTPS and use port 8448 for secure c
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
-    Note:
+    **Note:**
 
     * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
 
@@ -83,7 +83,7 @@ LSF Web Services are configured to run over HTTPS and use port 8448 for secure c
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
-    Note:
+    **Note:**
 
     * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
 

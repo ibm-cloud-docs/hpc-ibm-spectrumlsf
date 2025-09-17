@@ -36,7 +36,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
 1. Download the LSF Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes).
 
-If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
+    If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
 
     ```pre
     wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z
@@ -44,13 +44,13 @@ If you want to download the package from CLI then right-click on "lws_client10.1
 
 2. Extract the downloaded file and select the folder for your operating system.
 
-* For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
+    * For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
     ```
 
-* For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
+    * For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
 
     ```pre
     cp -pr lws_client10.1.0.15/x86_64/lsf /usr/bin/
@@ -77,7 +77,7 @@ If you want to download the package from CLI then right-click on "lws_client10.1
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP>lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
-    Note:
+    **Note:**
 
     * For clusters with a single management node, all the configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
 
@@ -160,7 +160,9 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     rm -rf "$HOME/.bluemix"
     ```
 
-2. Download the Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes). If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
+2. Download the Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes).
+
+    If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
 
     ```pre
     wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z
@@ -168,13 +170,13 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 
 3. Extract the downloaded file and select the folder for your operating system.
 
-* For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
+    * For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
     ```
 
-* For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
+    * For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
 
     ```pre
     cp -pr lws_client10.1.0.15/x86_64/lsf /usr/bin/
@@ -235,7 +237,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
-    Note:
+    **Note:**
 
     * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
 
