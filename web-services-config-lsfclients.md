@@ -44,13 +44,13 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
 2. Extract the downloaded file and select the folder for your operating system.
 
-    * For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
+    * For "macOS": Install the Client Binary. Copy the lsf binary to your system path (for example, /usr/local/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
     ```
 
-    * For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
+    * For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/x86_64/lsf /usr/bin/
@@ -170,13 +170,13 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 
 3. Extract the downloaded file and select the folder for your operating system.
 
-    * For "macOS" : Install the Client Binary – Copy the lsf binary to your system path (e.g., /usr/local/bin/) using:
+    * For "macOS": Install the Client Binary. Copy the lsf binary to your system path (for example, /usr/local/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
     ```
 
-    * For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/):
+    * For Linux (x86_64): Install the client binary by copying it to your system path (for example, /usr/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/x86_64/lsf /usr/bin/
