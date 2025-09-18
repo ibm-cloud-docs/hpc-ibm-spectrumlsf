@@ -55,12 +55,6 @@ The **.env** file is mandatory because it contains all the variables required to
 The following inputs are required to update the **.env** file.
 
 ```pre
-# Environment Configuration
-
-# Step 1: Update the variables below as needed.
-# Step 2: If you require additional optional variables, update them directly
-#         in the JSON file(s) for your deployment type.
-# Step 3: Always validate the JSON file before running the script.
 
 # IBM Cloud API key
 API_KEY="YOUR_API_KEY"
@@ -99,23 +93,16 @@ From the above snippet, below are the descriptions for the parameters:
 
 * **TEMPLATE_FILE** - All the .json files are uploaded in https://github.ibm.com/workload-eng-services/HPCaaS/tree/sml/tools/minimal-demo-prod-scripts.
 
-    * **catalog_values_demo_deployment.json** - choose this file for medium deployments.
     * **catalog_values_minimal_deployment.json** - choose this file for small deployments.
+    * **catalog_values_demo_deployment.json** - choose this file for medium deployments.
     * **catalog_values_production_deployment.json** - choose this file for large deployments.
 
 * **LSF_TILE_VERSION** - Login to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D){: external} by using your unique credentials. Click **Review deployment options**. In the _Deployment options_ section, select **Create from the CLI**, copy the `version_locator_value`, and save this value.
 
-The `version_locator_value` changes based on the version selected.
+The `version_locator_value` changes are based on the tile version selected.
 {: note}
 
 * **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in both Fix Pack 15 and Fix Pack 14 with HTTPS. This is a mandatory value and omitting it will result in deployment failure.
-
-If the user skips to enter the RESOURCE_GROUP_ID or the ACCOUNT_ID, then script displays the error message:
-
-```pre
-:x: RESOURCE_GROUP_ID is required.
-:x: ACCOUNT_ID is required.
-```
 
 ## Deploy the LSF environment
 {: #deploy-env}
