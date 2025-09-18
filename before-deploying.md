@@ -75,7 +75,10 @@ chmod +x permissions.sh
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
 * **RESOURCE_GROUP** - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
 
-You can get the script by performing gitclone to the specific branch and navigate to `cd minimal-demo-prod-scripts`. You will find all the required scripts. You can get all the scripts in a single line by running the command: `chmod +x *.sh`
+You can get the script by performing **gitclone** to the specific branch and navigate to `cd minimal-demo-prod-scripts`. You will find all the required scripts.
+
+You can get all the scripts in a single line by running the command: `chmod +x *.sh`
+{: important}
 
 This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
 
