@@ -291,6 +291,9 @@ For troubleshooting and audit purposes, failed authentication attempts are logge
 
 `/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
 
+It is your responsibility to manage the password with as many retries you want to set.
+{: note}
+
 ## What should I do if a management node in the LSF cluster shows as "unreach" in the "bhosts -w" output?
 {: #unreach}
 {: faq}
@@ -311,13 +314,11 @@ If a management node appears as unreach, log in to that node through SSH and res
 {: #passwordfile}
 {: faq}
 
-No, for security reasons, using a password file or command substitution to pass credentials, such as:
-
 ```pre
 lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
 ```
 
-is not recommended. Storing passwords in plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+No this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
 
 Instead, use the supported and more secure login method:
 

@@ -53,14 +53,14 @@ Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific I
 
 How does this script work?
 
-Automation provides user a flexibility to run the specific script to ensure or to gain the required access to perform the LSF deployment. It also ensures that if you have certain permissions then the script will omit those permissions and add the pending permissions that are required as part of cluster deployment.
+With automation, user has the flexibility to run a specific script with the required access to perform the LSF deployment. This also ensures that if you have a certain permissions, then the script will omit those permissions and provide only the pending permissions that are required as part of cluster deployment.
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission then the script will omit this and provide only Manager permission.
 
-* **Interactive input collection** - Prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
-* **Permission check** - Verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
-* **Assigns required permissions for LSF deployment** - Grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
-* **Avoids duplicates** - Skips the assignment if a matching policy already exists.
+* **Interactive input collection** - The script prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
+* **Permission check** - The script verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
+* **Assigns required permissions for LSF deployment** - This script grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
+* **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
 
 You can run the script using the command:
 

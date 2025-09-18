@@ -110,6 +110,13 @@ The `version_locator_value` changes based on the version selected.
 
 * **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in both Fix Pack 15 and Fix Pack 14 with HTTPS. This is a mandatory value and omitting it will result in deployment failure.
 
+If the user skips to not enter the RESOURCE_GROUP_ID or the ACCOUNT_ID, then script displays the error message:
+
+```pre
+:x: RESOURCE_GROUP_ID is required.
+:x: ACCOUNT_ID is required.
+```
+
 ## Deploy the LSF environment
 {: #deploy-env}
 {: step}
