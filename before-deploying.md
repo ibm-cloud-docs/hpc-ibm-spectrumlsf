@@ -46,12 +46,12 @@ Complete the following steps before you deploy the {{site.data.keyword.spectrum_
 
 2. Log in to your [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com){: external} account with your IBM ID.
 
-## Setting IAM permissions
+## Setting IAM permissions - CLI
 {: #setting-iam-permissions}
 
 Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The automation script enables this process.
 
-User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the LSF deployment. The automation ensures that if you have a certain permissions, then the script will omit them and provide only the pending permissions that are required as part of cluster deployment.
+User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the LSF deployment. The automation ensures that if the user has a certain permissions, then the script will omit them and add only the required permissions to perform the deployment.
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script will omit this and provide only Manager permission.
 
@@ -62,12 +62,13 @@ Benefits of the scripts:
 * **Assigns required permissions for LSF deployment** - This script grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
 * **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
 
-You can get the scripts by performing gitclone on the branch:
+You can get the scripts by performing **gitclone** on the branch:
 
-    ```pre
-    git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
-    ```
+```pre
+git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
+```
 1. Under `cd tools/access-management`, you will get the `permissions.sh` file.
+2. Run `chmod +x permissions.sh`
 
     ```pre
     ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
@@ -75,11 +76,9 @@ You can get the scripts by performing gitclone on the branch:
     ./permissions.sh
     ```
 
-2. Run `chmod +x permissions.sh`
 3. Enter the admin email or IBMid.
-4. Enter the Resource group.
-5. Enter the Account ID.
-6. You will be asked to assign the roles to an Access Group or a User?
+4. Enter the Resource group and Account ID.
+6. You will be asked to assign the roles:
     1. Access Group
     2. User
 
@@ -89,17 +88,17 @@ You can get the scripts by performing gitclone on the branch:
 
 If the user skips to enter the `RESOURCE_GROUP_ID` or the `ACCOUNT_ID`, then script displays the error message:
 
-```pre
-:x: RESOURCE_GROUP_ID is required.
-:x: ACCOUNT_ID is required.
-```
+    ```pre
+    :x: RESOURCE_GROUP_ID is required.
+    :x: ACCOUNT_ID is required.
+    ```
 
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
 * **RESOURCE_GROUP** - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
 
 This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
 
-## Verify access policies
+## Setting IAM permissions - UI
 {: #verify-access-policies}
 
 {{site.data.keyword.iamlong}} (IAM) access policies are required to install this deployable architecture and provision clusters.
