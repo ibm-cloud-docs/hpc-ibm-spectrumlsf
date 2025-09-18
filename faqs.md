@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -311,10 +311,18 @@ If a management node appears as unreach, log in to that node through SSH and res
 {: #passwordfile}
 {: faq}
 
-Yes, you can store the Application Center password in a file and use it during login. For example, if your password is saved in **~/.lsf_password**, then run the command:
+No, for security reasons, using a password file or command substitution to pass credentials, such as:
 
 ```pre
 lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
 ```
 
-This allows the client to authenticate without prompting for the password interactively. For more information, see [Configure Web Service – IBM Spectrum LSF](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
+is not recommended. Storing passwords in plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+
+Instead, use the supported and more secure login method:
+
+```pre
+lsf cluster logon --username lsfadmin --url https://localhost:8448
+```
+
+For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](https://test.cloud.ibm.com/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui)

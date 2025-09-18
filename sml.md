@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -43,23 +43,24 @@ You will be able to choose from these 3 deployment size options:
 
     This option allows customization for production grade deployments. The optional services like observability, logging, and SCC are enabled by default but can be changed as required.
 
-    All the JSON files are customizable (users can make configuration changes as needed). But the **.env** file is mandatory because it contains the required variables that must be filled always.
+    All the JSON files are customizable (users can make configuration changes as needed).
+
+The **.env** file is mandatory because it contains all the variables required to update the file regardless of deployment types.
+{: note}
 
 ## Update the .env file
 {: #env-file}
 {: step}
 
-The following commands are required to update the **.env** file.
+The following inputs are required to update the **.env** file.
 
 ```pre
-##############################################################################
 # Environment Configuration
 
 # Step 1: Update the variables below as needed.
 # Step 2: If you require additional optional variables, update them directly
 #         in the JSON file(s) for your deployment type.
 # Step 3: Always validate the JSON file before running the script.
-##############################################################################
 
 # IBM Cloud API key
 API_KEY="YOUR_API_KEY"
@@ -87,12 +88,26 @@ APP_CENTER_GUI_PASSWORD="APP_CENTER_GUI_PASSWORD"
 From the above snippet, below are the descriptions for the parameters:
 
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
-* **ACCOUNT_GUID** - Login to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID for the resources.
-* **ZONES** - The IBM Cloud zone within the chosen region where the IBM Spectrum LSF cluster will be deployed.
-* **RESOURCE_GROUP** - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
-* **SSH_KEY** - A list of SSH key names are already configured in your IBM Cloud account to establish a connection to the Spectrum LSF nodes.
-* **TEMPLATE_FILE** - All the .json files are uploaded in https://github.ibm.com/workload-eng-services/HPCaaS/tree/sml/tools/minimal-demo-prod-scripts
-* **LSF_TILE_VERSION** - Login to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials. You can see the tile version in **Select a variation** box.
+
+* **ACCOUNT_GUID** - Login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID.
+
+* **ZONES** - Provide the IBM Cloud zone.
+
+* **RESOURCE_GROUP** - The existing resource group of your IBM Cloud account where VPC resources will be deployed.
+
+* **SSH_KEY** - A list of SSH key names that are already configured in your IBM Cloud account to establish a connection to the Spectrum LSF nodes.
+
+* **TEMPLATE_FILE** - All the .json files are uploaded in https://github.ibm.com/workload-eng-services/HPCaaS/tree/sml/tools/minimal-demo-prod-scripts.
+
+    * **catalog_values_demo_deployment.json** - choose this file for medium deployments.
+    * **catalog_values_minimal_deployment.json** - choose this file for small deployments.
+    * **catalog_values_production_deployment.json** - choose this file for large deployments.
+
+* **LSF_TILE_VERSION** - Login to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D){: external} by using your unique credentials. Click **Review deployment options**. In the _Deployment options_ section, select **Create from the CLI**, copy the `version_locator_value`, and save this value.
+
+The `version_locator_value` changes based on the version selected.
+{: note}
+
 * **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in both Fix Pack 15 and Fix Pack 14 with HTTPS. This is a mandatory value and omitting it will result in deployment failure.
 
 ## Deploy the LSF environment
@@ -108,7 +123,7 @@ Run the following commands to deploy the LSF environment:
 
 * `create_lsf_environment` - This script automates the end-to-end deployment of an IBM Cloud LSF environment. It installs required plugins, generates configuration files from your **.env**, triggers the Schematics workspace deployment, and finally the prints access details (bastion, login, management IPs) with next steps for connecting and submitting jobs.
 
-## Connect the LSF cluster and run the jobs
+## Connect to the LSF cluster and run the jobs
 {: #connect-lsf-jobs}
 {: step}
 
@@ -126,15 +141,14 @@ Now that your environment is set up, you can connect to the LSF cluster and perf
     * `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures you are logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
 
 2. Copy the job submission script to the cluster by using the command:
+
     ```pre
     chmod +x cp.sh
     ./cp.sh <cluster_prefix> submit.sh
     ```
 
     * `cp.sh` - This script copies the `submit.sh` file into your LSF cluster. It validates account and region, fetches the bastion, login, and management IPs, and then securely transfers the `submit.sh` file either to the login node (default) or the management node (if management is specified).
-    * `submit.sh` - This script demonstrates how to submit a sample job to the LSF scheduler. It provides a simple command (sleep 30) wrapped in an LSF job submission request (bsub). By default, it requests 8 CPU cores for the job.
-
-    Customers can update:
+    * `submit.sh` - This script demonstrates how to submit a sample job to the LSF scheduler. It provides a simple command (sleep 30) wrapped in an LSF job submission request (bsub). By default, it requests 8 CPU cores for the job. Users can update:
     * Job options (for example, -n 8 to change the number of requested cores).
     * Command (for example, replace sleep 30 with their own workload).
 
@@ -154,5 +168,3 @@ Now that your environment is set up, you can connect to the LSF cluster and perf
     bjobs
     lshosts -w
     ```
-
-    * `submit.sh` - This script demonstrates how to submit a sample job to the LSF scheduler. It provides a simple command (sleep 30) wrapped in an LSF job submission request (bsub). By default, it requests 8 CPU cores for the job.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -49,9 +49,13 @@ Complete the following steps before you deploy the {{site.data.keyword.spectrum_
 ## Setting IAM permissions
 {: #setting-iam-permissions}
 
-Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The IAM script automates that process.
+Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The automation script enables this process.
 
 How does this script work?
+
+Automation provides user a flexibility to run the specific script to ensure or to gain the required access to perform the LSF deployment. It also ensures that if you have certain permissions then the script will omit those permissions and add the pending permissions that are required as part of cluster deployment.
+
+For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission then the script will omit this and provide only Manager permission.
 
 * **Interactive input collection** - Prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
 * **Permission check** - Verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
@@ -66,10 +70,12 @@ chmod +x permissions.sh
 ./permissions.sh
 ```
 
-* Under tools/access-management you will get `permissions.sh` file.
+* Under tools/access-management you will get the `permissions.sh` file.
 * Under tools/minimal-demo-prod-scripts you will get other scripts for minimal demo production setup.
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
 * **RESOURCE_GROUP** - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
+
+You can get the script by performing gitclone to the specific branch and navigate to `cd minimal-demo-prod-scripts`. You will find all the required scripts. You can get all the scripts in a single line by running the command: `chmod +x *.sh`
 
 This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
 
