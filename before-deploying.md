@@ -88,10 +88,10 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 
 If the user skips to enter the `RESOURCE_GROUP_ID` or the `ACCOUNT_ID`, then script displays the error message:
 
-    ```pre
-    :x: RESOURCE_GROUP_ID is required.
-    :x: ACCOUNT_ID is required.
-    ```
+```pre
+:x: RESOURCE_GROUP_ID is required.
+:x: ACCOUNT_ID is required.
+```
 
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
 * **RESOURCE_GROUP** - The existing resource group in your IBM Cloud account where VPC resources will be deployed.
