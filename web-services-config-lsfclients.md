@@ -332,17 +332,20 @@ if the SSH tunnel times out or disconnects.
 
 When connecting to the LSF Web Services client through SSH tunneling, ensure that the following prerequisites are met:
 
-1. Password Policy – The password must:
+1. **Password Policy** – The password must:
     * Should be atleast 15 characters long.
     * Must include one lowercase letter, one uppercase letter, one number, and one special character (!@#$%^&*()_+=-).
     * Should not contain spaces.
       Only passwords meeting these criteria will be accepted for authentication.
 
-2. Do not use the password files – For security reasons, storing passwords in plain text files or using command substitution (for example, --password "$(cat ~/.lsf_password)") is not supported. This exposes credentials to unnecessary risk.
+2. **Do not use the password files** – For security reasons, storing passwords in plain text files or using command substitution (for example, --password "$(cat ~/.lsf_password)") is not supported. This exposes credentials to unnecessary risk.
 
-3. Failed login attempts – Currently, the LSF Client does not enforce limits on incorrect password attempts over the tunnel. It is the responsibility of the cluster administrator to configure OS-level policies (such as PAM or faillock) to restrict failed login attempts and to maintain proper audit logging.
+3. **Failed login attempts** – Currently, the LSF Client does not enforce limits on incorrect password attempts over the tunnel. It is the responsibility of the cluster administrator to configure OS-level policies (such as PAM or faillock) to restrict failed login attempts and to maintain proper audit logging.
 
-    Edit PAM configuration (for SSH logins): `sudo vi /etc/pam.d/sshd`
+    Edit PAM configuration (for SSH logins):
+    ```pre
+    sudo vi /etc/pam.d/sshd
+    ```
 
     Add these lines near the top (before pam_unix.so):
 
@@ -356,8 +359,14 @@ When connecting to the LSF Web Services client through SSH tunneling, ensure tha
     * unlock_time=600 → locked for 10 minutes (600s)
 
     Tell SSHD to use PAM (usually already enabled):
-    Check **/etc/ssh/sshd_config:** `UsePAM yes`
+    Check **/etc/ssh/sshd_config:**
+    ```pre
+    UsePAM yes
+    ```
 
-    Restart services: `sudo systemctl restart sshd`
+    Restart services:
+    ```pre
+    sudo systemctl restart sshd
+    ```
 
-4. Account lockout handling – If the OS admin account gets locked after exceeding the maximum number of failed attempts, users can still access the cluster using the default OS account (vpcuser). From there, the lock can be cleared by the administrator for further login.
+4. **Account lockout handling** – If the OS admin account gets locked after exceeding the maximum number of failed attempts, users can still access the cluster using the default OS account (vpcuser). From there, the lock can be cleared by the administrator for further login.
