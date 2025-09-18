@@ -53,7 +53,7 @@ Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific I
 
 How does this script work?
 
-With automation, user has the flexibility to run a specific script with the required access to perform the LSF deployment. This also ensures that if you have a certain permissions, then the script will omit those permissions and provide only the pending permissions that are required as part of cluster deployment.
+With automation, user has the flexibility to run specific scripts with the required access to perform the LSF deployment. This also ensures that if you have a certain permissions, then the script will omit those permissions and provide only the pending permissions that are required as part of cluster deployment.
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission then the script will omit this and provide only Manager permission.
 
@@ -78,6 +78,8 @@ chmod +x permissions.sh
 You can get the script by performing gitclone to the specific branch and navigate to `cd minimal-demo-prod-scripts`. You will find all the required scripts. You can get all the scripts in a single line by running the command: `chmod +x *.sh`
 
 This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
+
+![IAM permissions](images/iam_permissions.png "IAM permissions"){: caption="IAM permissions" caption-side="bottom"}
 
 ## Verify access policies
 {: #verify-access-policies}
