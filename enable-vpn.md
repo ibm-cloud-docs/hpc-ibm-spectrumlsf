@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-29"
 
 keywords:
 
@@ -20,15 +20,27 @@ subcollection: hpc-ibm-spectrumlsf
 {:important: .important}
 {:table: .aria-labeledby="caption"}
 
-# Enabling a VPN
+# Enabling a Virtual Private Network (VPN)
 {: #enable-vpn}
 
-A VPN helps connect your on-premises network to the {{site.data.keyword.vpc_short}} network, which enables secure communication between the two environments.
+A Virtual Private Network (VPN) provides a secure and encrypted connection between your on-premises network and the IBM Cloud Virtual Private Cloud (VPC) environment. This allows seamless communication across both environments as if they are part of the same private network.
 
-The custom image automation supports creating a VPN gateway if you set the `vpn_enabled` value as true (by default, it is set to false). After the automation creates the VPN gateway, you need to create VPN connections, and any other security group rule changes as necessary, under that VPN gateway. See the {{site.data.keyword.vpc_short}} documentation for details on [adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
+Once the VPN gateway is provisioned through automation, you must configure the necessary VPN connections to establish the actual data path between the networks. In addition, review and update any required security group rules or routing settings to ensure proper traffic flow and access control. For more information, see the {{site.data.keyword.vpc_short}} documentation on [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
 
-If you are enabling a VPN, you do not require creating floating IP addresses. For example, if you enabled a VPN, to connect to VSI-1 without a floating IP address, run:
-```text
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@${packer_vsi_1_private_ip}
-```
-{: codeblock}
+## Creating VPN gateway (Automation)
+{: #vpn-automation}
+
+During the automation process, a VPN gateway is created in your IBM Cloud VPC. This gateway serves as the termination point for VPN tunnels coming from your on-prem network. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui).
+
+## Steps (After creating VPN gateway)
+{: #after-gateway-creation}
+
+Below are the steps after creating the VPN gateway:
+
+1. **Creating VPN connections -** Define the actual VPN tunnels by creating connections under the VPN gateway. This includes specifying peer IP addresses, pre-shared keys, and IKE/IPSec policies.
+
+2. **Configuring routing -** Ensure that appropriate routes are added to route tables in the VPC subnet(s) to forward traffic to the VPN gateway.
+
+3. **Updating Security Group rules -** Modify or add security group rules to allow traffic from your on-premises IP ranges to the required VPC resources (for example, port 22 for SSH, port 443 for HTTPS).
+
+4. **Network ACLs and Firewall Rules -** If network ACLs or additional firewalls (on-prem or in-cloud) are in use, ensure that they are configured to permit VPN traffic.

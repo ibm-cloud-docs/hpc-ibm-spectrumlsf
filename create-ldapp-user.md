@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-09-17"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -47,10 +47,10 @@ You can export this LDAP information from the LDAP server; for example:
 ```console
 export BASE_DN="ldap.com"
 export OU_NAME="People"
-export LDAP_ADMIN_PASSWORD="Admin@123"
+export LDAP_ADMIN_PASSWORD="Admin@123secure"
 export LDAP_USER="testuser01"
 export UNIQUE_USER_ID="10089"
-export NEW_LDAP_USER_PASSWORD="Test@1234"
+export NEW_LDAP_USER_PASSWORD="Test@1234secure"
 ```
 {: pre}
 

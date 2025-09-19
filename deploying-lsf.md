@@ -2,10 +2,10 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-08-13"
 
-keywords:
-
+keywords: lsf, deploy
+deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPUlCTSUyNTIwU3BlY3RydW0lMjUyMExTRiNzZWFyY2hfcmVzdWx0cw%3D%3D
 subcollection: hpc-ibm-spectrumlsf
 
 ---
@@ -26,8 +26,11 @@ subcollection: hpc-ibm-spectrumlsf
 # Deploying {{site.data.keyword.spectrum_full_notm}}
 {: #deploy-architecture}
 
-Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture with Spectrum LSF cluster using either the {{site.data.keyword.cloud_notm}} console UI, or the {{site.data.keyword.cloud_notm}} catalog CLI, and then access the deployed environment.
-{: shortdesc}
+Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture  using the {{site.data.keyword.cloud_notm}} console.
+{: ui}
+
+Deploy the {{site.data.keyword.spectrum_full_notm}} deployable architecture  using the {{site.data.keyword.cloud_notm}} CLI.
+{: cli}
 
 ## Creating the project by using the UI
 {: #deploy-project-gui}
@@ -80,13 +83,24 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
 When deployed, you can then access your deployed environment.
 
+### Schematics workspace
+{: #schematics-workspace}
+{: ui}
+
+Once you deploy the project, in back-end a Schematics workspace is created for the cluster deployment. To view the created workspace follow the steps:
+
+1. Go to the **Navigation** Menu.
+2. Select **Platform Automation** > **Schematics** > **Terraform**.
+3. You can see the list of workspaces created.
+
+When deployed, you can then access your deployed environment.
+For more information on accessing the cluster after the deployment, see [Select the method for accessing the cluster (Post deployment)](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial&interface=ui#select-method-for-accessing-cluster)
+
 ## Deploying {{site.data.keyword.spectrum_full_notm}} by using the CLI
 {: #create-project-cli}
 {: cli}
 
 To generate the API key, refer [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=cli).
-{: note}
-
 To login to the IBM Cloud CLI, refer [ibmcloud login](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
 {: note}
 
@@ -94,36 +108,11 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
 
 1. Install the [{{site.data.keyword.cloud_notm}} CLI and the catalogs management plug-in](https://cloud.ibm.com/docs/cli?topic=cli-manage-catalogs-plugin) before you run any CLI commands.
 
-2. The CLI requires a `version_locator_value`. You can retrieve this value from the {{site.data.keyword.cloud_notm}} console UI:
+2. The CLI requires a `values.json` file with your configuration settings. Use the [values.json](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/samples/configs/hpc_catalog_values.json) file as a reference. You can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
 
-    1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
-    2. In the _Works with_ section, select **LSF** and then select the {{site.data.keyword.spectrum_full_notm}} tile.
-    2. In the _Variation_ section, select **Cluster with LSF v10.1.0.14** to indicate {{site.data.keyword.spectrum_full_notm}} and version as the scheduler to use for the deployment.
-    4. Select the **Product version** (in **Architecture**) that you want to install.
-    5. Click **Review deployment options**.
-    6. In the _Deployment options_ section, select **Create from the CLI**, copy the `version_locator_value`, and save this value to be used in a later step. The value is an 80 character alphanumeric string, such as:
-
-        ```text
-        1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.398b4df2-8186-4326-b31d-d8a5af20d8fc-global
-        ```
-        {: codeblock}
-
-2. The CLI requires a `values.json` file with your configuration settings. Use the following example `values.json` file as a reference: you can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
-
-    Take note of these mandatory deployment input values:
-    * Provide the mandatory deployment values for your {{site.data.keyword.spectrum_full}} cluster, specifically, replace the **Fill here** text with values for `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `lsf_version`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
-
-3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your {{site.data.keyword.spectrum_full}} cluster with the configuration you specified in your `values.json` file; you use your `version_locator_value` copied and saved in a previous step, here:
-
+3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your {{site.data.keyword.spectrum_full}} cluster with the configuration you specified in your `values.json` file.
     ```text
     ibmcloud catalog install --vl <version_locator_value> --override-values values.json
-    ```
-    {: codeblock}
-
-    For example, running:
-
-    ```text
-    ibmcloud catalog install --vl 1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.398b4df2-8186-4326-b31d-d8a5af20d8fc-global --override-values values.json
     ```
     {: codeblock}
 
@@ -141,39 +130,18 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
     ```
     {: codeblock}
 
-When deployed, you can then access your deployed environment.
+4. The CLI requires a `version_locator_value`. You can retrieve this value from the {{site.data.keyword.cloud_notm}} console UI by clicking on **View details**.
 
-## Accessing the deployed environment
-{: #access-deployed-environment}
+    1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
+    2. Click **Review deployment options**.
+    3. In the _Deployment options_ section, select **Create from the CLI**, copy the `version_locator_value`, and save this value to be used in a later step. The value is an 80 character alphanumeric string, such as:
 
-Regardless of whether you deployed the {{site.data.keyword.spectrum_full}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
+        ```text
+        1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.6c26cd4c-4f72-45e5-8bde-77387aa05138-global
+        ```
+        {: codeblock}
 
-* Verify that you have access to the bastion host by using an SSH key.
-* Verify that you can log in to all created {{site.data.keyword.spectrum_full_notm}} instances.
-* Verify that you can connect to the {{site.data.keyword.spectrum_full}} environment by using the following SSH commands:
-
-Run the command to login to the management node:
-
-```ssh
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<management_node_IP>
-```
-{: codeblock}
-
-
-Run the command for the login node:
-
-```ssh
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<login_node_ip>
-```
-{: codeblock}
-
-For example:
-
-```ssh
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@150.239.215.145 lsfadmin@10.241.0.4
-```
-{: codeblock}
-
+    * Provide the mandatory deployment values for your {{site.data.keyword.spectrum_full}} cluster, specifically, replace the **Fill the value here** text with values.
 
 If you deployed by using a project, you can copy this SSH command from the {{site.data.keyword.cloud_notm}} console: select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Outputs** tab, and use the copy icon to copy the `ssh_command` value and run it from a command line.
 {: tip}

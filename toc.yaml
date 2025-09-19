@@ -24,17 +24,14 @@ toc:
   - navgroup:
       id: plan
       topics:
-      - fixpack-support.md
       - considerations-for-HPC-cluster-compute-types.md
-      - topicgroup:
-          label: Integrating existing infrastructure resources
-          topics:
-          - vpc-lsf.md
-          - enable-vpn.md
-          - dns-service-instances.md
-          - key-protect-encrypyption-keys.md
-          - bastion-node.md
-          - deployer-node.md
+      - vpc-lsf.md
+      - enable-vpn.md
+      - dns-service-instances.md
+      - key-protect-encrypyption-keys.md
+      - fixpack-support.md
+      - bastion-node.md
+      - deployer-node.md
       - topicgroup:
             label: Using IBM Scale Storage as your storage solution
             topics:
@@ -44,7 +41,7 @@ toc:
   - navgroup:
       id: deploy
       topics:
-      - before_deploying.md
+      - before-deploying.md
       - deployment-values.md
       - deploying-lsf.md
   - navgroup:
@@ -88,8 +85,9 @@ toc:
              - cloud-logs.md
              - activity-tracker-event.md
              - cloud-monitoring.md
-      - cleanup_deployed_envn.md
+      - cleanup-deployed-envn.md
       - scc-workload-protect.md
+      - sml.md
   - navgroup:
       id: reference
       topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-09-19"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -25,6 +25,19 @@ content-type: release-note
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
+
+## September 2025
+{: #subcollection-sep25}
+
+### 18 September 2025
+{: #subcollection-sep1825}
+{: release-note}
+
+Create IAM permissions using the CLI approach
+:   Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The automation script enables this process. For more information, see [Setting IAM permissions - CLI](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#setting-iam-permissions).
+
+Support for Small Medium Large Deployments
+:   This solution allows users to select the deployment options using three different t-shirt sizes - Small, Medium, and Large. For more information, see [Small Medium Large Deployments](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-sml-intro).
 
 ## July 2025
 {: #subcollection-june25}

@@ -2,10 +2,13 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-08-06"
 
-keywords:
+keywords: storage scale, spectrum lsf, integration
 subcollection: hpc-ibm-spectrumlsf
+deployment-url: https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global
+industry: Technology
+version: v4.0.0
 
 ---
 
@@ -23,6 +26,8 @@ subcollection: hpc-ibm-spectrumlsf
 
 # Integrating {{site.data.keyword.scale_full_notm}} with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrating-scale}
+{: toc-industry="Technology"}
+{: toc-version="v4.0.0"}
 
 After deploying your Storage Scale cluster with CES, set up your {{site.data.keyword.spectrum_full_notm}} cluster to utilize the CES NFS mount points as a shared file storage solution.
 {: shortdesc}
@@ -30,10 +35,11 @@ After deploying your Storage Scale cluster with CES, set up your {{site.data.key
 ## Deploying your {{site.data.keyword.scale_short}} cluster
 {: #scale-tile}
 
-Deploy your {{site.data.keyword.scale_short}} cluster by using the [{{site.data.keyword.scale_short}} catalog deployment tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global) by using the {{site.data.keyword.cloud_notm}} console UI. Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui) for detailed steps.
+Deploy your {{site.data.keyword.scale_short}} cluster using the deployable architecture variant [Scale tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global).
+Refer to the [{{site.data.keyword.scale_short}} documentation](https://test.cloud.ibm.com/docs-draft/storage-scale-da) for more information.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
-1. Select to use product version 2.7.0 or later.
+1. Select to use product version 4.0.0.
 2. [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
 * Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
 * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
@@ -77,9 +83,12 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC created through the scale cluster.
 
-* To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Storage Scale cluster. Under the `cluster_subnet_id` parameter, provide the compute subnet ID for the cluster.
+* To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Scale cluster. Under the `compute_subnet_id` parameter, provide the compute subnet ID for the cluster.
 
-* To create the bastion/deployer and login nodes on the LSF, you should create a new subnet under the Scale VPC cluster. Even though there are two existing subnets under the Scale VPC (proto-pvt-1 and stg-pvt-1), it is advised to create a new subnet. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture. Provide the subnet ID for the cluster under the `login_subnet_id` parameter.
+* To create the bastion/deployer and login nodes on the LSF, there is an existing **login subnet** created already as part of the Scale cluster. Provide that subnet ID under the `login_subnet_id` parameter. Using the **storage subnet** created from Scale is not advisable to use due to security issues. This approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
+
+    You can use either login subnet or client subnet or protocol subnets which are created through the Scale cluster. You can pass either of them during deployment.
+    {: note}
 
     The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
     {: note}
@@ -89,6 +98,9 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 * Provide the Storage Scale cluster storage security group ID under the `storage_security_group_id` parameter. This security group ID is required to establish the connection from the LSF cluster nodes to Storage Scale CES nodes from where the NFS mount points are exported.
 
 * To use the Storage Scale CES NFS mount points on the LSF cluster nodes, ensure to pass the mount point details under the `custom_file_shares` parameter.
+
+When client subnets are created, you can still use them as the login subnet.
+{: tip}
 
 If you want choose or opt the existing bastion setup on LSF, then refer the documentation for [Bastion node](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-bastion-node-overview).
 
@@ -140,7 +152,10 @@ Run the following command to update the routing on all Storage Scale CES cluster
 Run the following command to check whether the `NO_ROOT_SQUASH` is applied successfully:
 
 ```text
-# mmnfs export list --nfsdefs /gpfs/fs1/lsf Path Delegations Clients Access_Type Protocols Transport Squash ... ------------- ----------- ------------- ----------- --------- --------- -------------- /gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
+# mmnfs export list --nfsdefs /gpfs/fs1/lsf
+Path Delegations Clients Access_Type Protocols Transport Squash ...
+------------- ----------- ------------- ----------- --------- ---------
+/gpfs/fs1/lsf NONE 10.241.0.0/20 RW 3,4 TCP NO_ROOT_SQUASH
 ```
 {: codeblock}
 

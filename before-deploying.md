@@ -2,12 +2,16 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-09-19"
 
 keywords:
 
 subcollection: hpc-ibm-spectrumlsf
-
+completion-time: 1h
+use-case: ITServiceManagement
+industry: Technology
+content-type: tutorial
+deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D
 ---
 
 {:shortdesc: .shortdesc}
@@ -23,6 +27,10 @@ subcollection: hpc-ibm-spectrumlsf
 
 # Before you begin deploying
 {: #getting-started-tutorial}
+{: toc-completion-time="1h"}
+{: toc-content-type="tutorial"}
+{: toc-industry="Technology"}
+{: toc-use-case="ITServiceManagement"}
 
 {{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
 
@@ -36,9 +44,61 @@ Complete the following steps before you deploy the {{site.data.keyword.spectrum_
 
 1. Confirm that you have an {{site.data.keyword.cloud_notm}} Pay-As-You-Go or Subscription account. If you have a Trial or Lite account, [upgrade your account](/docs/account?topic=account-upgrading-account).
 
-2. Log in to your [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com){: external} account with your IBMid.
+2. Log in to your [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com){: external} account with your IBM ID.
 
-## Verify access policies
+## Setting IAM permissions - CLI
+{: #setting-iam-permissions}
+
+Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The automation script enables this process.
+
+User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the LSF deployment. The automation ensures that if the user has a certain permissions, then the script will omit them and add only the required permissions to perform the deployment.
+
+For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script will omit this and provide only Manager permission.
+
+Benefits of the scripts:
+
+* **Interactive input collection** - The script prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
+* **Permission check** - The script verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
+* **Assigns required permissions for LSF deployment** - This script grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
+* **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
+
+You can get the scripts by performing **gitclone** on the branch:
+
+```pre
+git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
+```
+
+1. Navigate to `cd tools/access-management`, you will get the `permissions.sh` file.
+2. Login to the IBM Cloud with your API key. Run the following command:
+
+    ```pre
+    ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
+    chmod +x permissions.sh
+    ./permissions.sh
+    ```
+
+3. Enter the admin email or IBMid.
+4. Enter the Resource group and Account ID.
+
+    For the Account ID, login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID.
+5. You will be asked to assign the roles:
+    1. **Access Group** - Select this option, if you want to assign the access to the entire access group.
+    2. **User** - Select this option, if you want to assign the access to an individual user.
+
+    Select the required option.
+6. Enter the target user email, if you select the option 2.
+7. User policy is successfully created.
+
+If the user skips to enter the `RESOURCE_GROUP_ID` or the `ACCOUNT_ID`, then script displays the error message:
+
+```pre
+:x: RESOURCE_GROUP_ID is required.
+:x: ACCOUNT_ID is required.
+```
+
+This script ensures the user or access group has all the required IAM permissions to successfully deploy an LSF environment.
+
+## Setting IAM permissions - UI
 {: #verify-access-policies}
 
 {{site.data.keyword.iamlong}} (IAM) access policies are required to install this deployable architecture and provision clusters.
@@ -76,25 +136,28 @@ The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.spectru
 The current solution no longer requires `ibm_customer_number`(ICN) for entitlement check before deploying the solution for non-production use. The solution is now available for use without ICN validation. Users can provision up to a maximum of 10 static worker nodes for evaluation or non-production use cases. If the number of worker nodes exceeds 10, it becomes the user responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. For production use or for evaluating greater than 10 worker nodes, the user must purchase the necessary LSF licenses. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
 {: important}
 
-Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
+## Before you begin
+{: #before-begin}
+
+Before you can deploy your {{site.data.keyword.spectrum_short}} cluster, you need to create or gather some information. To get started, complete the following steps.
 
 ## Create an IBM Cloud API key
 {: #create-api-key}
 {: step}
 
-Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
+Verify that you have an {{site.data.keyword.cloud_notm}} API key. `ibmcloud_api_key` is the value required for this variable. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
 ## Create an SSH key
 {: #create-ssh-key}
 {: step}
 
-Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+Make sure that you have an SSH key that you can use for authentication and that it is uploaded to {{site.data.keyword.vpc_short}}. The {{site.data.keyword.spectrum_full}} deployable architecture supports either RSA or Ed 25519 key types. This key is used to log in to all VSIs that you create. Make sure that you use the same key types in an LSF cluster (for example, deploy management and compute nodes with the same key). `ssh_keys` is the value required for this variable. For more information about creating SSH keys, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## Generate the remote IP to access Spectrum LSF cluster
 {: #generate-remote-ip}
 {: step}
 
-This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster.
+This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster. This value is required for variable `remote_allowed_ips`.
 
 If this field is left empty (for example, [""]) or not provided, then the cluster deployment will fail during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
@@ -104,7 +167,7 @@ For more information on mandatory and optional deployment values, see [Deploymen
 {: #lsf-version}
 {: step}
 
-IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
+IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15). `lsf_version` is the value required for this variable.
 By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
 
 ## Application center password
@@ -112,7 +175,7 @@ By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to p
 {: step}
 
 For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
-To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails.
+To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails. `app_center_gui_password` is the value required for this variable.
 
 ## Enabling optional values
 {: #optional-values}
