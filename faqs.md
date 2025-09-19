@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords:
 
@@ -272,58 +272,3 @@ So below are the required permissions for SCC Workload Protection are:
 {: faq}
 
 For this release, noVNC is not supported due to platform issues. Team is working on it.
-
-## Why do I see "Unable to authenticate user" error when connecting to LSF Web Services using the LSF client?
-{: #security}
-{: faq}
-
-This error usually indicates that the password entered during the login attempt is incorrect. Verify that you are using the correct credentials for the specified user. If you have forgotten the password, please contact your cluster administrator to reset the password.
-
-```pre
-test@abc-MacBook-Pro ~ % lsf cluster logon --username lsfadmin --url https://localhost:8448
-Password>
-FAILED
-Unable to authenticate user: lsfadmin
-test@abc-MacBook-Pro ~ %
-```
-
-For troubleshooting and audit purposes, failed authentication attempts are logged on the Web Service node. You can review the log file at:
-
-`/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
-
-It is your responsibility to manage the password with as many retries you want to set.
-{: note}
-
-## What should I do if a management node in the LSF cluster shows as "unreach" in the "bhosts -w" output?
-{: #unreach}
-{: faq}
-
-```pre
-[lsfadmin@test-mgmt-1-f86c-001 ~]$ bhosts -w
-HOST_NAME                       STATUS          JL/U    MAX  NJOBS    RUN     SSUSP     USUSP       RSV
-test-comp-1-f86c-002.hpc.local    ok              -      4      0      0        0           0
-test-comp-1-f86c-001.hpc.local    ok              -      4      0      0      0           0          0
-test-mgmt-1-f86c-001.hpc.local  closed_Full       -      0      0      0      0           0          0
-test-mgmt-1-f86c-002.hpc.local    unreach         -      0      0      0      0           0          0
-[lsfadmin@test-mgmt-1-f86c-001 ~]$
-```
-
-If a management node appears as unreach, log in to that node through SSH and restart the lsfd service using the following command: `sudo service lsfd restart`.
-
-## Can I use a password file for authenticating with the LSF Web Service client instead of typing the password manually?
-{: #passwordfile}
-{: faq}
-
-```pre
-lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
-```
-
-No this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
-
-Instead, use the supported and more secure login method:
-
-```pre
-lsf cluster logon --username lsfadmin --url https://localhost:8448
-```
-
-For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](https://test.cloud.ibm.com/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui)
