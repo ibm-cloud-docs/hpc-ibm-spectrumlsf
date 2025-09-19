@@ -115,14 +115,14 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 ```
 
 1. Navigate to `cd tools/access-management` to get the all the required files.
-2. Run the `chmod +x *.sh` - this gives permissions to all the files.
+2. Run the `chmod +x *.sh`, gives permissions to all the files.
 
 ```pre
 1. chmod +x create_lsf_environment.sh
 2. ./create_lsf_environment.sh <cluster_prefix>
 ```
 
-* `create_lsf_environment` - This script automates the end-to-end deployment of an IBM Cloud LSF environment. It installs required plugins, generates configuration files from your **.env**, triggers the Schematics workspace deployment, and finally the prints access details (bastion, login, management IPs) with next steps for connecting and submitting jobs.
+`create_lsf_environment` - This script automates the end-to-end deployment of an IBM Cloud LSF environment. It installs required plugins, generates configuration files from your **.env**, triggers the Schematics workspace deployment, and finally the prints access details (bastion, login, management IPs) with next steps for connecting and submitting jobs.
 
 ## Connect to the LSF cluster and run the jobs
 {: #connect-lsf-jobs}
@@ -139,7 +139,7 @@ Now that your environment is set up, you can connect to the LSF cluster and perf
     ./show.sh <cluster_prefix>
     ```
 
-    * `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures you are logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
+    `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures you are logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
 
 2. Copy the job submission script to the cluster by using the command:
 
@@ -161,7 +161,7 @@ Now that your environment is set up, you can connect to the LSF cluster and perf
     ./jump.sh <cluster_prefix>
     ```
 
-    * `jump.sh` - This script connects you directly to the LSF login node. It ensures you are targeting the right IBM Cloud account/region, fetches the bastion, login, and management IPs, and then uses SSH (with bastion as a jump host) to securely log into the LSF login node.
+    `jump.sh` - This script connects you directly to the LSF login node. It ensures you are targeting the right IBM Cloud account/region, fetches the bastion, login, and management IPs, and then uses SSH (with bastion as a jump host) to securely log into the LSF login node.
 
 4. Run the following commands to submit the jobs:
     ```pre

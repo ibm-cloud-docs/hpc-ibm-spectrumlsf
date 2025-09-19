@@ -69,7 +69,7 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 ```
 
 1. Navigate to `cd tools/access-management`, you will get the `permissions.sh` file.
-2. You need to login to the IBM Cloud with your API key. Run the following command:
+2. Login to the IBM Cloud with your API key. Run the following command:
 
     ```pre
     ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
@@ -79,13 +79,14 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 
 3. Enter the admin email or IBMid.
 4. Enter the Resource group and Account ID.
+
     For the Account ID, login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID.
 5. You will be asked to assign the roles:
     1. **Access Group** - Select this option, if you want to assign the access to the entire access group.
     2. **User** - Select this option, if you want to assign the access to an individual user.
 
     Select the required option.
-6. Enter the target user email if you select the option 2.
+6. Enter the target user email, if you select the option 2.
 7. User policy is successfully created.
 
 If the user skips to enter the `RESOURCE_GROUP_ID` or the `ACCOUNT_ID`, then script displays the error message:
