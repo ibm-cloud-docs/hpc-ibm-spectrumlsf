@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords:
 
@@ -108,7 +108,14 @@ The `version_locator_value` changes are based on the tile version selected.
 {: #deploy-env}
 {: step}
 
-Run the following commands to deploy the LSF environment:
+You can get the scripts by performing **gitclone** on the branch:
+
+```pre
+git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
+```
+
+1. Navigate to `cd tools/access-management` to get the all the required files.
+2. Run the `chmod +x *.sh` - this gives permissions to all the files.
 
 ```pre
 1. chmod +x create_lsf_environment.sh
