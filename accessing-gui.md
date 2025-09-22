@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-09-22"
 
 keywords:
 
@@ -24,49 +24,95 @@ subcollection: hpc-ibm-spectrumlsf
 # Accessing the GUI
 {: #accessing-gui}
 
-After the cluster setup is complete, you can monitor the resources and status of the service directly from the {{site.data.keyword.spectrum_full_notm}} Application Center GUI. For more information about the GUI, see the [LSF Application Center Web Services product documentation](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services){: external}.
-{: shortdesc}
+The IBM Spectrum LSF Application Center is a web-based portal that provides an intuitive interface for working with IBM Spectrum LSF (Load Sharing Facility). It allows users to submit, monitor, and manage workloads on an LSF cluster without requiring command-line expertise.
 
-## Before you begin
-{: #before-you-begin}
+Designed for end-users, developers, and administrators, the Application Center simplifies job submission and management, enabling a more efficient HPC experience.
 
-Before you access the LSF Application Center GUI, review the following considerations and requirements:
+For more information, see [IBM Spectrum LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services).
 
-* Initial setup must be done from your local system.
-* Access the GUI with the same SSH key that was provided for cluster creation.
-* It is recommended to use the Safari browser to access the GUI.
-* If you encounter a delay in loading or accessing the GUI, clear the browsers cache.
-* You can open Application Center GUIs on the 8443 port.
+## Key Features
+{: #key-features}
 
-## Gathering IP addresses
-{: #gathering-ip-address}
+* **Web-based access** – Use a browser to submit and manage jobs, no LSF client installation required.
 
-To access the GUI, you must collect the IP addresses of the compute nodes and the floating IP address that is attached to the login node.
+* **Application templates** – Simplified job submission with predefined templates for popular applications (for example, ANSYS, MATLAB, Abaqus).
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to Schematics > Workspaces, and choose your workspace.
-2. On the workspace page, click the _Resources_ tab. In the list of Terraform resources, click the `management_host` resource link, which opens a new window with a list of the virtual server instances that were provisioned.
-3. On the Virtual server instances for VPC page, locate the IP address for `<cluster_prefix>-login-host-0`, which is the management IP address that you need.
-4. In addition to that IP address, pick up the floating IP address that is attached to the login node.
+* **Interactive Sessions** – Launch remote desktops or applications directly on compute nodes.
+
+* **Job Monitoring and Control** – View job status, access logs, and cancel or resubmit jobs with a few clicks.
+
+* **Data Management** – Upload, download, and organize files through the portal.
+
+* **Role-based access** – Different views and permissions for administrators, power users, and standard users.
+
+* **Cluster integration** – Works seamlessly with IBM Spectrum LSF resource scheduling and HPC environments.
+
+## Configuration Overview
+{: #config-overview}
+
+The Application Center is installed and enabled by default with the IBM Spectrum LSF Suite. By default, it runs on the secondary management node (Management Node 2). If your cluster has only one management node, the service runs on that node.
+The service runs as a single instance. If the node is down, the Application Center will be temporarily unavailable.
+
+High Availability (HA) is not enabled by default.
+{: note}
 
 ## Accessing the LSF Application Center GUI
-{: #accessing-lsf-application-center-gui}
+{: #access-lsf-gui}
 
-Complete the following steps to access the LSF Application Center:
+1.  Open an SSH Tunnel
 
-1. Open a new command line terminal.
+From your local terminal, connect to the LSF management node using the SSH tunnel details provided in your deployment logs (look for the variable application_center_tunnel).
 
-2. Run the following command to access the LSF Application Center GUI:
+```
 
-    ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}
-    ```
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
 
-    Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0` and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-gui&interface=ui#gathering-ip-address).
+```
 
-    Example:
-    ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@52.116.124.34 lsfadmin@10.241.16.5
-    ```
+2. Manage the Application Center Service
 
-3. Open a browser on your local system and run https://localhost:8443.
-4. To access the LSF Application Center GUI, enter the default user as `lsfadmin` and enter the password that you configured when you created your workspace.
+On the management node, you can manage the Application Center service with the following commands:
+
+- Check status:
+
+```
+
+pmcadmin list
+
+```
+
+- Stop the service:
+
+```
+
+pmcadmin stop
+
+```
+
+- Start the service:
+
+```
+
+pmcadmin start
+
+```
+
+3. Launch the GUI
+
+3.1 Open a web browser on your local system. Recommendation: Use Safari for the best experience.
+
+3.2 Navigate to:
+
+```
+
+https://localhost:8443
+
+```
+
+3.3 Log in with the following credentials:
+
+- Username: lsfadmin
+
+- Password: The Application Center password provided during cluster creation
+
+<< this is a draft>>

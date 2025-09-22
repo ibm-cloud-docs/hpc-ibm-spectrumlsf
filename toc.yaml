@@ -80,6 +80,13 @@ toc:
             - process-manager-cli.md
             - process-manager-gui.md
       - topicgroup:
+            label: IBM Spectrum LSF Web Services
+            topics:
+            - web-services-overview.md
+            - web-services-config-lsfclients.md
+            - web-services-config-multiple-clients.md
+            - web-service-config-openldap.md
+      - topicgroup:
             label: Observability
             topics:
              - cloud-logs.md
