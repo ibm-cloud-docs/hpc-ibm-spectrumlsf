@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -27,7 +27,7 @@ Perform the following steps to create, submit, and verify the jobs through Proce
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the following `application_center_tunnel` variable:
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.7:8443 -L 6080:10.241.0.7:6080 -L 8444:10.241.0.7:8444 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
 2. Open a browser on your local system and go to https://localhost:8443 to access the LSF Application Center GUI. Log in using the default username `lsfadmin` and the password you set during workspace creation.

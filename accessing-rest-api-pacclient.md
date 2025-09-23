@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -31,15 +31,17 @@ This example assumes that the LSF Application Center is configured to use the RE
 ## Before you begin
 {: #before-you-begin}
 
-Before you connect to the LSF Application Center with `https`, you need to complete the following steps:
+1. Before accessing the LSF Application Center through https, you must first establish a secure SSH tunnel from your local machine to the LSF management node.
 
-1. To access the LSF Application Center REST APIs from your device, you need to set up an SSH connection. You can connect to an LSF management node through a new command line from your local device. The {{site.data.keyword.bpshort}} log output contains the LSF Application Center information that you need.
+    * Open a terminal on your local system.
+
+    * Use the SSH command provided in your deployment logs (refer to the variable application_center_tunnel).
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP>  lsfadmin@<Management_Node_IP>
     ```
 
-    where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-accessing-lsf-gui&interface=ui#gathering-ip-addresses).
+    This command creates an encrypted tunnel that forwards the required ports (8443, 6080, and 8444) from the LSF management node to your local machine, enabling secure browser access to the Application Center GUI.
 
 2. Open a second terminal, download, and install the Python 3.6 version or newer. The following examples are for Linux and MAC systems. If you are using Windows, the installation is different. For more information, see [Python releases for Windows](https://www.python.org/downloads/windows/){: external}.
 

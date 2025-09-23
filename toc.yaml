@@ -66,7 +66,7 @@ toc:
       - topicgroup:
             label: Using LSF Application Center
             topics:
-             - accessing-gui.md
+             - accessing-app-center.md
              - accessing-lsf-gui.md
              - topicgroup:
                   label: Accessing REST API calls

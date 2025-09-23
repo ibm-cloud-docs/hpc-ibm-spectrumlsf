@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Accessing the GUI
+# Accessing the application center
 {: #accessing-gui}
 
 The IBM Spectrum LSF Application Center is a web-based portal that provides an intuitive interface for working with IBM Spectrum LSF (Load Sharing Facility). It allows users to submit, monitor, and manage workloads on an LSF cluster without requiring command-line expertise.
@@ -59,60 +59,44 @@ High Availability (HA) is not enabled by default.
 ## Accessing the LSF Application Center GUI
 {: #access-lsf-gui}
 
-1.  Open an SSH Tunnel
+1. Open an SSH tunnel.
 
-From your local terminal, connect to the LSF management node using the SSH tunnel details provided in your deployment logs (look for the variable application_center_tunnel).
+    From your local terminal, connect to the LSF management node using the SSH tunnel details provided in your deployment logs (look for the variable `application_center_tunnel`).
 
-```
+    ```pre
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
+    ```
 
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
+2. Manage the Application Center service.
 
-```
+    On the management node, you can manage the Application Center service with the following commands:
 
-2. Manage the Application Center Service
+    * Check status:
 
-On the management node, you can manage the Application Center service with the following commands:
+    ```pre
+    pmcadmin list
+    ```
 
-- Check status:
+    * Stop the service:
 
-```
+    ```pre
+    pmcadmin stop
+    ```
 
-pmcadmin list
+    * Start the service:
 
-```
+    ```pre
+    pmcadmin start
+    ```
 
-- Stop the service:
+3. Launch the GUI.
 
-```
+a. Open a web browser on your local system. Recommendation: Use Safari for the best experience.
 
-pmcadmin stop
+b. Navigate to `https://localhost:8443`
 
-```
+c. Log in with the following credentials:
 
-- Start the service:
+    * Username: lsfadmin
 
-```
-
-pmcadmin start
-
-```
-
-3. Launch the GUI
-
-3.1 Open a web browser on your local system. Recommendation: Use Safari for the best experience.
-
-3.2 Navigate to:
-
-```
-
-https://localhost:8443
-
-```
-
-3.3 Log in with the following credentials:
-
-- Username: lsfadmin
-
-- Password: The Application Center password provided during cluster creation
-
-<< this is a draft>>
+    * Password: The Application Center password provided during cluster creation.
