@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -25,6 +25,21 @@ content-type: release-note
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
+
+## September 2025
+{: #subcollection-sep25}
+
+### 30 September 2025
+{: #subcollection-sep3025}
+{: release-note}
+
+Support for Web Services
+:   IBM Spectrum LSF Web Services is enabled by default as part of the LSF suite deployment. It provides a secure RESTful interface to submit, monitor, and manage jobs, enabling easy integration with custom applications and automation workflows.
+
+Bug Fixes
+
+:   * Added support for the "icgen2host" tag on dynamic nodes.
+:   * Enabled deployment and configuration of core services (Application Center, Process Manager, Web Services, etc.) on Management Node-2 when the management node count is ≥ 2.
 
 ## September 2025
 {: #subcollection-sep25}

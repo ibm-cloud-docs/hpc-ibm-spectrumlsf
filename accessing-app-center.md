@@ -26,9 +26,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 The IBM Spectrum LSF Application Center is a web-based portal that provides an intuitive interface for working with IBM Spectrum LSF (Load Sharing Facility). It allows users to submit, monitor, and manage workloads on an LSF cluster without requiring command-line expertise.
 
-Designed for end-users, developers, and administrators, the Application Center simplifies job submission and management, enabling a more efficient HPC experience.
-
-For more information, see [IBM Spectrum LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services).
+Designed for end-users, developers, and administrators, the Application Center simplifies job submission and management, enabling a more efficient HPC experience. For more information, see [IBM Spectrum LSF Application Center](https://www.ibm.com/docs/en/slac/10.2.0?topic=lsf-application-center-web-services).
 
 ## Key Features
 {: #key-features}
@@ -97,6 +95,5 @@ b. Navigate to `https://localhost:8443`
 
 c. Log in with the following credentials:
 
-    * Username: lsfadmin
-
-    * Password: The Application Center password provided during cluster creation.
+* Username: lsfadmin
+* Password: The Application Center password provided during cluster creation.
