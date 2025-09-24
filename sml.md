@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -114,7 +114,7 @@ You can get the scripts by performing **gitclone** on the branch:
 git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 ```
 
-1. Navigate to `cd tools/access-management` to get the all the required files.
+1. Navigate to `minimal-demo-prod-scripts` to get the all the required files.
 2. Run the `chmod +x *.sh`, gives permissions to all the files.
 
 ```pre

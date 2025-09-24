@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -115,14 +115,11 @@ To view access policies, complete the following steps:
    | All Identity and Access enabled services | All | Administrator | Manager |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
-   | File Storage for VPC | All | Editor | -- |
-   | Flow Logs for VPC | All | Editor | -- |
-   | IAM Identity Service | All | Administrator | -- |
    | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
    | Security and Compliance Center Workload Protection | All | Administrator | -- |
-   | Virtual Private Cloud | All | Editor | -- |
+   | VPC Infrastructure Services | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
    The above mentioned permissions are mandatory, failing to have these permissions will lead to deployment failure. Contact the account administrator for the permissions.
