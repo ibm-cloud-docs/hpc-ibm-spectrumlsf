@@ -38,7 +38,7 @@ Before accessing the LSF Application Center through https, you must first establ
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
-This command creates an encrypted tunnel that forwards the required ports (8443, 6080, and 8444) from the LSF management node to your local machine, enabling secure browser access to the Application Center GUI.
+    This command creates an encrypted tunnel that forwards the required ports (8443, 6080, and 8444) from the LSF management node to your local machine, enabling secure browser access to the Application Center GUI.
 
 ## Connecting to LSF Application Center with `curl`
 {: #connect-lsf-application-center-curl}
