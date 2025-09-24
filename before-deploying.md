@@ -58,7 +58,7 @@ For example, for the **App configuration** service, the user requires Administra
 Benefits of the scripts:
 
 * **Interactive input collection** - The script prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
-* **Permission check** - The script verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
+* **Permission check** - The script verifies that the admin has account-level  Administrator rights which is required to assign policies.
 * **Assigns required permissions for LSF deployment** - This script grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
 * **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
 
