@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Accessing the application center
+# About Application Center
 {: #accessing-gui}
 
 The IBM Spectrum LSF Application Center is a web-based portal that provides an intuitive interface for working with IBM Spectrum LSF (Load Sharing Facility). It allows users to submit, monitor, and manage workloads on an LSF cluster without requiring command-line expertise.
@@ -48,10 +48,11 @@ Designed for end-users, developers, and administrators, the Application Center s
 ## Configuration Overview
 {: #config-overview}
 
-The Application Center is installed and enabled by default with the IBM Spectrum LSF Suite. By default, it runs on the secondary management node (Management Node 2). If your cluster has only one management node, the service runs on that node.
-The service runs as a single instance. If the node is down, the Application Center will be temporarily unavailable.
+IBM Spectrum LSF Application Center is enabled by default with the LSF Suite installation. The service is installed and runs on the secondary management node (typically management node 2).
 
-High Availability (HA) is not enabled by default.
+If the cluster is created with only one management node, Application Center are configured on that same node.
+
+By default, High Availability (HA) for Application Center is not enabled. The service runs as a stand-alone instance on a single node. If the node becomes unavailable, then the Application Center will also be temporarily inaccessible.
 {: note}
 
 ## Accessing the LSF Application Center GUI

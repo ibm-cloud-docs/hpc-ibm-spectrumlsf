@@ -64,10 +64,9 @@ toc:
           - adding-profile-types.md
       - enable-dedicated-host.md
       - topicgroup:
-            label: Using LSF Application Center
+            label: IBM Spectrum LSF Application Center
             topics:
              - accessing-app-center.md
-             - accessing-lsf-gui.md
              - topicgroup:
                   label: Accessing REST API calls
                   topics:

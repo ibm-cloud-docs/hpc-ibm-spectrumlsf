@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -30,15 +30,15 @@ subcollection: hpc-ibm-spectrumlsf
 
 Before accessing the LSF Application Center through https, you must first establish a secure SSH tunnel from your local machine to the LSF management node.
 
-    * Open a terminal on your local system.
+* Open a terminal on your local system.
 
-    * Use the SSH command provided in your deployment logs (refer to the variable application_center_tunnel).
+* Use the SSH command provided in your deployment logs (refer to the variable application_center_tunnel).
 
-    ```
+    ```pre
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
-    This command creates an encrypted tunnel that forwards the required ports (8443, 6080, and 8444) from the LSF management node to your local machine, enabling secure browser access to the Application Center GUI.
+This command creates an encrypted tunnel that forwards the required ports (8443, 6080, and 8444) from the LSF management node to your local machine, enabling secure browser access to the Application Center GUI.
 
 ## Connecting to LSF Application Center with `curl`
 {: #connect-lsf-application-center-curl}

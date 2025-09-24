@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -19,7 +19,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# About IBM Spectrum LSF Process Manager
+# About Process Manager
 {: #about-process-manager}
 
 IBM Spectrum LSF Process Manager is a component of the IBM Spectrum LSF (Load Sharing Facility) suite that provides advanced workload scheduling and job management. This helps users to automate, monitor, and control application workflows and dependencies across distributed computing environments. With process manager, users can define complex job flows using visual tools or scripting, enabling efficient resource usage and better throughput. For more information, see [IBM Spectrum LSF Process Manager documentation](https://www.ibm.com/docs/en/slpm/10.2.0?topic=administering-about-spectrum-lsf-process-manager).
