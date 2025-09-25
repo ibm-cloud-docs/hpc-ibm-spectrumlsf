@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-24"
+lastupdated: "2025-09-25"
 
 keywords:
 
@@ -24,12 +24,12 @@ subcollection: hpc-ibm-spectrumlsf
 # Small Medium Large Deployments
 {: #sml-intro}
 
-The current LSF setup is designed for production grade deployments. This approach is high-priced for trying before-you-buy option and demonstration use cases. As a solution, now users can select the deployment options using three different t-shirt sizes - Small, Medium, and Large. This solution has the ability to deploy a smaller and less expensive environment on IBM Cloud to try the capability or to provide a demonstration.
+The current LSF setup is designed for production grade deployments. This approach is high-priced for trying before-you-buy option and demonstration use cases. As a solution, now users can select the deployment options that use three different t-shirt sizes - Small, Medium, and Large. This solution is able to deploy a smaller and less expensive environment on IBM Cloud to try the capability or to provide a demonstration.
 
 ## Deployment types
 {: #deploy-types}
 
-You will be able to choose from these 3 deployment size options:
+You are able to choose from these 3 deployment size options:
 
 1. **Small (Minimal)**
 
@@ -45,14 +45,16 @@ You will be able to choose from these 3 deployment size options:
 
     All the JSON files are customizable (users can make configuration changes as needed).
 
-The **.env** file is mandatory because it contains all the variables required to update the file regardless of deployment types.
+The **.env** file is mandatory because it contains all the variables that are required to update the file regardless of deployment types.
 {: note}
 
 ## Update the .env file
 {: #env-file}
 {: step}
 
-The following inputs are required to update the **.env** file.
+1. Navigate to `minimal-demo-prod-scripts` folder.
+2. Create a **.env** file.
+3. Update the **.env** file with the following inputs:
 
 ```pre
 
@@ -83,7 +85,7 @@ From the above snippet, below are the descriptions for the parameters:
 
 * **API_KEY** - This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment.
 
-* **ACCOUNT_GUID** - Login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID.
+* **ACCOUNT_GUID** - Login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You find the Account ID.
 
 * **ZONES** - Provide the IBM Cloud zone.
 
@@ -102,7 +104,7 @@ From the above snippet, below are the descriptions for the parameters:
 The `version_locator_value` changes are based on the tile version selected.
 {: note}
 
-* **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in both Fix Pack 15 and Fix Pack 14 with HTTPS. This is a mandatory value and omitting it will result in deployment failure.
+* **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in both Fix Pack 15 and Fix Pack 14 with HTTPS. This is a mandatory value and omitting, results in deployment failure.
 
 ## Deploy the LSF environment
 {: #deploy-env}
@@ -115,7 +117,7 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 ```
 
 1. Navigate to `minimal-demo-prod-scripts` to get the all the required files.
-2. Run the `chmod +x *.sh`, gives permissions to all the files.
+2. Run the `chmod +x *.sh`. This gives permissions to all the files.
 
 ```pre
 1. chmod +x create_lsf_environment.sh
@@ -128,7 +130,7 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 {: #connect-lsf-jobs}
 {: step}
 
-Now that your environment is set up, you can connect to the LSF cluster and perform operations such as submitting jobs, monitoring workloads, viewing infrastructure details.
+Now, that your environment is set up, you can connect to the LSF cluster and perform operations such as submitting jobs, monitoring workloads, viewing infrastructure details.
 
 ### Using Utility Scripts
 {: #using-utility-scripts}
@@ -139,7 +141,7 @@ Now that your environment is set up, you can connect to the LSF cluster and perf
     ./show.sh <cluster_prefix>
     ```
 
-    `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures you are logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
+    `show.sh` - This script retrieves details of the Schematics workspace for a given LSF cluster prefix. It ensures that you are logged into the correct account and region, locates the workspace, and then displays its full configuration and state.
 
 2. Copy the job submission script to the cluster by using the command:
 
@@ -161,11 +163,19 @@ Now that your environment is set up, you can connect to the LSF cluster and perf
     ./jump.sh <cluster_prefix>
     ```
 
-    `jump.sh` - This script connects you directly to the LSF login node. It ensures you are targeting the right IBM Cloud account/region, fetches the bastion, login, and management IPs, and then uses SSH (with bastion as a jump host) to securely log into the LSF login node.
+    `jump.sh` - This script connects you directly to the LSF login node. It ensures that you are targeting the right IBM Cloud account/region, fetches the bastion, login, and management IPs, and then uses SSH (with bastion as a jump host) to securely log in to the LSF login node.
 
 4. Run the following commands to submit the jobs:
     ```pre
     sh submit.sh
     bjobs
     lshosts -w
+    ```
+
+5. Run the following command to destroy the created infrastructure:
+
+    ```pre
+    chmod +x destroy.sh
+    ./destroy.sh <cluster_prefix>
+    ./destroy.sh <cluster_prefix>
     ```
