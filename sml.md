@@ -177,5 +177,4 @@ Now, that your environment is set up, you can connect to the LSF cluster and per
     ```pre
     chmod +x destroy.sh
     ./destroy.sh <cluster_prefix>
-    ./destroy.sh <cluster_prefix>
     ```
