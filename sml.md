@@ -48,11 +48,19 @@ You are able to choose from these 3 deployment size options:
 The **.env** file is mandatory because it contains all the variables that are required to update the file regardless of deployment types.
 {: note}
 
+Before you deploy an IBM Spectrum LSF cluster, specific IAM permissions must be assigned to either a user or an access group. For more information, see [Setting IAM permissions - CLI](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial).
+
 ## Update the .env file
 {: #env-file}
 {: step}
 
-1. Navigate to `minimal-demo-prod-scripts` folder.
+You can get the scripts by performing **gitclone** on the branch:
+
+```pre
+git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
+```
+
+1. Navigate to `minimal-demo-prod-scripts` to get the all the required files.
 2. Create a **.env** file.
 3. Update the **.env** file with the following inputs:
 
@@ -110,14 +118,7 @@ The `version_locator_value` changes are based on the tile version selected.
 {: #deploy-env}
 {: step}
 
-You can get the scripts by performing **gitclone** on the branch:
-
-```pre
-git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
-```
-
-1. Navigate to `minimal-demo-prod-scripts` to get the all the required files.
-2. Run the `chmod +x *.sh`. This gives permissions to all the files.
+1. Run the `chmod +x *.sh`. This gives permissions to all the files.
 
 ```pre
 1. chmod +x create_lsf_environment.sh
