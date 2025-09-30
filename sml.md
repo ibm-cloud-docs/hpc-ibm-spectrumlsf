@@ -50,7 +50,7 @@ The **.env** file is mandatory because it contains all the variables that are re
 
 Before you deploy an IBM Spectrum LSF cluster, specific IAM permissions must be assigned to either a user or an access group. For more information, see [Setting IAM permissions - CLI](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial).
 
-## Update the .env file
+## Setup the LSF environment
 {: #env-file}
 {: step}
 
