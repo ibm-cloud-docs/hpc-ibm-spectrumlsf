@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-10-03"
 
 keywords:
 
@@ -272,3 +272,44 @@ So below are the required permissions for SCC Workload Protection are:
 {: faq}
 
 For this release, noVNC is not supported due to platform issues. Team is working on it.
+
+## How can I use my own certificate for LSF Web Services (LWS)?
+{: #lws}
+{: faq}
+
+By default, LWS enables HTTPS with a self-signed certificate. To use your own certificate, do the following:
+
+1. Connect to the LSF management node using SSH. The connection details are provided in the Schematics log output under the `ssh_to_management_node` variable.
+
+    ```pre
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
+    ```
+
+    For clusters with a single management node, all the configurations run on that same node. You can use the `ssh_to_management_node` tunnel for validation.
+    For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
+    {: note}
+
+2. Enable HTTPS (if not enabled already):
+
+    ```pre
+    lwsadmin https enable --password <password>
+    ```
+
+3. Create or obtain a keystore **(.jks)** with your certificate and key.
+
+4. Update "**server_https.xml**" file to point to your keystore:
+
+    ```pre
+    <keyStore id="defaultKeyStore"
+          password="<keystore-password>"
+          location="/opt/ibm/lsfsuite/ext/ws/conf/https/myCustomerKeyStore.jks" />
+    ```
+
+5. Restart LWS:
+
+    ```pre
+    systemctl stop lwsd && systemctl start lwsd
+    ```
+
+    Ensure the certificate has the correct hostnames (SANs).
+    {: note}
