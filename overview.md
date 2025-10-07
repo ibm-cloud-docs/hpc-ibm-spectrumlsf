@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-10-07"
 
 keywords:
 
@@ -22,12 +22,12 @@ subcollection: hpc-ibm-spectrumlsf
 # Overview of IBM Spectrum LSF
 {: #about-spectrum-lsf}
 
-{{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_short}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_short}} clusters can automatically add and remove worker nodes based on workload specifications. This allows to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
+{{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_short}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_short}} clusters can automatically add and remove worker nodes based on workload specifications. This allows you to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
 {: shortdesc}
 
 A deployable architecture involves components, modules, and dependencies in a way that allows for seamless deployment and makes it easy for developers and operations teams to quickly deploy new features and updates to the system, without requiring extensive manual intervention. Refer the [Deployable architecture](https://www.ibm.com/think/insights/deployable-architecture-on-ibm-cloud-simplifying-system-deployment) document for more detailed information.
 
-{{site.data.keyword.spectrum_full_notm}} offers the option of a public virtual system, or virtual systems that are deployed on dedicated hosts, for static compute nodes only. The management nodes and dynamic compute nodes use public virtual machines only. The dedicated host option allows you to have systems that are assigned just for your workloads and avoids issues like a noisy neighbor. You can pack a dedicated host to full capacity before spilling to another instance or spread the virtual server instances evenly across all dedicated hosts. Go to [Dedicated Hosts for Virtual Server Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dedicated-hosts-vsi) for more information.
+For static compute nodes, {{site.data.keyword.spectrum_full_notm}} offers the option of public virtual system or private virtual system, that are deployed on dedicated hosts. The management nodes and dynamic compute nodes use public virtual machines only. The dedicated host option allows you to have systems that are assigned just for your workloads and avoids issues like a noisy neighbor. You can pack a dedicated host to full capacity before spilling to another instance or spread the virtual server instances evenly across all dedicated hosts. Go to [Dedicated Hosts for Virtual Server Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-dedicated-hosts-vsi) for more information.
 
 In addition, {{site.data.keyword.spectrum_short}} provides two shared storage options to manage your application data:
 * File storage for VPC or

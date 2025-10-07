@@ -1,7 +1,3 @@
-#  Name your file `toc.yaml`
-#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs-internal/writing?topic=writing-code-nav
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
----
 toc:
   properties:
     subcollection: hpc-ibm-spectrumlsf
@@ -33,10 +29,10 @@ toc:
       - bastion-node.md
       - deployer-node.md
       - topicgroup:
-            label: Using IBM Scale Storage as your storage solution
-            topics:
-            - about-scale.md
-            - integrate-scale.md
+          label: Using IBM Scale Storage as your storage solution
+          topics:
+          - about-scale.md
+          - integrate-scale.md
       - custom-image.md
   - navgroup:
       id: deploy
@@ -64,33 +60,33 @@ toc:
           - adding-profile-types.md
       - enable-dedicated-host.md
       - topicgroup:
-            label: IBM Spectrum LSF Application Center
-            topics:
-             - accessing-app-center.md
-             - topicgroup:
-                  label: Accessing REST API calls
-                  topics:
-                   - accessing-rest-api-pacclient.md
-                   - accessing-rest-api-curl.md
+          label: IBM Spectrum LSF Application Center
+          topics:
+          - accessing-app-center.md
+          - topicgroup:
+              label: Accessing REST API calls
+              topics:
+              - accessing-rest-api-pacclient.md
+              - accessing-rest-api-curl.md
       - topicgroup:
-            label: IBM Spectrum LSF Process Manager
-            topics:
-            - process-manager.md
-            - process-manager-cli.md
-            - process-manager-gui.md
+          label: IBM Spectrum LSF Process Manager
+          topics:
+          - process-manager.md
+          - process-manager-cli.md
+          - process-manager-gui.md
       - topicgroup:
-            label: IBM Spectrum LSF Web Services
-            topics:
-            - web-services-overview.md
-            - web-services-config-lsfclients.md
-            - web-services-config-multiple-clients.md
-            - web-service-config-openldap.md
+          label: IBM Spectrum LSF Web Services
+          topics:
+          - web-services-overview.md
+          - web-services-config-lsfclients.md
+          - web-services-config-multiple-clients.md
+          - web-service-config-openldap.md
       - topicgroup:
-            label: Observability
-            topics:
-             - cloud-logs.md
-             - activity-tracker-event.md
-             - cloud-monitoring.md
+          label: Observability
+          topics:
+          - cloud-logs.md
+          - activity-tracker-event.md
+          - cloud-monitoring.md
       - cleanup-deployed-envn.md
       - scc-workload-protect.md
       - sml.md
