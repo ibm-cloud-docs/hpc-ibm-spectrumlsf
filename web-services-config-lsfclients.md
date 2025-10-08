@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-10-08"
 
 keywords:
 
@@ -36,15 +36,15 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 
 1. Download the LSF Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes).
 
-    If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
+    If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. Run the below command to download the file:
 
     ```pre
-    wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z
+    wget <add the copied link>
     ```
 
 2. Extract the downloaded file and select the folder for your operating system.
 
-    * For "macOS": Install the Client Binary. Copy the lsf binary to your system path (for example, /usr/local/bin/) using:
+    * For macOS: Install the Client Binary. Copy the lsf binary to your system path (for example, /usr/local/bin/) using:
 
     ```pre
     cp -pr lws_client10.1.0.15/mac-aarch64/lsf /usr/local/bin/
@@ -162,10 +162,10 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
 
 2. Download the Client Package. Go to [IBM Fix Central](https://www.ibm.com/support/fixcentral/swg/downloadFixes?parent=IBM%20Spectrum%20Computing&product=ibm/Other+software/IBM+Spectrum+LSF&release=All&platform=All&function=fixId&fixids=lsf-10.1.0.15-spk-2025-Apr-build602430&includeRequisites=1&includeSupersedes=0&downloadMethod=http&login=true) and log in with your IBM credentials. Navigate to the IBM Spectrum LSF page, and download **lws_client10.1.0.15.tar.Z (65.45 MB)** file to your local machine (download may take ~10 minutes).
 
-    If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. On client system, change into specific folder where you want to download and run below example command:
+    If you want to download the package from CLI then right-click on "lws_client10.1.0.15.tar.Z (65.45 MB)" and copy the link. Run the below command to download the file:
 
     ```pre
-    wget https://delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/OS/0d0x0/5/Xa.2/Xb.jusyLTSp44S02bbew-D6h54MCqzdVNcCSkpQhgF62Al6ivcOhc_WQs48Q9E/Xc.CM/OS/0d0x0/5/lws_client10.1.0.15.tar.Z/Xd./Xf.Lpr./Xg.13527807/Xi.habanero/XY.habanero/XZ.o6spodGVxLohBHukLPwbszqW17NqggWP/lws_client10.1.0.15.tar.Z
+    wget <add the copied link>
     ```
 
 3. Extract the downloaded file and select the folder for your operating system.
@@ -317,7 +317,7 @@ How does the local port forwarding command works?
 [ Local Machine:8448 ] --> [ Bastion Node ] --> [ Management Node:8448 ]
         ^                                                    |
         |                                                    |
-Access via browser/CLI ----------- SSH Tunnel ---------------
+Access via browser/CLI ------ SSH Tunnel ---------------------
 ```
 
 Local Port Forwarding creates an encrypted SSH tunnel that maps a port on your local system to a service port on a remote host. This enables you to reach services that are not directly accessible (for example, those behind firewalls or only available through a Bastion/Jump host).
