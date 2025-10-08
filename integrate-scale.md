@@ -147,23 +147,23 @@ To update the routing configuration across all CES (Protocal) nodes, run the fol
 ```
 {: codeblock}
 
-Example:
+    Example:
 
-```text
-# ip route add 10.241.0.0/18 via 10.241.40.1 dev eth1
-```
-{: codeblock}
+    ```text
+    # ip route add 10.241.0.0/18 via 10.241.40.1 dev eth1
+    ```
+    {: codeblock}
 
-**Note:**
-The value "10.241.40.1" represents the gateway IP address for the eth1 interface.
-To identify the correct gateway IP on your system, log in to any of the protocol nodes and run the following command:
+    **Note:**
+    The value "10.241.40.1" represents the gateway IP address for the eth1 interface.
+    To identify the correct gateway IP on your system, log in to any of the protocol nodes and run the following command:
 
-```text
-# ip route show dev eth1 | awk '/via/ {print $3}'
-```
-{: codeblock}
+    ```text
+    # ip route show dev eth1 | awk '/via/ {print $3}'
+    ```
+    {: codeblock}
 
-Use the IP address displayed in this command in place of <gateway_ip> in the route configuration command above.
+    Use the IP address displayed in this command in place of <gateway_ip> in the route configuration command above.
 
 Run the following command to check whether the `NO_ROOT_SQUASH` is applied successfully:
 
