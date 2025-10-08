@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-10-08"
 
 keywords: question about _xx_, _messageID_
 
@@ -70,10 +70,10 @@ Contact your account administrator and get assigned with the manager role on the
 Schematics are not able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
 {: tsSymptoms}
 
-You don't have the required access to get any VPC resources provisioned.
+You do not have the required access to get any VPC resources provisioned.
 {: tsCauses}
 
-Contact your account administrator and get all the required accesses. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+Contact your account administrator and get all the required accesses. For more information, see [Required permissions](/docs/account?topic=account-userroles).
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique?

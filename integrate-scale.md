@@ -36,7 +36,7 @@ After deploying your Storage Scale cluster with CES, set up your {{site.data.key
 {: #scale-tile}
 
 Deploy your {{site.data.keyword.scale_short}} cluster using the deployable architecture variant [Scale tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global).
-Refer to the [{{site.data.keyword.scale_short}} documentation](https://test.cloud.ibm.com/docs-draft/storage-scale-da) for more information.
+Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale-da) for more information.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
 1. Select to use product version 4.0.0.
