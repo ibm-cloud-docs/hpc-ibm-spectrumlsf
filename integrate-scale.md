@@ -45,7 +45,7 @@ When you create this workspace during {{site.data.keyword.scale_short}} cluster 
 * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 * Once the Scale cluster is successfully created, login to the CES node to run the following command.
 
-By default, the automation creates the filesystem with **gpfs/fs1** but if you have different filesystem name then provide your filesystem path.
+By default, the automation creates the filesystem with **/gpfs/fs1** but if you have different filesystem name then provide your filesystem path.
 {: tip}
 
 Retrieve the NFS mount point from Storage Scale. By default, two NFS exports are created: /gpfs/fs1/data and /gpfs/fs1/tools.
@@ -140,12 +140,30 @@ Run the following command to export the NFS file set for the client CIDR:
 ```
 {: codeblock}
 
-Run the following command to update the routing on all Storage Scale CES cluster nodes:
+To update the routing configuration across all CES (Protocal) nodes, run the following command on each node:
 
 ```text
-# ip route add 10.241.0.0/18 via 10.241.17.1 dev eth1
+# ip route add 10.241.0.0/18 via <gateway_ip> dev eth1
 ```
 {: codeblock}
+
+Example:
+
+```text
+# ip route add 10.241.0.0/18 via 10.241.40.1 dev eth1
+```
+{: codeblock}
+
+**Note:**
+The value "10.241.40.1" represents the gateway IP address for the eth1 interface.
+To identify the correct gateway IP on your system, log in to any of the protocol nodes and run the following command:
+
+```text
+# ip route show dev eth1 | awk '/via/ {print $3}'
+```
+{: codeblock}
+
+Use the IP address displayed in this command in place of <gateway_ip> in the route configuration command above.
 
 Run the following command to check whether the `NO_ROOT_SQUASH` is applied successfully:
 
