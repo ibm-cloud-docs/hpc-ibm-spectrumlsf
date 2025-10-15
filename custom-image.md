@@ -92,7 +92,7 @@ Along with Terraform, the custom image builder uses and installs the following s
 
 The custom image builder uses a deployable architecture that helps ensure correctly established network, compute, and security configurations. This way, {{site.data.keyword.spectrum_full}} deployment is seamless and scalable. You can either provide existing infrastructure resources, or allow the model to dynamically create new ones, including essential infrastructure such as VPCs, VSIs, and security groups.
 
-All the custom image builder values are set in a `script.sh` file that is cloned from the custom image builder [Git repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/tools/image-builder/packer/hpcaas/compute/script.sh){: external}. Clone the repository to a platform from which you run the custom image builder. You can deploy from a local host or a VSI. After you clone, switch to the `tools/image-builder` directory.
+All the custom image builder values are set in a `script.sh` file that is cloned from the custom image builder [Git repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/tools/image-builder/packer/hpcaas/compute/script.sh){: external}. Clone the repository to a platform from where the custom image builder needs to run. You can deploy from a local host or a VSI. After you clone, switch to the `tools/image-builder` directory.
 
 You can provide existing values or leave them null so that the custom image builder automatically creates the values for you.
 
