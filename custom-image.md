@@ -133,7 +133,7 @@ The overall flow for creating your custom image by using the custom image builde
 
 3. After the worker node VSI creates the image, the automation helps ensure that the image is set to an available state. The automation then initiates {{site.data.keyword.spectrum_full}} deployment by using the new image to validate the deployment process, helping ensure that the new image is correct and can deploy successfully.
 
-    The {{site.data.keyword.spectrum_full}} deployment requests for the `cluster_name` input values, as they are necessary to validate the LSF deployment from the newly created custom image.
+    The {{site.data.keyword.spectrum_full}} deployment requests for the `cluster_name` input value, as they are necessary to validate the LSF deployment from the newly created custom image.
     {: tip}
 
 4. (Optional): The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the image is created and validated.
@@ -169,7 +169,7 @@ To create your custom image:
     Outputs:
     ```text
     packer_vsi_name = "test-lsf-packer-ccf4-001"
-    ssh_to_packer_vsi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@165.192.133.183"
+    ssh_to_packer_vsi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@<provide the bootstrap node VSI IP>"
     subnet_id = "02g7-fc720c96-ec50-43d2-919a-e33b4566ccf4"
     vpc_id = "r022-016dbd43-fec6-4a81-9e85-c5d1cfe03ee5"
     ```
