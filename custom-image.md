@@ -92,7 +92,7 @@ Along with Terraform, the custom image builder uses and installs the following s
 
 The custom image builder uses a deployable architecture that helps ensure correctly established network, compute, and security configurations. This way, {{site.data.keyword.spectrum_full}} deployment is seamless and scalable. You can either provide existing infrastructure resources, or allow the model to dynamically create new ones, including essential infrastructure such as VPCs, VSIs, and security groups.
 
-All custom image builder values are set in a `customer_script.sh` script, which you [clone from the custom image builder Git repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/tree/main/tools/image-builder){: external}. Clone the repository to a platform from which you run the custom image builder. You can deploy from a local host or a VSI. After you clone, switch to the `tools/image-builder` directory.
+All the custom image builder values are set in a `script.sh` file that is cloned from the custom image builder [Git repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/tools/image-builder/packer/hpcaas/compute/script.sh){: external}. Clone the repository to a platform from which you run the custom image builder. You can deploy from a local host or a VSI. After you clone, switch to the `tools/image-builder` directory.
 
 You can provide existing values or leave them null so that the custom image builder automatically creates the values for you.
 
@@ -133,7 +133,7 @@ The overall flow for creating your custom image by using the custom image builde
 
 3. After the worker node VSI creates the image, the automation helps ensure that the image is set to an available state. The automation then initiates {{site.data.keyword.spectrum_full}} deployment by using the new image to validate the deployment process, helping ensure that the new image is correct and can deploy successfully.
 
-    The {{site.data.keyword.spectrum_full}} deployment requests the `cluster_id` and IBM user number deployment input values, as they are necessary to validate the {{site.data.keyword.spectrum_full}} deployment from the newly created custom image.
+    The {{site.data.keyword.spectrum_full}} deployment requests for the `cluster_name` input values, as they are necessary to validate the IBM® Spectrum LSF deployment from the newly created custom image.
     {: tip}
 
 4. (Optional): The custom image builder also requires the `private_catalog_id` where the new image is added, published, and then shared with other necessary accounts. If you do not provide a catalog ID, then the image is created and validated.
