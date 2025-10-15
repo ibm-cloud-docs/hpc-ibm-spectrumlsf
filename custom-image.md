@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-10-15"
 
 keywords:
 
@@ -64,7 +64,7 @@ Before you use the custom image builder, you require prerequisites to be install
 
     Then, clone the repository by running:
     ```text
-    git clone https://github.com/terraform-ibm-modules/terraform-ibm-hpc/tree/main/tools/image-builder
+    git clone https://github.com/terraform-ibm-modules/terraform-ibm-hpc
     ```
     {: codeblock}
 
