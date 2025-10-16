@@ -28,6 +28,7 @@ toc:
       - fixpack-support.md
       - bastion-node.md
       - deployer-node.md
+      - lsf-paygo-model.md
       - topicgroup:
           label: Using IBM Scale Storage as your storage solution
           topics:
