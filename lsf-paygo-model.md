@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:new_window: target="_blank"}
 
-# LSF Pay-As-You-Go (PAYGO) model
+# LSF Pay-As-You-Go (PAYGo) model
 {: #payg-model-intro}
 
 The LSF Pay-As-You-Go images are prebuilt and ready-to-use virtual machine images of {{site.data.keyword.spectrum_full_notm}} (Load Sharing Facility) that are available through the IBM Cloud Catalog. These images are designed for users who want to quickly deploy and use the LSF clusters without managing licenses or installation manually.
@@ -35,17 +35,17 @@ Following are the key aspects of LSF Pay-As-You-Go model:
 
     * Traditional LSF solution requires a license server with entitlements managed manually.
 
-    * In PAYGO, the licensing is integrated into the image and billed automatically through IBM Cloud metering.
+    * In PAYGo, the licensing is integrated into the image and billed automatically through IBM Cloud metering.
 
     * Users are charged based upon the actual usage, usually by the number of vCPUs or instance hours consumed.
 
 * **Quick deployment**
 
-    * PAYGO is available directly in IBM Cloud, enabling users to deploy an LSF cluster within minutes using the Pay-Go images for management and compute nodes.
+    PAYGo is available directly in IBM Cloud, enabling users to deploy an LSF cluster within minutes using the Pay-Go images for management and compute nodes.
 
 * **Simplified maintenance**
 
-    * The images are maintained, patched, and updated by the IBM team. This ensures that the users always have access to the latest tested and secure versions of LSF.
+    The images are maintained, patched, and updated by the IBM team. This ensures that the users always have access to the latest tested and secure versions of LSF.
 
 * **Flexible scaling**
 
@@ -55,80 +55,78 @@ Following are the key aspects of LSF Pay-As-You-Go model:
 
 * **Integration with IBM Cloud HPC solution**
 
-    * These images are used as the base for automated cluster provisioning, integrating with Terraform, Ansible, and other automation tools.
+    These images are used as the base for automated cluster provisioning, integrating with Terraform, Ansible, and other automation tools.
 
-## LSF PAYGO feature
+## LSF PAYGo features
 {: #paygo-feature}
 
-The LSF Pay-As-You-Go (PAYGO) feature enables a flexible pricing model for {{site.data.keyword.spectrum_full_notm}} clusters based on vCPU usage per hour. With this solution, users are billed proportionally to the compute resources consumed by eliminating the need for upfront licensing costs.
+The LSF Pay-As-You-Go (PAYGo) feature enables a flexible pricing model for {{site.data.keyword.spectrum_full_notm}} clusters based on vCPU usage per hour. With this solution, users are billed proportionally to the compute resources consumed by eliminating the need for upfront licensing costs.
 
-### PAYGO Image Design
+### PAYGo Image Design
 {: #paygo-image-design}
 
-The PAYGO model leverages a custom prebuilt LSF image, which includes all necessary Fix Pack 15 (FP15) software components, RPMs, and configurations required to provision a complete LSF cluster. This single image supports all the following cluster node types:
+The PAYGo model leverages a custom prebuilt LSF image, which includes all necessary Fix Pack 15 (FP15) software components, RPMs, and configurations required to provision a complete LSF cluster. This single image supports all the following cluster node types:
 
-    * Management nodes
+* Management nodes
 
-    * Static and dynamic worker nodes
+* Static and dynamic worker nodes
 
-    * Login nodes
+* Login nodes
 
-The PAYGO image is built, validated, and managed by the automation team, ensuring consistent deployment across the environments. During cluster provisioning, all the nodes are incorporated using this PAYGO image version.
+The PAYGo image is built, validated, and managed by the automation team, ensuring consistent deployment across the environments. During cluster provisioning, all the nodes are incorporated using this PAYGo image version.
 
-A backend pricing mechanism is integrated with the provisioning process, calculating costs based on the number of vCPU cores. By default, nodes are billed at $15 USD per 1000 vCPUs. The billing is automatically managed through the PAYGO pricing plan.
+A backend pricing mechanism is integrated with the provisioning process, calculating costs based on the number of vCPU cores. By default, nodes are billed at $15 USD per 1000 vCPUs. The billing is automatically managed through the PAYGo pricing plan.
 
-### PAYGO Configuration Variable
+### PAYGo Configuration Variable
 {: #paygo-config-variable}
 
 A new configuration variable `lsf_pay_per_use` is introduced as part of this design.
 
-    * **Default value:** true
+* **Default value:** true
 
-    * **Purpose:** Controls whether the cluster uses the PAYGO pricing model or custom image-based provisioning.
+* **Purpose:** Controls whether the cluster uses the PAYGo pricing model or custom image-based provisioning.
 
-When enabled, all the cluster nodes (management, compute, login, and dynamic) are automatically associated with the PAYGO pricing plan throughout their lifecycle.
-
-The overall instance cost is computed based on:
+When enabled, all the cluster nodes (management, compute, login, and dynamic) are automatically associated with the PAYGo pricing plan throughout their lifecycle. The overall instance cost is computed based on:
 
 1. The selected instance hardware profile.
-2. The PAYGO image pricing.
+2. The PAYGo image pricing.
 3. The associated volume storage.
 
-## Use case 1: PAYGO mode enabled (lsf_pay_per_use = true)
+## Use case 1: PAYGo mode enabled (lsf_pay_per_use = true)
 {: #payg-usecase1}
 
-When the PAYGO feature is enabled (default setting), then:
-* The automation framework automatically detects the appropriate **pricing plan metrics** and provisions all the cluster nodes under the PAYGO model.
+When the PAYGo feature is enabled (default setting), then:
+* The automation framework automatically detects the appropriate **pricing plan metrics** and provisions all the cluster nodes under the PAYGo model.
 
 * Nodes are deployed using a **prebaked image** that includes all the required LSF and system packages.
 
 * Customers **cannot use custom images** or add additional software layers when provisioning compute nodes.
 
-* Dynamic node provisioning is also fully integrated into the PAYGO model through the **LSF Resource Connector**, ensuring that scaling operations use the same billing metrics.
+* Dynamic node provisioning is also fully integrated into the PAYGo model through the **LSF Resource Connector**, ensuring that scaling operations use the same billing metrics.
 
-In the PAYGO model, any custom image references provided for `management_instance`, `static_compute_instance`, `login_instances`, or `dynamic_compute_instances` are ignored.
-The only supported PAYGO image is based on **Fix Pack 15 (FP15)**.
-**Fix Pack 14 (FP14)** or earlier versions are not supported in the PAYGO model.
+In the PAYGo model, any custom image references provided for `management_instance`, `static_compute_instance`, `login_instances`, or `dynamic_compute_instances` are ignored.
+The only supported PAYGo image is based on **Fix Pack 15 (FP15)**.
+**Fix Pack 14 (FP14)** or earlier versions are not supported in the PAYGo model.
 {: note}
 
 This design ensures a consistent, reliable, and compliant image baseline across all deployed clusters, simplifying supportability and lifecycle management.
 
-## Use case 2: PAYGO mode disabled (lsf_pay_per_use = false)
+## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
 {: #payg-usecase2}
 
-When the PAYGO feature is disabled, then:
+When the PAYGo feature is disabled, then:
 * The automation process provisions clusters using the default or user-provided custom images.
 
 * Users have the flexibility to bring their own images (BYOI) and pre-install additional tools, software, or dependencies tailored to their specific workloads.
 
 The following image variables are used for provisioning:
 
-    * `management_instance`
+* `management_instance`
 
-    * `static_compute_instance`
+* `static_compute_instance`
 
-    * `login_instances`
+* `login_instances`
 
-    * `dynamic_compute_instances`
+* `dynamic_compute_instances`
 
-This mode provides greater customization capabilities for users who prefer full control over the cluster image configuration rather than using the standardized PAYGO model.
+This mode provides greater customization capabilities for users who prefer full control over the cluster image configuration rather than using the standardized PAYGo model.
