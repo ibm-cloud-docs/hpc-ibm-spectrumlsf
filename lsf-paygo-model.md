@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-23"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -60,7 +60,7 @@ Following are the key aspects of LSF Pay-As-You-Go model:
 ## LSF PAYGo features
 {: #paygo-feature}
 
-The LSF Pay-As-You-Go (PAYGo) feature enables a flexible pricing model for {{site.data.keyword.spectrum_full_notm}} clusters based on vCPU usage per hour. With this solution, users are billed proportionally to the compute resources consumed by eliminating the need for upfront licensing costs.
+The LSF Pay-As-You-Go (PAYGo) feature enables a flexible pricing model for {{site.data.keyword.spectrum_full_notm}} clusters based on vCPU usage per hour. With this solution, the users are billed proportionally for the compute resources that are consumed. This eliminates the need for upfront licensing costs.
 
 ### PAYGo Image Design
 {: #paygo-image-design}
@@ -130,3 +130,34 @@ The following image variables are used for provisioning:
 * `dynamic_compute_instances`
 
 This mode provides greater customization capabilities for users who prefer full control over the cluster image configuration rather than using the standardized PAYGo model.
+
+## Validation of the cluster
+{: #cluster-validation}
+
+From [Use case 1](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro#payg-usecase1), when `lsf_pay_per_use` is enabled, then all the cluster nodes are associated with the PayGo billing metrics. To confirm, after the cluster is created, you can verify the virtual server instances tagged with the appropriate pricing plan in the UI under the **Image Details** section.
+
+![Figure 1. LSF PayGo user enabled](images/lsf-paygo-user-enabled.png "LSF PayGo user enabled"){: caption="LSF PayGo user enabled" caption-side="bottom"}
+
+However, when `lsf_pay_per_use` is enabled, the automation ensures that the necessary attributes are updated in the cluster configuration, allowing the LSF Resource Connector to retrieve the appropriate billing and pricing metrics.
+{: note}
+
+From [Use case 2](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro#payg-usecase2), when `lsf_pay_per_use` is disabled, then all the cluster nodes are associated with the default custom images that are supported by the solution or with the customer managed images.
+To confirm, after the cluster is created, you can verify the virtual server instances tagged with the appropriate pricing plan in the UI under the **Image Details** section.
+
+![Figure 2. LSF PayGo user disabled](images/lsf-paygo-user-enabled.png "LSF PayGo user disabled"){: caption="LSF PayGo user disabled" caption-side="bottom"}
+
+## Billing and Usage
+{: #lsf-billing}
+
+To view the billing in the IBM Cloud Catalog page, go to **Manage** > **Billing and usage**. On the left-hand side, click **Usage**. You will get a list of all the IBM Spectrum LSF clusters.
+
+When the PayGo is enabled, search for **LSF Pay per Use** under Usage list, click **View Plans** and select **Spectrum LSF Pay per Use** and choose **View Details**.
+
+![Figure 3. Billing and Usage details](images/lsf-paygo-user-enabled.png "Billing and Usage details"){: caption="Billing and Usage details" caption-side="bottom"}
+
+You will get the pricing for the selected Spectrum LSF Pay per Use.
+
+![Figure 4. LSF Pay per use details](images/lsf-paygo-user-enabled.png "LSF Pay per use details"){: caption="LSF Pay per use details" caption-side="bottom"}
+
+Select the data for the required month.
+{: note}
