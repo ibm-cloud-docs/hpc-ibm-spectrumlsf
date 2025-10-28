@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-10-28"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # LSF Pay-As-You-Go (PAYGo) model
 {: #payg-model-intro}
 
-The LSF Pay-As-You-Go images are prebuilt and ready-to-use virtual machine images of {{site.data.keyword.spectrum_full_notm}} that are available through the IBM Cloud Catalog. These images are designed for users who want to quickly deploy and use the LSF clusters without managing licenses or installation manually.
+The LSF Pay-As-You-Go images are prebuilt and ready-to-use virtual machine images for {{site.data.keyword.spectrum_full_notm}} that are available through the IBM Cloud Catalog. These images are designed for users who want to quickly deploy and use the LSF clusters without managing licenses or installation manually.
 
 ## Key aspects
 {: #key-aspects}
