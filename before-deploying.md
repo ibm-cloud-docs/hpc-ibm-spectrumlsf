@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-29"
 
 keywords:
 
@@ -89,10 +89,9 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 6. Enter the target user email, if you select the option 2.
 7. User policy is successfully created.
 
-If the user skips to enter the `RESOURCE_GROUP_ID` or the `ACCOUNT_ID`, then script displays the error message:
+If the user skips to enter the `ACCOUNT_ID`, then script displays the error message:
 
 ```pre
-:x: RESOURCE_GROUP_ID is required.
 :x: ACCOUNT_ID is required.
 ```
 
@@ -113,8 +112,10 @@ To view access policies, complete the following steps:
    | ------- | --------- | ---- | ---- |
    | App configuration | All | Administrator | Manager |
    | All Identity and Access enabled services | All | Administrator | Manager |
+   | All Account Management services | All | Administrator | -- |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
+   | IAM Identity | All | Administrator | -- |
    | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
