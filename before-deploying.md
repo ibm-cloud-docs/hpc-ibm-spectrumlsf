@@ -115,7 +115,7 @@ To view access policies, complete the following steps:
    | All Account Management services | All | Administrator | -- |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
-   | IAM Identity | All | Administrator | -- |
+   | IAM Identity Service | All | Administrator | -- |
    | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
