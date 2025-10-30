@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-28"
+lastupdated: "2025-10-30"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -24,122 +24,119 @@ subcollection: hpc-ibm-spectrumlsf
 # LSF Pay-As-You-Go (PAYGo) model
 {: #payg-model-intro}
 
-The LSF Pay-As-You-Go images are prebuilt and ready-to-use virtual machine images for {{site.data.keyword.spectrum_full_notm}} that are available through the IBM Cloud Catalog. These images are designed for users who want to quickly deploy and use the LSF clusters without managing licenses or installation manually.
+The LSF Pay-As-You-Go images are prebuilt virtual machine images available through the IBM Cloud Catalog. These images allow users to deploy LSF clusters without needing to provide their own licenses, eliminating the need for the Bring-Your-Own-License (BYOL) model.
 
-## Key aspects
+## Key features
 {: #key-aspects}
 
 Following are the key aspects of LSF PayGo model:
 
-* **Prelicensed and Metered model**
+1. Prelicensed and Metered
 
-    * Traditional LSF solution required a IBM Customer Number which were entitled to deploy LSF on IBM Cloud whereas in PAYGo model, the licensing is integrated into the image and billed automatically through IBM Cloud metering.
+    * The licensing is integrated into the PAYGo image.
+    * Billing is automatically managed through IBM Cloud metering.
+    * Charges are based on the number of vCPU hours consumed.
 
-    * Users are charged based upon the actual usage, usually by the number of vCPUs or instance hours consumed.
+2. Quick deployment
 
-* **Quick deployment**
+    * PAYGo images are available directly in IBM Cloud.
+    * Users can deploy the LSF clusters within minutes.
+    * PAYGo images are used for management, compute, and login nodes.
 
-    PAYGo is available in IBM Cloud directly, enabling users to deploy an LSF cluster within minutes using the Pay-Go images for management and compute nodes except bastion and deployer node.
+3. Simplified maintenance
 
-* **Simplified maintenance**
+    * The images are maintained, patched, and updated by the IBM team.
+    * Users benefit from secure, tested, and up-to-date LSF versions.
 
-    The images are maintained, patched, and updated by the IBM team. This ensures that the users always have access to the latest tested and secure versions of LSF.
+4. Flexible scaling
 
-* **Flexible scaling**
+    Ideal for dynamic and burst workloads with fluctuating compute demands.
 
-    Ideal for dynamic and burst workloads where compute demand fluctuates.
+Bastion and deployer nodes are not covered by PAYGo and require BYOL.
+{: note}
 
 ## LSF PAYGo features
 {: #paygo-feature}
 
-The LSF PAYGo feature enables a flexible pricing model for {{site.data.keyword.spectrum_full_notm}} clusters based on vCPU usage per hour. With this solution, the users are billed proportionally for the compute resources that are consumed. This eliminates the need for upfront licensing costs.
+Following are the features of LSF PayGo images
+
+### PAYGo Pricing Model
+{: #paygo-pricing}
+
+* The pricing is based on hourly vCPU usage.
+* It eliminates upfront licensing costs.
+* Users are billed proportionally to the compute resources consumed.
 
 ### **PAYGo Image Design**
 {: #paygo-image-design}
 
-The PAYGo model leverages a custom prebuilt LSF image, which includes all necessary Fix Pack 15 (FP15) software components, RPMs, and configurations required to provision a complete LSF cluster. This single image supports all the following cluster node types:
+* This model includes all necessary Fix Pack 15 (FP15) components, RPMs, and configurations. It supports:
 
-* Management nodes
+    * Management nodes
+    * Static and dynamic worker nodes
+    * Login nodes
 
-* Static and dynamic worker nodes
+* IBM builds, validates, and manages the image for consistent deployment.
 
-* Login nodes
+* A backend pricing mechanism calculates costs based on vCPU cores.
 
-The PAYGo image is built, validated, and managed by the automation team, ensuring consistent deployment across the environments. During cluster provisioning, all the nodes are incorporated using this PAYGo image version.
-
-A backend pricing mechanism is integrated with the provisioning process, calculating costs based on the number of vCPU cores. By default, nodes are billed at $15 USD per 1000 vCPUs. The billing is automatically managed through the PAYGo pricing plan.
-
-### **PAYGo Configuration**
+### **PAYGo configuration variable**
 {: #paygo-config-variable}
 
 A new configuration variable `lsf_pay_per_use` is introduced as part of this design.
 
-* **Default value:** true
+| Variable | Value | Description |
+| ----- | ----------- | --------------- |
+| `lsf_pay_per_use` | true (default) | Enables PAYGo billing and uses prebuilt images. Bring Your Own Image (BYOI) is not supported. Only LSF FP15 images are compatible. |
+| `lsf_pay_per_use` | false | Disables PAYGo billing and allows BYOI and custom images. No pay-per-use charges apply. |
+{: caption="PAYGo configuration variable" caption-side="bottom"}
 
-* **Purpose:** When `lsf_pay_per_use` is set to true, the LSF cluster nodes are provisioned using pre-defined custom images under a pay-per-use pricing plan, where billing is based on vCPU usage per hour. In this mode, providing custom images for the nodes is not required and Bring Your Own Image (BYOI) is not supported. The pay-per-use option is available only for FP15 images. If you set the variable to false, the automation uses default images for all cluster nodes and enables support for BYOI, with no pay-per-use billing applied.
+When enabled, all cluster nodes (management, compute, login, dynamic) are billed under the PAYGo pricing plan.
+{: note}
 
-When enabled, all the cluster nodes (management, compute, login, and dynamic) are automatically associated with the PAYGo pricing plan throughout their lifecycle. The overall instance cost is computed based on:
+The costs are based on:
+* Selected hardware profile
+* PAYGo image pricing
+* Volume storage (only if separately provisioned and not part of the profile)
 
-1. The selected instance hardware profile.
-2. The PAYGo image pricing.
-3. The associated volume storage.
-
-## Use case 1: PAYGo mode enabled (lsf_pay_per_use = true)
+## Use case 1: PAYGo enabled (lsf_pay_per_use = true)
 {: #payg-usecase1}
 
 When the PAYGo feature is enabled (default setting), then:
-* The automation framework automatically detects the appropriate **pricing plan metrics** and provisions all the cluster nodes under the PAYGo model.
-
-* Nodes are deployed using a **prebaked image** that includes all the required LSF and system packages.
-
-* Users do not have the flexibility to bring their own images (BYOI) with a pre-installed additional tools, software, or dependencies tailored to their specific workloads.
-
-* Dynamic node provisioning is also fully integrated into the PAYGo model through the **LSF Resource Connector**, ensuring that scaling operations use the same billing metrics.
-
-In the PAYGo model, any custom image references provided for `management_instance`, `static_compute_instance`, `login_instances`, or `dynamic_compute_instances` are ignored.
-The only supported PAYGo image is based on **Fix Pack 15 (FP15)**.
-**Fix Pack 14 (FP14)** or earlier versions are not supported in the PAYGo model.
-{: note}
-
-This design ensures a consistent, reliable, and compliant image baseline across all deployed clusters, simplifying supportability and lifecycle management.
+* Automation provisions all nodes by using the PAYGo image.
+* BYOI is not supported.
+* Dynamic node provisioning is integrated through the LSF Resource Connector.
+* Only FP15 images are supported; FP14 or earlier are not compatible.
 
 ## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
 {: #payg-usecase2}
 
 When the PAYGo feature is disabled, then:
-* The automation process provisions clusters using the default or user-provided custom images.
+* Automation provision clusters by using default or user-provided custom images.
+* BYOI is supported.
+* Users must provide valid software licenses.
+* Offers full control over image customization.
 
-* Users have the flexibility to bring their own images (BYOI) and pre-install additional tools, software, or dependencies tailored to their specific workloads.
-
-This mode provides greater customization capabilities for users who prefer full control over the cluster image configuration rather than using the standardized PAYGo model.
-
-## Validation of the cluster
+## Cluster validation
 {: #cluster-validation}
 
-From [Use case 1](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro#payg-usecase1), when `lsf_pay_per_use` is enabled, then all the cluster nodes are associated with the PayGo billing metrics. After the cluster is created, you can verify the virtual server instances which are tagged with appropriate pricing plan in the UI under the **Image Details** section.
+* **PAYGo enabled:**
+    * Instances are tagged with PAYGo pricing plans.
+    * Check the **Image Details** section in the UI for confirmation.
+    * Look for tags indicating FP15 PAYGo image usage and billing metrics.
+    {: tip}
 
-![Figure 1. LSF PayGo user enabled](images/lsf-paygo-user-enabled.png "LSF PayGo user enabled"){: caption="LSF PayGo user enabled" caption-side="bottom"}
-
-However, when `lsf_pay_per_use` is enabled, the automation ensures that the necessary attributes are updated in the cluster configuration, allowing the LSF Resource Connector to retrieve the appropriate billing and pricing metrics.
-{: note}
-
-From [Use case 2](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro#payg-usecase2), when `lsf_pay_per_use` is disabled, then all the cluster nodes are associated with the default custom images that are supported by the solution or with the customer managed images.
-After the cluster is created, instances are tagged with appropriate custom images rather than the pricing plan like [Use case 1](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro#payg-usecase1).
-
-![Figure 2. LSF PayGo user disabled](images/lsf-paygo-user-disabled.png "LSF PayGo user disabled"){: caption="LSF PayGo user disabled" caption-side="bottom"}
+* **PAYGo disabled:**
+    * Instances are tagged with custom image identifiers.
+    * PAYGo pricing plan is not applied.
 
 ## Billing and Usage
 {: #lsf-billing}
 
-On the search bar, navigate to **Billing and Usage**. Click **Usage** on the left-hand side.
+To view billing details:
 
-When the PayGo is enabled, search for **LSF Pay per Use** under Usage list, click **View Plans** and select **Spectrum LSF Pay per Use** and choose **View Details**.
-
-![Figure 3. Billing and Usage details](images/billing-usage-list.png "Billing and Usage details"){: caption="Billing and Usage details" caption-side="bottom"}
-
-You will get the pricing for the selected Spectrum LSF Pay per Use.
-
-![Figure 4. LSF Pay per use details](images/pricing.png "LSF Pay per use details"){: caption="LSF Pay per use details" caption-side="bottom"}
-
-Select the data for the required month.
-{: note}
+1. Navigate to **Billing and Usage**.
+2. Click **Usage** on the left side.
+3. Search for **LSF Pay per Use** under the **Usage** list.
+4. Click **View Plans** and select **Spectrum LSF Pay per Use** and choose **View Details**.
+5. Select the desired month to view usage and pricing.
