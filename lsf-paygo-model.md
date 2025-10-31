@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-10-31"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -58,9 +58,9 @@ Bastion and deployer nodes are not covered by PAYGo and require BYOL.
 ## LSF PAYGo features
 {: #paygo-feature}
 
-Following are the features of LSF PayGo images
+Following are the features of LSF PayGo images:
 
-### PAYGo Pricing Model
+### **PAYGo Pricing Model**
 {: #paygo-pricing}
 
 * The pricing is based on hourly vCPU usage.
@@ -120,20 +120,21 @@ When the PAYGo feature is disabled, then:
 ## Cluster validation
 {: #cluster-validation}
 
-* **PAYGo enabled:**
+* **When PAYGo is enabled:**
     * Instances are tagged with PAYGo pricing plans.
     * Check the **Image Details** section in the UI for confirmation.
+
     * Look for tags indicating FP15 PAYGo image usage and billing metrics.
     {: tip}
 
-* **PAYGo disabled:**
+* **When PAYGo is disabled:**
     * Instances are tagged with custom image identifiers.
     * PAYGo pricing plan is not applied.
 
 ## Billing and Usage
 {: #lsf-billing}
 
-To view billing details:
+To view the billing details, do the following:
 
 1. Navigate to **Billing and Usage**.
 2. Click **Usage** on the left side.
