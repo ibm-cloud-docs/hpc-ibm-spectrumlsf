@@ -124,8 +124,8 @@ When the PAYGo feature is disabled, then:
     * Instances are tagged with PAYGo pricing plans.
     * Check the **Image Details** section in the UI for confirmation.
 
-    * Look for tags indicating FP15 PAYGo image usage and billing metrics.
-    {: tip}
+Look for tags indicating FP15 PAYGo image usage and billing metrics.
+{: tip}
 
 * **When PAYGo is disabled:**
     * Instances are tagged with custom image identifiers.
