@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-03"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -125,7 +125,6 @@ When the PAYGo feature is disabled, then:
     * Check the **Image Details** section in the UI for confirmation.
 
 Look for tags indicating FP15 PAYGo image usage and billing metrics.
-{: tip}
 
 * **When PAYGo is disabled:**
     * Instances are tagged with custom image identifiers.
