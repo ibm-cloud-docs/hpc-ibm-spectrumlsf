@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-03"
+lastupdated: "2025-11-04"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -35,7 +35,7 @@ Following are the key aspects of LSF PayGo model:
 
     * The licensing is integrated into the PAYGo image.
     * Billing is automatically managed through IBM Cloud metering.
-    * Charges are based on the number of vCPU hours consumed.
+    * Charges are based on number of vCPU hours consumed.
 
 2. Quick deployment
 
@@ -52,7 +52,7 @@ Following are the key aspects of LSF PayGo model:
 
     Ideal for dynamic and burst workloads with fluctuating compute demands.
 
-Bastion and deployer nodes are not covered by PAYGo and require BYOL.
+Bastion and deployer nodes are not supported by PAYGo and require BYOL.
 {: note}
 
 ## LSF PAYGo features
@@ -64,7 +64,7 @@ Following are the features of LSF PayGo images:
 {: #paygo-pricing}
 
 * The pricing is based on hourly vCPU usage.
-* It eliminates upfront licensing costs.
+* Eliminates upfront licensing costs.
 * Users are billed proportionally to the compute resources consumed.
 
 ### **PAYGo Image Design**
@@ -94,7 +94,7 @@ A new configuration variable `lsf_pay_per_use` is introduced as part of this des
 When enabled, all cluster nodes (management, compute, login, dynamic) are billed under the PAYGo pricing plan.
 {: note}
 
-The costs are based on:
+The costs is based on:
 * Selected hardware profile
 * PAYGo image pricing
 * Volume storage (only if separately provisioned and not part of the profile)
@@ -103,19 +103,19 @@ The costs are based on:
 {: #payg-usecase1}
 
 When the PAYGo feature is enabled (default setting), then:
-* Automation provisions all nodes by using the PAYGo image.
-* BYOI is not supported.
+* Automation provisions all the nodes by using the PAYGo image.
 * Dynamic node provisioning is integrated through the LSF Resource Connector.
 * Only FP15 images are supported; FP14 or earlier are not compatible.
+* BYOI is not supported.
 
 ## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
 {: #payg-usecase2}
 
 When the PAYGo feature is disabled, then:
 * Automation provision clusters by using default or user-provided custom images.
-* BYOI is supported.
 * Users must provide valid software licenses.
 * Offers full control over image customization.
+* BYOI is supported.
 
 ## Cluster validation
 {: #cluster-validation}
