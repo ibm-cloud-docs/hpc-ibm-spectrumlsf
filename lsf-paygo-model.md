@@ -41,7 +41,7 @@ Following are the key aspects of LSF PayGo model:
 
     * PAYGo images are available directly in IBM Cloud.
     * Users can deploy the LSF clusters within minutes.
-    * PAYGo images are used for management, compute, and login nodes.
+    * PAYGo images are used for management and compute nodes.
 
 3. Simplified maintenance
 
@@ -52,7 +52,7 @@ Following are the key aspects of LSF PayGo model:
 
     Ideal for dynamic and burst workloads with fluctuating compute demands.
 
-Bastion and deployer nodes are not supported by PAYGo and require BYOL.
+Bastion and deployer nodes are not supported by PAYGo.
 {: note}
 
 ## LSF PAYGo features
@@ -70,11 +70,10 @@ Following are the features of LSF PayGo images:
 ### **PAYGo Image Design**
 {: #paygo-image-design}
 
-* This model includes all necessary Fix Pack 15 (FP15) components, RPMs, and configurations. It supports:
+* This model includes all necessary LSF FP15 components, RPMs, and configurations. It supports:
 
     * Management nodes
     * Static and dynamic worker nodes
-    * Login nodes
 
 * IBM builds, validates, and manages the image for consistent deployment.
 
@@ -91,9 +90,6 @@ A new configuration variable `lsf_pay_per_use` is introduced as part of this des
 | `lsf_pay_per_use` | false | Disables PAYGo billing and allows BYOI and custom images. No pay-per-use charges apply. |
 {: caption="PAYGo configuration variable" caption-side="bottom"}
 
-When enabled, all cluster nodes (management, compute, login, dynamic) are billed under the PAYGo pricing plan.
-{: note}
-
 The costs is based on:
 * Selected hardware profile
 * PAYGo image pricing
@@ -105,7 +101,7 @@ The costs is based on:
 When the PAYGo feature is enabled (default setting), then:
 * Automation provisions all the nodes by using the PAYGo image.
 * Dynamic node provisioning is integrated through the LSF Resource Connector.
-* Only FP15 images are supported; FP14 or earlier are not compatible.
+* Only LSF FP15 images are supported; FP14 or earlier are not compatible.
 * BYOI is not supported.
 
 ## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
