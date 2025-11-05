@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-29"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -57,7 +57,7 @@ For example, for the **App configuration** service, the user requires Administra
 
 Benefits of the scripts:
 
-* **Interactive input collection** - The script prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
+* **Interactive input collection** - The script prompts for the IBMid (admin email), Account ID, and target (User or Access Group).
 * **Permission check** - The script verifies that the admin has account-level Administrator rights which are required to assign policies.
 * **Assigns required permissions for LSF deployment** - This script grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
 * **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
@@ -78,7 +78,7 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
     ```
 
 3. Enter the admin email or IBMid.
-4. Enter the Resource group and Account ID.
+4. Enter the Account ID.
 
     For the Account ID, login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID.
 5. You are asked to assign the roles:
