@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -96,7 +96,7 @@ The following are the optional deployment values used to configure the {{site.da
 | `ldap_user_name` | Custom LDAP user for performing cluster operations. Note: Username should be between 4 to 32 characters, (any combination of lowercase and uppercase letters).[This value is ignored for an existing LDAP server]. | No | "" |
 | `ldap_user_password` | The LDAP user password should be 15 to 32 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required.It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server]. | No | "" |
 | `ldap_instance` | Specify the compute instance profile and image to be used for deploying LDAP instances. Only Debian-based operating systems, such as Ubuntu, are supported for LDAP functionality. | No | [{profile = "cx2-2x4" image = "ibm-ubuntu-22-04-5-minimal-amd64-3"}] |
-|`lsf_pay_per_use` | When lsf_pay_per_use is set to true, the LSF cluster nodes are provisioned using predefined custom images under a pay-per-use pricing plan, where billing is based on vCPU usage per hour. In this mode, providing custom images for the nodes is not required, and Bring Your Own Image (BYOL) is not supported. The pay-per-use option is available only for FP15 images. If you set the variable to false, the automation uses default images for all cluster nodes and enables support for BYOL, with no pay-per-use billing applied. | No | "" |
+|`lsf_pay_per_use` | When `lsf_pay_per_use` is set to true, the LSF cluster nodes are provisioned using predefined custom images under a pay-per-use pricing plan, where billing is based on vCPU usage per hour. In this mode, providing custom images for the nodes is not required and Bring Your Own Image (BYOI) is not supported. The pay-per-use option is available only for LSF FP15 images. If you set the variable to false, the automation uses default images for all cluster nodes and enables support for BYOI, with no pay-per-use billing applied. | No | "" |
 | `enable_dedicated_host` | Set this option to true to enable dedicated hosts for the VSIs provisioned as workload servers. The default value is false. When dedicated hosts are enabled, multiple VSI instance profiles from the same or different families (for example, bx2, cx2, mx2) can be used. If you plan to deploy a static cluster with a third-generation profile, ensure that dedicated host support is available in the selected region, as not all regions support third-gen profiles on dedicated hosts. To learn more about dedicated host, see [x86-64 dedicated host profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui). | No | false |
 | `existing_bastion_instance_name` | Provide the name of the bastion instance. If none given then new bastion will be created. | No | None |
 | `existing_bastion_instance_public_ip` | Provide the public IP address of the existing bastion instance to establish the remote connection. Also using this public IP address, connection to the LSF cluster nodes is established. | No | None |
