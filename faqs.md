@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-03"
+lastupdated: "2025-11-06"
 
 keywords:
 
@@ -107,17 +107,6 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
 
-## Which Spectrum LSF and Spectrum Scale versions are used in cluster nodes deployed with this offering?
-{: #versions-used}
-{: faq}
-
-By default, cluster nodes that are deployed with this offering include {{site.data.keyword.spectrum_full_notm}} 10.1.0.15 IBM Spectrum LSF Suite for Enterprise.
-And if you set the LSF version to 14, then the cluster nodes are deployed in **10.1.0.14** IBM Spectrum LSF Suite for Enterprise.
-
-See the following for a brief description of each of those programs: [{{site.data.keyword.spectrum_full_notm}} 10 family of products](https://www.ibm.com/support/pages/ibm-spectrum-lsf-101-fix-pack-14-101014){: external}
-
-If the cluster uses {{site.data.keyword.scale_short}} storage, the storage nodes include {{site.data.keyword.scale_full_notm}} 5.2.3 software. For more information, see the [{{site.data.keyword.scale_full_notm}}](https://www.ibm.com/docs/en/storage-scale/5.2.1){: external} product documentation.
-
 ## Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?
 {: #cpu-number-different-lsf-worker-nodes-and-application-center}
 {: faq}
@@ -162,8 +151,8 @@ As part of dynamic node provisioning, Ubuntu based operating system is not suppo
 
 | LSF version | Deployer node | Management node | Login node | Compute node |
 | ----- | ----------- | --------------- | ------------ | ------------ |
-| Fix Pack 14 | "hpc-lsf-fp14-deployer-rhel810-v1" | "hpc-lsf-fp14-rhel810-v1" | hpc-lsf-fp14-compute-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 |
-| Fix Pack 15 | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
+| Fix Pack 14 (10.1.0.14) | "hpc-lsf-fp14-deployer-rhel810-v1" | "hpc-lsf-fp14-rhel810-v1" | hpc-lsf-fp14-compute-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 |
+| Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
 ## As a cluster administrator, how do I best restart the LSF daemon processes?
@@ -217,40 +206,7 @@ LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certifi
 
 The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
 
-## Why does `CreateTenantWithContext failed: Forbidden` error occur?
-{: #logs}
-{: faq}
-
-**Output**
-
-```pre
-curl -X GET "https://management.us-east.logs-router.cloud.ibm.com:443/v1/tenants" \
--H "Authorization: Bearer $(ibmcloud iam oauth-tokens | awk '/IAM token/ {print $4}')" \
--H "IBM-API-Version: $(date +%Y-%m-%d)"
-
-{"tenants":[]}
-```
-
-If the output (above) contains an empty tenants list, it means that the platform logs are not enabled for that region, and you can set the `observability_enable_platform_logs` variable to enable them. However, if the tenants list is not empty, then the platform logs are already enabled. Attempting to enable them again may result in an error like `CreateTenantWithContext failed: Forbidden`.
-
-```pre
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ Error: ---
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ id: terraform-30ad67fe
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ summary: 'CreateTenantWithContext failed: Conflict'
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ severity: error
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ resource: ibm_logs_router_tenant
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ operation: create
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ component:
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  name: github.com/IBM-Cloud/terraform-provider-ibm
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  version: 1.78.4
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │ ---
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  with module.cloud_monitoring_instance_creation.module.observability_instance[0].module.cloud_logs[0].ibm_logs_router_tenant.logs_router_tenant_instances["jp-tok"],
-module.lsf.module.resource_provisioner.null_resource.tf_resource_provisioner[0] (remote-exec): │  on .terraform/modules/cloud_monitoring_instance_creation.observability_instance/modules/cloud_logs/main.tf line 166, in resource "ibm_logs_router_tenant" "logs_router_tenant_instances":
-```
-
-## Why does `Error getting trusted profile policy` error occur?
+## Why does `Error getting trusted profile policy` occur?
 {: #scc}
 {: faq}
 
@@ -313,3 +269,40 @@ By default, LWS enables HTTPS with a self-signed certificate. To use your own ce
 
     Ensure the certificate has the correct hostnames (SANs).
     {: note}
+
+## Why do I see "Unable to authenticate user" error when connecting to LSF Web Services using the LSF client?
+{: #security}
+{: faq}
+
+This error usually indicates that the password entered during the login attempt is incorrect. Verify that you are using the correct credentials for the specified user. If you have forgotten the password, please contact your cluster administrator to reset the password.
+
+```pre
+test@abc-MacBook-Pro ~ % lsf cluster logon --username lsfadmin --url https://localhost:8448
+Password>
+FAILED
+Unable to authenticate user: lsfadmin
+test@abc-MacBook-Pro ~ %
+```
+
+For troubleshooting and audit purposes, failed authentication attempts are logged on the Web Service node. You can review the log file at:
+`/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
+
+It is your responsibility to manage the password with as many retries you want to set.
+{: note}
+
+## Can I use a password file for authenticating with the LSF Web Service client instead of typing the password manually?
+{: #passwordfile}
+{: faq}
+
+```pre
+lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
+```
+
+No this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+Instead, use the supported and more secure login method:
+
+```pre
+lsf cluster logon --username lsfadmin --url https://localhost:8448
+```
+
+For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](https://test.cloud.ibm.com/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).

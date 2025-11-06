@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-06"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,11 +26,13 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-## September 2025
-{: #subcollection-sep25}
+**For this release, the DA tile version is 3.1.0**
 
-### 30 September 2025
-{: #subcollection-sep3025}
+## November 2025
+{: #subcollection-nov25}
+
+### 06 November 2025
+{: #subcollection-nov0625}
 {: release-note}
 
 Support for Web Services

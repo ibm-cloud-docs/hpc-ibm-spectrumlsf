@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-24"
+lastupdated: "2025-11-06"
 
 keywords:
 
@@ -26,7 +26,7 @@ IBM Spectrum LSF Web Services provides a RESTful HTTP(s) interface for remotely 
 
 Spectrum LSF Web Services is introduced in Fix Pack 15. This eliminates the need for direct command-line access and offers secure, scalable access through standard APIs.
 
-## Key Benefits
+## Key benefits
 {: #key-benefits}
 
 * **Direct Cluster Access** – Connects securely to LSF clusters from any client/location without requiring Application Center.
@@ -48,7 +48,7 @@ Spectrum LSF Web Services is introduced in Fix Pack 15. This eliminates the need
 ## Configuring IBM Spectrum LSF Web Services
 {: #config-web-services}
 
-IBM Spectrum LSF Web Services is enabled by default with the LSF Suite installation. The service is installed and runs on the secondary management node (typically Management Node 2).
+IBM Spectrum LSF Web Services is enabled by default with the LSF Suite installation. The service is installed and runs on the secondary management node (typically management node 2).
 
 If the cluster is created with only one management node, Web Services are configured on that same node.
 
