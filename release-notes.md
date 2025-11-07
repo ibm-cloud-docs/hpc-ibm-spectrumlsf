@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-07"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -31,8 +31,8 @@ The release notes describes the brief overview of the new features, enhancements
 ## November 2025
 {: #subcollection-nov25}
 
-### 06 November 2025
-{: #subcollection-nov0625}
+### 07 November 2025
+{: #subcollection-nov0725}
 {: release-note}
 
 Support for Web Services
