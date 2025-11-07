@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -76,12 +76,6 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     ```pre
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP>lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
-
-    **Note:**
-
-    * For clusters with a single management node, all the configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
-
-    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
 
 6. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.
 
