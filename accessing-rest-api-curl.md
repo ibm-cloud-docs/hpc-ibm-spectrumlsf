@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -28,14 +28,17 @@ subcollection: hpc-ibm-spectrumlsf
 ## Before you begin
 {: #before-you-begin}
 
-To access the LSF Application Center REST APIs from your command line, you need to establish an SSH connection:
+Before accessing the LSF Application Center through https, you must first establish a secure SSH tunnel from your local machine to the LSF management node.
 
-    ```
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:10.241.0.10:8443 -L 6080:10.241.0.10:6080 -L 8444:10.241.0.10:8444 -J ubuntu@{bastion_node_ip} lsfadmin@{login_host_ip}
-    ```
-    {: codeblock}
+* Open a terminal on your local system.
 
-Where `login_host_ip` needs to be replaced with the login node IP address that is associated with `<cluster_prefix>-login-host-0`, and `FLOATING_IP_ADDRESS` needs to be replaced with the bastion node-floating IP address. To find the management and login node IPs, see the instructions for [Gathering IP addresses](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-accessing-lsf-gui#gathering-ip-addresses). The default user is `lsfadmin`.
+* Use the SSH command provided in your deployment logs (refer to the variable application_center_tunnel).
+
+    ```pre
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -L 8443:localhost:8443 -L 6080:localhost:6080 -L 8444:localhost:8444 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
+    ```
+
+    This command creates an encrypted tunnel that forwards the required ports (8443, 6080, and 8444) from the LSF management node to your local machine, enabling secure browser access to the Application Center GUI.
 
 ## Connecting to LSF Application Center with `curl`
 {: #connect-lsf-application-center-curl}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-09-24"
 
 keywords:
 
@@ -19,7 +19,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:important: .important}
 
-# About IBM Spectrum LSF Process Manager
+# About Process Manager
 {: #about-process-manager}
 
 IBM Spectrum LSF Process Manager is a component of the IBM Spectrum LSF (Load Sharing Facility) suite that provides advanced workload scheduling and job management. This helps users to automate, monitor, and control application workflows and dependencies across distributed computing environments. With process manager, users can define complex job flows using visual tools or scripting, enabling efficient resource usage and better throughput. For more information, see [IBM Spectrum LSF Process Manager documentation](https://www.ibm.com/docs/en/slpm/10.2.0?topic=administering-about-spectrum-lsf-process-manager).
@@ -27,9 +27,11 @@ IBM Spectrum LSF Process Manager is a component of the IBM Spectrum LSF (Load Sh
 ## Configuring IBM Spectrum LSF Process Manager
 {: #config-process-manager}
 
-IBM Spectrum LSF Process Manager is enabled by default as part of the LSF suite deployment. The process manager is installed and runs on the primary management node (typically Management Node 1).
+IBM Spectrum LSF Process Manager is enabled by default with the LSF Suite installation. The service is installed and runs on the secondary management node (typically Management Node 2).
 
-By default, High Availability (HA) for Process Manager is not enabled. The service runs as a stand-alone instance on a single node. If the node goes down, process manager and application center UI will become temporarily unavailable.
+If the cluster is created with only one management node, Process Manager are configured on that same node.
+
+By default, High Availability (HA) for Process Manager is not enabled. The service runs as a stand-alone instance on a single node. If the node becomes unavailable, then the Process Manager will also be temporarily inaccessible.
 {: note}
 
 ## Checking IBM Spectrum LSF Process Manager
@@ -40,7 +42,7 @@ The Process Notification Controller (PNC) is the core service of LSF Process Man
 1. Connect to the LSF management node through SSH. The details are available in the Schematics log output with `ssh_to_management_node` variable.
 
     ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -J ubuntu@162.133.142.116 lsfadmin@10.241.16.6
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=1 -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
     ```
 
 2. To verify the process manager installation, run the below commands:

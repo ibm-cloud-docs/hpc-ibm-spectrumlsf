@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -34,7 +34,7 @@ deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-l
 
 {{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
 
-IBM Spectrum LSF solution does not support bare metal based deployments. All the deployments are based upon the VSI, make sure to provide the valid instance profiles.
+IBM Spectrum LSF solution does not support bare metal-based deployments. All the deployments are based on the VSI. Make sure to provide the valid instance profiles.
 {: important}
 
 ## Confirm your {{site.data.keyword.cloud}} settings
@@ -51,14 +51,14 @@ Complete the following steps before you deploy the {{site.data.keyword.spectrum_
 
 Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific IAM permissions must be assigned to either a user or an access group. The automation script enables this process.
 
-User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the LSF deployment. The automation ensures that if the user has a certain permissions, then the script will omit them and add only the required permissions to perform the deployment.
+User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the LSF deployment. The automation ensures that if the user has a certain permissions, then the script omits them and add only the required permissions to perform the deployment.
 
-For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script will omit this and provide only Manager permission.
+For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script omits this and provide only Manager permission.
 
 Benefits of the scripts:
 
-* **Interactive input collection** - The script prompts for the IBMid (admin email), Resource Group ID, Account ID, and target (User or Access Group).
-* **Permission check** - The script verifies that the admin has account-level IAM Identity Administrator rights which is required to assign policies.
+* **Interactive input collection** - The script prompts for the IBMid (admin email), Account ID, and target (User or Access Group).
+* **Permission check** - The script verifies that the admin has account-level Administrator rights which are required to assign policies.
 * **Assigns required permissions for LSF deployment** - This script grants the appropriate permissions across IBM Cloud services that LSF depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
 * **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
 
@@ -68,7 +68,7 @@ You can get the scripts by performing **gitclone** on the branch:
 git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 ```
 
-1. Navigate to `cd tools/access-management`, you will get the `permissions.sh` file.
+1. Navigate to `cd tools/access-management`, you get the `permissions.sh` file.
 2. Login to the IBM Cloud with your API key. Run the following command:
 
     ```pre
@@ -78,10 +78,10 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
     ```
 
 3. Enter the admin email or IBMid.
-4. Enter the Resource group and Account ID.
+4. Enter the Account ID.
 
     For the Account ID, login to the {{site.data.keyword.cloud_notm}} account by using your unique credentials. Go to **Manage** > **Account** > **Account settings**. You will find the Account ID.
-5. You will be asked to assign the roles:
+5. You are asked to assign the roles:
     1. **Access Group** - Select this option, if you want to assign the access to the entire access group.
     2. **User** - Select this option, if you want to assign the access to an individual user.
 
@@ -89,10 +89,9 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 6. Enter the target user email, if you select the option 2.
 7. User policy is successfully created.
 
-If the user skips to enter the `RESOURCE_GROUP_ID` or the `ACCOUNT_ID`, then script displays the error message:
+If the user skips to enter the `ACCOUNT_ID`, then script displays the error message:
 
 ```pre
-:x: RESOURCE_GROUP_ID is required.
 :x: ACCOUNT_ID is required.
 ```
 
@@ -113,19 +112,18 @@ To view access policies, complete the following steps:
    | ------- | --------- | ---- | ---- |
    | App configuration | All | Administrator | Manager |
    | All Identity and Access enabled services | All | Administrator | Manager |
+   | All Account Management services | All | Administrator | -- |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
-   | File Storage for VPC | All | Editor | -- |
-   | Flow Logs for VPC | All | Editor | -- |
    | IAM Identity Service | All | Administrator | -- |
    | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
    | Security and Compliance Center Workload Protection | All | Administrator | -- |
-   | Virtual Private Cloud | All | Editor | -- |
+   | VPC Infrastructure Services | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
-   The above mentioned permissions are mandatory, failing to have these permissions will lead to deployment failure. Contact the account administrator for the permissions.
+   The above-mentioned permissions are mandatory, failing to have these permissions lead to deployment failure. Contact the account administrator for the permissions.
    {: tip}
 
 ## Gather LSF entitlement information
@@ -159,7 +157,7 @@ Make sure that you have an SSH key that you can use for authentication and that 
 
 This is a mandatory value configured through the Catalog tile and requires a valid IP address range or CIDR format to allow access to the LSF cluster. This value is required for variable `remote_allowed_ips`.
 
-If this field is left empty (for example, [""]) or not provided, then the cluster deployment will fail during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
+If this field is left empty (for example, [""]) or not provided, then the cluster deployment fails during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
 For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
 
@@ -185,7 +183,7 @@ IBM Spectrum LSF also provides some optional or advanced features such as Observ
 
 If you want to enable and configure any of these features for your cluster, ensure to update the corresponding values accordingly. Note that certain features may be enabled by default.
 
-Additionally, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies).
+Also, ensure that the necessary IAM permissions are in place when enabling these features. The required IAM permissions are mentioned in the above section [Verify access policies](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-getting-started-tutorial#verify-access-policies).
 
 ## Next steps
 {: #getting-started-next-steps}

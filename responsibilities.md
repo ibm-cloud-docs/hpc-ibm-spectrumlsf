@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -106,6 +106,7 @@ IBM is responsible for the security and compliance of HPC Clusters on IBM Cloud.
 Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
 |Management nodes|  | As part of your incident and operations management responsibilities for the management nodes, apply the provided security patch updates. |
 |Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. |
+|SSH key rotation| The automation picks up the customer provided SSH keys and pass it for the instance provisoning. It is not IBM responsibility to rotate the SSH keys. | Since it is customer-managed SSH keys and IBM do not have access to the customer account, it is the users responsibility to ensure that the keys are rotated or updated based on the requirement. In case the SSH keys are incorrect then user will not be able to access the cluster. Ensure that the keys are updated on the existing clusters before or after the rotation. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ## Disaster recovery
