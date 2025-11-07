@@ -231,12 +231,6 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
-    **Note:**
-
-    * For clusters with a single management node, all configurations run on that same node. You can use the "ssh_to_management_node" tunnel for validation.
-
-    * For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
-
 10. Set up the https certificate on the client host using the command:
 
     ```pre
