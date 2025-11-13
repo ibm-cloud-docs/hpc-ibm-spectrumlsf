@@ -57,7 +57,7 @@ For example, for the **App configuration** service, the user requires Administra
 
 As an admin, you need to have the following permissions to perform the deployment:
 * Administrator for All Identity and Access enabled service
-* Administrator for IAM Identity services
+* Administrator for IAM Identity Service
 * Administrator for All Account Management services
 
 Benefits of the scripts:
