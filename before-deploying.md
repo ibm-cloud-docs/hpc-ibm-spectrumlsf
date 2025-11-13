@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-11-13"
 
 keywords:
 
@@ -55,6 +55,11 @@ User has the flexibility to run the specific scripts to gain the required IAM pe
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script omits this and provide only Manager permission.
 
+As an admin, you need to have the following permissions to perform the deployment:
+* Administrator for All Identity and Access enabled service
+* Administrator for IAM Identity services
+* Administrator for All Account Management services
+
 Benefits of the scripts:
 
 * **Interactive input collection** - The script prompts for the IBMid (admin email), Account ID, and target (User or Access Group).
@@ -72,9 +77,9 @@ git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 2. Login to the IBM Cloud with your API key. Run the following command:
 
     ```pre
-    ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
-    chmod +x permissions.sh
-    ./permissions.sh
+    a. ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
+    b. chmod +x permissions.sh
+    c. ./permissions.sh
     ```
 
 3. Enter the admin email or IBMid.
@@ -112,11 +117,10 @@ To view access policies, complete the following steps:
    | ------- | --------- | ---- | ---- |
    | App configuration | All | Administrator | Manager |
    | All Identity and Access enabled services | All | Administrator | Manager |
-   | All Account Management services | All | Administrator | -- |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
    | IAM Identity Service | All | Administrator | -- |
-   | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
+   | Cloud Monitoring | All | Administrator | Manager |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Secrets Manager | All | Administrator | Manager |
    | Security and Compliance Center Workload Protection | All | Administrator | -- |
