@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-11-13"
 
 keywords:
 
@@ -54,6 +54,12 @@ Before deploying an {{site.data.keyword.spectrum_full_notm}} cluster, specific I
 User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the LSF deployment. The automation ensures that if the user has a certain permissions, then the script omits them and add only the required permissions to perform the deployment.
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script omits this and provide only Manager permission.
+
+    As an admin, you need to have the following permissions to perform the deployment:
+    * Administrator for All Identity and Access enabled service
+    * Administrator for IAM Identity services
+    * Administrator for All Account Management services
+    {: note}
 
 Benefits of the scripts:
 
