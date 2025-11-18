@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-18"
 
 keywords:
 
@@ -298,7 +298,7 @@ It is your responsibility to manage the password with as many retries you want t
 lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
 ```
 
-No this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
 Instead, use the supported and more secure login method:
 
 ```pre
