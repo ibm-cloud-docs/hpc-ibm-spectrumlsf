@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-11-24"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -52,7 +52,7 @@ Following are the key aspects of LSF PayGo model:
 
     Ideal for dynamic and burst workloads with fluctuating compute demands.
 
-Bastion and deployer nodes are not supported by PAYGo.
+Bastion and deployer nodes do not require LSF licenses and therefore do not incur any LSF PayGo charges.
 {: note}
 
 ## LSF PAYGo features
