@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-11-27"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,10 +26,17 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the DA tile version is 3.1.0**
+**For this release, the DA tile version is 3.2.0**
 
 ## November 2025
 {: #subcollection-nov25}
+
+### 27 November 2025
+{: #subcollection-nov2725}
+{: release-note}
+
+Support for LSF Pay-As-You-Go (PAYGo) feature
+:   The LSF Pay-As-You-Go images are prebuilt virtual machine images available through the IBM Cloud Catalog. For more information, see [LSF Pay-As-You-Go (PAYGo) model](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro).
 
 ### 07 November 2025
 {: #subcollection-nov0725}
