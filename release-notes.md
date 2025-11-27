@@ -37,9 +37,6 @@ The release notes describes the brief overview of the new features, enhancements
 
 Support for LSF Pay-As-You-Go (PAYGo) feature
 :   The LSF Pay-As-You-Go images are prebuilt virtual machine images available through the IBM Cloud Catalog.
-The cost is based upon:
-    * Selected hardware profile
-    * PayGo image pricing
 
 For more information, see [LSF Pay-As-You-Go (PAYGo) model](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-payg-model-intro).
 

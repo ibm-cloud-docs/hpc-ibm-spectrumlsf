@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-24"
+lastupdated: "2025-11-27"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -93,7 +93,6 @@ A new configuration variable `lsf_pay_per_use` is introduced as part of this des
 The costs is based on:
 * Selected hardware profile
 * PAYGo image pricing
-* Volume storage (only if separately provisioned and not part of the profile)
 
 ## Use case 1: PAYGo enabled (lsf_pay_per_use = true)
 {: #payg-usecase1}
