@@ -238,12 +238,16 @@ Path          Delegations Clients       Access_Type Protocols Transport Squash .
 ### Using PPNLB enabled Scale with LSF
 {: #ppnlb-scale-lsf}
 
-After you verify PPNLB with Storage Scale cluster, you can work on IBM Spectrum LSF cluster with some the following changes:
+After you verify PPNLB with Storage Scale cluster, the following changes must be made on IBM Spectrum LSF cluster:
 
 ```pre
 custom_file_shares =[ {"mount_path": "/mnt/lsf", "nfs_share": "test-prescale.strgscale.private:/fs1/lsf"}, {"mount_path": "/mnt/scale_folder_1", "nfs_share": "test-prescale.strgscale.private:/fs1/scale_1"}, {"mount_path": "/mnt/scale_folder_2", "nfs_share": "test-prescale.strgscale.private:/fs1/scale_2"} ]
 ```
 {: codeblock}
+
+Here,
+* `test-scale-poc-ces.cesscale.com` - without ppnlb
+* `test-prescale.strgscale.private` - with ppnlb
 
 The derivations are as follows:
 
@@ -254,10 +258,6 @@ The derivations are as follows:
     2. A hyphen (-).
     3. The text **strgscale**.
     4. A dot (.)
-
-Here,
-* `test-scale-poc-ces.cesscale.com` - without ppnlb
-* `test-prescale.strgscale.private` - with ppnlb
 
 The Maximum Transmission Unit (MTU) value configured on Storage Scale when enabling PPNLB must also be set on the LSF side to ensure consistency. Providing an incorrect value causes the cluster to not perform as expected.
 
