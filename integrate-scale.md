@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-05"
 
 keywords: storage scale, spectrum lsf, integration
 subcollection: hpc-ibm-spectrumlsf
@@ -234,6 +234,32 @@ Path          Delegations Clients       Access_Type Protocols Transport Squash .
 <provide the filesystem path>/lsf NONE        10.241.0.0/20 RW          3,4       TCP       NO_ROOT_SQUASH
 ```
 {: codeblock}
+
+### Using PPNLB enabled Scale with LSF
+{: #ppnlb-scale-lsf}
+
+After you verify PPNLB with Storage Scale cluster, you can work on IBM Spectrum LSF cluster with some the following changes:
+
+```pre
+custom_file_shares =[ {"mount_path": "/mnt/lsf", "nfs_share": "test-prescale.strgscale.private:/fs1/lsf"}, {"mount_path": "/mnt/scale_folder_1", "nfs_share": "test-prescale.strgscale.private:/fs1/scale_1"}, {"mount_path": "/mnt/scale_folder_2", "nfs_share": "test-prescale.strgscale.private:/fs1/scale_2"} ]
+```
+{: codeblock}
+
+The derivations are as follows:
+
+* `test-prescale` - is a cluster prefix.
+* `strgscale.private` - is a domain name specified during Storage Scale cluster creation and the domain name used for PPNLB.
+* For sharing the `nfs_share`, the automation needs <cluster-prefix-strgscale.private>.
+    1. The `resource_prefix` value for {{site.data.keyword.scale_short}}, such as **LSF**.
+    2. A hyphen (-).
+    3. The text **strgscale**.
+    4. A dot (.)
+
+Here,
+* `test-scale-poc-ces.cesscale.com` - without ppnlb
+* `test-prescale.strgscale.private` - with ppnlb
+
+The Maximum Transmission Unit (MTU) value configured on Storage Scale when enabling PPNLB must also be set on the LSF side to ensure consistency. Providing an incorrect value causes the cluster to not perform as expected.
 
 ### Associating the {{site.data.keyword.scale_short}} security group ID with your {{site.data.keyword.spectrum_full_notm}} cluster
 {: #integrate-scale-security-group-ID}
