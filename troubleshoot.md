@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-06"
+  years: 2026
+lastupdated: "2026-01-06"
 
 keywords: question about _xx_, _messageID_
 
@@ -306,7 +306,7 @@ Address: 10.241.0.15#53
 or
 
 [lsfadmin@user-lsf-test1-mgmt-2 ~]$ ssh user-lsf-test1-mgmt-1
-ssh: Could not resolve hostname mani-lsf-basic-login: Name or service not known
+ssh: Could not resolve hostname test-lsf-basic-login: Name or service not known
 ```
 {: pre}
 {: tsSymptoms}
