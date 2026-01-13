@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -74,7 +74,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
 5. Copy the **cacert.pem** file from the management node to your local system using the command:
 
     ```pre
-    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP>lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
+    scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>:/opt/ibm/lsfsuite/ext/ws/conf/https/cacert.pem /Users/test/Desktop/
     ```
 
 6. Connect to the LSF management node through SSH. The details are available in the Schematics log output with the `web_service_tunnel` variable.

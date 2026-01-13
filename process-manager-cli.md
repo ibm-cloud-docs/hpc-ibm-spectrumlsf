@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-24"
+  years: 2026
+lastupdated: "2026-01-06"
 
 keywords:
 
@@ -128,9 +128,9 @@ Perform the following steps to create, submit, and verify the jobs through Proce
 8. Remove the flow definition from Process Manager, by running the commands:
 
     ```pre
-    [lsfadmin@anand-re1-mgmt-1-9e6e-001 ~]$ jremove test_pm_flow
+    [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jremove test_pm_flow
     Flow <lsfadmin:test_pm_flow> is removed.
-    [lsfadmin@anand-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
+    [lsfadmin@test-re1-mgmt-1-9e6e-001 ~]$ jdefs -u all
     NAME           USER           STATUS         FLOW_IDS
     test571       lsfadmin       OnHold         1(Done)
     hpc123        lsfadmin       OnHold         2(Done)

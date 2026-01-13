@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-18"
+  years: 2026
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -306,3 +306,20 @@ lsf cluster logon --username lsfadmin --url https://localhost:8448
 ```
 
 For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](https://test.cloud.ibm.com/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
+
+## Why is 0.0.0.0 allowed in the egress rule of a security group?
+{: #sg-egress-rule-lsf}
+
+We cannot restrict outbound traffic because customers often maintain connections to on-prem environments for hybrid deployments. Customers use dozens of different applications for their HPC applications and any port to communicate between on-prem and on cloud processes. Restricting the outbound traffic by default and requiring customers to manually open each port would severely impact the usability of our solution.
+
+## Does the solution support integration with enterprise SIEM platforms such as QRadar?
+{: #qradar}
+
+The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
+
+## Does the solution support using PAG for Multi-Factor Authentication (MFA)?
+{: #mfa}
+
+The solution supports only SSH connectivity, and no additional ports are allowed. The solution does not include a built-in Multi-Factor Authentication (MFA) mechanism.
+
+Integration with external MFA solutions, such as a Privileged Access Gateway (PAG) is possible, but this introduces additional cost on IBM Cloud since PAG is an optional premium feature. Due to these cost considerations and varying customer security requirements, MFA is not enforced by default and remains an optional, customer-controlled configuration.
