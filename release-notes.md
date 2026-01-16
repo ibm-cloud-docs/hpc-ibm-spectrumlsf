@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-12"
+lastupdated: "2026-01-16"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,12 +26,16 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the DA tile version is 3.2.0**
+**For this release, the DA tile version is 3.3.0**
 
 ## January 2026
 {: #subcollection-jan26}
 
-With IBM's SSH policy, root user access on newly provisioned instances has been disabled through automation. As a result, customers cannot access any instances using the root account and must use the `lsfadmin` instead.
+### 16 January 2026
+{: #subcollection-jan1626}
+{: release-note}
+
+In compliance with IBM’s SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
 
 ## November 2025
 {: #subcollection-nov25}

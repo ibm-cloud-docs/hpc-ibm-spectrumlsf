@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-05"
+  years: 2026
+lastupdated: "2026-01-13"
 
 keywords: storage scale, spectrum lsf, integration
 subcollection: hpc-ibm-spectrumlsf
@@ -35,13 +35,13 @@ After deploying your Storage Scale cluster with CES, set up your {{site.data.key
 ## Deploying your {{site.data.keyword.scale_short}} cluster
 {: #scale-tile}
 
-Deploy your {{site.data.keyword.scale_short}} cluster using the deployable architecture variant [Scale tile](https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global).
+Deploy your {{site.data.keyword.scale_short}} cluster using the deployable architecture variant [Scale tile](https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d).
 Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-scale-da) for more information.
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
-1. Select to use product version 4.0.0.
-2. [Configure CES deployment values](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
-* Update the `total_protocol_cluster_instances` deployment value to be greater than or equal to **2** for high availability.
+1. Select the latest product version.
+2. [Configure CES deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
+* Update the `protocol_instances` deployment value to be greater than or equal to **2** for high availability.
 * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 * Once the Scale cluster is successfully created, login to the CES node to run the following command.
 
@@ -86,9 +86,9 @@ After you deploy and verify your {{site.data.keyword.scale_short}} cluster, you 
 
 * During the LSF cluster creation, use the Storage Scale VPC. Under the `vpc_name` parameter, provide the name of the VPC created through the scale cluster.
 
-* To create the LSF management node and compute worker nodes use the compute subnets (comp-pvt-1) from the Scale cluster. Provide the compute subnet ID under the `compute_subnet_id` parameter.
+* To create the LSF management node and compute worker nodes use the compute subnets from the Scale cluster. Provide the compute subnet ID under the `compute_subnet_id` parameter.
 
-* To create the bastion/deployer and login nodes on the LSF, there is an existing **login subnet** created already as part of the Scale cluster. Provide that subnet ID under the `login_subnet_id` parameter. Using the **storage subnet** created from Scale is not advisable to use due to security issues, this approach ensures that the bastion/deployer and login node do not have a direct access to the Storage Scale nodes, which aligns with the planned architecture.
+* To create the bastion/deployer and login nodes on the LSF, there is an existing **login subnet** created already as part of the Scale cluster. Provide that subnet ID under the `login_subnet_id` parameter. Using the storage subnet created from Scale is not recommended due to security concerns. This approach ensures that the bastion/deployer and login node have direct access to the Storage Scale nodes, which aligns with the planned architecture.
 
     You can use either login subnet or client subnet or protocol subnets which are created through the Scale cluster. You can pass either of them during deployment.
     The new subnet created should have the Public Gateway (PGW) attached, and this is required for the deployer node to clone the terraform code for the deployment process. For more information on how to attach the PGW, see [Working with subnets in VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-subnets-configure&interface=ui).
