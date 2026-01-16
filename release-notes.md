@@ -26,7 +26,7 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the DA tile version is 3.0.0**
+**For this release, the DA tile version is 3.3.0**
 
 ## January 2026
 {: #subcollection-jan26}
