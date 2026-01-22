@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-27"
+  years: 2026
+lastupdated: "2026-01-22"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -31,24 +31,24 @@ The LSF Pay-As-You-Go images are prebuilt virtual machine images available throu
 
 Following are the key aspects of LSF PayGo model:
 
-1. Prelicensed and Metered
+1. **Prelicensed and Metered**
 
     * The licensing is integrated into the PAYGo image.
     * Billing is automatically managed through IBM Cloud metering.
     * Charges are based on number of vCPU hours consumed.
 
-2. Quick deployment
+2. **Quick deployment**
 
     * PAYGo images are available directly in IBM Cloud.
     * Users can deploy the LSF clusters within minutes.
     * PAYGo images are used for management and compute nodes.
 
-3. Simplified maintenance
+3. **Simplified maintenance**
 
     * The images are maintained, patched, and updated by the IBM team.
     * Users benefit from secure, tested, and up-to-date LSF versions.
 
-4. Flexible scaling
+4. **Flexible scaling**
 
     Ideal for dynamic and burst workloads with fluctuating compute demands.
 

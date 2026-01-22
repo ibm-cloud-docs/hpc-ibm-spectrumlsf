@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-06-27"
+  years: 2026
+lastupdated: "2026-01-22"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -36,8 +36,8 @@ It is not required to create a bastion node for every new deployment. If an exis
 ## Bastion node usage
 {: #bastion-node-usage}
 
-1. Enable bastion node through Architectural Design - The solution provisions a bastion node by default to secure access to cluster nodes.
-2. Support for existing bastion setup - Users can leverage an existing bastion node instead of creating a new one, providing flexibility and continuity in secure cluster access.
+1. **Enable bastion node through Architectural Design** - The solution provisions a bastion node by default to secure access to cluster nodes.
+2. **Support for existing bastion setup** - Users can leverage an existing bastion node instead of creating a new one, providing flexibility and continuity in secure cluster access.
 
 ## Default bastion node support
 {: #bastion-node-support}

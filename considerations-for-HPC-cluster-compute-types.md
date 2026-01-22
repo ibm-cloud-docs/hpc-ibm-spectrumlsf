@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-02-25"
+  years: 2026
+lastupdated: "2026-01-22"
 
 keywords:
 
@@ -22,18 +22,18 @@ subcollection: hpc-ibm-spectrumlsf
 # Considerations for HPC cluster compute types
 {: #considerations-for-HPC-custer-compute-types}
 
-HPC workloads have varying requirements in terms of CPU, memory, network, and storage resources. Some of them are:
+High-performance computing (HPC) workloads exhibit diverse requirements across CPU, memory, network, and storage resources. These include:
 
-*  core count
-*  memory per core
-*  network bandwidth and latency
-*  processor clock speed
+* core count
+* memory per core
+* network bandwidth and latency
+* processor clock speed
 
 The goal is to pick a compute configuration that returns the best price performance. An HPC workload can be as simple as a single core job or as complex as a job that needs hundreds to thousands of cores. HPC aggregates computing power (clustering) and can deliver higher performance and solve large problems.
 
 Most of HPC workloads fall below the 1000 core range. There are some workloads that require a high number of cores up to and including 10k-50k. Execution time for an HPC workload can be simple (for few seconds) or it can be complex (take several days).
 
-As an example, Electronic Design Simulation (EDA) workloads have component level simulation jobs that require millions of such jobs ran every day, but each single job requires a single core and approximately 10 seconds. Optical Proximity Correction can take multiple hours or even days depending on the size of the chip and the size of the HPC cluster.
+As an example, Electronic Design Simulation (EDS) workloads have component level simulation jobs that require millions of such jobs ran every day, but each single job requires a single core and approximately 10 seconds. Optical Proximity Correction can take multiple hours or even days depending on the size of the chip and the size of the HPC cluster.
 
 Typically HPC clusters contain a set of virtual system and use the cluster to run multiple workloads. It all depends on the workload resource requirements and duration.
 
@@ -67,7 +67,7 @@ Configuration example:
 
 In this scenario, the automation chooses the first profile `bx3d-176x880` to compute CPU, memory, and other specifications, leading to dynamic nodes being provisioned solely based on this profile, regardless of additional instance type definitions.
 
-For all of the configurations, the range of core count is 2 - 128 per virtual system. There is a special ultra high memory virtual system type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core.
+For all the configurations, the range of core count is 2 - 128 per virtual system. There is a special ultra high memory virtual system type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core.
 
 The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual system.
 
@@ -95,7 +95,7 @@ IBM Systems and IBM Research work in this industry domain and have successfully 
 
 ![Figure 1. EDA-diagram](images/Electronic-Design-Automation.png "EDA-diagram"){: caption="EDA-diagram" caption-side="bottom"}
 
-### Weather (WRF Model)
+### Weather (WRF model)
 {: #weather-wrf-model}
 
 {{site.data.keyword.cloud_notm}} shows linear performance, performs favorably, and can scale well into thousands of cores. The virtual system configuration that is used for this benchmark is `bx2-16x64`. The WRF model is not sensitive to network latency as it packs many variables into each message, resulting in fairly large messages, and not many small messages.
@@ -104,7 +104,7 @@ IBM Systems and IBM Research work in this industry domain and have successfully 
 
 The red line represents the HPC environment with the InfiniBand HDR that gives the highest bandwidth, lowest latency, and is the best configuration for such workloads. The green line shows {{site.data.keyword.cloud_notm}} with the Lon2 data center for the benchmarking. The blue line is the Summit super computer. In summary, any workloads that have characteristics similar to the WRF model should scale well with {{site.data.keyword.cloud_notm}}. As you can see {{site.data.keyword.cloud_notm}} shows reasonable performance against state-of-the-art HPC systems.
 
-### DoE (Department of Energy) benchmarking
+### Department of Energy (DoE) benchmarking
 {: #DoE-benchmarking}
 
 SNAP and Quicksilver are two applications that the DoE uses for benchmarking and deciding the specific commodity technology systems.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-16"
+lastupdated: "2026-01-22"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -20,13 +20,13 @@ content-type: release-note
 
 
 
-# Release notes for {{site.data.keyword.spectrum_full_notm}}
+# Release notes
 {: #my-service-relnotes}
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the DA tile version is 3.3.0**
+**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.0**
 
 ## January 2026
 {: #subcollection-jan26}
