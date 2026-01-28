@@ -10,7 +10,7 @@ subcollection: hpc-ibm-spectrumlsf
 
 content-type: release-note
 
-deployment_url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D
+[![Deploy to IBM Cloud button](https://cloud.ibm.com/media/docs/images/icons/Deploy_to_cloud.svg)](https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D)
 
 ---
 
