@@ -2,12 +2,15 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-01-28"
 
 keywords:
 
 subcollection: hpc-ibm-spectrumlsf
+use-case: ITServiceManagement
+industry: Technology
 
+deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D
 ---
 
 {:shortdesc: .shortdesc}
@@ -18,9 +21,13 @@ subcollection: hpc-ibm-spectrumlsf
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:step: data-tutorial-type='step'}
+{:table: .aria-labeledby="caption"}
 
 # Overview of IBM Spectrum LSF
 {: #about-spectrum-lsf}
+{: toc-industry="Technology"}
+{: toc-use-case="ITServiceManagement"}
 
 {{site.data.keyword.spectrum_full}} is a scheduling software to enable High-Performance Computing (HPC) clusters. This offering uses deployable architecture to provision and configure {{site.data.keyword.cloud_notm}} resources. With simple steps to define configuration properties and use automated deployment, you can build your own HPC clusters in minutes by using your choice of an Intel x86 based [VPC virtual server instance profile type](/docs/vpc?topic=vpc-profiles&interface=ui) for the worker nodes in the cluster. {{site.data.keyword.spectrum_short}} also enables configuration for auto scaling, so {{site.data.keyword.spectrum_short}} clusters can automatically add and remove worker nodes based on workload specifications. This allows you to take full advantage of consumption-based pricing and pay for cloud resources only when they are needed. 
 {: shortdesc}

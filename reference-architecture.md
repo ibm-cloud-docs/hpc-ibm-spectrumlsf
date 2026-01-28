@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-06-17"
+  years: 2026
+lastupdated: "2026-01-28"
 
 keywords: # Not typically populated
 
@@ -11,7 +11,7 @@ subcollection: hpc-ibm-spectrumlsf
 authors:
   - name: David Nguyen
 
-deployment-url: url
+deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D
 
 docs: https://cloud.ibm.com/docs/solution-guide
 

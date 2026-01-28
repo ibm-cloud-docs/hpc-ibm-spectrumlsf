@@ -1,17 +1,14 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-13"
+  years: 2026
+lastupdated: "2026-01-28"
 
 keywords:
 
 subcollection: hpc-ibm-spectrumlsf
-completion-time: 1h
-use-case: ITServiceManagement
-industry: Technology
 content-type: tutorial
-deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -27,10 +24,7 @@ deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-l
 
 # Before you begin deploying
 {: #getting-started-tutorial}
-{: toc-completion-time="1h"}
 {: toc-content-type="tutorial"}
-{: toc-industry="Technology"}
-{: toc-use-case="ITServiceManagement"}
 
 {{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
 
