@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-28"
+lastupdated: "2026-01-29"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -54,10 +54,10 @@ Support for LSF Pay-As-You-Go (PAYGo) feature
 Support for Web Services
 :  IBM Spectrum LSF Web Services is enabled by default as part of the LSF suite deployment. It provides a secure RESTful interface to submit, monitor, and manage jobs, enabling easy integration with custom applications and automation workflows.
 
-Bug Fixes
+**Bug Fixes:**
 
-:  * Added support for the "icgen2host" tag on dynamic nodes.
-:  * Enabled deployment and configuration of core services (Application Center, Process Manager, Web Services, etc.) on Management Node-2 when the management node count is ≥ 2.
+* Added support for the "icgen2host" tag on dynamic nodes.
+* Enabled deployment and configuration of core services (Application Center, Process Manager, Web Services, etc.) on Management Node-2 when the management node count is ≥ 2.
 
 ## September 2025
 {: #subcollection-sep25}
