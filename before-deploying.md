@@ -159,13 +159,6 @@ If this field is left empty (for example, [""]) or not provided, then the cluste
 
 For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
 
-## Support for lsf_version
-{: #lsf-version}
-{: step}
-
-IBM Spectrum LSF currently supports Fix Pack 15 (FP15). `lsf_version` is the value required for this variable.
-By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
-
 ## Application center password
 {: #app-center}
 {: step}
