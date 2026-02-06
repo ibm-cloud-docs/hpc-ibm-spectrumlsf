@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-02-06"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -35,7 +35,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-jan1626}
 {: release-note}
 
-:  In compliance with IBM’s SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
+:  In compliance with IBMs SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
 
 ## November 2025
 {: #subcollection-nov25}
@@ -84,8 +84,7 @@ Support for Small Medium Large Deployments
 Following are the change updates made for this release:
 
 Support for Fix Pack 15 (FP15)
-:  For this release, by default **Fix Pack 15** is supported along with Fix Pack 14 (FP14). This fix pack contains all the security fixes, vulnerabilities fixes, resource connectors and so on.
-User can still do the cluster deployment through FP14.
+:  For this release, **Fix Pack 15** is supported. This fix pack contains all the security fixes, vulnerabilities fixes, resource connectors and so on.
 
 Support for Process manager
 :  IBM Spectrum LSF Process Manager is enabled by default as part of the LSF suite deployment. This helps users to automate, monitor, and control application workflows and dependencies across distributed computing environments.
@@ -105,8 +104,8 @@ Support for Deployer node
 End to end deployment done through Ansible playbooks
 :  Previously, all the configurations for {{site.data.keyword.spectrum_short}} were done using the user data through shell script. Now the cluster deployments and configurations are managed and handled by **Ansible** playbooks.
 
-Application centre option is enabled by default for FP14 and FP15
-:  From the previous release, user had a choice to enable or disable the application centre feature as an option. For this release, **application centre** option is enabled by **default** for both FP14 and FP15.
+Application centre option is enabled by default for FP15
+:  From the previous release, user had a choice to enable or disable the application centre feature as an option. For this release, **application centre** option is enabled by **default** for FP15.
 
 ## April 2025
 {: #subcollection-apr25}

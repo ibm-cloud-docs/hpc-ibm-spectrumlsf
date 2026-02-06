@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-30"
+  years: 2026
+lastupdated: "2026-02-06"
 
 keywords:
 
@@ -57,7 +57,7 @@ Before you deploy an IBM Spectrum LSF cluster, specific IAM permissions must be 
 You can get the scripts by performing **gitclone** on the branch:
 
 ```pre
-git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
+git clone -b main 
 ```
 
 1. Navigate to `minimal-demo-prod-scripts` to get the all the required files.
@@ -101,7 +101,7 @@ From the above snippet, below are the descriptions for the parameters:
 
 * **SSH_KEY** - A list of SSH key names that are already configured in your IBM Cloud account to establish a connection to the Spectrum LSF nodes.
 
-* **TEMPLATE_FILE** - All the .json files are uploaded in https://github.ibm.com/workload-eng-services/HPCaaS/tree/sml/tools/minimal-demo-prod-scripts.
+* **TEMPLATE_FILE** - All the .json files are uploaded in .
 
     * **catalog_values_minimal_deployment.json** - choose this file for small deployments.
     * **catalog_values_demo_deployment.json** - choose this file for medium deployments.
@@ -112,7 +112,7 @@ From the above snippet, below are the descriptions for the parameters:
 The `version_locator_value` changes are based on the tile version selected.
 {: note}
 
-* **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in both Fix Pack 15 and Fix Pack 14 with HTTPS. This is a mandatory value and omitting, results in deployment failure.
+* **APP_CENTER_GUI_PASSWORD** - This is the password that is required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in Fix Pack 15 with HTTPS. This is a mandatory value and omitting, results in deployment failure.
 
 ## Deploy the LSF environment
 {: #deploy-env}

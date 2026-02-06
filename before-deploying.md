@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-28"
+lastupdated: "2026-02-06"
 
 keywords:
 
@@ -163,14 +163,14 @@ For more information on mandatory and optional deployment values, see [Deploymen
 {: #lsf-version}
 {: step}
 
-IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15). `lsf_version` is the value required for this variable.
+IBM Spectrum LSF currently supports Fix Pack 15 (FP15). `lsf_version` is the value required for this variable.
 By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
 
 ## Application center password
 {: #app-center}
 {: step}
 
-For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
+For FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
 To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails. `app_center_gui_password` is the value required for this variable.
 
 ## Enabling optional values

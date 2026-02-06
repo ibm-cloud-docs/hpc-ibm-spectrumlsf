@@ -145,13 +145,10 @@ Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [c
 
 You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
 
-The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 14 is `hpc-lsf-fp14-compute-rhel810-v1`.
-
 As part of dynamic node provisioning, Ubuntu based operating system is not supported.
 
 | LSF version | Deployer node | Management node | Login node | Compute node |
 | ----- | ----------- | --------------- | ------------ | ------------ |
-| Fix Pack 14 (10.1.0.14) | "hpc-lsf-fp14-deployer-rhel810-v1" | "hpc-lsf-fp14-rhel810-v1" | hpc-lsf-fp14-compute-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 |
 | Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
@@ -305,7 +302,7 @@ Instead, use the supported and more secure login method:
 lsf cluster logon --username lsfadmin --url https://localhost:8448
 ```
 
-For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](https://test.cloud.ibm.com/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
+For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
 
 ## Why is 0.0.0.0 allowed in the egress rule of a security group?
 {: #sg-egress-rule-lsf}

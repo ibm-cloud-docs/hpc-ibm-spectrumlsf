@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-02-06"
 
 keywords:
 
@@ -25,17 +25,16 @@ subcollection: hpc-ibm-spectrumlsf
 
 A Fix Pack is a cumulative update package that includes repository files, security enhancements, vulnerability patches, updated resource connectors, and other improvements. These updates are designed to ensure the stability, security, and performance of {{site.data.keyword.spectrum_full}} deployments.
 
-As of **May 09, 2025**, IBM officially released a new version of Fix Pack 15, which includes the latest critical fixes, enhancements, and compatibility updates tailored for evolving workload demands. {{site.data.keyword.spectrum_full}} currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15).
+As of **May 09, 2025**, IBM officially released a new version of Fix Pack 15, which includes the latest critical fixes, enhancements, and compatibility updates tailored for evolving workload demands.
 
-By default, the {{site.data.keyword.spectrum_full}} solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. However, in recognition of existing deployments and customer needs, the solution also continues to fully support Fix Pack 14 (FP14). This backward compatibility ensures customers to maintain stable cluster environments while planning or performing upgrades at their convenience.
+By default, the {{site.data.keyword.spectrum_full}} solution ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. This backward compatibility ensures customers to maintain stable cluster environments while planning or performing upgrades at their convenience.
 
 To maintain operational efficiency and security, IBM recommends keeping your cluster environment up-to-date with the latest supported Fix Pack unless specific version dependencies are in place for your workloads.
 
-The following table shows the different images used for FP14 and FP15:
+The following table shows the different images used for FP15:
 
 | LSF version | Deployer node | Management node | Login node | Compute node |
 | ----- | ----------- | --------------- | ------------ | ------------ |
-| Fix Pack 14 | hpc-lsf-fp14-deployer-rhel810-v1 | hpc-lsf-fp14-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 | hpc-lsf-fp14-compute-rhel810-v1 |
 | Fix Pack 15 | hpc-lsf-fp15-deployer-rhel810-v1 | hpc-lsf-fp15-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
@@ -45,7 +44,7 @@ The same image is now used across login nodes, compute nodes, and dynamic worker
 ## Scenarios
 {: #fixpack-scenario}
 
-If you set the `lsf_version` to FP14, corresponding FP14 images must be used across all the LSF cluster nodes (Deployer/Login/Management/Compute). The same applies for FP15. Using mismatched images for different LSF versions, result in deployment failure, as required packages may be missing.
+If you set the `lsf_version`, corresponding FP14 images must be used across all the LSF cluster nodes (Deployer/Login/Management/Compute). The same applies for FP15. Using mismatched images for different LSF versions, result in deployment failure, as required packages may be missing.
 
 **For example:** When the `lsf_version` is set as fixpack_15 and the image under `login_instance` is set as "hpc-lsf-fp14-compute-rhel810-v1" then our automation ensures to validate and throws an error message. So always ensure that the images are set based upon the required fixpack version.
 

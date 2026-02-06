@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-02-06"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -100,7 +100,7 @@ The costs is based on:
 When the PAYGo feature is enabled (default setting), then:
 * Automation provisions all the nodes by using the PAYGo image.
 * Dynamic node provisioning is integrated through the LSF Resource Connector.
-* Only LSF FP15 images are supported; FP14 or earlier are not compatible.
+* LSF FP15 images are supported.
 * BYOI is not supported.
 
 ## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
