@@ -27,10 +27,10 @@ content-type: faq
 
 This document provides a list of frequently asked questions and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
 
-## Release [version] FAQs [New release]{: tag-green}
+## Release version FAQs[Tag text]{: tag-green}
 {: #current-release}
 
-Here goes all the FAQs that are related to the upcoming release.
+Here goes all the FAQs that are related to the upcoming/current release.
 
 ## General
 {: #generic-faqs}
