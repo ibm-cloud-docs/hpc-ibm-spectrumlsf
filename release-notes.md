@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-06"
+lastupdated: "2026-02-12"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -35,7 +35,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-jan1626}
 {: release-note}
 
-:  In compliance with IBMs SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
+In compliance with IBMs SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
 
 ## November 2025
 {: #subcollection-nov25}
