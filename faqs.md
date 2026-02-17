@@ -35,7 +35,7 @@ Here goes all the FAQs that are related to the upcoming/current release.
 ## General
 {: #generic-faqs}
 
-### What Spectrum LSF packages are included in a cluster deployed with this offering?
+### Which Spectrum LSF packages does this offering deploy in a cluster?
 {: #faq1}
 
 {{site.data.keyword.spectrum_full_notm}} Standard Edition is included in {{site.data.keyword.spectrum_short}} program.
@@ -45,7 +45,7 @@ Here goes all the FAQs that are related to the upcoming/current release.
 
 The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
-### Does the solution support integration with enterprise SIEM platforms such as QRadar?
+### Does the solution integrate with SIEM platforms like QRadar?
 {: #faq3}
 
 The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
@@ -172,7 +172,7 @@ LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certifi
 
 By default, LWS enables HTTPS with a self-signed certificate. To use your own certificate, do the following:
 
-* Connect to the LSF management node using SSH. The connection details are provided in the Schematics log output under the `ssh_to_management_node` variable.
+1. Connect to the LSF management node using SSH. The connection details are provided in the Schematics log output under the `ssh_to_management_node` variable.
 
 ```pre
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
@@ -182,15 +182,15 @@ For clusters with a single management node, all the configurations run on that s
 For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
 {: note}
 
-* Enable HTTPS (if not enabled already):
+2. Enable HTTPS (if not enabled already):
 
 ```pre
 lwsadmin https enable --password <password>
 ```
 
-* Create or obtain a keystore **(.jks)** with your certificate and key.
+3. Create or obtain a keystore **(.jks)** with your certificate and key.
 
-* Update "**server_https.xml**" file to point to your keystore:
+4. Update "**server_https.xml**" file to point to your keystore:
 
 ```pre
 <keyStore id="defaultKeyStore"
@@ -198,7 +198,7 @@ lwsadmin https enable --password <password>
     location="/opt/ibm/lsfsuite/ext/ws/conf/https/myCustomerKeyStore.jks" />
 ```
 
-* Restart LWS:
+5. Restart LWS:
 
 ```pre
 systemctl stop lwsd && systemctl start lwsd
