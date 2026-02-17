@@ -35,13 +35,14 @@ Here goes all the FAQs that are related to the upcoming/current release.
 ## General
 {: #generic-faqs}
 
-1. What Spectrum LSF packages are included in a cluster deployed with this offering?
+### What Spectrum LSF packages are included in a cluster deployed with this offering?
+{: #faq1}
 
     {{site.data.keyword.spectrum_full_notm}} Standard Edition is included in {{site.data.keyword.spectrum_short}} program.
 
-2. What locations are available for deploying VPC resources?
+What locations are available for deploying VPC resources?
 
-    The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
 3. Does the solution support integration with enterprise SIEM platforms such as QRadar?
 
