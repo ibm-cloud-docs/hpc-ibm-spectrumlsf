@@ -35,17 +35,17 @@ Here goes all the FAQs that are related to the upcoming/current release.
 ## General
 {: #generic-faqs}
 
-### Which Spectrum LSF packages does this offering deploy in a cluster?
+### **Which Spectrum LSF packages does this offering deploy in a cluster?**
 {: #faq1}
 
 {{site.data.keyword.spectrum_full_notm}} Standard Edition is included in {{site.data.keyword.spectrum_short}} program.
 
-### What locations are available for deploying VPC resources?
+### **What locations are available for deploying VPC resources?**
 {: #faq2}
 
 The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
-### Does the solution integrate with SIEM platforms like QRadar?
+### **Does the solution integrate with SIEM platforms like QRadar?**
 {: #faq3}
 
 The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
