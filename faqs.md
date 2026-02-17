@@ -38,280 +38,305 @@ Here goes all the FAQs that are related to the upcoming/current release.
 ### What Spectrum LSF packages are included in a cluster deployed with this offering?
 {: #faq1}
 
-    {{site.data.keyword.spectrum_full_notm}} Standard Edition is included in {{site.data.keyword.spectrum_short}} program.
+{{site.data.keyword.spectrum_full_notm}} Standard Edition is included in {{site.data.keyword.spectrum_short}} program.
 
-What locations are available for deploying VPC resources?
+### What locations are available for deploying VPC resources?
+{: #faq2}
 
-:   The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
+The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
 
-3. Does the solution support integration with enterprise SIEM platforms such as QRadar?
+### Does the solution support integration with enterprise SIEM platforms such as QRadar?
+{: #faq3}
 
-    The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
+The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
 
 ## Catalog
 {: #catalog-faqs}
 
-1. What permissions do you need to create a cluster using the offering?
+### What permissions do you need to create a cluster using the offering?
+{: #faq4}
 
-    The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
+The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
 
-    ![Granting user permissions - Platform and Service roles](images/permissions_platform_service_roles.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}
+![Granting user permissions - Platform and Service roles](images/permissions_platform_service_roles.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}
 
-2. How do I SSH among nodes?
+### How do I SSH among nodes?
+{: #faq5}
 
-    All the nodes in the LSF cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
+All the nodes in the LSF cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
 
-    To securely forward private keys to remote nodes, you need to do `ssh-add` and `ssh -A`.
+To securely forward private keys to remote nodes, you need to do `ssh-add` and `ssh -A`.
 
-    ```text
-    [your local PC]~$ ssh-add {id_rsa for lsf cluster}
-    [your local PC]~# ssh -A -J root@jumpbox_fip root@management_private_ip
-    ...
-    [root@management]~# ssh -A worker_private_ip
-    ```
-    {: codeblock}
+```text
+[your local PC]~$ ssh-add {id_rsa for lsf cluster}
+[your local PC]~# ssh -A -J root@jumpbox_fip root@management_private_ip
+...
+[root@management]~# ssh -A worker_private_ip
+```
+{: codeblock}
 
-    For Mac OS X, you can persist `ssh-add` by adding the following configuration to `.ssh/config`:
+For Mac OS X, you can persist `ssh-add` by adding the following configuration to `.ssh/config`:
 
-    ```text
-    Host *
-    UseKeychain yes
-    AddKeysToAgent yes
-    ```
-    {: codeblock}
+```text
+Host *
+UseKeychain yes
+AddKeysToAgent yes
+```
+{: codeblock}
 
-    You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
+You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
-3. Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
+### Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
+{: #faq6}
 
-    The first resource group parameter entry in the Configure your workspace section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the Parameters with default values section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter. Only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
+The first resource group parameter entry in the Configure your workspace section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the Parameters with default values section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter. Only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
 
-4. How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?
+### How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?
+{: #faq7}
 
-    Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
+Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
-    By default, the number of worker nodes supported for `dynamic_compute_instances` variable is 500 for the deployment. For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
+By default, the number of worker nodes supported for `dynamic_compute_instances` variable is 500 for the deployment. For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
 
-    For the `static_compute_instances` variable, this worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
-    For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
+For the `static_compute_instances` variable, this worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
+For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
 
-    The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
 
-    If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as the VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
+If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as the VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
 
-5. Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?
+### Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?
+{: #faq8}
 
-    The CPU column in the LSF Application Center GUI and the `ncpus` column when you run the `lscpu` command on an LSF worker node might not show the same value.
+The CPU column in the LSF Application Center GUI and the `ncpus` column when you run the `lscpu` command on an LSF worker node might not show the same value.
 
-    The CPU column output that you get by running `lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU(s)'` on an LSF worker node shows the number of CPU threads (not physical cores) on that compute instance.
+The CPU column output that you get by running `lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU(s)'` on an LSF worker node shows the number of CPU threads (not physical cores) on that compute instance.
 
-    If `EGO_DEFINE_NCPUS=threads`, then “ncpus=number of processors x number of cores x number of threads” and the CPU column value in the LSF Application Center GUI will match what you see when running `lscpu` on an LSF worker node.
+If `EGO_DEFINE_NCPUS=threads`, then “ncpus=number of processors x number of cores x number of threads” and the CPU column value in the LSF Application Center GUI will match what you see when running `lscpu` on an LSF worker node.
 
-    If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of cores” and the CPU column value in the LSF Application Center GUI will be half of what you see when running `lscpu` on an LSF worker node.
+If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of cores” and the CPU column value in the LSF Application Center GUI will be half of what you see when running `lscpu` on an LSF worker node.
 
-    For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
+For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
 
 ## Operating system
 {: #os-faqs}
 
-1. What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?
+### What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?
+{: #faq9}
 
-    You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
+You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
 
-    As part of dynamic node provisioning, Ubuntu based operating system is not supported.
+As part of dynamic node provisioning, Ubuntu based operating system is not supported.
 
-    | LSF version | Deployer node | Management node | Login node | Compute node |
-    | ----- | ----------- | --------------- | ------------ | ------------ |
-    | Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
-    {: caption="Fix Pack images" caption-side="bottom"}
+| LSF version | Deployer node | Management node | Login node | Compute node |
+| ----- | ----------- | --------------- | ------------ | ------------ |
+| Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
+{: caption="Fix Pack images" caption-side="bottom"}
 
-2. How to restart the LSF daemons on an individual host?
+### How to restart the LSF daemons on an individual host?
+{: #faq10}
 
-    To restart the cluster daemons on an individual node, use the `lsf_deamons` script. To stop all the daemons on a node, run `lsf_deamons stop`.
+To restart the cluster daemons on an individual node, use the `lsf_deamons` script. To stop all the daemons on a node, run `lsf_deamons stop`.
 
-    Likewise, to start all the daemons on a node, run `lsf_deamons start`.
+Likewise, to start all the daemons on a node, run `lsf_deamons start`.
 
-    Repeat these commands on each node if you want to restart the full cluster. Run the commands on both management and compute nodes that join the cluster.
+Repeat these commands on each node if you want to restart the full cluster. Run the commands on both management and compute nodes that join the cluster.
 
-    No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
-    {: note}
+No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
+{: note}
 
-3. How to restart the LSF daemons for all hosts in the cluster?
+### How to restart the LSF daemons for all hosts in the cluster?
+{: #faq11}
 
-    You can also restart all the daemons on all the hosts in your cluster, including both management nodes and compute nodes that join your cluster.
+You can also restart all the daemons on all the hosts in your cluster, including both management nodes and compute nodes that join your cluster.
 
-    To restart all the daemons on all the nodes in your cluster, use the `lsfrestart` command.
+To restart all the daemons on all the nodes in your cluster, use the `lsfrestart` command.
 
-    To shut down all the daemons on all the nodes in your cluster, use the `lsfshutdown` command.
+To shut down all the daemons on all the nodes in your cluster, use the `lsfshutdown` command.
 
-    LSF also provides an `lsfstartup` command, which starts all the daemons on all the management (not compute) nodes in your cluster. If you have compute nodes that joined your cluster and you want to continue to use them (for example, after you run `lsfshutdown` to shut down all daemons on all hosts, which include the compute nodes), then you must SSH to connect to each host and run the `lsf_deamons start` script to bring back the compute nodes. Alternatively, since the compute nodes are within your {{site.data.keyword.spectrum_short}} environment, you can also leave them alone and they are returned to the resource pool in ten minutes (by default). New compute nodes can join upon new job requests.
+LSF also provides an `lsfstartup` command, which starts all the daemons on all the management (not compute) nodes in your cluster. If you have compute nodes that joined your cluster and you want to continue to use them (for example, after you run `lsfshutdown` to shut down all daemons on all hosts, which include the compute nodes), then you must SSH to connect to each host and run the `lsf_deamons start` script to bring back the compute nodes. Alternatively, since the compute nodes are within your {{site.data.keyword.spectrum_short}} environment, you can also leave them alone and they are returned to the resource pool in ten minutes (by default). New compute nodes can join upon new job requests.
 
-    No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
-    {: note}
+No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
+{: note}
 
 ## Certificates
 {: #certificates-faqs}
 
-1. How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?
+### How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?
+{: #faq12}
 
-    LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certificate (generated by LSF Application Center) is installed in the browser to secure specific functions, such as remote consoles and HTTPS. [Import this certificate into your browser](https://www.ibm.com/docs/en/slac/10.2.0?topic=center-importing-cacertpem-certificate-into-client-browser){: external} to securely connect with {{site.data.keyword.spectrum_full_notm}} Application Center.
+LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certificate (generated by LSF Application Center) is installed in the browser to secure specific functions, such as remote consoles and HTTPS. [Import this certificate into your browser](https://www.ibm.com/docs/en/slac/10.2.0?topic=center-importing-cacertpem-certificate-into-client-browser){: external} to securely connect with {{site.data.keyword.spectrum_full_notm}} Application Center.
 
-2. How can I use my own certificate for LSF Web Services (LWS)?
+### How can I use my own certificate for LSF Web Services (LWS)?
+{: #faq13}
 
-    By default, LWS enables HTTPS with a self-signed certificate. To use your own certificate, do the following:
+By default, LWS enables HTTPS with a self-signed certificate. To use your own certificate, do the following:
 
-    * Connect to the LSF management node using SSH. The connection details are provided in the Schematics log output under the `ssh_to_management_node` variable.
+* Connect to the LSF management node using SSH. The connection details are provided in the Schematics log output under the `ssh_to_management_node` variable.
 
-    ```pre
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
-    ```
+```pre
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<Bastion_Node_IP> lsfadmin@<Management_Node_IP>
+```
 
-    For clusters with a single management node, all the configurations run on that same node. You can use the `ssh_to_management_node` tunnel for validation.
-    For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
-    {: note}
+For clusters with a single management node, all the configurations run on that same node. You can use the `ssh_to_management_node` tunnel for validation.
+For clusters with multiple management nodes, Web Services are installed and configured on the second management node. In this case, replace <Management_Node_IP> with the IP address of management node 2.
+{: note}
 
-    * Enable HTTPS (if not enabled already):
+* Enable HTTPS (if not enabled already):
 
-    ```pre
-    lwsadmin https enable --password <password>
-    ```
+```pre
+lwsadmin https enable --password <password>
+```
 
-    * Create or obtain a keystore **(.jks)** with your certificate and key.
+* Create or obtain a keystore **(.jks)** with your certificate and key.
 
-    * Update "**server_https.xml**" file to point to your keystore:
+* Update "**server_https.xml**" file to point to your keystore:
 
-    ```pre
-    <keyStore id="defaultKeyStore"
-          password="<keystore-password>"
-          location="/opt/ibm/lsfsuite/ext/ws/conf/https/myCustomerKeyStore.jks" />
-    ```
+```pre
+<keyStore id="defaultKeyStore"
+    password="<keystore-password>"
+    location="/opt/ibm/lsfsuite/ext/ws/conf/https/myCustomerKeyStore.jks" />
+```
 
-    * Restart LWS:
+* Restart LWS:
 
-    ```pre
-    systemctl stop lwsd && systemctl start lwsd
-    ```
+```pre
+systemctl stop lwsd && systemctl start lwsd
+```
 
-    Ensure the certificate has the correct hostnames (SANs).
-    {: note}
+Ensure the certificate has the correct hostnames (SANs).
+{: note}
 
 ## Limitations
 {: #limitations-faqs}
 
-1. What are the limitations of available profiles for dedicated hosts?
+### What are the limitations of available profiles for dedicated hosts?
+{: #faq14}
 
-    The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
+The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
 
 ## Error messages
 {: #error-msg-faqs}
 
-1. Why does `Error getting trusted profile policy` occur?
+### Why does `Error getting trusted profile policy` occur?
+{: #faq15}
 
-    If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
+If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
 
-    `Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
+`Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
 
-    So below are the required permissions for SCC Workload Protection are:
+So below are the required permissions for SCC Workload Protection are:
 
-    | Service | Resources | Platform roles | Service roles |
-    | ------- | --------- | ---- | ---- |
-    | App configuration | All | Administrator | Manager |
-    | All Identity and Access enabled services | All | Administrator | Manager |
-    | Security and Compliance Center Workload Protection | All | Administrator | -- |
-    {: caption="SCC permissions" caption-side="bottom"}
+| Service | Resources | Platform roles | Service roles |
+| ------- | --------- | ---- | ---- |
+| App configuration | All | Administrator | Manager |
+| All Identity and Access enabled services | All | Administrator | Manager |
+| Security and Compliance Center Workload Protection | All | Administrator | -- |
+{: caption="SCC permissions" caption-side="bottom"}
 
 ## Password and Authentication
 {: #pwd-faqs}
 
-1. Does the solution support using PAG for Multi-Factor Authentication (MFA)?
+### Does the solution support using PAG for Multi-Factor Authentication (MFA)?
+{: #faq16}
 
-    The solution supports only SSH connectivity, and no additional ports are allowed. The solution does not include a built-in Multi-Factor Authentication (MFA) mechanism.
+The solution supports only SSH connectivity, and no additional ports are allowed. The solution does not include a built-in Multi-Factor Authentication (MFA) mechanism.
 
-    Integration with external MFA solutions, such as a Privileged Access Gateway (PAG) is possible, but this introduces additional cost on IBM Cloud since PAG is an optional premium feature. Due to these cost considerations and varying customer security requirements, MFA is not enforced by default and remains an optional, customer-controlled configuration.
+Integration with external MFA solutions, such as a Privileged Access Gateway (PAG) is possible, but this introduces additional cost on IBM Cloud since PAG is an optional premium feature. Due to these cost considerations and varying customer security requirements, MFA is not enforced by default and remains an optional, customer-controlled configuration.
 
-2. Can I use a password file for authenticating with the LSF Web Service client instead of typing the password manually?
+### Can I use a password file for authenticating with the LSF Web Service client instead of typing the password manually?
+{: #faq17}
 
-    ```text
-    lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
-    ```
-    {: codeblock}
+```text
+lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
+```
+{: codeblock}
 
-    No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
-    Instead, use the supported and more secure login method:
+No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+Instead, use the supported and more secure login method:
 
-    ```text
-    lsf cluster logon --username lsfadmin --url https://localhost:8448
-    ```
-    {: codeblock}
+```text
+lsf cluster logon --username lsfadmin --url https://localhost:8448
+```
+{: codeblock}
 
-    For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
+For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
 
-3. Where are the Terraform files used by the {{site.data.keyword.spectrum_full_notm}} tile located?
+### Where are the Terraform files used by the {{site.data.keyword.spectrum_full_notm}} tile located?
+{: #faq18}
 
-    The Terraform-based templates can be found in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
+The Terraform-based templates can be found in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
 
-4. Where can you find the custom image name to image ID mappings for each cloud region?
+### Where can you find the custom image name to image ID mappings for each cloud region?
+{: #faq19}
 
-    The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
+The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
 
-5. As a cluster administrator, how do I best restart the LSF daemon processes?
+### As a cluster administrator, how do I best restart the LSF daemon processes?
+{: #faq20}
 
-    A cluster administrator can choose to restart all the cluster daemons. In an {{site.data.keyword.spectrum_short}} environment, these daemons are the most used and relevant to LSF:
-    * `lim` (on all nodes)
-    * `res` (on all nodes)
-    * `sbatchd` (on all nodes)
-    * `mbatchd` (only on the primary management node)
-    * `mbschd` (only on the primary management node)
+A cluster administrator can choose to restart all the cluster daemons. In an {{site.data.keyword.spectrum_short}} environment, these daemons are the most used and relevant to LSF:
+* `lim` (on all nodes)
+* `res` (on all nodes)
+* `sbatchd` (on all nodes)
+* `mbatchd` (only on the primary management node)
+* `mbschd` (only on the primary management node)
 
-    Other LSF processes exist, but they are started by these main daemons. Choose between two methods for restarting LSF daemon processes: a wrapper to run on each host, or commands to run to affect all hosts in the cluster.
+Other LSF processes exist, but they are started by these main daemons. Choose between two methods for restarting LSF daemon processes: a wrapper to run on each host, or commands to run to affect all hosts in the cluster.
 
-6. Why do I see "Unable to authenticate user" error when connecting to LSF Web Services using the LSF client?
+### Why do I see "Unable to authenticate user" error when connecting to LSF Web Services using the LSF client?
+{: #faq21}
 
-    This error usually indicates that the password entered during the login attempt is incorrect. Verify that you are using the correct credentials for the specified user. If you have forgotten the password, please contact your cluster administrator to reset the password.
+This error usually indicates that the password entered during the login attempt is incorrect. Verify that you are using the correct credentials for the specified user. If you have forgotten the password, please contact your cluster administrator to reset the password.
 
-    ```text
-    test@abc-MacBook-Pro ~ % lsf cluster logon --username lsfadmin --url https://localhost:8448
-    Password>
-    FAILED
-    Unable to authenticate user: lsfadmin
-    test@abc-MacBook-Pro ~ %
-    ```
-    {: codeblock}
+```text
+test@abc-MacBook-Pro ~ % lsf cluster logon --username lsfadmin --url https://localhost:8448
+Password>
+FAILED
+Unable to authenticate user: lsfadmin
+test@abc-MacBook-Pro ~ %
+```
+{: codeblock}
 
-    For troubleshooting and audit purposes, failed authentication attempts are logged on the Web Service node. You can review the log file at:
-    `/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
+For troubleshooting and audit purposes, failed authentication attempts are logged on the Web Service node. You can review the log file at:
+`/opt/ibm/lsfsuite/ext/ws/logs/<Managemenet_WebService_Node>/messages.log`
 
-    It is your responsibility to manage the password with as many retries you want to set.
-    {: note}
+It is your responsibility to manage the password with as many retries you want to set.
+{: note}
 
 ## Worker nodes
 {: #worker-nodes-faqs}
 
-1. Can you specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
+### Can you specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
+{: #faq22}
 
-    Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
+Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
 
-2. How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?
+### How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?
+{: #faq23}
 
-    {{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
+{{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
 
 ## Storage
 {: #storage-faqs}
 
-1. What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full}} cluster shared storage?
+### What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full}} cluster shared storage?
+{: #faq24}
 
-    {{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
+{{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
 
 ## Security group
 {: #security-faqs}
 
-1. Why is 0.0.0.0 allowed in the egress rule of a security group?
+### Why is 0.0.0.0 allowed in the egress rule of a security group?
+{: #faq25}
 
-    We cannot restrict outbound traffic because customers often maintain connections to on-prem environments for hybrid deployments. Customers use dozens of different applications for their HPC applications and any port to communicate between on-prem and on cloud processes. Restricting the outbound traffic by default and requiring customers to manually open each port would severely impact the usability of our solution.
+We cannot restrict outbound traffic because customers often maintain connections to on-prem environments for hybrid deployments. Customers use dozens of different applications for their HPC applications and any port to communicate between on-prem and on cloud processes. Restricting the outbound traffic by default and requiring customers to manually open each port would severely impact the usability of our solution.
 
 ## Supported features
 {: #support-faqs}
 
-1. Is noVNC supported for this release?
+### Is noVNC supported for this release?
+{: #faq26}
 
-    For this release, noVNC is not supported due to platform issues. Team is working on it.
+For this release, noVNC is not supported due to platform issues. Team is working on it.
