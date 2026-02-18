@@ -53,14 +53,14 @@ The solution does not integrate with QRadar or other SIEM platforms. Enterprise 
 ## Catalog
 {: #catalog-faqs}
 
-### What permissions do you need to create a cluster using the offering?
+### **What permissions do you need to create a cluster using the offering?**
 {: #faq4}
 
 The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
 
 ![Granting user permissions - Platform and Service roles](images/permissions_platform_service_roles.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}
 
-### How do I SSH among nodes?
+### **How do I SSH among nodes?**
 {: #faq5}
 
 All the nodes in the LSF cluster have the same public key that you register at your cluster creation. You can use ssh-agent forwarding, which is a common technique to access remote nodes that have the same public key. It automates to securely forward private keys to remote nodes. Forwarded keys are deleted immediately after a session is closed.
@@ -86,12 +86,12 @@ AddKeysToAgent yes
 
 You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
-### Why there are two different resource group parameters that can be specified in the IBM Cloud catalog tile?
+### **Why there are two different resource group parameters specified in the IBM Cloud catalog tile?**
 {: #faq6}
 
 The first resource group parameter entry in the Configure your workspace section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the Parameters with default values section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter. Only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
 
-### How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?
+### **How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?**
 {: #faq7}
 
 Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
@@ -105,7 +105,7 @@ The delta between those two variables specifies the maximum number of worker nod
 
 If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as the VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
 
-### Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?
+### **Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?**
 {: #faq8}
 
 The CPU column in the LSF Application Center GUI and the `ncpus` column when you run the `lscpu` command on an LSF worker node might not show the same value.
@@ -121,7 +121,7 @@ For more information, see [ncpus calculation in LSF](https://www.ibm.com/support
 ## Operating system
 {: #os-faqs}
 
-### What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?
+### **What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?**
 {: #faq9}
 
 You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v1`.
@@ -133,7 +133,7 @@ As part of dynamic node provisioning, Ubuntu based operating system is not suppo
 | Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v1" | "hpc-lsf-fp15-rhel810-v1" | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
-### How to restart the LSF daemons on an individual host?
+### **How to restart the LSF daemons on an individual host?**
 {: #faq10}
 
 To restart the cluster daemons on an individual node, use the `lsf_deamons` script. To stop all the daemons on a node, run `lsf_deamons stop`.
@@ -145,7 +145,7 @@ Repeat these commands on each node if you want to restart the full cluster. Run 
 No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
 {: note}
 
-### How to restart the LSF daemons for all hosts in the cluster?
+### **How to restart the LSF daemons for all hosts in the cluster?**
 {: #faq11}
 
 You can also restart all the daemons on all the hosts in your cluster, including both management nodes and compute nodes that join your cluster.
@@ -162,12 +162,12 @@ No daemons are run on the login node, as the login node is used for running part
 ## Certificates
 {: #certificates-faqs}
 
-### How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?
+### **How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?**
 {: #faq12}
 
 LSF Application Center requires that the `$GUI_CONFDIR/https/cacert.pem` certificate (generated by LSF Application Center) is installed in the browser to secure specific functions, such as remote consoles and HTTPS. [Import this certificate into your browser](https://www.ibm.com/docs/en/slac/10.2.0?topic=center-importing-cacertpem-certificate-into-client-browser){: external} to securely connect with {{site.data.keyword.spectrum_full_notm}} Application Center.
 
-### How can I use my own certificate for LSF Web Services (LWS)?
+### **How can I use my own certificate for LSF Web Services (LWS)?**
 {: #faq13}
 
 By default, LWS enables HTTPS with a self-signed certificate. To use your own certificate, do the following:
@@ -210,7 +210,7 @@ Ensure the certificate has the correct hostnames (SANs).
 ## Limitations
 {: #limitations-faqs}
 
-### What are the limitations of available profiles for dedicated hosts?
+### **What are the limitations of available profiles for dedicated hosts?**
 {: #faq14}
 
 The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
@@ -218,7 +218,7 @@ The offering automatically selects instance profiles for dedicated hosts to be t
 ## Error messages
 {: #error-msg-faqs}
 
-### Why does `Error getting trusted profile policy` occur?
+### **Why does `Error getting trusted profile policy` occur?**
 {: #faq15}
 
 If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
@@ -237,14 +237,14 @@ So below are the required permissions for SCC Workload Protection are:
 ## Password and Authentication
 {: #pwd-faqs}
 
-### Does the solution support using PAG for Multi-Factor Authentication (MFA)?
+### **Does the solution support using PAG for Multi-Factor Authentication (MFA)?**
 {: #faq16}
 
 The solution supports only SSH connectivity, and no additional ports are allowed. The solution does not include a built-in Multi-Factor Authentication (MFA) mechanism.
 
 Integration with external MFA solutions, such as a Privileged Access Gateway (PAG) is possible, but this introduces additional cost on IBM Cloud since PAG is an optional premium feature. Due to these cost considerations and varying customer security requirements, MFA is not enforced by default and remains an optional, customer-controlled configuration.
 
-### Can I use a password file for authenticating with the LSF Web Service client instead of typing the password manually?
+### **Can the LSF Web Service client use a password file instead of typing the password manually?**
 {: #faq17}
 
 ```text
@@ -262,17 +262,17 @@ lsf cluster logon --username lsfadmin --url https://localhost:8448
 
 For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
 
-### Where are the Terraform files used by the {{site.data.keyword.spectrum_full_notm}} tile located?
+### **Where are the Terraform files used by the {{site.data.keyword.spectrum_full_notm}} tile located?**
 {: #faq18}
 
 The Terraform-based templates can be found in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
 
-### Where can you find the custom image name to image ID mappings for each cloud region?
+### **Where can you find the custom image name to image ID mappings for each cloud region?**
 {: #faq19}
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
 
-### As a cluster administrator, how do I best restart the LSF daemon processes?
+### **As a cluster administrator, how do I best restart the LSF daemon processes?**
 {: #faq20}
 
 A cluster administrator can choose to restart all the cluster daemons. In an {{site.data.keyword.spectrum_short}} environment, these daemons are the most used and relevant to LSF:
@@ -284,7 +284,7 @@ A cluster administrator can choose to restart all the cluster daemons. In an {{s
 
 Other LSF processes exist, but they are started by these main daemons. Choose between two methods for restarting LSF daemon processes: a wrapper to run on each host, or commands to run to affect all hosts in the cluster.
 
-### Why do I see "Unable to authenticate user" error when connecting to LSF Web Services using the LSF client?
+### **Why does the LSF client show `Unable to authenticate user` when connecting to LSF Web Services?**
 {: #faq21}
 
 This error usually indicates that the password entered during the login attempt is incorrect. Verify that you are using the correct credentials for the specified user. If you have forgotten the password, please contact your cluster administrator to reset the password.
@@ -307,12 +307,12 @@ It is your responsibility to manage the password with as many retries you want t
 ## Worker nodes
 {: #worker-nodes-faqs}
 
-### Can you specify the total IOPS (input or output operations per second) for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?
+### **Can you specify the total IOPS for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?**
 {: #faq22}
 
 Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
 
-### How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?
+### **How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?**
 {: #faq23}
 
 {{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
@@ -320,7 +320,7 @@ Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [c
 ## Storage
 {: #storage-faqs}
 
-### What file storage for {{site.data.keyword.cloud_notm}} Virtual Private Cloud (VPC) profiles are supported for the {{site.data.keyword.spectrum_full}} cluster shared storage?
+### **Which {{site.data.keyword.cloud_notm}} VPC file storage profiles are supported for {{site.data.keyword.spectrum_full}} cluster shared storage?**
 {: #faq24}
 
 {{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
@@ -328,7 +328,7 @@ Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [c
 ## Security group
 {: #security-faqs}
 
-### Why is 0.0.0.0 allowed in the egress rule of a security group?
+### **Why is 0.0.0.0 allowed in the egress rule of a security group?**
 {: #faq25}
 
 We cannot restrict outbound traffic because customers often maintain connections to on-prem environments for hybrid deployments. Customers use dozens of different applications for their HPC applications and any port to communicate between on-prem and on cloud processes. Restricting the outbound traffic by default and requiring customers to manually open each port would severely impact the usability of our solution.
@@ -336,7 +336,7 @@ We cannot restrict outbound traffic because customers often maintain connections
 ## Supported features
 {: #support-faqs}
 
-### Is noVNC supported for this release?
+### **Is noVNC supported for this release?**
 {: #faq26}
 
 For this release, noVNC is not supported due to platform issues. Team is working on it.
