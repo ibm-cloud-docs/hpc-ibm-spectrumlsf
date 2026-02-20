@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2025-12-19"
+lastupdated: "2026-02-20"
 
 keywords:
 
@@ -27,10 +27,13 @@ content-type: faq
 
 This document provides a list of frequently asked questions and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
 
-## Release version FAQs
+## Release FAQs
 {: #current-release}
 
-Here goes all the FAQs that are related to the upcoming/current release.
+### What is supported in this release?
+{: #release-faq}
+
+With this release, the solution supports both Intel and AMD Turin compute profiles. This enhancement allows users to specify either Intel or AMD profiles—such as bx2/cx2 (Intel) or hx4da (AMD). Based on the compute profile provided, the system will automatically provision the corresponding virtual server instance.
 
 ## General
 {: #generic-faqs}

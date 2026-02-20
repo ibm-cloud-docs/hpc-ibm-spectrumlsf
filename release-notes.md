@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-20"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -27,6 +27,16 @@ The release notes describes the brief overview of the new features, enhancements
 {: shortdesc}
 
 **For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.0**
+
+## February 2026
+{: #subcollection-feb26}
+
+### 18 February 2026
+{: #subcollection-feb1826}
+{: release-note}
+
+Support for both Intel and AMD Turin profiles
+:   The solution supports both Intel and AMD Turin compute profiles. This enhancement allows users to specify either Intel or AMD profiles—such as bx2/cx2 (Intel) or hx4da (AMD).
 
 ## January 2026
 {: #subcollection-jan26}
