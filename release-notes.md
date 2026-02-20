@@ -28,11 +28,11 @@ The release notes describes the brief overview of the new features, enhancements
 
 **For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.0**
 
-## February 2026
-{: #subcollection-feb26}
+## March 2026
+{: #subcollection-mar26}
 
-### 18 February 2026
-{: #subcollection-feb1826}
+### 18 March 2026
+{: #subcollection-mar1826}
 {: release-note}
 
 Support for both Intel and AMD Turin profiles
