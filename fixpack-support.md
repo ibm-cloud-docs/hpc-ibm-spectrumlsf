@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-19"
+lastupdated: "2026-02-20"
 
 keywords:
 
@@ -42,7 +42,7 @@ The same image is now used across login nodes, compute nodes, and dynamic worker
 {: note}
 
 ## Post deployment validations
-{: #fixpack-validations}
+{: #fixpack-validation}
 
 * If the deployment is done using the FP15 images, then you can see the lsid output as:
 
