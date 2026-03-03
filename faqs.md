@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-03"
 
 keywords:
 
@@ -33,7 +33,9 @@ This document provides a list of frequently asked questions and answers about a 
 ### What is supported in this release?
 {: #release-faq}
 
-With this release, the solution supports both Intel and AMD Turin compute profiles. This enhancement allows users to specify either Intel or AMD profiles—such as bx2/cx2 (Intel) or hx4da (AMD). Based on the compute profile provided, the system will automatically provision the corresponding virtual server instance.
+With this release, the solution now supports both Intel and AMD Turin compute profiles. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**). Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
+
+AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. AMD Turin processors are optimized for multi-threaded and floating-point intensive workloads, which are critical for simulations, AI/ML training, scientific computing, and financial modeling. For cloud-based HPC deployments, AMD Turin profiles offer flexibility by allowing users to select optimized compute resources based on workload requirements. For this release, the profiles are supported only on **us-south** region.
 
 ## General
 {: #generic-faqs}
