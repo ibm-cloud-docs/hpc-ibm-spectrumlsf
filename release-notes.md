@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-03"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -36,7 +36,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: release-note}
 
 Support for both Intel and AMD Turin profiles
-:   The solution supports both Intel and AMD Turin compute profiles. This enhancement allows users to specify either Intel or AMD profiles—such as bx2/cx2 (Intel) or hx4da (AMD).
+:   The solution supports both Intel and AMD Turin compute profiles. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**).
 
 ## January 2026
 {: #subcollection-jan26}
