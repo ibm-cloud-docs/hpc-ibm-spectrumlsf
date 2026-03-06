@@ -32,7 +32,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-mar26}
 
 ### 20 March 2026
-{: #subcollection-mar1826}
+{: #subcollection-mar2026}
 {: release-note}
 
 Support for both Intel and AMD Turin profiles
