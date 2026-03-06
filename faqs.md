@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-06"
 
 keywords:
 
@@ -36,6 +36,16 @@ This document provides a list of frequently asked questions and answers about a 
 With this release, the solution now supports both Intel and AMD Turin compute profiles. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**). Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
 
 AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. AMD Turin processors are optimized for multi-threaded and floating-point intensive workloads, which are critical for simulations, AI/ML training, scientific computing, and financial modeling. For cloud-based HPC deployments, AMD Turin profiles offer flexibility by allowing users to select optimized compute resources based on workload requirements. For this release, the profiles are supported only on **us-south** region.
+
+### How do Gaudi3 profiles enhance scalability in cloud‑based HPC environment?
+{: #gaudi3-profile}
+
+Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within HPC environments.
+
+Gaudi3 profiles enable efficient training and fine-tuning of Large Language Models (LLMs) by providing high-performance computing clusters. These profiles provide high-bandwidth networking and optimized collective communication, making them suitable for distributed. These compute profiles are well-suited for enterprise AI use cases, including model training, inference, and large-scale data processing.Gaudi3 profiles enhance scalability in cloud-based HPC environments by enabling elastic provisioning of AI-optimized worker nodes. The supported profile is **gx3d-160x1792x8gaudi3** and these profiles are available only on **Dalas/Washington DC** and **Frankfurt** regions.
+
+Provisioning instances with Gaudi 3 profiles typically takes about 10–20 minutes per instance due to their high memory configuration.
+{: note}
 
 ## General
 {: #generic-faqs}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-06"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -31,12 +31,21 @@ The release notes describes the brief overview of the new features, enhancements
 ## March 2026
 {: #subcollection-mar26}
 
-### 18 March 2026
+### 20 March 2026
 {: #subcollection-mar1826}
 {: release-note}
 
 Support for both Intel and AMD Turin profiles
 :   The solution supports both Intel and AMD Turin compute profiles. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**).
+
+Support for Intel Gaudi 3 compute profiles
+:   Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within the HPC environments. Gaudi3 profiles enable efficient training and fine-tuning of Large Language Models (LLMs) across high-performance computing clusters.
+
+Update the LSF configuration files to reflect the IBM Cloud hardware
+:   The LSF software configurations are updated to detect and apply the appropriate computing hardware configurations, ensuring that applications run optimally based on both hardware and software characteristics.
+
+Support for IBM solutions in the IBM Standard Edition
+:   The LSF solution has been reverted to use the IBM Standard Edition software, as previously the solution relied on the Enterprise edition.
 
 ## January 2026
 {: #subcollection-jan26}
