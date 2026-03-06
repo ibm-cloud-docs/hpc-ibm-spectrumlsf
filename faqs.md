@@ -33,12 +33,18 @@ This document provides a list of frequently asked questions and answers about a 
 ### What is supported in this release?
 {: #release-faq}
 
-With this release, the solution now supports both Intel and AMD Turin compute profiles. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**). Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
+The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profiles such as **hx4da-248x680** and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
+
+### How do AMD Turin and Gaudi3 profiles enhance scalability in cloud‑based HPC environment?
+{: #amd-gaudi3-profile}
+
+#### AMD Turin profiles
+{: #amd-profile}
 
 AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. AMD Turin processors are optimized for multi-threaded and floating-point intensive workloads, which are critical for simulations, AI/ML training, scientific computing, and financial modeling. For cloud-based HPC deployments, AMD Turin profiles offer flexibility by allowing users to select optimized compute resources based on workload requirements. For this release, the profiles are supported only on **us-south** region.
 
-### How do Gaudi3 profiles enhance scalability in cloud‑based HPC environment?
-{: #gaudi3-profile}
+#### Gaudi3 profiles
+{: #gaudi-profile}
 
 Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within HPC environments.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-06"
 
 keywords:
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Considerations for HPC cluster compute types
 {: #considerations-for-HPC-custer-compute-types}
 
-With this release, the solution now supports both Intel and AMD Turin compute profiles. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**). Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance. For more information, see [Release FAQs](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs#current-release).
+The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profiles such as **hx4da-248x680** and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance. For more information, see [Release FAQs](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs#current-release).
 {: note}
 
 High-performance computing (HPC) workloads exhibit diverse requirements across CPU, memory, network, and storage resources. These include:
