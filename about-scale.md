@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-03-06"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -30,7 +30,7 @@ The default shared file storage solution for your {{site.data.keyword.spectrum_f
 
 {{site.data.keyword.scale_short}} is a file system that is defined over one or more nodes. On each node in the cluster, {{site.data.keyword.scale_short}} includes three components: administration commands, a kernel extension, and a multithreaded daemon.
 
-Also, you can use {{site.data.keyword.scale_short}}'s single system to share dedicated file systems for data storage. All of your {{site.data.keyword.cloud_notm}} dynamic nodes can access the shared data throughout the lifecycle of the cluster through [Cluster Export Services (CES)](/docs/allowlist/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication) NFS mount points. CES is part of the {{site.data.keyword.scale_full_notm}} architecture, and enables access to your data. When you deploy an {{site.data.keyword.scale_full_notm}} cluster, you also configure CES deployment values so that {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full_notm}} can share data.
+Also, you can use {{site.data.keyword.scale_short}}'s single system to share dedicated file systems for data storage. All of your {{site.data.keyword.cloud_notm}} dynamic nodes can access the shared data throughout the lifecycle of the cluster through Cluster Export Services (CES) NFS mount points. CES is part of the {{site.data.keyword.scale_full_notm}} architecture, and enables access to your data. When you deploy an {{site.data.keyword.scale_full_notm}} cluster, you also configure CES deployment values so that {{site.data.keyword.scale_short}} and {{site.data.keyword.spectrum_full_notm}} can share data.
 
-For more information, see the [{{site.data.keyword.scale_short}} documentation](/docs/allowlist/storage-scale-da).
+For more information, see the [{{site.data.keyword.scale_short}} documentation](/docs/allowlist/storage-scale-da?topic=storage-scale-da-overview-storage-scale).
 {: shortdesc}

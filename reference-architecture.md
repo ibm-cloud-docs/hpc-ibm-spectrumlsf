@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-28"
+lastupdated: "2026-03-06"
 
 keywords: # Not typically populated
 
@@ -74,7 +74,7 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspects | Requirement | Architecture component | How the component is used |
 |-------------|-------------|-----------|--------------------|
-| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial)| Creates file shares for configuring user file data sharing. |
+| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/allowlist/storage-scale-da?topic=storage-scale-da-overview-storage-scale)| Creates file shares for configuring user file data sharing. |
 | Compute | Provide infrastructure and administration access | VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
 |  | Create virtual server instances to support deployment. | Deployer node | Creates a  virtual server instance for performing the entire LSF cluster deployment. |
 |  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
