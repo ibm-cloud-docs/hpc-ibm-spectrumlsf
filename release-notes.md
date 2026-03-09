@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-09"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -36,7 +36,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: release-note}
 
 Support for AMD Turin profiles
-:   The solution already supported Intel, and now AMD Turin profiles are also supported. Users can select either Intel-based profiles (such as **bx2/cx2**) or AMD-based profiles (such as **hx4da-248x680**).
+:   The solution already supported Intel, and now AMD Turin profiles are also supported. Users can select AMD-based profiles, such as **hx4da-248x680**.
 
 Support for Intel Gaudi 3 compute profiles
 :   Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within the HPC environments. Gaudi3 profiles enable efficient training and fine-tuning of Large Language Models (LLMs) across high-performance computing clusters.
