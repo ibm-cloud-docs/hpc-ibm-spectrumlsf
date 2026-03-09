@@ -27,31 +27,39 @@ content-type: faq
 
 This document provides a list of frequently asked questions and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
 
-## Release FAQs
+## Release FAQs - March 20
 {: #current-release}
 
-### What is supported in this release?
+### What enhancements does this release bring to the solution?
 {: #release-faq}
-
-The solution already supported Intel compute profiles, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can choose the AMD-based profile (**hx4da-248x680**). The Gaudi3 profile (**gx3d-160x1792x8gaudi3**) is also available, but only in the **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
-
-### How do AMD Turin profiles and Gaudi3 profiles enhance scalability in cloud‑based HPC environment?
-{: #amd-gaudi3-profile}
 
 #### AMD Turin profiles
 {: #amd-profile}
 
-AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. AMD Turin processors are optimized for multi-threaded and floating-point intensive workloads, which are critical for simulations, AI/ML training, scientific computing, and financial modeling. For cloud-based HPC deployments, AMD Turin profiles offer flexibility by allowing users to select optimized compute resources based on workload requirements. For this release, the profiles are supported only on **us-south** region.
+AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. The only supported AMD-based profile is **hx4da-248x680**. For this release, the profiles are supported only on **us-south** region.
 
 #### Gaudi3 profiles
 {: #gaudi-profile}
 
-Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within HPC environments.
-
-Gaudi3 profiles enable efficient training and fine-tuning of Large Language Models (LLMs) by providing high-performance computing clusters. These profiles provide high-bandwidth networking and optimized collective communication, making them suitable for distributed. These compute profiles are well-suited for enterprise AI use cases, including model training, inference, and large-scale data processing.Gaudi3 profiles enhance scalability in cloud-based HPC environments by enabling elastic provisioning of AI-optimized worker nodes. The supported profile is **gx3d-160x1792x8gaudi3** and these profiles are available only on **Dalas/Washington DC** and **Frankfurt** regions.
+Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within HPC environments. The supported profile is **gx3d-160x1792x8gaudi3** and these profiles are available only on **Dalas/Washington DC** and **Frankfurt** regions.
 
 Provisioning instances with Gaudi 3 profiles typically takes about 10–20 minutes per instance due to their high memory configuration.
 {: note}
+
+#### IBM Cloud hardware
+{: #cloud-hw}
+
+The LSF software configurations are updated to detect and apply the appropriate computing hardware configurations, ensuring that applications run optimally based on both hardware and software characteristics.
+
+#### IBM Standard Edition
+{: #standard-edition}
+
+The LSF solution has been reverted to use the IBM Standard Edition software, as previously the solution relied on the Enterprise edition.
+
+#### LSF License Scheduler
+{: #license-scheduler}
+
+LSF License Scheduler manages license tokens instead of controlling the licenses directly.Using LSF License Scheduler, jobs obtain a license token before the application starts.
 
 ## General
 {: #generic-faqs}
