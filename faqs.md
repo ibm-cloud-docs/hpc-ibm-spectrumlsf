@@ -59,7 +59,7 @@ The LSF solution has been reverted to use the IBM Standard Edition software, as 
 #### LSF License Scheduler
 {: #license-scheduler}
 
-LSF License Scheduler manages license tokens instead of controlling the licenses directly.Using LSF License Scheduler, jobs obtain a license token before the application starts.
+The LSF License Scheduler manages license tokens instead of controlling the licenses directly.Using LSF License Scheduler, jobs obtain a license token before the application starts.
 
 ## General
 {: #generic-faqs}
