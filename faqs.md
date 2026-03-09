@@ -33,7 +33,7 @@ This document provides a list of frequently asked questions and answers about a 
 ### What is supported in this release?
 {: #release-faq}
 
-The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profiles such as **hx4da-248x680** and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
+The solution already supported Intel compute profiles, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can choose the AMD-based profile (**hx4da-248x680**). The Gaudi3 profile (**gx3d-160x1792x8gaudi3**) is also available, but only in the **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance.
 
 ### How do AMD Turin profiles and Gaudi3 profiles enhance scalability in cloud‑based HPC environment?
 {: #amd-gaudi3-profile}
