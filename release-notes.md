@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-13"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -49,6 +49,9 @@ Support for IBM solutions in the IBM Standard Edition
 
 Support for LSF License Scheduler
 :   The LSF License Scheduler manages license tokens instead of controlling the licenses directly.Using LSF License Scheduler, jobs obtain a license token before the application starts.
+
+Observability modules
+:   The observability modules have been updated to the latest version.
 
 ## January 2026
 {: #subcollection-jan26}
