@@ -33,10 +33,10 @@ When a job starts, the application is unaware of the **License Scheduler** and p
 The following outlines the workflow of LSF License Scheduler:
 
 * LSF License Scheduler enables LSF to gather license requirements from pending jobs, ensuring more efficient allocation of available licenses.
-* All other LSF scheduling policies are independent from LSF License Scheduler policies.
-* Basic LSF scheduling is applied first when a job starts.
+* LSF License Scheduler policies function separately from all other LSF scheduling policies.
+* When a job starts, LSF applies basic scheduling before any other scheduling steps.
 * LSF License Scheduler does not impact the job scheduling priority. Jobs are dispatched based on the prioritization policies defined for each cluster.
-* Other LSF fair‑share policies are determined by CPU time, run time, and resource usage.
+* LSF uses CPU time, run time, and resource usage to determine its other fair‑share policies.
 * When LSF fair‑share scheduling is enabled, LSF first determines which user or queue has the highest priority, and then evaluates other resource requirements. As a result, other LSF fair-share policies have priority over LSF License Scheduler.
 
 ## License Scheduler modes
