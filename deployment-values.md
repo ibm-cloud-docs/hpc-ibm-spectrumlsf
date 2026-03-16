@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-06"
+lastupdated: "2026-03-16"
 
 keywords:
 
@@ -37,6 +37,7 @@ The following are the mandatory deployment values used to configure the {{site.d
 | ----- | ----------- | --------------- | ------------ |
 | `app_center_gui_password` | Password required to access the IBM Spectrum LSF Application Center (App Center) GUI, which is enabled by default in Fix Pack 15 with HTTPS. This is a mandatory value and omitting it will result in deployment failure. The password must meet the following requirements, at least 15 characters in length, and must include one uppercase letter, one lowercase letter, one number, and one special character. | Yes | "" |
 | `existing_resource_group` | Specify the name of the existing resource group in your IBM Cloud account where VPC resources will be deployed. By default, the resource group is set to 'Default.' In some older accounts, it may be 'default,' so please verify the resource group name before proceeding. If the value is set to \"null\", the automation creates two separate resource groups: `workload-rg` and `service-rg`. For more details, see Managing resource groups. | Yes | Default |
+| `enable_license_scheduler` | Set to true to enable the IBM Spectrum LSF License Scheduler. The default value is true. |
 | `ibmcloud_api_key` | Provide the IBM Cloud API key associated with the account to deploy the IBM Spectrum LSF cluster. This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey). | Yes | None |
 | `remote_allowed_ips` | Comma-separated list of IP addresses that can access the IBM Spectrum LSF cluster instance through an SSH interface. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, [\"169.45.117.34\"]). To fetch the IP address of the device, use [https://ipv4.icanhazip.com/](https://ipv4.icanhazip.com/). | Yes | None |
 | `ssh_keys` | Provide the list of SSH key names already configured in your IBM Cloud account to establish a connection to the Spectrum LSF nodes. Solution does not create new SSH keys, provide the existing keys. Make sure the SSH key exists in the same resource group and region where the cluster is being provisioned. To pass multiple SSH keys, use the format [\"key-name-1\", \"key-name-2\"]. If you don't have an SSH key in your IBM Cloud account, you can create one by following the provided. For more information, see [SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys). | Yes | None |

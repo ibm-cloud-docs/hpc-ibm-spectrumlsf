@@ -83,6 +83,12 @@ toc:
           - web-services-config-multiple-clients.md
           - web-service-config-openldap.md
       - topicgroup:
+          label: LSF License Scheduler draft
+          topics:
+          - license-scheduler.md
+          - license-scheduler-arch-workflow.md
+          - license-schedular-config.md
+      - topicgroup:
           label: Observability
           topics:
           - cloud-logs.md
