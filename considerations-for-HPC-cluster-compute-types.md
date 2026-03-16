@@ -69,8 +69,7 @@ Configuration example:
 {: codeblock}
 
 A dedicated and separate variable is available for provisioning dynamic nodes. This allows you to specify a single profile during provisioning.
-
-By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual system, so you get 2 vCPUs per physical core. But this can be disabled easily.
+By default, hyper-threading is disabled.
 
 Most HPC applications perform best with one process or thread per physical core.
 {: note}
