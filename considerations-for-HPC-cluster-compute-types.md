@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-16"
 
 keywords:
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Considerations for HPC cluster compute types
 {: #considerations-for-HPC-custer-compute-types}
 
-The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profiles such as **hx4da-248x680** and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance. For more information, see [Release FAQs](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs#current-release).
+The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profile such as **hx4da-248x680** which is available only in **Dalas** region and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance. For more information, see [Release FAQs](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-spectrum-lsf-faqs#current-release).
 {: note}
 
 High-performance computing (HPC) workloads exhibit diverse requirements across CPU, memory, network, and storage resources. These include:
@@ -68,11 +68,7 @@ Configuration example:
 ```
 {: codeblock}
 
-In this scenario, the automation chooses the first profile `bx3d-176x880` to compute CPU, memory, and other specifications, leading to dynamic nodes being provisioned solely based on this profile, regardless of additional instance type definitions.
-
-For all the configurations, the range of core count is 2 - 128 per virtual system. There is a special ultra high memory virtual system type that might be applicable for workloads that require more memory per core. This type can go up to 200 cores and as high as 28 GB per core.
-
-The network bandwidth on a single NIC can reach a maximum 16 Gbps. If a higher bandwidth is wanted, more NIC configurations that go up to 80 Gbps might be needed. Under these circumstances, 5 NICs would need to be configured for the virtual system.
+A dedicated and separate variable is available for provisioning dynamic nodes. This allows you to specify a single profile during provisioning.
 
 By default, hyper-threading is enabled on an {{site.data.keyword.cloud_notm}} virtual system, so you get 2 vCPUs per physical core. But this can be disabled easily.
 
