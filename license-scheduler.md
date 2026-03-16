@@ -37,7 +37,7 @@ IBM® Spectrum LSF License Scheduler enables shared use of licenses, offering si
 
 * Reduce cost: License Scheduler provides better visibility on how licenses are being used.  Users can plan more accurately, reducing costs and increasing productivity.
 
-## LSF License Scheduler editions
+## License Scheduler editions
 {: #lsf-editions}
 
 The LSF License Scheduler is available in two distinct editions - the Basic Edition and the Standard Edition.
