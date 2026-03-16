@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:note: .note}
 {:new_window: target="_blank"}
 
-# LSF License Scheduler
+# About LSF License Scheduler
 {: #license-scheduler-overview}
 
 IBM® Spectrum LSF License Scheduler enables shared use of licenses, offering significant advantages in both productivity and cost efficiency.
