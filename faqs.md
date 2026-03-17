@@ -136,7 +136,7 @@ The instructions to set the appropriate permissions for {{site.data.keyword.clou
 The first resource group parameter entry in the Configure your workspace section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the Parameters with default values section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter. Only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
 
 ## LSF questionnaire
-{: #lsf-faqs}
+{: #lsf-quest-faqs}
 
 ### **What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?**
 {: #faq9}
