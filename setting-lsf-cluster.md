@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-06"
+lastupdated: "2026-03-17"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -13,18 +13,15 @@ subcollection: hpc-ibm-spectrumlsf
 
 ---
 
-{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:screen: .screen}
+{:external: target="_blank" .external}
+{:pre: .pre}
 {:tip: .tip}
-{:download: .download}
-{:important: .important}
 {:note: .note}
-{:new_window: target="_blank"}
-{:step: data-tutorial-type='step'}
+{:important: .important}
+{:table: .aria-labeledby="caption"}
 
 # Setting up an IBM Spectrum LSF cluster
 {: #using-hpc-cluster}
