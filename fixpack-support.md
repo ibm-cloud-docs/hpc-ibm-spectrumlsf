@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-17"
 
 keywords:
 
@@ -35,7 +35,7 @@ The following table shows the different images used for FP15:
 
 | LSF version | Deployer node | Management node | Login node | Compute node |
 | ----- | ----------- | --------------- | ------------ | ------------ |
-| Fix Pack 15 | hpc-lsf-fp15-deployer-rhel810-v1 | hpc-lsf-fp15-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 | hpc-lsf-fp15-compute-rhel810-v1 |
+| Fix Pack 15 | hpc-lsf-fp15-deployer-rhel810-v3 | hpc-lsf-fp15-rhel810-v3 | hpc-lsf-fp15-compute-rhel810-v3 | hpc-lsf-fp15-compute-rhel810-v3 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
 The same image is now used across login nodes, compute nodes, and dynamic worker nodes in the {{site.data.keyword.spectrum_full}} solution.
