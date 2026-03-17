@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-17"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Architecture and Workflow
 {: #lsf-sch-architecture}
 
-The LSF License Scheduler manages license tokens rather than controlling licenses directly. The jobs receive a license token before starting the application from the scheduler. The number of tokens available from {{site.data.keyword.spectrum_full}} is equal to the number of licenses available from the license server. If no token is available, then job does not start. This ensures that the number of licenses requested by running jobs does not exceed the number of available licenses.
+LSF License Scheduler manages license tokens rather than controlling licenses directly. The jobs receive a license token before starting the application from the scheduler. The number of tokens available from {{site.data.keyword.spectrum_full}} is equal to the number of licenses available from the license server. If no token is available, then job does not start. This ensures that the number of licenses requested by running jobs does not exceed the number of available licenses.
 When a job starts, the application is unaware of the **License Scheduler** and performs license checkout from the license server as usual.
 
 ## Workflow
@@ -42,7 +42,7 @@ The following outlines the workflow of LSF License Scheduler:
 ## License Scheduler modes
 {: #lsf-modes}
 
-When using License Scheduler, you must select either project mode or cluster mode for each license, depending on your needs. Each license feature can operate in either cluster mode or project mode, but not both. All license features required by a job must use the same mode.
+When working with the License Scheduler, you must either select **project mode** or **cluster mode** for each license, depending on your needs. Each license feature can operate in either cluster mode or project mode, but not both.
 
 By default, the system is configured to use cluster mode. Users can modify the `sf.licensescheduler` file to switch to project mode.
 {: note}

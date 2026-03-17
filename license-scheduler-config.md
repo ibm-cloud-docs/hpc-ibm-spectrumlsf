@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-17"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -33,7 +33,7 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 
 * License Scheduler decides whether a job can be started based on the license availability.
 
-* The main file to work is `lsf.licensescheduler` file present in `/opt/ibm/lsf/conf` directory.
+* The main file to work is `lsf.licensescheduler` present in `/opt/ibm/lsf/conf` directory.
 
 ## Procedure
 {: #proc-lsf-sch}
@@ -47,11 +47,11 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 
 2. List the License Scheduler hosts.
 
-    By default, the daemon is running on management node 2. Users can add more nodes. The first listed node is the primary, and the remaining nodes act as secondary or backup hosts if the primary is unavailable.
+    By default, the daemon is running on **management node 2**. Users can add more nodes. The first listed node is the primary, and the remaining nodes act as secondary or backup hosts if the primary is unavailable.
 
-3. Specify the file paths to the license‑manager command being used.
+3. Specify the file paths to the license‑manager command.
 
-    a. If you are using FlexNet, specify the path to the `lmutil` (or `lmstat`) command.
+    a. If you are using **FlexNet**, specify the path to the `lmutil` (or `lmstat`) command.
 
     For example, if lmstat is in `/etc/flexlm/bin`:
 
@@ -60,7 +60,7 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
     ```
     {: codeblock}
 
-    b. If you are using Reprise License Manager, specify the path to the `rlmutil` (or `rlmstat`) command.
+    b. If you are using **Reprise License Manager**, specify the path to the `rlmutil` (or `rlmstat`) command.
 
     For example, if the commands are in `/etc/rlm/bin`:
 
@@ -69,7 +69,7 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
     ```
     {: codeblock}
 
-4. In the ServiceDomain section of the `lsf.licensescheduler` file, configure the service domains by specifying the license server names and port numbers.
+4. In the **ServiceDomain** section of the `lsf.licensescheduler` file, configure the service domains by specifying the license server names and port numbers.
 
     A service domain is a group of one or more license servers. You must configure atleast one service domain for License Scheduler.
     {: note}
@@ -81,7 +81,9 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 
 1. Specify the feature name used by the license manager to identify the license type by setting the **NAME** parameter.
 
-2. Optionally, define an alias by setting `LM_LICENSE_NAME` to the license‑manager feature name and `NAME` to the LSF License Scheduler feature name.
+2. Optionally, define an alias by setting:
+    a. `LM_LICENSE_NAME` to the license‑manager feature name and
+    b. `NAME` to the LSF License Scheduler feature name
 
 3. Define `LM_LICENSE_NAME` only if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
 

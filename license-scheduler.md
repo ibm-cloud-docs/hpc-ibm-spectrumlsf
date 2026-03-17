@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-17"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,18 +24,18 @@ subcollection: hpc-ibm-spectrumlsf
 # About LSF License Scheduler
 {: #license-scheduler-overview}
 
-IBM® Spectrum LSF License Scheduler enables shared use of licenses, offering significant advantages in both productivity and cost efficiency.
+{{site.data.keyword.spectrum_full}} License Scheduler enables shared use of licenses, offering significant advantages in both productivity and cost efficiency.
 
 ## Key features
 {: #key-features}
 
-* Simplify license sharing: License Scheduler simplifies license sharing across clusters and projects. It provides tools to allocate and monitor license usage so that licenses can be shared when not in use, while still ensuring they are instantly available when required.
+* **Simplify license sharing:** License Scheduler simplifies license sharing across clusters and projects. It provides tools to allocate and monitor license usage so that licenses can be shared when not in use, while still ensuring they are instantly available when required.
 
-* Ensure accurate license allocation: License Scheduler provides flexible, hierarchical sharing policies based on business needs. In busy periods, license allocation can prioritize the most urgent or revenue‑driven projects.
+* **Ensure accurate license allocation:** License Scheduler provides flexible, hierarchical sharing policies based on business needs. In busy periods, license allocation can prioritize the most urgent or revenue‑driven projects.
 
-* Enhance service quality and productivity: License Scheduler reduces job queuing caused by license shortages, resulting in shorter wait times, higher productivity, and a more efficient design workflow.
+* **Enhance service quality and productivity:** License Scheduler reduces job queuing caused by license shortages, resulting in shorter wait times, higher productivity, and a more efficient design workflow.
 
-* Reduce cost: License Scheduler provides better visibility on how licenses are being used.  Users can plan more accurately, reducing costs and increasing productivity.
+* **Reduce cost:** License Scheduler provides better visibility on how licenses are being used.  Users can plan more accurately, reducing costs and increasing productivity.
 
 ## License Scheduler editions
 {: #lsf-editions}
