@@ -38,7 +38,7 @@ This document provides a list of frequently asked questions and answers about a 
 
 AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. The only supported AMD-based profile is **hx4da-248x680**. For this release, the profiles are supported only on **us-south** region.
 
-#### Gaudi3 profiles
+#### Gaudi 3 profiles
 {: #gaudi-profile}
 
 Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within HPC environments. The supported profile is **gx3d-160x1792x8gaudi3** and these profiles are available only on **Dalas/Washington DC** and **Frankfurt** regions.
@@ -64,6 +64,11 @@ The LSF License Scheduler manages license tokens instead of controlling the lice
 ## General
 {: #generic-faqs}
 
+### **Why does provisioning an instance with Gaudi 3 profiles take a long time?**
+{: #faq0}
+
+Provisioning instances with Gaudi 3 profiles typically takes about 10–20 minutes per instance due to their high memory configuration.
+
 ### **Which Spectrum LSF packages does this offering deploy in a cluster?**
 {: #faq1}
 
@@ -73,16 +78,6 @@ The LSF License Scheduler manages license tokens instead of controlling the lice
 {: #faq2}
 
 The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
-
-## Catalog
-{: #catalog-faqs}
-
-### **What permissions do you need to create a cluster using the offering?**
-{: #faq4}
-
-The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
-
-![Granting user permissions - Platform and Service roles](images/permissions_platform_service_roles.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}
 
 ### **How do I SSH among nodes?**
 {: #faq5}
@@ -110,40 +105,38 @@ AddKeysToAgent yes
 
 You can even remove `-A` by adding "ForwardAgent yes" to `.ssh/config`.
 
+### **Where are the Terraform files used by the {{site.data.keyword.spectrum_full_notm}} tile located?**
+{: #faq18}
+
+The Terraform-based templates can be found in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
+
+### **Where can you find the custom image name to image ID mappings for each cloud region?**
+{: #faq19}
+
+The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
+
+### **Which {{site.data.keyword.cloud_notm}} VPC file storage profiles are supported for {{site.data.keyword.spectrum_full}} cluster shared storage?**
+{: #faq24}
+
+{{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
+
+## Catalog
+{: #catalog-faqs}
+
+### **What permissions do you need to create a cluster using the offering?**
+{: #faq4}
+
+The instructions to set the appropriate permissions for {{site.data.keyword.cloud_notm}} services platform roles and service roles can be seen in the below screenshots:
+
+![Granting user permissions - Platform and Service roles](images/permissions_platform_service_roles.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}
+
 ### **Why there are two different resource group parameters specified in the IBM Cloud catalog tile?**
 {: #faq6}
 
 The first resource group parameter entry in the Configure your workspace section in the {{site.data.keyword.cloud_notm}} catalog applies to the resource group where the {{site.data.keyword.bpshort}} workspace is provisioned on your {{site.data.keyword.cloud_notm}} account. The value for this parameter can be different than the one used for the second entry in the Parameters with default values section in the catalog. The second entry applies to the resource group where VPC resources are provisioned. As specified in the description for this second `resource_group` parameter. Only the default resource group is supported for use of the LSF Resource Connector auto-scaling feature.
 
-### **How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?**
-{: #faq7}
-
-Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
-
-By default, the number of worker nodes supported for `dynamic_compute_instances` variable is 500 for the deployment. For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
-
-For the `static_compute_instances` variable, this worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
-For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
-
-The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
-
-If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as the VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
-
-### **Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?**
-{: #faq8}
-
-The CPU column in the LSF Application Center GUI and the `ncpus` column when you run the `lscpu` command on an LSF worker node might not show the same value.
-
-The CPU column output that you get by running `lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU(s)'` on an LSF worker node shows the number of CPU threads (not physical cores) on that compute instance.
-
-If `EGO_DEFINE_NCPUS=threads`, then “ncpus=number of processors x number of cores x number of threads” and the CPU column value in the LSF Application Center GUI will match what you see when running `lscpu` on an LSF worker node.
-
-If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of cores” and the CPU column value in the LSF Application Center GUI will be half of what you see when running `lscpu` on an LSF worker node.
-
-For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
-
-## Operating system
-{: #os-faqs}
+## LSF questionnaire
+{: #lsf-faqs}
 
 ### **What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?**
 {: #faq9}
@@ -183,7 +176,74 @@ LSF also provides an `lsfstartup` command, which starts all the daemons on all t
 No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
 {: note}
 
-## Certificates
+### **Can you specify the total IOPS for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?**
+{: #faq22}
+
+Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
+
+### **How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?**
+{: #faq23}
+
+{{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
+
+### **Can the LSF Web Service client use a password file instead of typing the password manually?**
+{: #faq17}
+
+```text
+lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
+```
+{: codeblock}
+
+No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+Instead, use the supported and more secure login method:
+
+```text
+lsf cluster logon --username lsfadmin --url https://localhost:8448
+```
+{: codeblock}
+
+For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
+
+### **As a cluster administrator, how do I best restart the LSF daemon processes?**
+{: #faq20}
+
+A cluster administrator can choose to restart all the cluster daemons. In an {{site.data.keyword.spectrum_short}} environment, these daemons are the most used and relevant to LSF:
+* `lim` (on all nodes)
+* `res` (on all nodes)
+* `sbatchd` (on all nodes)
+* `mbatchd` (only on the primary management node)
+* `mbschd` (only on the primary management node)
+
+Other LSF processes exist, but they are started by these main daemons. Choose between two methods for restarting LSF daemon processes: a wrapper to run on each host, or commands to run to affect all hosts in the cluster.
+
+### **How many worker nodes can you deploy in the Spectrum LSF cluster through this offering?**
+{: #faq7}
+
+Before deploying a cluster, it is important to ensure that the VPC resource quota settings are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
+
+By default, the number of worker nodes supported for `dynamic_compute_instances` variable is 500 for the deployment. For more information, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
+
+For the `static_compute_instances` variable, this worker node instance type supports a combination of multiple instance profile type that could be choosen for different number of instance count.
+For example, you can choose to create 100 instance from `bx2-4x16` and 10 instance from `mx3d-8x80`. So you get totally a count of 110 static worker nodes with different instance profile, based upon your requirement.
+
+The delta between those two variables specifies the maximum number of worker nodes that can either be created or destroyed by the LSF resource connector auto scaling feature. In configurations where that delta exceeds 250, it is recommended to take caution if the characteristics of the workload are expected to result in >250 cluster node join or remove operation requests at a single point in time. In those cases, it is recommended to pace the job start and stop requests, if possible. Otherwise, you might see noticeable delays in some subset of the nodes joining or being removed from the cluster.
+
+If the requirement goes beyond 250 nodes, then it is recommended to use the IBM Storage Scale as the VPC file share has a hard limit of using 250 nodes. For more information, see [Integrating IBM Storage Scale with your IBM Spectrum LSF cluster](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-scale&interface=ui).
+
+### **Why is the CPU number displayed on an LSF worker node different than what is shown in the LSF Application Center GUI?**
+{: #faq8}
+
+The CPU column in the LSF Application Center GUI and the `ncpus` column when you run the `lscpu` command on an LSF worker node might not show the same value.
+
+The CPU column output that you get by running `lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU(s)'` on an LSF worker node shows the number of CPU threads (not physical cores) on that compute instance.
+
+If `EGO_DEFINE_NCPUS=threads`, then “ncpus=number of processors x number of cores x number of threads” and the CPU column value in the LSF Application Center GUI will match what you see when running `lscpu` on an LSF worker node.
+
+If `EGO_DEFINE_NCPUS=cores`, then “ncpus=number of processors x number of cores” and the CPU column value in the LSF Application Center GUI will be half of what you see when running `lscpu` on an LSF worker node.
+
+For more information, see [ncpus calculation in LSF](https://www.ibm.com/support/pages/ncpus-calculation-lsf#:~:text=If%20EGO_DEFINE_NCPUS%3Dthreads%2C%20then%20ncpus,cores%20x%20number%20of%20threads){: external}.
+
+## Authentication/Certificates
 {: #certificates-faqs}
 
 ### **How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?**
@@ -231,88 +291,6 @@ systemctl stop lwsd && systemctl start lwsd
 Ensure the certificate has the correct hostnames (SANs).
 {: note}
 
-## Limitations
-{: #limitations-faqs}
-
-### **What are the limitations of available profiles for dedicated hosts?**
-{: #faq14}
-
-The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
-
-### **Does the solution integrate with SIEM platforms like QRadar?**
-{: #faq3}
-
-The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
-
-## Error messages
-{: #error-msg-faqs}
-
-### **Why does `Error getting trusted profile policy` occur?**
-{: #faq15}
-
-If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
-
-`Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
-
-So below are the required permissions for SCC Workload Protection are:
-
-| Service | Resources | Platform roles | Service roles |
-| ------- | --------- | ---- | ---- |
-| App configuration | All | Administrator | Manager |
-| All Identity and Access enabled services | All | Administrator | Manager |
-| Security and Compliance Center Workload Protection | All | Administrator | -- |
-{: caption="SCC permissions" caption-side="bottom"}
-
-## Password and Authentication
-{: #pwd-faqs}
-
-### **Does the solution support using PAG for Multi-Factor Authentication (MFA)?**
-{: #faq16}
-
-The solution supports only SSH connectivity, and no additional ports are allowed. The solution does not include a built-in Multi-Factor Authentication (MFA) mechanism.
-
-Integration with external MFA solutions, such as a Privileged Access Gateway (PAG) is possible, but this introduces additional cost on IBM Cloud since PAG is an optional premium feature. Due to these cost considerations and varying customer security requirements, MFA is not enforced by default and remains an optional, customer-controlled configuration.
-
-### **Can the LSF Web Service client use a password file instead of typing the password manually?**
-{: #faq17}
-
-```text
-lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
-```
-{: codeblock}
-
-No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
-Instead, use the supported and more secure login method:
-
-```text
-lsf cluster logon --username lsfadmin --url https://localhost:8448
-```
-{: codeblock}
-
-For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
-
-### **Where are the Terraform files used by the {{site.data.keyword.spectrum_full_notm}} tile located?**
-{: #faq18}
-
-The Terraform-based templates can be found in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc){: external}.
-
-### **Where can you find the custom image name to image ID mappings for each cloud region?**
-{: #faq19}
-
-The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/modules/landing_zone_vsi/image_map.tf){: external}.
-
-### **As a cluster administrator, how do I best restart the LSF daemon processes?**
-{: #faq20}
-
-A cluster administrator can choose to restart all the cluster daemons. In an {{site.data.keyword.spectrum_short}} environment, these daemons are the most used and relevant to LSF:
-* `lim` (on all nodes)
-* `res` (on all nodes)
-* `sbatchd` (on all nodes)
-* `mbatchd` (only on the primary management node)
-* `mbschd` (only on the primary management node)
-
-Other LSF processes exist, but they are started by these main daemons. Choose between two methods for restarting LSF daemon processes: a wrapper to run on each host, or commands to run to affect all hosts in the cluster.
-
 ### **Why does the LSF client show `Unable to authenticate user` when connecting to LSF Web Services?**
 {: #faq21}
 
@@ -333,39 +311,51 @@ For troubleshooting and audit purposes, failed authentication attempts are logge
 It is your responsibility to manage the password with as many retries you want to set.
 {: note}
 
-## Worker nodes
-{: #worker-nodes-faqs}
+## Limitations
+{: #limitations-faqs}
 
-### **Can you specify the total IOPS for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?**
-{: #faq22}
+### **What are the limitations of available profiles for dedicated hosts?**
+{: #faq14}
 
-Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
+The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
 
-### **How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?**
-{: #faq23}
+### **Does the solution integrate with SIEM platforms like QRadar?**
+{: #faq3}
 
-{{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
+The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
 
-## Storage
-{: #storage-faqs}
+### **Does the solution support using PAG for Multi-Factor Authentication (MFA)?**
+{: #faq16}
 
-### **Which {{site.data.keyword.cloud_notm}} VPC file storage profiles are supported for {{site.data.keyword.spectrum_full}} cluster shared storage?**
-{: #faq24}
+The solution supports only SSH connectivity, and no additional ports are allowed. The solution does not include a built-in Multi-Factor Authentication (MFA) mechanism.
 
-{{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
-
-## Security group
-{: #security-faqs}
+Integration with external MFA solutions, such as a Privileged Access Gateway (PAG) is possible, but this introduces additional cost on IBM Cloud since PAG is an optional premium feature. Due to these cost considerations and varying customer security requirements, MFA is not enforced by default and remains an optional, customer-controlled configuration.
 
 ### **Why is 0.0.0.0 allowed in the egress rule of a security group?**
 {: #faq25}
 
 We cannot restrict outbound traffic because customers often maintain connections to on-prem environments for hybrid deployments. Customers use dozens of different applications for their HPC applications and any port to communicate between on-prem and on cloud processes. Restricting the outbound traffic by default and requiring customers to manually open each port would severely impact the usability of our solution.
 
-## Supported features
-{: #support-faqs}
-
 ### **Is noVNC supported for this release?**
 {: #faq26}
 
 For this release, noVNC is not supported due to platform issues. Team is working on it.
+
+## Error messages
+{: #error-msg-faqs}
+
+### **Why does `Error getting trusted profile policy` occur?**
+{: #faq15}
+
+If the IAM permissions for the SCC Workload Protection are not enabled right, then the below error occurs:
+
+`Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
+
+So below are the required permissions for SCC Workload Protection are:
+
+| Service | Resources | Platform roles | Service roles |
+| ------- | --------- | ---- | ---- |
+| App configuration | All | Administrator | Manager |
+| All Identity and Access enabled services | All | Administrator | Manager |
+| Security and Compliance Center Workload Protection | All | Administrator | -- |
+{: caption="SCC permissions" caption-side="bottom"}
