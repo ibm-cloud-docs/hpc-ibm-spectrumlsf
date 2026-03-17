@@ -25,10 +25,6 @@ subcollection: hpc-ibm-spectrumlsf
 
 A Fix Pack is a cumulative update package that includes repository files, security enhancements, vulnerability patches, updated resource connectors, and other improvements. These updates are designed to ensure the stability, security, and performance of {{site.data.keyword.spectrum_full}} deployments.
 
-As of **May 09, 2025**, IBM officially released a new version of Fix Pack 15, which includes the latest critical fixes, enhancements, and compatibility updates tailored for evolving workload demands.
-
-By default, the {{site.data.keyword.spectrum_full}} solution ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. This backward compatibility ensures customers to maintain stable cluster environments while planning or performing upgrades at their convenience.
-
 To maintain operational efficiency and security, IBM recommends keeping your cluster environment up-to-date with the latest supported Fix Pack unless specific version dependencies are in place for your workloads.
 
 The following table shows the different images used for FP15:
@@ -38,7 +34,7 @@ The following table shows the different images used for FP15:
 | Fix Pack 15 | hpc-lsf-fp15-deployer-rhel810-v3 | hpc-lsf-fp15-rhel810-v3 | hpc-lsf-fp15-compute-rhel810-v3 | hpc-lsf-fp15-compute-rhel810-v3 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
-The same image is now used across login nodes, compute nodes, and dynamic worker nodes in the {{site.data.keyword.spectrum_full}} solution.
+The same compute images are used across login nodes, static compute nodes, and dynamic compute nodes in the {{site.data.keyword.spectrum_full}} solution.
 {: note}
 
 ## Post deployment validations
@@ -60,6 +56,4 @@ My master name is test-fi-mgmt-1-c613-001.hpc.local
 ## Conclusion
 {: #fixpack-conclusion}
 
-For FP15, Application Center and Process Manager are enabled by default to support job submission, workflow management, and monitoring.
-
-However, with FP15, an additional enhancement is included — Web Services are also enabled by default. This provides out-of-the-box support for RESTful APIs, enabling seamless integration with external tools and automation frameworks. This makes FP15 a more complete and integration-ready package for modern workload environments.
+However, with FP15, an additional enhancement is included — Web Services and License Scheduler are also enabled by default. This makes FP15 a more complete and integration-ready package for modern workload environments.

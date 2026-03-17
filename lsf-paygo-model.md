@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-02-06"
+lastupdated: "2026-03-17"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -97,13 +97,18 @@ The costs is based on:
 ## Use case 1: PAYGo enabled (lsf_pay_per_use = true)
 {: #payg-usecase1}
 
+PAYGo supports two different combinations:
+
+* **Spectrum LSF Pay per use** - this is for hyperthreading enabled.
+* **LSF Pay per use non-HT** - this is for hyperthreading disabled.
+
 When the PAYGo feature is enabled (default setting), then:
 * Automation provisions all the nodes by using the PAYGo image.
 * Dynamic node provisioning is integrated through the LSF Resource Connector.
 * LSF FP15 images are supported.
 * BYOI is not supported.
 
-## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
+## Use case 2: PAYGo disabled (lsf_pay_per_use = false)
 {: #payg-usecase2}
 
 When the PAYGo feature is disabled, then:
@@ -133,5 +138,5 @@ To view the billing details, do the following:
 1. Navigate to **Billing and Usage**.
 2. Click **Usage** on the left side.
 3. Search for **LSF Pay per Use** under the **Usage** list.
-4. Click **View Plans** and select **Spectrum LSF Pay per Use** and choose **View Details**.
-5. Select the desired month to view usage and pricing.
+4. Select the required plan - **LSF Pay per use non-HT** or **Spectrum LSF Pay per use**.
+6. Click **View Details** against the required plan.

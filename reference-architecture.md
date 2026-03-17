@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-17"
 
 keywords: # Not typically populated
 
@@ -86,9 +86,11 @@ The following table outlines the requirements that are addressed in this archite
 |  | Enable a public gateway for the management subnet. | Public gateway for management subnet | Allows outbound communication for the LSF management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the compute nodes | DNS service | Helps with the IP and name resolution for the compute nodes. |
 |  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the user. |
-| Security | * Isolate bastion, login, deployer, and LSF cluster nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and users host or CIDR. | Two different subnets are created. Bastion and login nodes under one subnet and LSF cluster nodes under another subnets. | Configures security group rules to allow access to IBM Cloud services. |
+| Security | * Isolate bastion, login, deployer, and LSF cluster nodes. | Two different subnets are created. Bastion and login nodes under one subnet and LSF cluster nodes under another subnets. | Configures security group rules to allow access to IBM Cloud services. |
+|  | * Limit the number of connections to the bastion node. | |
+|  | * Restrict management subnet access to bastion and users host or CIDR. | |
 |  | (Optional) Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
-| Service Management | Schedule and run distributed batch HPC applications. | [IBM Spectrum LSF](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0){: external} cluster includes:  \n * Management nodes: Run LSF internal management is highly available components.  \n * Dynamic compute nodes: Computational hosts where LSF runs the HPC workload and can be placed in a single zone. | {{site.data.keyword.spectrum_full_notm}} software is industry-leading and enterprise-class. LSF provides a resource management framework that takes your job requirements, dynamically requests the best resources from the cloud to run the job, monitors its progress, and releases the resource after the workload completion. |
-|  | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
+| Observability | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
+| Service Management | Schedule and run distributed batch HPC applications. | [IBM Spectrum LSF](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0){: external} cluster includes:  \n * Management nodes: Run LSF internal management is highly available components.  \n * Dynamic compute nodes: Computational hosts where LSF runs the HPC workload and can be placed in a single zone. | {{site.data.keyword.spectrum_full_notm}} software is industry-leading and enterprise-class. LSF provides a resource management framework that takes your job requirements, dynamically requests the best resources from the cloud to run the job, monitors its progress, and releases the resource after the workload completion. |
 {: caption="Components" caption-side="bottom"}
