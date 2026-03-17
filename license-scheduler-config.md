@@ -33,7 +33,7 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 
 * License Scheduler decides whether a job can be started based on the license availability.
 
-* The main file to work is `lsf.licensescheduler` present in `/opt/ibm/lsf/conf` directory.
+* The main file you should use is `lsf.licensescheduler` present in `/opt/ibm/lsf/conf` directory.
 
 ## Procedure
 {: #proc-lsf-sch}
