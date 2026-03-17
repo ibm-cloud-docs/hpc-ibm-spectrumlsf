@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-17"
 
 keywords:
 
@@ -73,11 +73,6 @@ The LSF License Scheduler manages license tokens instead of controlling the lice
 {: #faq2}
 
 The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
-
-### **Does the solution integrate with SIEM platforms like QRadar?**
-{: #faq3}
-
-The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
 
 ## Catalog
 {: #catalog-faqs}
@@ -243,6 +238,11 @@ Ensure the certificate has the correct hostnames (SANs).
 {: #faq14}
 
 The offering automatically selects instance profiles for dedicated hosts to be the same prefix (for example, bx2 and cx2) as ones for worker instances (`static_compute_instances`). However, available instance prefixes can be limited, depending on your target region. If you use dedicated hosts, check `ibmcloud target -r {region_name}` and `ibmcloud is dedicated-host-profiles` to see whether your `static_compute_instances` has the available prefix for your target region.
+
+### **Does the solution integrate with SIEM platforms like QRadar?**
+{: #faq3}
+
+The solution does not integrate with QRadar or other SIEM platforms. Enterprise customers typically have their own security controls, authentication mechanisms, and on-premise SIEM solutions. Enabling built-in or third-party monitoring by default could conflict with customer-defined security policies and introduce unnecessary costs or redundancy. Therefore, SIEM integration and security monitoring configurations remain optional and customer-controlled.
 
 ## Error messages
 {: #error-msg-faqs}
