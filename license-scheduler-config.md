@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-18"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -30,26 +30,21 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 {: #pre-req}
 
 * User must have their own license manager, such as **FlexNet** or **Reprise License Manager**.
-
-* License Scheduler decides whether a job can be started based on the license availability.
-
-* The main file you should use is `lsf.licensescheduler` present in `/opt/ibm/lsf/conf` directory.
+* The node from which the job is submitted must have the `lmstat` or `rlmstat` commands.
 
 ## Procedure
 {: #proc-lsf-sch}
 
-1. Cluster mode can be set globally or for individual license features.
+### Parameters section
+{: #parameters}
 
-    a. If you are using cluster mode for all license features, define `CLUSTER_MODE=Y` in the **Parameters** section of `lsf. Licensescheduler`.
+The `lsf.licensescheduler` file contains IBM® Spectrum LSF License Scheduler configuration information which is present in **/opt/ibm/lsf/conf** directory.
 
-    b. If you are using cluster mode for some license features, define `CLUSTER_MODE=Y` for individual license features in the **Feature** section of `lsf.licensescheduler`.
-    The Feature section setting of **CLUSTER_MODE** overrides the global Parameter section setting.
-
-2. List the License Scheduler hosts.
+1. List the License Scheduler hosts.
 
     By default, the daemon is running on **management node 2**. Users can add more nodes. The first listed node is the primary, and the remaining nodes act as secondary or backup hosts if the primary is unavailable.
 
-3. Specify the file paths to the license‑manager command.
+2. Specify the file paths to the license‑manager command.
 
     a. If you are using **FlexNet**, specify the path to the `lmutil` (or `lmstat`) command.
 
@@ -69,15 +64,34 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
     ```
     {: codeblock}
 
-4. In the **ServiceDomain** section of the `lsf.licensescheduler` file, configure the service domains by specifying the license server names and port numbers.
+3. Cluster mode can be set globally or for individual license features.
 
-    A service domain is a group of one or more license servers. You must configure atleast one service domain for License Scheduler.
-    {: note}
+    a. If you are using cluster mode for all license features, define `CLUSTER_MODE=Y` in the **Parameters** section of `lsf. Licensescheduler`.
 
-5. Specify the license server hosts for that domain, including the host name and license manager port number.
+    b. If you are using cluster mode for some license features, define `CLUSTER_MODE=Y` for individual license features in the **Feature** section of `lsf.licensescheduler`.
+    The Feature section setting of **CLUSTER_MODE** overrides the global Parameter section setting.
+
+### Service domain
+{: #service-domain}
+
+In the **ServiceDomain** section of the `lsf.licensescheduler` file, configure the service domains by specifying the license server names and port numbers.
+
+```text
+Begin ServiceDomain
+NAME=DesignCenterA
+LIC_SERVERS=((1700@hostA))
+End ServiceDomain
+```
+{: codeblock}
+
+A service domain is a group of one or more license servers. You must configure atleast one service domain for License Scheduler.
+{: note}
 
 ## Configure license features
 {: #config-license}
+
+### Cluster mode
+{: #cluster-mode}
 
 1. Specify the feature name used by the license manager to identify the license type by setting the **NAME** parameter.
 
@@ -87,7 +101,135 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 
 3. Define `LM_LICENSE_NAME` only if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
 
-4. Restart to implement configuration changes:
+    For example:
+    The license manager feature name **201-AppZ** is not supported in LSF because the feature name starts with a number and contains a hyphen. Therefore, define **AppZ201** as an alias of the 201-AppZ license manager feature name as follows:
+    ```text
+    NAME=AppZ201
+    LM_LICENSE_NAME=201-AppZ
+    ```
+    {: codeblock}
 
-    1. Run `bladmin reconfig` to restart the bld.
-    2. Run `badmin mbdrestart` to restart each LSF cluster.
+4. Set the service domains in the Feature section using the command:
+
+```text
+CLUSTER_DISTRIBUTION=service_domain(cluster_name share)
+```
+{: codeblock}
+
+### Project mode
+{: #project-mode}
+
+1. If the user wants to use the project mode, then define:
+
+    ```pre
+    Begin Projects
+    PROJECTS
+    myProject1
+    myProject2
+    myProject3
+    End Projects
+    ```
+
+2. Specify the feature name used by the license manager to identify the license type by setting the **NAME** parameter.
+
+3. Optionally, define an alias by setting:
+    a. `LM_LICENSE_NAME` to the license‑manager feature name and
+    b. `NAME` to the LSF License Scheduler feature name
+
+4. Define `LM_LICENSE_NAME` only if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
+
+    For example:
+    The license manager feature name **201-AppZ** is not supported in LSF because the feature name starts with a number and contains a hyphen. Therefore, define **AppZ201** as an alias of the 201-AppZ license manager feature name as follows:
+    ```text
+    NAME=AppZ201
+    LM_LICENSE_NAME=201-AppZ
+    ```
+    {: codeblock}
+
+5. A distribution policy defines the license fair share policy in the format:
+
+```text
+DISTRIBUTION = ServiceDomain (project1 share_ratio project2 share_ratio ...)
+```
+{: codeblock}
+
+Once you make the configuration changes, you must reconfigure License Scheduler to apply the changes. Run the following commands:
+
+1. Run `bld -C` - to test for configuration errors.
+2. Run `bladmin reconfig` - reconfigures LSF License Scheduler.
+3. Run `badmin mbdrestart` - restarts the mbatchd daemon.
+4. Run `runlsadmin reconfig` - reconfigure the LIM.
+
+## Submitting LSF License Scheduler jobs
+{: #submit-jobs}
+
+When you submit an LSF License Scheduler, you must reserve the license with resource usage (`rusage`) by running the command `run bsub -R "rusage"`
+
+1. The following command submits a job named **myjob** to license project Lp1 and requests one AppB license:
+
+    ```text
+    bsub -R "rusage[AppB=1]" -Lp Lp1 myjob
+    ```
+    {: codeblock}
+
+2. The following command submits a job named **myjob** and requests one AppC license:
+
+    ```text
+    bsub -R "rusage[AppC=1]" myjob
+    ```
+    {: codeblock}
+
+    where:
+    * rusage[NAME=required number of license_token].
+    * this NAME is defined in feature section.
+
+### Commands
+{: #commands}
+
+* `bladmin reconfig`: Reconfigures LSF License Scheduler.
+* `blhosts`: Prints the names of all the hosts that are running the LSF License Scheduler bld daemon.
+* `blinfo`: displays information about the distribution of licenses that are managed by LSF License Scheduler.
+* `blstat`: Displays license usage statistics for LSF License Scheduler.
+* `blstat -t token_name`: Shows only information about specified license tokens.
+
+### Outputs
+{: #output}
+
+1. When the job has started and the token is reserved for job:
+
+```text
+[lsfadmin@vrs-ls-merge-mgmt-1-e980-002 conf]$ blstat -t vse
+FEATURE: vse@vrs-ls-merge
+SERVICE_DOMAIN: LanServer
+TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 1  OTHERS: 0
+CLUSTER     SHARE   ALLOC   TARGET   INUSE    RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
+vrs-ls-merge 100.0%  10       10       0        1         0      1      -        9       0
+```
+{: codeblock}
+
+2. When the job is using the license token:
+
+```text
+[lsfadmin@vrs-ls-merge-mgmt-1-e980-002 conf]$ blstat -t vse
+FEATURE: vse@vrs-ls-merge
+SERVICE_DOMAIN: LanServer
+TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 1  OTHERS: 0
+CLUSTER      SHARE   ALLOC   TARGET   INUSE   RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
+vrs-ls-merge 100.0%   10       10       1        0        0      1       -       9       0
+```
+{: codeblock}
+
+3. If a job is requesting for a token but all tokens are reserved:
+
+```text
+[lsfadmin@vrs-ls-merge-mgmt-1-e980-002 conf]$ blstat -t vse
+FEATURE: vse@vrs-ls-merge
+SERVICE_DOMAIN: LanServer
+TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 10  OTHERS: 0
+CLUSTER      SHARE   ALLOC   TARGET   INUSE   RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
+vrs-ls-merge 100.0%   10       10       0       10        0     10       -       0       1
+```
+{: codeblock}
+
+If an ldap user is present, then user can run jobs as ldap user also.
+{: note}

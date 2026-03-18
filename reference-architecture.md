@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-18"
 
 keywords: # Not typically populated
 
@@ -87,8 +87,8 @@ The following table outlines the requirements that are addressed in this archite
 |  | DNS service for the compute nodes | DNS service | Helps with the IP and name resolution for the compute nodes. |
 |  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the user. |
 | Security | Isolate bastion, login, deployer, and LSF cluster nodes. | Two different subnets are created. Bastion and login nodes under one subnet and LSF cluster nodes under another subnets. | Configures security group rules to allow access to IBM Cloud services. |
-|  | Limit the number of connections to the bastion node. | |
-|  | Restrict management subnet access to bastion and users host or CIDR. | |
+|  | Limit the number of connections to the bastion node. | Only a required connections are enabled to access the bastion node | |
+|  | Restrict management subnet access to bastion and users host or CIDR. | To have the cluster configurations working, updated only the VPC range of IP for security | |
 |  | (Optional) Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
 | Observability | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |

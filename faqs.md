@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-18"
 
 keywords:
 
@@ -78,6 +78,11 @@ Provisioning instances with Gaudi 3 profiles typically takes about 10–20 minut
 {: #faq2}
 
 The available regions and zones for deploying VPC resources, mapping of those to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations).
+
+### **Can you specify the total IOPS for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?**
+{: #faq22}
+
+Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
 
 ### **How do I SSH among nodes?**
 {: #faq5}
@@ -176,33 +181,10 @@ LSF also provides an `lsfstartup` command, which starts all the daemons on all t
 No daemons are run on the login node, as the login node is used for running particular tasks: to submit {{site.data.keyword.spectrum_short}} jobs; monitor {{site.data.keyword.spectrum_short}} job status; display hosts and their static resource information; display and filter information about LSF jobs; and display the LSF version number, cluster name, and the management hostname.
 {: note}
 
-### **Can you specify the total IOPS for a file share when deploying an {{site.data.keyword.spectrum_short}} cluster?**
-{: #faq22}
-
-Yes, when you deploy an {{site.data.keyword.spectrum_short}} cluster, you can [choose the required IOPS value appropriate for your file share size](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers).
-
 ### **How to share data, packages, or applications with {{site.data.keyword.spectrum_short}} compute nodes?**
 {: #faq23}
 
 {{site.data.keyword.filestorage_vpc_full_notm}} with two file shares (`/mnt/binaries` or `/mnt/data`), and up to five file shares, is provisioned to be accessible by both {{site.data.keyword.spectrum_short}} management and compute nodes. To copy to a file share, SSH to the {{site.data.keyword.spectrum_short}} management node and use your file copy of choice (such as scp, rsync, or IBM Aspera) to the appropriate file share.
-
-### **Can the LSF Web Service client use a password file instead of typing the password manually?**
-{: #faq17}
-
-```text
-lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
-```
-{: codeblock}
-
-No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
-Instead, use the supported and more secure login method:
-
-```text
-lsf cluster logon --username lsfadmin --url https://localhost:8448
-```
-{: codeblock}
-
-For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
 
 ### **As a cluster administrator, how do I best restart the LSF daemon processes?**
 {: #faq20}
@@ -245,6 +227,24 @@ For more information, see [ncpus calculation in LSF](https://www.ibm.com/support
 
 ## Authentication/Certificates
 {: #certificates-faqs}
+
+### **Can the LSF Web Service client use a password file instead of typing the password manually?**
+{: #faq17}
+
+```text
+lsf cluster logon --username lsfadmin --password "$(cat ~/.lsf_password)" --url https://localhost:8448
+```
+{: codeblock}
+
+No, this is not supported for security reasons. Using a password file or command substitution to pass credentials is not recommended. Storing passwords in a plain text or referencing them directly in commands increases the risk of credential exposure. For example, a malicious actor could modify the file contents or intercept the command to compromise authentication.
+Instead, use the supported and more secure login method:
+
+```text
+lsf cluster logon --username lsfadmin --url https://localhost:8448
+```
+{: codeblock}
+
+For more information on configuring the LSF Web Service client, see [Configuring LSF Web Services with clients](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-configure-web-service&interface=ui).
 
 ### **How do I secure LSF Application Center connections by importing the `cacert.pem` certificate into a browser?**
 {: #faq12}

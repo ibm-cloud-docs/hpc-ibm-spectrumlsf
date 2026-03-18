@@ -80,7 +80,6 @@ toc:
           label: LSF License Scheduler draft
           topics:
           - license-scheduler.md
-          - license-scheduler-workflow.md
           - license-scheduler-config.md
       - topicgroup:
           label: Observability

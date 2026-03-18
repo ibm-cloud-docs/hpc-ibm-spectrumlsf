@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-18"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -96,11 +96,6 @@ The costs is based on:
 
 ## Use case 1: PAYGo enabled (lsf_pay_per_use = true)
 {: #payg-usecase1}
-
-PAYGo supports two different combinations:
-
-* **Spectrum LSF Pay per use** - this is for hyperthreading enabled.
-* **LSF Pay per use non-HT** - this is for hyperthreading disabled.
 
 When the PAYGo feature is enabled (default setting), then:
 * Automation provisions all the nodes by using the PAYGo image.

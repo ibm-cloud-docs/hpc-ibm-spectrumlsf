@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-18"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,7 +26,7 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.0**
+**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.1**
 
 ## March 2026
 {: #subcollection-mar26}
