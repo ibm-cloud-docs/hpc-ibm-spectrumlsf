@@ -77,7 +77,7 @@ toc:
           - web-services-config-multiple-clients.md
           - web-service-config-openldap.md
       - topicgroup:
-          label: LSF License Scheduler draft
+          label: LSF License Scheduler
           topics:
           - license-scheduler.md
           - license-scheduler-config.md

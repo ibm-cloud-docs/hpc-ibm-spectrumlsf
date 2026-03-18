@@ -35,7 +35,7 @@ In cluster mode, licenses are distributed across LSF clusters, allowing each clu
 ## Procedure
 {: #proc-lsf-sch}
 
-### Parameters section
+### Parameters
 {: #parameters}
 
 The `lsf.licensescheduler` file contains IBM® Spectrum LSF License Scheduler configuration information which is present in **/opt/ibm/lsf/conf** directory.
@@ -101,7 +101,8 @@ A service domain is a group of one or more license servers. You must configure a
 
 3. Define `LM_LICENSE_NAME` only if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
 
-    For example:
+    **For example:**
+
     The license manager feature name **201-AppZ** is not supported in LSF because the feature name starts with a number and contains a hyphen. Therefore, define **AppZ201** as an alias of the 201-AppZ license manager feature name as follows:
     ```text
     NAME=AppZ201
@@ -138,7 +139,8 @@ CLUSTER_DISTRIBUTION=service_domain(cluster_name share)
 
 4. Define `LM_LICENSE_NAME` only if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
 
-    For example:
+    **For example:**
+
     The license manager feature name **201-AppZ** is not supported in LSF because the feature name starts with a number and contains a hyphen. Therefore, define **AppZ201** as an alias of the 201-AppZ license manager feature name as follows:
     ```text
     NAME=AppZ201
@@ -153,17 +155,17 @@ DISTRIBUTION = ServiceDomain (project1 share_ratio project2 share_ratio ...)
 ```
 {: codeblock}
 
-Once you make the configuration changes, you must reconfigure License Scheduler to apply the changes. Run the following commands:
+Once you make the configuration changes, you must reconfigure License Scheduler to apply the changes using the following commands:
 
 1. Run `bld -C` - to test for configuration errors.
 2. Run `bladmin reconfig` - reconfigures LSF License Scheduler.
 3. Run `badmin mbdrestart` - restarts the mbatchd daemon.
 4. Run `runlsadmin reconfig` - reconfigure the LIM.
 
-## Submitting LSF License Scheduler jobs
+## Submitting License Scheduler jobs
 {: #submit-jobs}
 
-When you submit an LSF License Scheduler, you must reserve the license with resource usage (`rusage`) by running the command `run bsub -R "rusage"`
+When you submit an LSF License Scheduler, you must reserve the license with resource usage (`rusage`) by running the command `run bsub -R "rusage"`.
 
 1. The following command submits a job named **myjob** to license project Lp1 and requests one AppB license:
 
