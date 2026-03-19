@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-19"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,12 +24,12 @@ subcollection: hpc-ibm-spectrumlsf
 # About LSF License Scheduler
 {: #license-scheduler-overview}
 
-{{site.data.keyword.spectrum_full}} License Scheduler enables shared use of licenses, offering significant advantages in both productivity and cost efficiency.
+{{site.data.keyword.spectrum_full}} License Scheduler enables shared use of licenses, offering significant advantages in both productivity and license allocation.
 
 ## Key features
 {: #key-features}
 
-* **Simplify license sharing:** License Scheduler makes it easy to share licenses across clusters and projects. It helps you assign and track license usage so that unused licenses can be shared, yet ensuring they are instantly available when required.
+* **Simplify license sharing:** License Scheduler makes it easy to share licenses across clusters and projects. It helps you monitor and track license usage so that unused licenses can be shared effectively.
 
 * **Ensure accurate license allocation:** License Scheduler provides flexible, hierarchical sharing policies based on business needs.
 
@@ -48,17 +48,20 @@ The Basic Edition of LSF License Scheduler does not manage policies for sharing 
 ### Standard Edition
 {: #std-edition}
 
-The Standard Edition of LSF License Scheduler not only includes cluster‑mode features for a single cluster, but also delivers the full set of LSF License Scheduler capabilities. This includes support for all (**cluster and project mode**), all available features, and full support for the Service domain.
+The Standard Edition of LSF License Scheduler not only includes cluster‑mode features for a single cluster, but also delivers the full set of LSF License Scheduler capabilities. This includes support for all (**cluster and project mode**), all available features, and full support for the Service domain. By default, standard edition is supported.
 
-Each license feature can operate in either cluster mode or project mode, but not both.
+Each license feature can use either cluster mode or project mode, but not both. All licenses required for a job must be of the same mode.
 {: important}
 
-By default, the system is configured to use cluster mode. Users can modify the `sf.licensescheduler` file to switch to project mode.
+By default, the system is configured to use cluster mode. Users can modify the `lsf.licensescheduler` file to switch to project mode.
 {: note}
 
 ## Workflow
 {: #lsf-sch-workflow}
 
 The LSF License Scheduler manages license tokens, ensuring jobs start only when a token is available. The number of tokens matches the licenses on the server, preventing over‑allocation. When a job starts, the application is unaware of the **License Scheduler** and performs license checkout from the license server as usual.
+
+Each license token represents one actual license.
+{: note}
 
 ![LSF License Scheduler Flowchart](images/LSF-scheduler-flowchart.svg "LSF License Scheduler Flowchart"){: caption="LSF License Scheduler Flowchart" caption-side="bottom"}
