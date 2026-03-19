@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-19"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -52,6 +52,9 @@ Support for LSF License Scheduler
 
 Observability modules
 :   The observability modules have been updated to the latest version.
+
+FP14 is no longer supported
+:   In the current release, the solution does not support Fix Pack 14 (FP14), even though it was included as a supported feature in previous release.
 
 ## January 2026
 {: #subcollection-jan26}
