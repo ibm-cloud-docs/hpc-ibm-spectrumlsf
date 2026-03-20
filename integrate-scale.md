@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-13"
+lastupdated: "2026-03-06"
 
 keywords: storage scale, spectrum lsf, integration
 subcollection: hpc-ibm-spectrumlsf
@@ -40,7 +40,7 @@ Refer to the [{{site.data.keyword.scale_short}} documentation](/docs/storage-sca
 
 When you create this workspace during {{site.data.keyword.scale_short}} cluster deployment:
 1. Select the latest product version.
-2. [Configure CES deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication) for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
+2. Configure CES deployment values for your {{site.data.keyword.scale_short}} cluster by enabling the CES feature:
 * Update the `protocol_instances` deployment value to be greater than or equal to **2** for high availability.
 * Configure the necessary NFS mount points by updating the `filesets` value. This configuration creates independent file sets that act as NFS mount points for your {{site.data.keyword.spectrum_full}} cluster.
 * Once the Scale cluster is successfully created, login to the CES node to run the following command.

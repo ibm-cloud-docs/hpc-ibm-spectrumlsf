@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-06-19"
+  years: 2026
+lastupdated: "2026-03-17"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -13,18 +13,15 @@ subcollection: hpc-ibm-spectrumlsf
 
 ---
 
-{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:screen: .screen}
+{:external: target="_blank" .external}
+{:pre: .pre}
 {:tip: .tip}
-{:download: .download}
-{:important: .important}
 {:note: .note}
-{:new_window: target="_blank"}
-{:step: data-tutorial-type='step'}
+{:important: .important}
+{:table: .aria-labeledby="caption"}
 
 # Setting up an IBM Spectrum LSF cluster
 {: #using-hpc-cluster}
@@ -94,7 +91,7 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
     ![HPC Cluster solution page](images/hpc_catalog.png){: caption="HPC cluster solution page"}
 
-2. In the **Set the deployment values** section, supply the required values: `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `lsf_version`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
+2. In the **Set the deployment values** section, supply the required values: `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
 
 3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
 

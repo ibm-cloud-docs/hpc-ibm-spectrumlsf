@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-27"
+  years: 2026
+lastupdated: "2026-03-20"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -31,24 +31,24 @@ The LSF Pay-As-You-Go images are prebuilt virtual machine images available throu
 
 Following are the key aspects of LSF PayGo model:
 
-1. Prelicensed and Metered
+1. **Prelicensed and Metered**
 
     * The licensing is integrated into the PAYGo image.
     * Billing is automatically managed through IBM Cloud metering.
     * Charges are based on number of vCPU hours consumed.
 
-2. Quick deployment
+2. **Quick deployment**
 
     * PAYGo images are available directly in IBM Cloud.
     * Users can deploy the LSF clusters within minutes.
     * PAYGo images are used for management and compute nodes.
 
-3. Simplified maintenance
+3. **Simplified maintenance**
 
     * The images are maintained, patched, and updated by the IBM team.
     * Users benefit from secure, tested, and up-to-date LSF versions.
 
-4. Flexible scaling
+4. **Flexible scaling**
 
     Ideal for dynamic and burst workloads with fluctuating compute demands.
 
@@ -82,12 +82,12 @@ Following are the features of LSF PayGo images:
 ### **PAYGo configuration variable**
 {: #paygo-config-variable}
 
-A new configuration variable `lsf_pay_per_use` is introduced as part of this design.
+A new configuration variable `enable_lsf_pay_per_use` is introduced as part of this design.
 
 | Variable | Value | Description |
 | ----- | ----------- | --------------- |
-| `lsf_pay_per_use` | true (default) | Enables PAYGo billing and uses prebuilt images. Bring Your Own Image (BYOI) is not supported. Only LSF FP15 images are compatible. |
-| `lsf_pay_per_use` | false | Disables PAYGo billing and allows BYOI and custom images. No pay-per-use charges apply. |
+| `enable_lsf_pay_per_use` | true (default) | Enables PAYGo billing and uses prebuilt images. Bring Your Own Image (BYOI) is not supported. Only LSF FP15 images are compatible. |
+| `enable_lsf_pay_per_use` | false | Disables PAYGo billing and allows BYOI and custom images. No pay-per-use charges apply. |
 {: caption="PAYGo configuration variable" caption-side="bottom"}
 
 The costs is based on:
@@ -100,10 +100,10 @@ The costs is based on:
 When the PAYGo feature is enabled (default setting), then:
 * Automation provisions all the nodes by using the PAYGo image.
 * Dynamic node provisioning is integrated through the LSF Resource Connector.
-* Only LSF FP15 images are supported; FP14 or earlier are not compatible.
+* LSF FP15 images are supported.
 * BYOI is not supported.
 
-## Use case 2: PAYGo mode disabled (lsf_pay_per_use = false)
+## Use case 2: PAYGo disabled (lsf_pay_per_use = false)
 {: #payg-usecase2}
 
 When the PAYGo feature is disabled, then:
@@ -133,5 +133,5 @@ To view the billing details, do the following:
 1. Navigate to **Billing and Usage**.
 2. Click **Usage** on the left side.
 3. Search for **LSF Pay per Use** under the **Usage** list.
-4. Click **View Plans** and select **Spectrum LSF Pay per Use** and choose **View Details**.
-5. Select the desired month to view usage and pricing.
+4. Select the required plan - **LSF Pay per use non-HT** or **Spectrum LSF Pay per use**.
+6. Click **View Details** against the required plan.

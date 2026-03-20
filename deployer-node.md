@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-06-26"
+  years: 2026
+lastupdated: "2026-02-06"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -68,7 +68,7 @@ This hybrid model improves modularity, enhances user control, and ensures a tran
 ## Software deployment and management
 {: #lsf-sw-mgmt-dn}
 
-All the deployments in this solution leverage the LSF Enterprise Suite, supporting both Fix Pack 14 and Fix Pack 15. The relevant Ansible playbooks tailored for the specific fix pack version, are stored on the deployer node. This ensures consistency and reliability in the deployment process.
+All the deployments in this solution leverage the LSF Enterprise Suite, supporting Fix Pack 15. The relevant Ansible playbooks tailored for the specific fix pack version, are stored on the deployer node. This ensures consistency and reliability in the deployment process.
 
 **Additionally:**
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-08-13"
+  years: 2026
+lastupdated: "2026-02-06"
 
 keywords: lsf, deploy
 deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPUlCTSUyNTIwU3BlY3RydW0lMjUyMExTRiNzZWFyY2hfcmVzdWx0cw%3D%3D
@@ -64,7 +64,7 @@ You can deploy your {{site.data.keyword.spectrum_full}} cluster by using the {{s
         * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.spectrum_full}} cluster to fulfill the `ibmcloud_api_key` input variable.
         * **Security and compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.spectrum_full}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
 
-    * In the **Required** tab, specify the deployment values for the mandatory input variables: `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `lsf_version`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
+    * In the **Required** tab, specify the deployment values for the mandatory input variables: `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
 
     For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the LSF cluster by using {{site.data.keyword.spectrum_full_notm}}.
 

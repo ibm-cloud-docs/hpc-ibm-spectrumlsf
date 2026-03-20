@@ -1,17 +1,14 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-13"
+  years: 2026
+lastupdated: "2026-02-25"
 
 keywords:
 
 subcollection: hpc-ibm-spectrumlsf
-completion-time: 1h
-use-case: ITServiceManagement
-industry: Technology
 content-type: tutorial
-deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-lsf-1444e20a-af22-40d1-af98-c880918849cb-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjaGlnaGxpZ2h0cw%3D%3D
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -27,10 +24,7 @@ deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-hpc-l
 
 # Before you begin deploying
 {: #getting-started-tutorial}
-{: toc-completion-time="1h"}
 {: toc-content-type="tutorial"}
-{: toc-industry="Technology"}
-{: toc-use-case="ITServiceManagement"}
 
 {{site.data.keyword.spectrum_full}} allows users to deploy HPC clusters with LSF as the scheduling software, leveraging Terraform and IBM Cloud Schematics for automation.
 
@@ -133,7 +127,7 @@ To view access policies, complete the following steps:
 ## Gather LSF entitlement information
 {: #gather-lsf-entitlement-information}
 
-The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.spectrum_short}} when you deploy an LSF cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.spectrum_full_notm}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
+The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.spectrum_short}} when you deploy an LSF cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.spectrum_full_notm}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/licensing){: external}.
 
 The current solution no longer requires `ibm_customer_number`(ICN) for entitlement check before deploying the solution for non-production use. The solution is now available for use without ICN validation. Users can provision up to a maximum of 10 static worker nodes for evaluation or non-production use cases. If the number of worker nodes exceeds 10, it becomes the user responsibility to obtain the necessary entitlement check and licensing for those additional nodes in the production environment. For production use or for evaluating greater than 10 worker nodes, the user must purchase the necessary LSF licenses. To purchase the license, go to [Purchasing licenses](https://www.ibm.com/docs/en/devops-test-embedded/9.0.0?topic=licenses-purchasing).
 {: important}
@@ -165,18 +159,11 @@ If this field is left empty (for example, [""]) or not provided, then the cluste
 
 For more information on mandatory and optional deployment values, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values) topic.
 
-## Support for lsf_version
-{: #lsf-version}
-{: step}
-
-IBM Spectrum LSF currently supports both Fix Pack 14 (FP14) and Fix Pack 15 (FP15). `lsf_version` is the value required for this variable.
-By default, the IBM Spectrum LSF solution now ships with Fix Pack 15 (FP15) to provide users with the most up-to-date features and support. For more information, see [Fix Pack 15](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-fixpack).
-
 ## Application center password
 {: #app-center}
 {: step}
 
-For both FP14 and FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
+For FP15, Application Center is enabled by default to support job submission, workflow management, and monitoring.
 To access the GUI, a valid password must be provided. If an appropriate password is not specified, the deployment fails. `app_center_gui_password` is the value required for this variable.
 
 ## Enabling optional values

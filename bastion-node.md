@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-06-27"
+  years: 2026
+lastupdated: "2026-03-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -36,8 +36,8 @@ It is not required to create a bastion node for every new deployment. If an exis
 ## Bastion node usage
 {: #bastion-node-usage}
 
-1. Enable bastion node through Architectural Design - The solution provisions a bastion node by default to secure access to cluster nodes.
-2. Support for existing bastion setup - Users can leverage an existing bastion node instead of creating a new one, providing flexibility and continuity in secure cluster access.
+1. **Enable bastion node through Architectural Design** - The solution provisions a bastion node by default to secure access to cluster nodes.
+2. **Support for existing bastion setup** - Users can leverage an existing bastion node instead of creating a new one, providing flexibility and continuity in secure cluster access.
 
 ## Default bastion node support
 {: #bastion-node-support}
@@ -46,7 +46,7 @@ The LSF solution supports the creation of a bastion node by default for each ind
 
 As part of the VPC design, a dedicated subnet is created specifically for the bastion node. Also, a dedicated security group is assigned to the bastion node, which is configured to allow SSH access for secure connectivity to the cluster nodes. Internal automation ensures seamless communication between the bastion node (jump host) and the cluster nodes.
 
-To trigger the creation of a bastion node for a fresh deployment, set the variable `bastion_instance_name` to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
+To trigger the creation of a bastion node for a fresh deployment, set the variable `existing_bastion_instance_name` to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
 
 Newly created bastion nodes are not automatically registered in the DNS domain for name resolution. As a result, access to these nodes can only be performed by using their IP addresses.
 {: note}
@@ -78,3 +78,6 @@ Failing to provide a correct security group ID or leaving the value as empty, th
 By providing these details, the LSF cluster can be configured to use the existing bastion node, enabling secure access and efficient management.
 
 This approach ensures a seamless and secure solution either by using a newly created or existing bastion node.
+
+## Architecture Overview
+{: #architecture-overview}

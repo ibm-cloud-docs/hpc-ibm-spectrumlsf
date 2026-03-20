@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-07-02"
+  years: 2026
+lastupdated: "2026-03-20"
 
 keywords:
 
@@ -52,13 +52,13 @@ In addition to rules, behavioral analysis allows detection of common threats and
 
 The following new variables are introduced for SCC Workload Protection:
 
-* `sccwp_enable`: To create the SCC Workload Protection, set the value to "true". By default, this value is set as true. If you set the value as "false" the SCC Workload Protection will not be created.
+* `enable_sccwp`: To create the SCC Workload Protection, set the value to "true". By default, this value is set as true. If you set the value as "false" the SCC Workload Protection will not be created.
 
 * `sccwp_service_plan`: This is used to enable the service plan for SCC Workload Protection. Valid values are free-trial and graduated-tier only.
 
-* `cspm_enabled`: The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled.
+* `enable_cspm`: The default value for `enable_cspm` is set to "true". It is recommended to keep this setting enabled.
 
-The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `cspm_enabled` is set to "false", no data will be visible on the dashboard.
+The default value for `enable_cspm` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `enable_cspm` is set to "false", no data will be visible on the dashboard.
 {: note}
 
 * `app_config_plan`: Specify the IBM service pricing plan for the application. Allowed values are 'basic', 'lite', 'standard', 'enterprise'.
@@ -78,7 +78,7 @@ When you access the UI for the service, all the above mentioned pillars are cove
 
     ![SCC Compliance](images/compliance_scc.png "SCC Compliance"){: caption="SCC Compliance" caption-side="bottom"}
 
-3. When the `cspm_enabled` is enabled, the configuration aggregator records the data from all the resources across regions in your account. You can also choose the specific plan under `app_config_plan` as shown below:
+3. When the `enable_cspm` is enabled, the configuration aggregator records the data from all the resources across regions in your account. You can also choose the specific plan under `app_config_plan` as shown below:
 
     ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
