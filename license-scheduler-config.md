@@ -100,6 +100,7 @@ You must configure atleast one service domain for License Scheduler.
 2. Optionally, define an alias by setting:
 
     a. `LM_LICENSE_NAME` to the license‑manager feature name and
+
     b. `NAME` to the LSF License Scheduler feature name
 
 3. `LM_LICENSE_NAME` is mandatory if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
@@ -139,6 +140,7 @@ CLUSTER_DISTRIBUTION=service_domain(cluster_name share)
 3. Optionally, define an alias by setting:
 
     a. `LM_LICENSE_NAME` to the license‑manager feature name and
+
     b. `NAME` to the LSF License Scheduler feature name
 
 4. `LM_LICENSE_NAME` is mandatory if the token name differs from the license‑manager feature name, or if the feature name starts with a number or contains a hyphen (‑), which are not supported in LSF.
