@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -165,7 +165,7 @@ Once you make the configuration changes, you must reconfigure License Scheduler 
 1. Run `bld -C` - to test for configuration errors.
 2. Run `bladmin reconfig` - reconfigures LSF License Scheduler.
 3. Run `badmin mbdrestart` - restarts the mbatchd daemon.
-4. Run `runlsadmin reconfig` - reconfigure the LIM.
+4. Run `lsadmin reconfig` - reconfigure the LIM.
 
 ## Submitting License Scheduler jobs
 {: #submit-jobs}
