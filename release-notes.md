@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -56,14 +56,8 @@ Observability modules
 FP14 is no longer supported
 :   In the current release, the solution does not support Fix Pack 14 (FP14), even though it was included as a supported feature in previous release.
 
-## January 2026
-{: #subcollection-jan26}
-
-### 16 January 2026
-{: #subcollection-jan1626}
-{: release-note}
-
-In compliance with IBMs SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
+SSH keys authorized only for Linux default user accounts
+:   In compliance with IBMs SSH policy, automation disables root user access on all newly provisioned instances. Therefore, customers are required to access instances using the `lsfadmin` account as root login is not permitted.
 
 ## November 2025
 {: #subcollection-nov25}

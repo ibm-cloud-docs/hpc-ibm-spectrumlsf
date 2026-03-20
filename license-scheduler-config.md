@@ -24,11 +24,11 @@ subcollection: hpc-ibm-spectrumlsf
 # Configuring License Scheduler
 {: #config-cluster-mode}
 
+Configuring the License Scheduler helps automate and optimize how licenses are allocated across your system.
+
 The `enable_license_scheduler` variable determines whether the License Scheduler is enabled for the cluster. When set to true, the License Scheduler batch daemon (`bld`) runs on management node 2.
-
 You can verify if the daemon is active by running the command `ps -ef | grep bld` on that node.
-
-The `lsf.licensescheduler` file contains IBM® Spectrum LSF License Scheduler configuration information which is present in /opt/ibm/lsf/confdirectory.
+The `lsf.licensescheduler` file contains {{site.data.keyword.spectrum_full}} License Scheduler configuration information which is present in **/opt/ibm/lsf/confdirectory**.
 
 ## Pre-requisites
 {: #pre-req}
@@ -48,7 +48,7 @@ The `lsf.licensescheduler` file contains IBM® Spectrum LSF License Scheduler co
 
 2. Specify the file paths to the license‑manager command.
 
-    a. If you are using **FlexNet**, specify the path to the `lmutil` (or `lmstat`) command.
+    a. If you are using **FlexNet**, specify the path to `lmutil` (or `lmstat`) command.
 
     For example, if lmstat is in `/etc/flexlm/bin`:
 
@@ -57,7 +57,7 @@ The `lsf.licensescheduler` file contains IBM® Spectrum LSF License Scheduler co
     ```
     {: codeblock}
 
-    b. If you are using **Reprise License Manager**, specify the path to the `rlmutil` (or `rlmstat`) command.
+    b. If you are using **Reprise License Manager**, specify the path to `rlmutil` (or `rlmstat`) command.
 
     For example, if the commands are in `/etc/rlm/bin`:
 
@@ -98,6 +98,7 @@ You must configure atleast one service domain for License Scheduler.
 1. Specify the feature name used by the license manager to identify the license type by setting the **NAME** parameter.
 
 2. Optionally, define an alias by setting:
+
     a. `LM_LICENSE_NAME` to the license‑manager feature name and
     b. `NAME` to the LSF License Scheduler feature name
 
@@ -112,7 +113,7 @@ You must configure atleast one service domain for License Scheduler.
     ```
     {: codeblock}
 
-4. Set the service domains in the Feature section using the command:
+4. Set the service domains in the feature section using the command:
 
 ```text
 CLUSTER_DISTRIBUTION=service_domain(cluster_name share)
@@ -136,6 +137,7 @@ CLUSTER_DISTRIBUTION=service_domain(cluster_name share)
 2. Specify the feature name used by the license manager to identify the license type by setting the **NAME** parameter.
 
 3. Optionally, define an alias by setting:
+
     a. `LM_LICENSE_NAME` to the license‑manager feature name and
     b. `NAME` to the LSF License Scheduler feature name
 
@@ -144,6 +146,7 @@ CLUSTER_DISTRIBUTION=service_domain(cluster_name share)
     **For example:**
 
     The license manager feature name **201-AppZ** is not supported in LSF because the feature name starts with a number and contains a hyphen. Therefore, define **AppZ201** as an alias of the 201-AppZ license manager feature name as follows:
+
     ```text
     NAME=AppZ201
     LM_LICENSE_NAME=201-AppZ
