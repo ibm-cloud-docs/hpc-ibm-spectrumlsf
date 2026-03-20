@@ -26,9 +26,10 @@ subcollection: hpc-ibm-spectrumlsf
 
 Configuring the License Scheduler helps automate and optimize how licenses are allocated across your system.
 
-The `enable_license_scheduler` variable determines whether the License Scheduler is enabled for the cluster. When set to true, the License Scheduler batch daemon (`bld`) runs on management node 2.
-You can verify if the daemon is active by running the command `ps -ef | grep bld` on that node.
-The `lsf.licensescheduler` file contains {{site.data.keyword.spectrum_full}} License Scheduler configuration information which is present in **/opt/ibm/lsf/confdirectory**.
+* The `enable_license_scheduler` variable determines whether the License Scheduler is enabled for the cluster.
+* When set to true, the License Scheduler batch daemon (`bld`) runs on management node 2.
+* You can verify if the daemon is active by running the command `ps -ef | grep bld` on that node.
+* The `lsf.licensescheduler` file contains {{site.data.keyword.spectrum_full}} License Scheduler configuration information which is present in **/opt/ibm/lsf/confdirectory**.
 
 ## Pre-requisites
 {: #pre-req}
@@ -44,7 +45,7 @@ The `lsf.licensescheduler` file contains {{site.data.keyword.spectrum_full}} Lic
 
 1. List the License Scheduler hosts.
 
-    By default, the daemon is running on **management node 2**. Users can add more nodes. The first listed node is the primary, and the remaining nodes act as secondary or backup hosts if the primary is unavailable.
+    By default, the daemon is running on **management node 2**. The first listed node is the primary, and the remaining nodes act as secondary or backup hosts if the primary is unavailable. User can add more nodes.
 
 2. Specify the file paths to the license‑manager command.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-03-20"
 
 keywords:
 
@@ -38,7 +38,7 @@ To create {{site.data.keyword.dns_full_notm}} DNS service instance setup and to 
 ### Creating DNS zones with an existing {{site.data.keyword.cloud_notm}} DNS services instance ID
 {: #dns-existing}
 
-If you have an existing VPC with {{site.data.keyword.cloud_notm}} DNS service instance ID, provide that service instance ID as the `dns_instance_id` deployment input value during {{site.data.keyword.spectrum_full}} cluster deployment. In this case, since you already have a DNS service instance ID to use, the {{site.data.keyword.cloud_notm}} cluster deployment skips creating a new DNS service instance, and creates new DNS zones from the `dns_domain_names` value for the existing DNS service instance. This process automatically associates the new DNS zones to your existing VPC under the permitted network.
+If you have an existing VPC with {{site.data.keyword.cloud_notm}} DNS service instance ID, provide that service instance ID as the `dns_instance_id` deployment input value during {{site.data.keyword.spectrum_full}} cluster deployment. In this case, since you already have a DNS service instance ID to use, the {{site.data.keyword.cloud_notm}} cluster deployment skips creating a new DNS service instance, and creates new DNS zones from the `dns_domain_name` value for the existing DNS service instance. This process automatically associates the new DNS zones to your existing VPC under the permitted network.
 
 Furthermore, if you have an existing {{site.data.keyword.cloud_notm}} DNS service instance setup, but want the {{site.data.keyword.spectrum_full}} deployment to create a new VPC for your {{site.data.keyword.spectrum_full}} cluster, provide the DNS instance ID under `dns_instance_id` and set the `vpc_name` value as "null” (default) during the deployment. This deployment creates a new VPC using your existing DNS service instance and creates new DNS zones. This process automatically associates the new VPC under the permitted network.
 

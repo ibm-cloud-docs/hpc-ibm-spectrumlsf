@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-20"
 
 keywords:
 
@@ -40,7 +40,7 @@ The same compute images are used across login nodes, static compute nodes, and d
 ## Post deployment validations
 {: #fixpack-validation}
 
-* If the deployment is done using the FP15 images, then you can see the lsid output as:
+If the deployment is done using the FP15 images, then you can see the lsid output as:
 
 ```pre
 [root@test-fi-mgmt-1-c613-001 ~]# lsid

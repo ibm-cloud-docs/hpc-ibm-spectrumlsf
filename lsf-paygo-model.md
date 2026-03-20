@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-20"
 
 keywords: lsf, pay-as-you-go
 subcollection: hpc-ibm-spectrumlsf
@@ -82,12 +82,12 @@ Following are the features of LSF PayGo images:
 ### **PAYGo configuration variable**
 {: #paygo-config-variable}
 
-A new configuration variable `lsf_pay_per_use` is introduced as part of this design.
+A new configuration variable `enable_lsf_pay_per_use` is introduced as part of this design.
 
 | Variable | Value | Description |
 | ----- | ----------- | --------------- |
-| `lsf_pay_per_use` | true (default) | Enables PAYGo billing and uses prebuilt images. Bring Your Own Image (BYOI) is not supported. Only LSF FP15 images are compatible. |
-| `lsf_pay_per_use` | false | Disables PAYGo billing and allows BYOI and custom images. No pay-per-use charges apply. |
+| `enable_lsf_pay_per_use` | true (default) | Enables PAYGo billing and uses prebuilt images. Bring Your Own Image (BYOI) is not supported. Only LSF FP15 images are compatible. |
+| `enable_lsf_pay_per_use` | false | Disables PAYGo billing and allows BYOI and custom images. No pay-per-use charges apply. |
 {: caption="PAYGo configuration variable" caption-side="bottom"}
 
 The costs is based on:

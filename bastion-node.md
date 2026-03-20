@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-20"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -46,7 +46,7 @@ The LSF solution supports the creation of a bastion node by default for each ind
 
 As part of the VPC design, a dedicated subnet is created specifically for the bastion node. Also, a dedicated security group is assigned to the bastion node, which is configured to allow SSH access for secure connectivity to the cluster nodes. Internal automation ensures seamless communication between the bastion node (jump host) and the cluster nodes.
 
-To trigger the creation of a bastion node for a fresh deployment, set the variable `bastion_instance_name` to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
+To trigger the creation of a bastion node for a fresh deployment, set the variable `existing_bastion_instance_name` to null. When this value is detected, automation processes are initiated to provision the bastion node, enabling access to other cluster nodes.
 
 Newly created bastion nodes are not automatically registered in the DNS domain for name resolution. As a result, access to these nodes can only be performed by using their IP addresses.
 {: note}
