@@ -207,39 +207,39 @@ When you submit an LSF License Scheduler, you must reserve the license with reso
 
 1. When the job has started and the token is reserved for job:
 
-```text
-[lsfadmin@management_node2 conf]$ blstat -t <token_name>
-FEATURE: <token_name>@<cluster_name>
-SERVICE_DOMAIN: <service_domain_name>
-TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 1  OTHERS: 0
-CLUSTER     SHARE   ALLOC   TARGET   INUSE    RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
-<cluster_name> 100.0%  10       10       0        1         0      1      -        9       0
-```
-{: codeblock}
+    ```text
+    [lsfadmin@management_node2 conf]$ blstat -t <token_name>
+    FEATURE: <token_name>@<cluster_name>
+    SERVICE_DOMAIN: <service_domain_name>
+    TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 1  OTHERS: 0
+    CLUSTER     SHARE   ALLOC   TARGET   INUSE    RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
+    <cluster_name> 100.0%  10       10       0        1         0      1      -        9       0
+    ```
+    {: codeblock}
 
 2. When the job is using the license token:
 
-```text
-[lsfadmin@management_node2 conf]$ blstat -t <token_name>
-FEATURE: <token_name>@<cluster_name>
-SERVICE_DOMAIN: <service_domain_name>
-TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 1  OTHERS: 0
-CLUSTER      SHARE   ALLOC   TARGET   INUSE   RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
-<cluster_name> 100.0%   10       10       1        0        0      1       -       9       0
-```
-{: codeblock}
+    ```text
+    [lsfadmin@management_node2 conf]$ blstat -t <token_name>
+    FEATURE: <token_name>@<cluster_name>
+    SERVICE_DOMAIN: <service_domain_name>
+    TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 1  OTHERS: 0
+    CLUSTER      SHARE   ALLOC   TARGET   INUSE   RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
+    <cluster_name> 100.0%   10       10       1        0        0      1       -       9       0
+    ```
+    {: codeblock}
 
 3. If a job is requesting for a token but all tokens are reserved:
 
-```text
-[lsfadmin@management_node2 conf]$ blstat -t <token_name>
-FEATURE: <token_name>@<cluster_name>
-SERVICE_DOMAIN: <service_domain_name>
-TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 10  OTHERS: 0
-CLUSTER      SHARE   ALLOC   TARGET   INUSE   RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
-<cluster_name> 100.0%   10       10       0       10        0     10       -       0       1
-```
-{: codeblock}
+    ```text
+    [lsfadmin@management_node2 conf]$ blstat -t <token_name>
+    FEATURE: <token_name>@<cluster_name>
+    SERVICE_DOMAIN: <service_domain_name>
+    TOTAL_TOKENS: 10  TOTAL_ALLOC: 10  TOTAL_USE: 10  OTHERS: 0
+    CLUSTER      SHARE   ALLOC   TARGET   INUSE   RESERVE   OVER   PEAK   BUFFER   FREE   DEMAND
+    <cluster_name> 100.0%   10       10       0       10        0     10       -       0       1
+    ```
+    {: codeblock}
 
 If an ldap user is present, then user can run jobs as ldap user also.
 {: note}
