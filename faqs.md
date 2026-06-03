@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-06-03"
 
 keywords:
 
@@ -27,8 +27,21 @@ content-type: faq
 
 This document provides a list of frequently asked questions and answers about a specific topic for {{site.data.keyword.spectrum_full_notm}}.
 
-## Release FAQs - March 20
+## Release FAQs - June 19
 {: #current-release}
+
+### What new capability is being introduced to the IBM Spectrum LSF solution in the upcoming release?
+{: #release-faq1}
+
+In the upcoming quarterly release, we are introducing support for bare metal infrastructure provisioning for compute nodes, enhancing the existing IBM Spectrum LSF solution we have been supporting for several years.
+
+### What enhancement has been made to the platform in the latest release?
+{: #release-faq2}
+
+ Previously, the platform supported only Virtual Server Instances (VSI). With this release, it now supports both Bare metal and VSI environments.
+
+## General
+{: #generic-faqs}
 
 ### What enhancements does this release bring to the solution?
 {: #release-faq}
@@ -60,9 +73,6 @@ The LSF solution has been reverted to use the IBM Standard Edition software, as 
 {: #license-scheduler}
 
 The LSF License Scheduler manages license tokens instead of controlling the licenses directly.Using LSF License Scheduler, jobs obtain a license token before the application starts.
-
-## General
-{: #generic-faqs}
 
 ### **Why does provisioning an instance with Gaudi 3 profiles take a long time?**
 {: #faq0}

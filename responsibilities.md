@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-06-03"
 
 keywords:
 
@@ -104,8 +104,8 @@ IBM is responsible for the security and compliance of HPC Clusters on IBM Cloud.
 |----------|-----------------------|--------|
 |General| Provide security controls commensurate to best practice for {{site.data.keyword.spectrum_full_notm}} in Cloud.|
 |Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
-|Management nodes|  | As part of your incident and operations management responsibilities for the management nodes, apply the provided security patch updates. |
-|Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. |
+|Management nodes|  | \n * As part of your incident and operations management responsibilities for the management nodes, apply the provided security patch updates. \n * You are responsible for maintaining the security posture of the cluster by applying the latest software fixes and security patches available through **IBM Fix Central**. This includes downloading and installing the latest supported updates on the cluster management and compute nodes as part of their regular operational maintenance activities. |
+|Compute nodes| \n * Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. \n * You are responsible for maintaining the security posture of the cluster by applying the latest software fixes and security patches available through **IBM Fix Central**. This includes downloading and installing the latest supported updates on the cluster management and compute nodes as part of their regular operational maintenance activities. |
 |SSH key rotation| The automation picks up the customer provided SSH keys and pass it for the instance provisoning. It is not IBM responsibility to rotate the SSH keys. | Since it is customer-managed SSH keys and IBM do not have access to the customer account, it is the users responsibility to ensure that the keys are rotated or updated based on the requirement. In case the SSH keys are incorrect then user will not be able to access the cluster. Ensure that the keys are updated on the existing clusters before or after the rotation. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-06-03"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -27,6 +27,17 @@ The release notes describes the brief overview of the new features, enhancements
 {: shortdesc}
 
 **For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.1**
+
+## June 2026
+{: #subcollection-june26}
+
+### 19 June 2026
+{: #subcollection-june2026}
+{: release-note}
+
+Currently, we have "IBM Spectrum LSF" solution which we have been supporting from a few years. As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes. 
+
+Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers.
 
 ## March 2026
 {: #subcollection-mar26}
