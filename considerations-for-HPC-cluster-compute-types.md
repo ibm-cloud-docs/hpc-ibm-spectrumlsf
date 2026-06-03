@@ -25,9 +25,7 @@ subcollection: hpc-ibm-spectrumlsf
 The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profile such as **hx4da-248x680** which is available only in **Dalas** region and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 {: note}
 
-As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes. 
-
-Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers.
+As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes. Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers.
 
 High-performance computing (HPC) workloads exhibit diverse requirements across CPU, memory, network, and storage resources. These include:
 

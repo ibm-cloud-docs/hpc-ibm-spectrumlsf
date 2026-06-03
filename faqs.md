@@ -38,7 +38,7 @@ In the upcoming quarterly release, we are introducing support for bare metal inf
 ### What enhancement has been made to the platform in the latest release?
 {: #release-faq2}
 
- Previously, the platform supported only Virtual Server Instances (VSI). With this release, it now supports both Bare metal and VSI environments.
+Previously, the platform supported only Virtual Server Instances (VSI). With this release, it now supports both Bare metal and VSI environments.
 
 ## General
 {: #generic-faqs}
