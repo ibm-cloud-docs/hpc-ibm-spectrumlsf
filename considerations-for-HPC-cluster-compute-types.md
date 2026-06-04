@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Considerations for HPC cluster compute types
 {: #considerations-for-HPC-custer-compute-types}
 
-As part of our upcoming quarterly release, **Bare metal infrastructure provisioning** for our compute nodes is supported.Previously, our platform supported only Virtual Server Instances (VSI). With this release, both Bare metal and VSI environments are supported, providing greater flexibility for our customers. Granite Rapids (Gen 4) profiles are supported as part of this as well.
+As part of our upcoming quarterly release, **Bare metal infrastructure provisioning** for our compute nodes is supported.Previously, our platform supported only Virtual Server Instances (VSI). With this release, both Bare metal and VSI environments are supported, providing greater flexibility for our customers. Support for Granite Rapids (Gen 4) profiles is also included.
 {: note}
 
 The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
