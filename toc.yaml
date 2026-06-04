@@ -25,6 +25,7 @@ toc:
       - enable-vpn.md
       - dns-service-instances.md
       - key-protect-encrypyption-keys.md
+      - spot-instances.md
       - fixpack-support.md
       - bastion-node.md
       - deployer-node.md
