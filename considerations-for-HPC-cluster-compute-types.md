@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-04"
 
 keywords:
 
@@ -22,10 +22,10 @@ subcollection: hpc-ibm-spectrumlsf
 # Considerations for HPC cluster compute types
 {: #considerations-for-HPC-custer-compute-types}
 
-The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. Users can select AMD-based profile such as **hx4da-248x680** which is available only in **Dalas** region and Gaudi3 profile **gx3d-160x1792x8gaudi3** which are available only on **Dalas/Washington DC** and **Frankfurt** regions. Based on the selected compute profile, the system will automatically provision the corresponding virtual server instance. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+As part of our upcoming quarterly release, **Bare metal infrastructure provisioning** for our compute nodes is supported.Previously, our platform supported only Virtual Server Instances (VSI). With this release, both Bare metal and VSI environments are supported, providing greater flexibility for our customers. Granite Rapids (Gen 4) profiles are supported as part of this as well.
 {: note}
 
-As part of our upcoming quarterly release, **Bare metal infrastructure provisioning** for our compute nodes is supported. Previously, our platform supported only Virtual Server Instances (VSI). With this release, both Bare metal and VSI environments are supported, providing greater flexibility for our customers.
+The solution already supported Intel, but with this release AMD profiles and Gaudi3 profiles are also supported. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 High-performance computing (HPC) workloads exhibit diverse requirements across CPU, memory, network, and storage resources. These include:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-04"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -37,7 +37,7 @@ The release notes describes the brief overview of the new features, enhancements
 
 Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release, we are now introducing support for **Bare metal infrastructure provisioning** for our compute nodes. 
 
-Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers.
+Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. Granite Rapids (Gen 4) profiles are supported as part of this as well.
 
 ## March 2026
 {: #subcollection-mar26}
