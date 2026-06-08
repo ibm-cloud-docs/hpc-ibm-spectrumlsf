@@ -80,31 +80,6 @@ dynamic_compute_instances = [{
 ```
 {: codeblock}
 
-## What happens to a job if the {{site.data.keyword.cloud_notm}} reclaims the server while it is still running?
-{: #job-reclaim}
-
-Spot instances can be reclaimed by {{site.data.keyword.cloud_notm}} when the underlying compute capacity is required for other workloads. During a reclamation event:
-
-1. {{site.data.keyword.cloud_notm}} sends a reclamation notification and the operating system receives a shutdown signal.
-2. A **systemd** service automatically invokes the shutdown script located at `/usr/local/bin/ibm-cloud-shutdown-script.sh` on the spot instance.
-3. The shutdown script prevents the node from accepting new workload execution requests while allowing currently running jobs to continue execution during the shutdown grace period.
-4. After the script runs, the node status is updated to `closed_Adm`, preventing any additional jobs from being scheduled on the node.
-5. If the Spot instance is reclaimed before a running job completes, the job is interrupted and fails unless the workload or application provides its own checkpointing, restart, or recovery mechanism.
-6. To maintain cluster capacity, the Resource Connector can automatically provision replacement compute nodes and make them available for future workload execution.
-
-The following example shows a compute node in the `closed_Adm` state after a reclamation event:
-
-```text
-[lsfadmin@test-spot-10-241-0-12 ~]$ bhosts -w
-HOST_NAME                     STATUS             JL/U    MAX    NJOBS    RUN  SSUSP  USUSP    RSV
-test-spot-10-241-0-12       closed_Adm             -      1        0      0      0      0      0
-test-spot-comp-1-7a82-001       ok                 -      2        0      0      0      0      0
-test-spot-mgmt-1-7a82-001   closed_Full            -      0        0      0      0      0      0
-test-spot-mgmt-1-7a82-002   closed_Full            -      0        0      0      0      0      0
-[lsfadmin@test-spot-10-241-0-12 ~]$
-```text
-{: codeblock}
-
 ## What happens to the data on a Spot instance when it is reclaimed by {{site.data.keyword.cloud_notm}}?
 {: #data-si}
 
@@ -166,3 +141,30 @@ In the `extensions` section, set the `preemption` value to `stop`:
 {: codeblock}
 
 After updating the configuration, newly provisioned Spot instances will use the specified preemption policy.
+
+## What happens to a job if the {{site.data.keyword.cloud_notm}} reclaims the server while it is still running?
+{: #job-reclaim}
+
+Spot instances can be reclaimed by {{site.data.keyword.cloud_notm}} when the underlying compute capacity is required for other workloads. 
+
+During a reclamation event:
+
+1. {{site.data.keyword.cloud_notm}} sends a reclamation notification and the operating system receives a shutdown signal.
+2. A **systemd** service automatically invokes the shutdown script located at `/usr/local/bin/ibm-cloud-shutdown-script.sh` on the spot instance.
+3. The shutdown script prevents the node from accepting new workload execution requests while allowing currently running jobs to continue execution during the shutdown grace period.
+4. After the script runs, the node status is updated to `closed_Adm`, preventing any additional jobs from being scheduled on the node.
+5. If the Spot instance is reclaimed before a running job completes, the job is interrupted and fails unless the workload or application provides its own checkpointing, restart, or recovery mechanism.
+6. To maintain cluster capacity, the Resource Connector can automatically provision replacement compute nodes and make them available for future workload execution.
+
+The following example shows a compute node in the `closed_Adm` state after a reclamation event:
+
+```text
+[lsfadmin@test-spot-10-241-0-12 ~]$ bhosts -w
+HOST_NAME                     STATUS             JL/U    MAX    NJOBS    RUN  SSUSP  USUSP    RSV
+test-spot-10-241-0-12       closed_Adm             -      1        0      0      0      0      0
+test-spot-comp-1-7a82-001       ok                 -      2        0      0      0      0      0
+test-spot-mgmt-1-7a82-001   closed_Full            -      0        0      0      0      0      0
+test-spot-mgmt-1-7a82-002   closed_Full            -      0        0      0      0      0      0
+[lsfadmin@test-spot-10-241-0-12 ~]$
+```text
+{: codeblock}
