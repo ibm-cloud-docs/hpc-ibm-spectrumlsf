@@ -113,7 +113,7 @@ When the preemption policy is set to **delete**:
 
 By default, the cluster uses the delete preemption policy.
 
-This configuration is recommended because {{site.data.keyword.spectrum_full_notm}} stores application data, user home directories, and job-related files on a shared file system that is accessible from all cluster nodes. As a result, compute nodes are treated as disposable resources, and retaining reclaimed instances is typically unnecessary. Using the delete policy also helps avoid ongoing storage charges for stopped instances.
+This configuration is recommended because {{site.data.keyword.spectrum_full_notm}} stores application data, and job-related files on a shared file system that is accessible from all cluster nodes. As a result, compute nodes are treated as disposable resources, and retaining reclaimed instances is typically unnecessary. Using the delete policy also helps avoid ongoing storage charges for stopped instances.
 
 ### **Changing the Preemption Policy**
 {: #si-changing-pp}
