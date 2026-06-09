@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-08"
+lastupdated: "2026-06-09"
 
 keywords:
 
@@ -97,15 +97,15 @@ When the preemption policy is set to **stop**:
 * Storage charges continue to apply while the instance remains stopped.
 * The instance can be restarted later if Spot capacity becomes available.
 
-This option is suitable when local instance data must be retained after a reclamation event.
+This option is suitable when the data stored on the VSI boot volume must be retained after a reclamation event.
 
 ### **Delete**
 {: #delete}
 
 When the preemption policy is set to **delete**:
 
-* The instance and its associated local resources are permanently removed when reclaimed.
-* Any data stored only on the instance's local storage is lost.
+* The VSI and its associated boot volume are permanently removed when reclaimed.
+* Any data stored only on the VSI boot volume is lost.
 * A replacement compute node is automatically provisioned when additional cluster capacity is required.
 
 ### **Default configuration**
@@ -166,5 +166,5 @@ test-spot-comp-1-7a82-001       ok                 -      2        0      0     
 test-spot-mgmt-1-7a82-001   closed_Full            -      0        0      0      0      0      0
 test-spot-mgmt-1-7a82-002   closed_Full            -      0        0      0      0      0      0
 [lsfadmin@test-spot-10-241-0-12 ~]$
-```text
+```
 {: codeblock}
