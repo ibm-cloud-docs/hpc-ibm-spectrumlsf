@@ -58,7 +58,7 @@ The boot volume (default: SDP profile) supports expansion up to **250 GB**. For 
 When specifying for a general-purpose profile, the `boot_volume_iops`, should either be 0 or null. IOPS settings are not supported for general-purpose volumes.
 For example, if the value is not set to 0 or null, the following error message occurs:
 
-```pre
+```text
 Invalid volume_storages configuration:
     - You can provide only block, or both sections.
     - If boot_volume_profile = "sdp":
@@ -70,6 +70,7 @@ Invalid volume_storages configuration:
 
 This was checked by the validation rule at variables.tf:1186,3-13.
 ```
+{: codeblock}
 
 ### Steps to expand an attached boot volume manually
 {: #boot-steps}
@@ -153,7 +154,7 @@ You can perform the steps manually or using CLI, but the recommended way is usin
 
 To enable the SDP on a LSF cluster, the following variables need to be defined:
 
-### login_instance
+### **login_instance**
 {: #login}
 
 In this variable, you can specify the login node configuration, including the instance profile, image name, and any optional boot volume settings.
@@ -241,7 +242,7 @@ login_instance = [
 ```
 {: codeblock}
 
-### management_instances
+### **management_instances**
 {: #mgmt}
 
 In this variable, you can specify the list of management node configurations, including instance profile, image name, instance count, and optional boot volume settings.
@@ -299,8 +300,7 @@ Following are the validation rules for `management_instances`:
     - `iops` is optional and must be between 3000 and 64000 or null.
     - `bandwidth` is optional and must be between 1000 and 8192 Mbps or null.
 
-
-**Default Configuration:**
+**Default Configuration**
 
 ```text
 management_instances = [
@@ -340,7 +340,7 @@ management_instances = [
 ```
 {: codeblock}
 
-### static_compute_instances
+### **static_compute_instances**
 {: #static}
 
 Specify the list of static compute node configurations, including instance profile, image name, instance count, and optional boot volume settings.
@@ -368,7 +368,6 @@ The boot_volume block can be used to customize the boot volume attached to stati
 | `iops` | Optional only when profile = "sdp" and must be between 3000 and 64000 or null. Must be null for general-purpose.|
 | `bandwidth` | Optional only when profile = "sdp" and must be between 1000 and 8192 Mbps or null. Must be null for general-purpose. |
 {: caption="static_compute_instances - Boot Volume Configuration (Optional)" caption-side="bottom"}
-
 
 #### Validation Rules
 {: #static-rules}
@@ -402,7 +401,7 @@ The boot_volume block can be used to customize the boot volume attached to stati
     - `iops` is optional and must be between 3000 and 64000 or null.
     - `bandwidth` is optional and must be between 1000 and 8192 Mbps or null.
 
-**Default configuration:**
+**Default configuration**
 
 ```text
 static_compute_instances = [
@@ -422,7 +421,7 @@ static_compute_instances = [
 ```
 {: codeblock}
 
-**Example: Using SDP Boot Volume:**
+**Example: Using SDP Boot Volume**
 
 ```text
 static_compute_instances = [
@@ -442,7 +441,7 @@ static_compute_instances = [
 ```
 {: codeblock}
 
-### dynamic_compute_instances
+### **dynamic_compute_instances**
 {: #dynamic}
 
 Specify the list of dynamic compute node configurations, including instance profile, image name, maximum instance count, spot instance settings, and optional boot volume configuration.
@@ -531,7 +530,7 @@ The boot_volume block can be used to customize the boot volume attached to dynam
 
 - Flex instance profiles (`*xf*`) can only be used when `enable_spot_instances = true`.
 
-**Default configuration:**
+**Default configuration**
 
 ```text
 dynamic_compute_instances = [
@@ -552,7 +551,7 @@ dynamic_compute_instances = [
 ```
 {: codeblock}
 
-**Example: Using SDP Boot Volume:**
+**Example: Using SDP Boot Volume**
 
 ```text
 dynamic_compute_instances = [
@@ -573,7 +572,7 @@ dynamic_compute_instances = [
 ```
 {: codeblock}
 
-**Example: Using Spot Instances with a Flex Profile:**
+**Example: Using Spot Instances with a Flex Profile**
 
 ```text
 dynamic_compute_instances = [
