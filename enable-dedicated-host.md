@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -67,7 +67,7 @@ Define the following variable to enable a dedicated host on an LSF cluster:
 
 | Dedicated host variable | Description | Example value |
 | ----- | ----------- | --------------- |
-| `enable_dedicated_host` | Set this option to true to enable dedicated hosts for the VSIs provisioned as workload servers. The default value is `false`. When dedicated hosts are enabled, a single VSI instance profile is used for both static and dynamic node provisioning. Multiple profiles are not supported, as dedicated hosts are single-tenant servers. Spot instances are not supported with dedicated hosts. If you plan to deploy a static cluster using a third-generation profile, verify that the chosen region supports dedicated hosts, since not all regions offer support for third-generation profiles on dedicated hosts. For more information about dedicated host, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).| true |
+| `enable_dedicated_host` | Set this option to `true` to enable dedicated hosts for the VSIs provisioned as workload servers. The default value is `false`. When the dedicated hosts are enabled, a single VSI profile is used for both static and dynamic node provisioning. Multiple profiles are not supported, as dedicated hosts are on single-tenant servers. Spot instances are not supported with dedicated hosts. If you plan to deploy a static cluster using a third-generation profile, verify that the chosen region supports dedicated hosts, since not all regions offer support for third-generation profiles on dedicated hosts. For more information about dedicated host, go to [Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-dh-profiles&interface=ui).| true |
 {: caption="Configuring dedicated host deployment values" caption-side="bottom"}
 
 For more information about dedicated host, go to [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui).
