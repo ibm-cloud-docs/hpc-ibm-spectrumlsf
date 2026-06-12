@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-12"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -35,9 +35,21 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-june2026}
 {: release-note}
 
-Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release, we are now introducing support for **Bare metal infrastructure provisioning** for our compute nodes. 
+Following are the changes made for the release:
 
-Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. Granite Rapids (Gen 4) profiles are supported as part of this as well.
+Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release:
+
+: We are introducing support for **Bare metal infrastructure provisioning** for our compute nodes. 
+
+: Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. 
+
+: Granite Rapids (Gen 4) profiles are supported as part of this as well.
+
+: [SSD Defined Performance (SDP)](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-sdp-overview#dynamic): The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
+
+: [Spot Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-si-overview): Spot instances offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. They utilize unused cloud capacity and are available at significantly lower prices compared to standard virtual server instances.
+
+: Dedicated host
 
 ## March 2026
 {: #subcollection-mar26}

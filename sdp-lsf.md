@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-12"
 
 keywords:
 
@@ -24,16 +24,15 @@ subcollection: hpc-ibm-spectrumlsf
 # SSD Defined Performance (SDP)
 {: #sdp-overview}
 
-The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit to meet your workload requirements.
+The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
 
 ## Benefits
 {: #sdp-benefits}
 
-* You can configure the volume size in the range from 1 GB to 32,000 GB.
+* You can configure the volume size in the range from 100 GB to 32,000 GB.
 * You can specify the volume performance in the range from 3000 IOPS to 64,000 IOPS.
 * You can specify the maximum throughput limit in the range from 125 Mbps to 1024 Mbps (1000-8192 Mbps).
-* SDP for VPC provides primary boot volumes and secondary data volumes.
-* Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning, or as stand-alone volumes that you can later attach to an instance.
+* Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning.
 
 The SDP provides high I/O throughput required for:
 
@@ -45,32 +44,16 @@ The SDP provides high I/O throughput required for:
 ## Limitations of using SDP as boot volume
 {: #limitations}
 
-* When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB. If the boot volume exceeds 250 GB, the Virtual Server Instance (VSI) fails to boot successfully.
+* When you create an instance from a custom image, you can specify a boot volume capacity of 100 GB to 250 GB. If the boot volume exceeds 250 GB, the Virtual Server Instance (VSI) fails to boot successfully.
 * Boot volume size can only be increased; reducing the size is not supported to maintain data safety and integrity.
 
 ## Boot Volume
 {: #boot-volume}
 
-Boot volumes are automatically created and attached during VSI provisioning. To simplify deployment and ensure consistent performance, the boot volume uses the SDP profile by default. However, this behavior can be overridden during provisioning by specifying a general-purpose profile when required by the workload. In the `volume_storages` variable, the `boot_volume_profile` is set to `sdp` by default, but users may override it as needed.
+Boot volumes are automatically created and attached during VSI provisioning. To simplify deployment and ensure consistent performance, the boot volume uses the `general-purpose` profile by default. However, this behavior can be overridden during provisioning by specifying a SDP profile when required by the workload. In the `login_instance`, `management_instances`, `static_compute_instances`, and `dynamic_compute_instances` the `boot_volume` configuration is set to `general-purpose` by default, but users may override it as needed.
 
-The boot volume (default: SDP profile) supports expansion up to **250 GB**. For more information, see [Profiles for boot volumes](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-boot).
-
-When specifying for a general-purpose profile, the `boot_volume_iops`, should either be 0 or null. IOPS settings are not supported for general-purpose volumes.
-For example, if the value is not set to 0 or null, the following error message occurs:
-
-```text
-Invalid volume_storages configuration:
-    - You can provide only block, or both sections.
-    - If boot_volume_profile = "sdp":
-         * boot_volume_size, boot_volume_iops (>=3000), and boot_volume_disk_grow are required
-    - If boot_volume_profile = "general-purpose":
-         * boot_volume_iops must be null or 0
-    - If block_volume_capacity is not null or empty:
-         * block_volume_iops must be >= 3000 and within correct range for capacity
-
-This was checked by the validation rule at variables.tf:1186,3-13.
-```
-{: codeblock}
+When specifying for a `general-purpose` profile, the `iops` and `bandwidth` are not supported, so the value should be **null**. The `iops` and `bandwidth` are picked automatically by the platform based on the **size**.
+{: important}
 
 ### Steps to expand an attached boot volume manually
 {: #boot-steps}
@@ -216,8 +199,6 @@ login_instance = [
       iops      = null
       bandwidth = null
     }
-
-block_volume = {disk_grow: }
   }
 ]
 ```
