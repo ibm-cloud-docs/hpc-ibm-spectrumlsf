@@ -30,7 +30,7 @@ The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume p
 {: #sdp-benefits}
 
 * You can configure the boot volume size in the range from 100 GB to 32,000 GB.
-* You can specify the volume performance in the range from 3000 IOPS to 64,000 IOPS.
+* You can specify the boot volume performance in the range from 3000 IOPS to 64,000 IOPS.
 * You can specify the maximum throughput limit in the range from 125 MBps to 1024 MBps (1000-8192 Mbps).
 * Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning.
 
