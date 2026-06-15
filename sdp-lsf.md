@@ -55,11 +55,10 @@ Boot volumes are automatically created and attached during VSI provisioning. To 
 When specifying for a `general-purpose` profile, the `iops` and `bandwidth` are not supported, so the value should be **null** which are automatically picked by the platform based on the **size**.
 {: important}
 
-
 ## Deployment variables
 {: #sdp-variables}
 
-To enable the SDP on a LSF cluster, the following variables need to be defined:
+To enable SDP on a LSF cluster, the following variables needs to be defined:
 
 ### **login_instance**
 {: #login}
