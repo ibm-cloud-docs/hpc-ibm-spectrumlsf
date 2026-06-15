@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-06-15"
 
 keywords:
 
@@ -466,7 +466,7 @@ The boot_volume block can be used to customize the boot volume attached to dynam
 {: #dynamic-profile}
 
 | Profile | Size (GB) | IOPS | Bandwidth (Mbps) |
-| ----- | ----------- | ----- | ----------- | ------- |
+| ----- | ----------- | ----- | ----------- |
 | `general-purpose` | 100–250 | Must be null | Must be null |
 | `5iops-tier` | 100–250 | Must be null | Must be null |
 | `10iops-tier` | 100–250 | Must be null | Must be null |
