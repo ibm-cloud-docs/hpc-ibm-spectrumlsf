@@ -42,7 +42,7 @@ Following are the changes made for the release:
     * Bare metal does not support LSF Pay-As-You-Go (PAYGo) model.
     * When bare metal is enabled, the dedicated host option is not supported.
 
-* Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. A combination of bare metal and virtual server instances (VSI) are not supported.
+* Previously, our platform supported only virtual server instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. A combination of bare metal and virtual server instances (VSI) are not supported.
 
 * Granite Rapids (Gen 4) profiles are supported as part of this as well.
 

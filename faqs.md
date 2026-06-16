@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -38,7 +38,55 @@ In the upcoming quarterly release, we are introducing support for bare metal inf
 ### What enhancement has been made to the platform in the latest release?
 {: #release-faq2}
 
-Previously, the platform supported only Virtual Server Instances (VSI). With this release, it now supports both Bare metal and VSI environments. Granite Rapids (Gen 4) profiles are supported as part of this as well.
+Previously, the platform supported only virtual server instances (VSI). With this release, it now supports both Bare metal and VSI environments. Granite Rapids (Gen 4) profiles are supported as part of this as well.
+
+### Where are the Terraform state and configuration files stored?
+{: #release-faq3}
+
+All critical configuration and state files—including `terraform.tfstate`, `terraform.tfvars`, and the Ansible `all.json` inventory, are now securely maintained in a centralized Cloud Object Storage (COS) bucket. They are no longer stored locally on the deployer node, ensuring a single source of truth that is independent of the underlying compute infrastructure.
+
+### Are there any hardcoded credentials or private keys left on the deployer node?
+{: #release-faq4}
+
+No, the architecture enforces a strict zero-credential footprint on the deployer node. 
+
+* There are no HMAC credentials stored in the `backend.tf` file. 
+* No private SSH keys **(id_rsa)** are retained on the deployer node.
+* A robust cleanup routine automatically purges all sensitive deployment files from the local filesystem immediately after the terraform apply finishes.
+
+### How is the data in the Cloud Object Storage (COS) bucket secured?
+{: #release-faq5}
+
+The COS bucket storing the state and configuration files is secured with full encryption using a Key Management Service (KMS) key. In addition, object versioning is enabled, ensuring a complete audit trail while safeguarding against accidental data loss or corruption.
+
+### What happens to the deployer node after the LSF or Scale cluster is provisioned?
+{: #release-faq6}
+
+To optimize cloud costs and minimize the security attack surface, the deployer node is automatically stopped as the final step of a successful deployment.
+
+### How does the infrastructure handle subsequent updates or terraform apply runs?
+{: #release-faq7}
+
+The automation is built to be fully idempotent and self-managing. When you trigger a re-apply:
+
+1. The dormant deployer node is automatically powered on.
+2. The necessary temporary files and configurations (which were purged during the previous cleanup) are safely recreated.
+3. The deployment tasks are executed.
+4. The file cleanup routine runs again and the deployer node is returned to a stopped state.
+
+### How do we track changes to our infrastructure state or configuration variables over time?
+{: #release-faq8}
+
+Since object versioning is enabled on the COS bucket, every change to your `tfstate`, `tfvars`, or `all.json` files is saved as a distinct version. This allows you to review and restore earlier versions if an erroneous apply occurs and provides an accessible history of configurations directly through the COS dashboard for auditing purposes.
+
+### Do I need to install the IBM Cloud CLI to run this deployment?
+{: #release-faq9}
+
+It depends on your execution environment:
+
+* **IBM Cloud Schematics:** No action is required. When you execute this Terraform code using IBM Cloud Schematics, the workspace runtime already includes the **ibmcloud** CLI along with all necessary plugins pre-installed.
+
+* **Local Machine:** If you are executing terraform apply from your own local machine you must have the IBM Cloud CLI installed prior to deployment. The automated cleanup scripts rely on this local CLI to authenticate and power down the deployer node upon completion.
 
 ## General
 {: #generic-faqs}

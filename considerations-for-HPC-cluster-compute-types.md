@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 # Considerations for HPC cluster compute types
 {: #considerations-for-HPC-custer-compute-types}
 
-As part of the release, **Bare metal infrastructure provisioning** for our compute nodes is supported.Previously, our platform supported only Virtual Server Instances (VSI). With this release, both Bare metal and VSI environments are supported, providing greater flexibility for our customers. Support for Granite Rapids (Gen 4) profiles is included for VSI only.
+As part of the release, **Bare metal infrastructure provisioning** for our compute nodes is supported. Previously, our platform supported only virtual server instances (VSI). With this release, both Bare metal and VSI environments are supported, providing greater flexibility for our customers. Support for Granite Rapids (Gen 4) profiles is included for VSI only.
 {: note}
 
 High-performance computing (HPC) workloads exhibit diverse requirements across CPU, memory, network, and storage resources. These include:
