@@ -37,22 +37,20 @@ The release notes describes the brief overview of the new features, enhancements
 
 Following are the changes made for the release:
 
-Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release:
-
-: We are introducing support for **Bare metal infrastructure provisioning** for our compute nodes.
+* Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes.
 
     * Bare metal does not support LSF Pay-As-You-Go (PAYGo) model.
     * When bare metal is enabled, the dedicated host option is not supported.
 
-: Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. A combination of bare metal and virtual server instances (VSI) are not supported.
+* Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. A combination of bare metal and virtual server instances (VSI) are not supported.
 
-: Granite Rapids (Gen 4) profiles are supported as part of this as well.
+* Granite Rapids (Gen 4) profiles are supported as part of this as well.
 
-: [SSD Defined Performance (SDP)](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-sdp-overview#dynamic): The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
+* [SSD Defined Performance (SDP)](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-sdp-overview#dynamic): The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
 
-: [Spot Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-si-overview): Spot instances offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. They utilize unused cloud capacity and are available at significantly lower prices compared to standard virtual server instances.
+* [Spot Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-si-overview): Spot instances offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. They utilize unused cloud capacity and are available at significantly lower prices compared to standard virtual server instances.
 
-: Dedicated host
+* Dedicated host
 
 ## March 2026
 {: #subcollection-mar26}
