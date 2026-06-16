@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-16"
 
 keywords: # Not typically populated
 
@@ -46,7 +46,7 @@ production: false
 The architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
 
 * **Data:** Data storage
-* **Compute:** Virtual servers and Bare metal
+* **Compute:** Virtual servers and Bare metal servers
 * **Storage:** Primary storage
 * **Networking:** Isolation and domain name service
 * **Security:** Data security

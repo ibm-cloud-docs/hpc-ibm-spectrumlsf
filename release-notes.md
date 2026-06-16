@@ -37,7 +37,7 @@ The release notes describes the brief overview of the new features, enhancements
 
 Following are the changes made for the release:
 
-* Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes.
+* Currently, we are supporting "IBM Spectrum LSF" solution. As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes.
 
     * Bare metal does not support LSF Pay-As-You-Go (PAYGo) model.
     * When bare metal is enabled, the dedicated host option is not supported.
