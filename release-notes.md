@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-12"
+lastupdated: "2026-06-16"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -39,9 +39,12 @@ Following are the changes made for the release:
 
 Currently, we are supporting "IBM Spectrum LSF" solution from few years. As part of our upcoming quarterly release:
 
-: We are introducing support for **Bare metal infrastructure provisioning** for our compute nodes. 
+: We are introducing support for **Bare metal infrastructure provisioning** for our compute nodes.
 
-: Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. 
+    * Bare metal does not support LSF Pay-As-You-Go (PAYGo) model.
+    * When bare metal is enabled, the dedicated host option is not supported.
+
+: Previously, our platform supported only Virtual Server Instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. A combination of bare metal and virtual server instances (VSI) are not supported.
 
 : Granite Rapids (Gen 4) profiles are supported as part of this as well.
 
