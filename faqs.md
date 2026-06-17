@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-17"
 
 keywords:
 
@@ -43,7 +43,7 @@ Previously, the platform supported only virtual server instances (VSI). With thi
 ### Where are the Terraform state and configuration files stored?
 {: #release-faq3}
 
-All critical configuration and state files—including `terraform.tfstate`, `terraform.tfvars`, and the Ansible `all.json` inventory, are now securely maintained in a centralized Cloud Object Storage (COS) bucket. They are no longer stored locally on the deployer node, ensuring a single source of truth that is independent of the underlying compute infrastructure.
+All critical configuration and state files, including `terraform.tfstate`, `terraform.tfvars`, and the ansible `all.json` inventory, are now securely maintained in a centralized Cloud Object Storage (COS) bucket. They are no longer stored locally on the deployer node, ensuring a single source of truth that is independent of the underlying compute infrastructure.
 
 ### Are there any hardcoded credentials or private keys left on the deployer node?
 {: #release-faq4}
