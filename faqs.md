@@ -40,6 +40,9 @@ In the upcoming quarterly release, we are introducing support for bare metal inf
 
 Previously, the platform supported only virtual server instances (VSI). With this release, it now supports both Bare metal and VSI environments. Granite Rapids (Gen 4) profiles are supported as part of this as well.
 
+## Terraform or State Management
+{: #terraform-state-mgmt}
+
 ### Where are the Terraform state and configuration files stored?
 {: #release-faq3}
 

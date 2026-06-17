@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-17"
 
 keywords:
 
@@ -33,7 +33,7 @@ Learn about the management responsibilities and terms and conditions that you ha
 ## Overview of shared responsibilities
 {: #overview-by-shared-resource}
 
-{{site.data.keyword.spectrum_full_notm}} is a product that is deployed to user resources in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview?topic=overview-shared-responsibilities). Start by reviewing the following table of who is responsible for particular cloud resources for {{site.data.keyword.spectrum_full_notm}}. Next, view more granular tasks for shared responsibilities in the proceeding sections.
+{{site.data.keyword.spectrum_full_notm}} is deployed on user-managed resources under the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview?topic=overview-shared-responsibilities). Begin by reviewing the table below, which outlines the responsibilities for specific cloud resources. Then, refer to the subsequent sections for a more detailed breakdown of shared responsibility tasks.
 
 If you use other {{site.data.keyword.cloud_notm}} products such as {{site.data.keyword.cos_short}}, responsibilities that are marked as yours in the following table, such as disaster recovery for Data, might be {{site.data.keyword.IBM_notm}}'s or shared. Consult those products' documentation for your responsibilities.
 {: note}
@@ -61,7 +61,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Management nodes| * Deploy highly available dedicated management nodes in a secured, customer-owned infrastructure account for each cluster.  \n * Ensure the health of management nodes in OS level. | Use the provided console tools to request that management nodes are rebooted or reloaded, and troubleshoot issues such as when the management nodes are in an unhealthy state. |
+|Management nodes| * Deploy dedicated management nodes (multiple) in a secured, customer-owned infrastructure account for each cluster.  \n * Ensure the health of management nodes in OS level. | Use the provided console tools to request that management nodes are rebooted or reloaded, and troubleshoot issues such as when the management nodes are in an unhealthy state. |
 |Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n * Ensure that compute nodes successfully provision when the user account and permissions are correctly set up, and a sufficient quota exists.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Provide tools, such as the LSF Resource Connector to extend your cluster infrastructure.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster |
 |Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Fulfill requests for more infrastructure, such as attaching worker nodes to existing VPC or subnets upon resizing a compute pool.  \n * Provide the ability to set up a VPN connection with on-premises resources such as through the strongSwan IPSec VPN service or the IBM Cloud VPC VPN.  \n * Provide the ability to isolate network traffic with login nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload. |
 |Observability| * Provide standard {{site.data.keyword.spectrum_full_notm}} tools for monitoring the status of LSF cluster.  \n * Provide a standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, and so on). | Set up and monitor the health of your cluster health metrics. |
@@ -110,6 +110,10 @@ IBM is responsible for the security and compliance of HPC Clusters on IBM Cloud.
 |Spot Instance Support for Dynamic Nodes | Provides the infrastructure capability and automation required to provision dynamic compute nodes using Spot Instances. The solution enables customers to configure and utilize Spot-based resources as part of their cluster deployment, allowing them to take advantage of available spare cloud capacity and optimize infrastructure costs. | You are responsible for designing workloads that can tolerate Spot Instance interruptions. Since Spot Instances may be reclaimed by the cloud provider when capacity is required elsewhere, customers should implement appropriate workload management strategies, such as check pointing, job restart mechanisms, or resubmitting jobs when interruptions occur. |
 |Spot Instance Lifecycle Management| Ensures that the cluster provisioning framework can request, provision, and integrate Spot Instances into the cluster when capacity is available. | You are responsible for understanding the transient nature of Spot Instances and monitoring the impact of node reclamation on their workloads. If a Spot node is reclaimed while a job is running, the affected workload may terminate and require resubmission or recovery based on the application's fault-tolerance capabilities.|
 |Operational Considerations| Provides support for the Spot Instance provisioning feature and its integration within the cluster deployment framework. | You are responsible for determining whether Spot Instances are suitable for their workloads. Critical, long-running, or non-restartable jobs should be evaluated carefully before being scheduled on Spot-based resources. You should also establish operational processes to handle interruptions and ensure business continuity. | 
+|Cluster Network Connectivity| Provides networking options such as public/private endpoints, VPC networking, load balancers, and connectivity services. | Select and configure network architecture, including endpoints, subnets, routing, VPN/Direct Link, and access requirements. |
+|Security and Compliance| Provides IAM, encryption, security groups, logging, monitoring, and maintain security of the underlying cloud infrastructure. | Configure and maintain security and regulatory compliance for applications, workloads, and data. |
+|Encryption and Key Management| Provides encryption and key management services such as IBM Key Protect. | Define encryption requirements, manage keys and policies, and protect sensitive data. |
+|Firewall and Network Security| Provides firewall, security group, and network security capabilities. | Configure firewall rules, security groups, access controls, and network policies. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ## Disaster recovery
