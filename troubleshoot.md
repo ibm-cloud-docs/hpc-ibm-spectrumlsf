@@ -40,7 +40,6 @@ LDAP VSI deployment is failing with the following error message:
 
 ```
 │ Error: local-exec provisioner error
-
 | with module.compute_playbook[0].null_resource.configure_ldap_server_playbook[0],
 │ on modules/playbook/main.tf line 310, in resource "null_resource" "configure_ldap_server_playbook":
 │ 310:   provisioner "local-exec"
@@ -74,11 +73,10 @@ LDAP VSI deployment is failing with the following error message:
 {: screen}
 {: tsSymptoms}
 
-This is an infrastructure issue where the SSH is not enabled/active. 
+This is an infrastructure issue where the SSH is not enabled or in a active state. 
 {: tsCauses}
 
 To fix this issue, you can:
-
 1. Manually, reboot the LDAP VSI.
 2. Wait for sometime and then reapply.
 {: tsResolve}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-17"
 
 keywords:
 
@@ -31,9 +31,9 @@ Dedicated hosts allow you to deploy virtual server instances on single-tenant co
 
 Following are the key factors to deploy the dedicated host:
 
-* This offering supports static compute and dynamic compute nodes on dedicated hosts.
+* The solution supports deployment of both static and dynamic compute nodes exclusively on dedicated hosts. 
 
-* The number and profile names of dedicated hosts are determined by the `static_compute_instances` parameter.
+* There is no separate parameter to specify the dedicated host profile. The dedicated host family is automatically derived from the `static_compute_instances` parameter. For example, if the compute nodes use a bx2 profile, the dedicated hosts will be provisioned from the bx2 family.
 
 * The current solution supports a single instance profile type from any of the supported families: bx2, cx2, mx2, third-generation, and so on.
 
@@ -59,11 +59,6 @@ Following are the benefits of a dedicated host:
 {: #enable-dedicated-hosts}
 
 To enable a dedicated host, set the `enable_dedicated_host` parameter to true (default: false). Once enabled, all the static and dynamic worker nodes are automatically attached to the same dedicated host.
-
-## Configuring dedicated host deployment values
-{: #config-dedicated-hosts-deploy-values}
-
-Define the following variable to enable a dedicated host on an LSF cluster:
 
 | Dedicated host variable | Description | Example value |
 | ----- | ----------- | --------------- |
@@ -134,12 +129,9 @@ For more information about dedicated host, go to [Creating dedicated hosts and g
     ```
     {: codeblock}
 
-4. **Spot Instances are not supported when Dedicated Hosts are enabled**
+4. **Spot Instances and Dedicated hosts cannot be used together**
 
-    The current configuration enables both Spot Instances and Dedicated Hosts, which is not a supported combination.
-
-    * `enable_spot_instances` is set to true
-    * `enable_dedicated_host` is set to true
+The solution does not support deployments where both `enable_spot_instances` and `enable_dedicated_host` are set to true. To use dedicated hosts, Spot Instances must be disabled, and vice versa.
 
     **Error Example:**
 
@@ -162,3 +154,6 @@ For more information about dedicated host, go to [Creating dedicated hosts and g
     │ Spot instances are not supported with dedicated hosts. When enable_spot_instances is true, enable_dedicated_host must be false.
     │ 
     │ This was checked by the validation rule at variables.tf:392,3-13.
+
+When a dedicated host is enabled, the resource connector templates are automatically updated to include the host ID, allowing dynamic nodes to join.
+{: note}

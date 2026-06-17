@@ -336,45 +336,44 @@ You can perform the steps manually or using CLI, but the recommended way is usin
 
 A new feature has been introduced to allow users to provision Bare Metal servers as static compute nodes.
 
-### Configuration
-{: #config}
+* Variable - `enable_baremetal`
 
-* `enable_baremetal` - Controls whether Bare Metal servers are used for static compute nodes.
-
-* Type: bool
+* Description - Specifies whether the bare metal servers are used for static compute nodes.
 
 * Default: false
+
+* Type: bool
 
 ### Requirements
 {: #req}
 
-When `enable_baremetal = true`, a Bare Metal profile must be specified for every entry in `static_compute_instances`.
+When `enable_baremetal = true`, a bare metal profile must be specified for every entry in the `static_compute_instances`.
 
-If a bare metal profile is not provided, validation will fail.
+If a bare metal profile is not provided, validation fails.
 {: note}
 
-### Restrictions and Limitations
+### Limitations
 {: #limitations}
 
-The following constraints must be considered when Bare Metal support is enabled:
+The following constraints must be considered when bare metal support is enabled:
 
 1. Image support
 
-    * LSF Pay-As-You-Go (PAYG) images are not supported on Bare Metal servers.
-    * Only custom images can be used for Bare Metal static compute nodes.
+    * LSF Pay-As-You-Go (PAYGo) images are not supported on bare metal servers.
+    * Only custom images can be used for bare metal static compute nodes.
 
 2. Dedicated Host compatibility
 
     * Bare Metal servers cannot be used together with the dedicated host feature.
 
-    * When enable_baremetal = true, enable_dedicated_host must be set to false.
+    * When `enable_baremetal = true` then `enable_dedicated_host` must be set to false.
 
 3. Static compute node types
 
 A deployment cannot contain a mix of Bare Metal and Virtual Server Instances (VSIs) within static_compute_instances. All static compute nodes must be of the same type:
 
-    * All Bare Metal nodes, or
-    * All VSI nodes
+* All Bare Metal nodes, or
+* All VSI nodes
 
 Mixed configurations are not supported and will fail validation.
 {: note}

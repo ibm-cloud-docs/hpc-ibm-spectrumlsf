@@ -82,25 +82,25 @@ When you access the UI for the service, all the above mentioned pillars are cove
 
     ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
-4. To view the agents, click on the **vulnerability findings** option for each host, explore detailed findings, and also remediation are provided within the dashboard.
+4. To view the agents, click on the **Vulnerability Findings** option for each host, explore detailed findings, and also remediations provided within the dashboard.
 
-    ![SCC Vulnerability Findings - 1](images/vulnerability_findings1.png "SCC Vulnerability Findings - 1"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Vulnerability Findings - 1](images/vulnerability_findings1.png "SCC Vulnerability Findings - 1"){: caption="SCC Vulnerability Findings - 1" caption-side="bottom"}
 
-    ![SCC Vulnerability Findings - 2](images/vulnerability_findings2.png "SCC Vulnerability Findings - 2"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Vulnerability Findings - 2](images/vulnerability_findings2.png "SCC Vulnerability Findings - 2"){: caption="SCC Vulnerability Findings - 2" caption-side="bottom"}
 
-    ![SCC Sysdig Agents](images/vulnerability_findings3.png "SCC Sysdig Agents"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Sysdig Agents](images/vulnerability_findings3.png "SCC Sysdig Agents"){: caption="SCC Sysdig Agents" caption-side="bottom"}
 
 4. Inventory is agentless, which is provided by IBM cloud. For example, in the account we have 1000 resources, you can add the filters and validate all the resources of the inventory i.e, Security groups/Instances/FIP and so on. When a certain security group does not have the rules set, then all of them can be monitored here.
 
-    * Enable the toggle option at top right to view the legacy Inventory version. 
+    * Enable the **Use legacy version** toggle option at top right to view the legacy inventory version. 
 
-    ![SCC Inventory](images/inventory_scc_old.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Inventory - Legacy](images/inventory_scc_old.png "SCC Inventory - Legacy"){: caption="SCC Inventory - Legacy" caption-side="bottom"}
 
-    * Disable the toggle option at top right to view the latest Inventory version.
+    * Disable the **Use legacy version** toggle option at top right to view the latest inventory version.
 
-    ![SCC Inventory](images/inventory_scc_new.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Inventory - New](images/inventory_scc_new.png "SCC Inventory - New"){: caption="SCC Inventory - New" caption-side="bottom"}
 
-    Users can just toggle the Use legacy version option to view older version or newer version of the dashboard.
+    Users can just toggle the **Use legacy version** option to view older version or newer version of the dashboard.
     {: note}
 
 5. Under **Policies**, you can go ahead and configure the policies. Based on Linux or RHEL platform, certain policies can be set. These are set of rules, based on which you can configure the policy.
