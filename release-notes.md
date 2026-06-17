@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-17"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,7 +26,7 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.1**
+**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 4.0**
 
 ## June 2026
 {: #subcollection-june26}
@@ -37,20 +37,20 @@ The release notes describes the brief overview of the new features, enhancements
 
 Following are the changes made for the release:
 
-* Currently, we are supporting "IBM Spectrum LSF" solution. As part of our upcoming quarterly release, we are introducing support for **Bare metal infrastructure provisioning** for our compute nodes.
+Support for Bare metal on Static Compute nodes
+:   Up to release v3.3.1, the solution supported only virtual server instances (VSI) for all the LSF cluster nodes. With the current release, bare metal is supported only for static compute nodes, while all other cluster nodes continue to use VSI.
 
-    * Bare metal does not support LSF Pay-As-You-Go (PAYGo) model.
-    * When bare metal is enabled, the dedicated host option is not supported.
+Support for Block storage on [SSD Defined Performance (SDP)]:
+:   Solution now supports provisioning block storage volume on SDP profile on all the LSF cluster nodes as it is second-generation profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the sdp profile, cluster nodes can be configured as per the requirement.
 
-* Previously, our platform supported only virtual server instances (VSI). With this release, we support both bare metal and VSI environments, providing greater flexibility for our customers. A combination of bare metal and virtual server instances (VSI) are not supported.
+Support for Spot Instances only for Dynamic nodes:
+:   Solution can now provision dynamic nodes as a Spot instances. Which offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. Unused cloud capacity are available at significantly lower prices compared to standard virtual server instances.
 
-* Granite Rapids (Gen 4) profiles are supported as part of this as well.
+Support for Gen 4 Compute profiles
+:   The solution already supported Intel compute profiles with Gen 2 and Gen3 and now Gen4 profiles are also supported. The only supported Gen 4 region is us-south (Dallas)
 
-* [SSD Defined Performance (SDP)](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-sdp-overview#dynamic): The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
-
-* [Spot Instances](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-si-overview): Spot instances offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. They utilize unused cloud capacity and are available at significantly lower prices compared to standard virtual server instances.
-
-* Dedicated host
+Update the Security and Workload protection to support cloud monitoring
+:   SCC Workload Protection has been integrated into the existing Sysdig monitoring architecture, allowing the unified agent to seamlessly transmit host-level security data—including continuous OS posture assessment and threat detection—alongside observability metrics from a single deployment footprint.
 
 ## March 2026
 {: #subcollection-mar26}
