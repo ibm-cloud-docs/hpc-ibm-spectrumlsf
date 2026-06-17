@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-06-17"
 
 keywords: question about _xx_, _messageID_
 
@@ -30,6 +30,58 @@ content-type: troubleshoot
 {: #troubleshooting-spectrum-lsf}
 
 This document provides the solutions to the common problems encountered when working on {{site.data.keyword.spectrum_full_notm}}.
+
+## Why is LDAP VSI deployment failing?
+{: #troubleshoot-topic-2}
+{: troubleshoot}
+{: support}
+
+LDAP VSI deployment is failing with the following error message:
+
+```
+│ Error: local-exec provisioner error
+
+| with module.compute_playbook[0].null_resource.configure_ldap_server_playbook[0],
+│ on modules/playbook/main.tf line 310, in resource "null_resource" "configure_ldap_server_playbook":
+│ 310:   provisioner "local-exec"
+│ 
+│ Error running command 'sudo
+│ ansible-playbook -i
+│ ./modules/ansible-roles/ldap_server_inventory.ini
+│ ./modules/ansible-roles/prepare_ldap_server.yml':
+│ exit status 4. Output:
+│ PLAY [LDAP Server Configuration]
+│ ***********************************************
+│ 
+│ TASK [Gathering Facts]
+│ *********************************************************
+│ [ERROR]: Task failed: Failed to
+│ connect to the host via ssh: Warning:
+│ Permanently added '10.241.0.21'
+│ (ECDSA) to the list of known hosts.
+│ ubuntu@10.241.0.21: Permission denied
+│ (publickey).
+│ 
+│ fatal: [10.241.0.21]: UNREACHABLE! =>
+│ {"changed": false, "msg": "Task
+│ failed: Failed to connect to the host
+│ via ssh: Warning: Permanently added
+│ '10.241.0.21' (ECDSA) to the list of
+│ known hosts.\r\nubuntu@10.241.0.21:
+│ Permission denied (publickey).",
+│ "unreachable": true}
+```
+{: screen}
+{: tsSymptoms}
+
+This is an infrastructure issue where the SSH is not enabled/active. 
+{: tsCauses}
+
+To fix this issue, you can:
+
+1. Manually, reboot the LDAP VSI.
+2. Wait for sometime and then reapply.
+{: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to clone the public GitHub repo?
 {: #troubleshoot-topic-2}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-17"
 
 keywords:
 
@@ -331,7 +331,53 @@ For more information on deployment variables, see [Deployment values](/docs/hpc-
 You can perform the steps manually or using CLI, but the recommended way is using automation.
 {: tip}
 
+## SDP and Bare metal server support
+{: #bm-support}
 
+A new feature has been introduced to allow users to provision Bare Metal servers as static compute nodes.
+
+### Configuration
+{: #config}
+
+* `enable_baremetal` - Controls whether Bare Metal servers are used for static compute nodes.
+
+* Type: bool
+
+* Default: false
+
+### Requirements
+{: #req}
+
+When `enable_baremetal = true`, a Bare Metal profile must be specified for every entry in `static_compute_instances`.
+
+If a bare metal profile is not provided, validation will fail.
+{: note}
+
+### Restrictions and Limitations
+{: #limitations}
+
+The following constraints must be considered when Bare Metal support is enabled:
+
+1. Image support
+
+    * LSF Pay-As-You-Go (PAYG) images are not supported on Bare Metal servers.
+    * Only custom images can be used for Bare Metal static compute nodes.
+
+2. Dedicated Host compatibility
+
+    * Bare Metal servers cannot be used together with the dedicated host feature.
+
+    * When enable_baremetal = true, enable_dedicated_host must be set to false.
+
+3. Static compute node types
+
+A deployment cannot contain a mix of Bare Metal and Virtual Server Instances (VSIs) within static_compute_instances. All static compute nodes must be of the same type:
+
+    * All Bare Metal nodes, or
+    * All VSI nodes
+
+Mixed configurations are not supported and will fail validation.
+{: note}
 
 ## References
 {: #references}

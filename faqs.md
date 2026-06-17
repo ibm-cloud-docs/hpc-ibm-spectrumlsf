@@ -84,7 +84,7 @@ Since object versioning is enabled on the COS bucket, every change to your `tfst
 
 It depends on your execution environment:
 
-* **IBM Cloud Schematics:** No action is required. When you execute this Terraform code using IBM Cloud Schematics, the workspace runtime already includes the **ibmcloud** CLI along with all necessary plugins pre-installed.
+* **IBM Cloud Schematics:** No action is required. When you execute the terraform deployment using IBM Cloud Schematics, the workspace runtime already includes the **ibmcloud** CLI along with all necessary plugins pre-installed.
 
 * **Local Machine:** If you are executing terraform apply from your own local machine you must have the IBM Cloud CLI installed prior to deployment. The automated cleanup scripts rely on this local CLI to authenticate and power down the deployer node upon completion.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-06-17"
 
 keywords:
 
@@ -90,9 +90,9 @@ When you access the UI for the service, all the above mentioned pillars are cove
 
     ![SCC runtime policies](images/policies_scc.png "SCC runtime policies"){: caption="SCC runtime policies" caption-side="bottom"}
 
-6. On **Vulnerabilities**, you can run the scans and this shows the severity of the issues and that could be helped to be scanned. You can filter based on high, medium, and low. For more information, see [Scanning Guidelines](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/){: external}.
+6. On **Attack Surface**, you can run the scans and this shows the severity of the issues and that could be helped to be scanned. You can filter based on high, medium, and low. For more information, see [Scanning Guidelines](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/){: external}.
 
-    ![SCC Vulnerabilities](images/vulnerabilities_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
+    ![SCC Vulnerabilities](images/attack_surface_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
 
 If the IAM permissions for the SCC Workload Protection are not enabled right, then the error occurs stating:
 `Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
@@ -105,3 +105,23 @@ So below are the required permissions for SCC Workload Protection are:
 | All Identity and Access enabled services | All | Administrator | Manager |
 | Security and Compliance Center Workload Protection | All | Administrator | -- |
 {: caption="SCC permissions" caption-side="bottom"}
+
+## Unified agent integration logic
+{: #unified-agent-integration-logic}
+
+The cluster deploys a single, unified Sysdig agent to support both observability and security, automatically tailoring its configuration based on the specified deployment variables.
+
+### Dual integration (metrics and security)
+{: #dual-integration}
+
+If both `observability_monitoring_enable = true` and `enable_sccwp = true`, the cluster integrates with both monitoring and SCCWP instances. A single agent is installed on the host and connects to both {{site.data.keyword.cloud_notm}} services simultaneously. It routes performance metrics to the monitoring instance while streaming security and compliance data to the Workload Protection instance.
+
+### Standalone operation
+{: #standalone-operation}
+
+If any one of these variable (`observability_monitoring_enable` and `enable_sccwp`) is enabled, the agent is still deployed, but it is configured to communicate solely with the active service.
+
+### Workload Protection
+{: #workload-protection-details}
+
+When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor low-level OS system calls, identify real-time threats, and scan installed host packages for known CVEs.

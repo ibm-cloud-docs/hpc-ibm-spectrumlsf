@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-17"
 
 keywords:
 
@@ -40,6 +40,7 @@ The following are the mandatory deployment values used to configure the {{site.d
 | `enable_license_scheduler` | Enable the license scheduler to optimize expensive software license usage by managing license tokens and enabling efficient sharing across projects and clusters. This option is enabled by default, set it to false to disable. | Yes | "" |
 | `enable_webservice` | Enable IBM Spectrum LSF Web Services to allow remote management and interaction with LSF clusters over standard HTTPS. This enables capabilities such as job submission, monitoring, and management without requiring a direct LSF client installation. This option is enabled by default, to disable set it to false. | Yes | true |
 | `enable_appcenter` | Enable IBM Spectrum LSF Application Center to provide a flexible, web-based user interface for cluster users and administrators. This option is disabled by default, to enable set it to true. | Yes | false |
+| `enable_baremetal` | Controls whether the Bare Metal servers are used for static compute nodes. | Yes | false |
 | `webservice_appcenter_password` | Password required to access IBM Spectrum LSF Web Services and the Application Center GUI over HTTPS. This is a mandatory parameter whenever either Web Services or Application Center is enabled, and must be provided to ensure proper functionality. If omitted, the services will not function as expected and deployment may fail. The password must be at least 15 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character. Spaces are not allowed. | Yes | "" |
 | `ibmcloud_api_key` | Provide the IBM Cloud API key associated with the account to deploy the IBM Spectrum LSF cluster. This key is used to authenticate your deployment and grant the necessary access to create and manage resources in your IBM Cloud environment, see [Managing user API keys](/docs/account?topic=account-userapikey). | Yes | None |
 | `remote_allowed_ips` | Comma-separated list of IP addresses that can access the IBM Spectrum LSF cluster instance through an SSH interface. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, [\"169.45.117.34\"]). To fetch the IP address of the device, use [https://ipv4.icanhazip.com/](https://ipv4.icanhazip.com/). | Yes | None |
