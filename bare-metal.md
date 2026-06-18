@@ -24,9 +24,27 @@ subcollection: hpc-ibm-spectrumlsf
 # Bare metal support
 {: #bm-overview}
 
-{{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC offer dedicated physical servers within the VPC environment, enabling high performance, low latency, and full control over the underlying hardware resources. These servers combine the isolation and control of dedicated infrastructure with VPC networking features such as private networking, security groups, and scalable, cloud-native connectivity.
+{{site.data.keyword.cloud_notm}} Bare Metal servers for VPC offer dedicated physical servers within the VPC environment, enabling high performance, low latency, and full control over the underlying hardware resources. These servers combine the isolation and control of dedicated infrastructure with VPC networking features such as private networking, security groups, and scalable, cloud-native connectivity.
 
-A new feature has been introduced to allow users to provision Bare Metal servers as static compute nodes.
+A new feature has been introduced to allow users to provision Bare Metal servers for **static compute nodes**.
+
+## Enabling bare metal servers
+{: #enable-bm}
+
+To provision static compute nodes as bare metal servers, set `enable_baremetal` to true and specify a supported bare metal profile in the `static_compute_instances` configuration.
+
+Example configuration:
+
+```text
+static_compute_instances = [{
+profile = "mx3d-metal-64x512"
+count   = 1
+image   = "hpc-lsf-fp15-compute-rhel810-v4"
+}]
+```
+{: codeblock}
+
+enable_baremetal = true
 
 ## Key considerations
 {: #key-features}
@@ -54,34 +72,3 @@ Following are the benefits of bare metal server support for static compute insta
 {: #deployment-values}
 
 The `enable_baremetal` variable is set to `true` to enable bare metal servers for the static compute nodes in the cluster. The default value is `false`. For more information on the variable, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
-
-If a bare metal profile is not provided, validation fails.
-{: note}
-
-## Limitations
-{: #limitations}
-
-The following constraints must be considered when bare metal support is enabled:
-
-1. Image support
-
-    * LSF Pay-As-You-Go (PAYGo) images are not supported on bare metal servers.
-    * Only custom images can be used for bare metal static compute nodes.
-
-2. Dedicated Host compatibility
-
-    * Bare Metal servers cannot be used together with the dedicated host feature.
-
-    * When `enable_baremetal = true` then `enable_dedicated_host` must be set to false.
-
-3. Static compute node types
-
-A deployment cannot contain a mix of Bare Metal and Virtual Server Instances (VSIs) within static_compute_instances. All static compute nodes must be of the same type:
-
-* All Bare Metal nodes, or
-* All VSI nodes
-
-Mixed configurations are not supported and will fail validation.
-{: note}
-
-
