@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -30,7 +30,7 @@ This document provides a list of frequently asked questions and answers about a 
 ## Release FAQs - June 19
 {: #current-release}
 
-### What new capability is being introduced to the IBM Spectrum LSF solution in the upcoming release?
+### What new capability is being introduced to the IBM Spectrum LSF solution in the current release?
 {: #release-faq1}
 
 In the upcoming quarterly release, we are introducing support for bare metal infrastructure provisioning for compute nodes, enhancing the existing IBM Spectrum LSF solution we have been supporting for several years.
@@ -39,57 +39,6 @@ In the upcoming quarterly release, we are introducing support for bare metal inf
 {: #release-faq2}
 
 Previously, the platform supported only virtual server instances (VSI). With this release, it now supports both Bare metal and VSI environments. Granite Rapids (Gen 4) profiles are supported as part of this as well.
-
-## Terraform or State Management
-{: #terraform-state-mgmt}
-
-### Where are the Terraform state and configuration files stored?
-{: #release-faq3}
-
-All critical configuration and state files, including `terraform.tfstate`, `terraform.tfvars`, and the ansible `all.json` inventory, are now securely maintained in a centralized Cloud Object Storage (COS) bucket. They are no longer stored locally on the deployer node, ensuring a single source of truth that is independent of the underlying compute infrastructure.
-
-### Are there any hardcoded credentials or private keys left on the deployer node?
-{: #release-faq4}
-
-No, the architecture enforces a strict zero-credential footprint on the deployer node. 
-
-* There are no HMAC credentials stored in the `backend.tf` file. 
-* No private SSH keys **(id_rsa)** are retained on the deployer node.
-* A robust cleanup routine automatically purges all sensitive deployment files from the local filesystem immediately after the terraform apply finishes.
-
-### How is the data in the Cloud Object Storage (COS) bucket secured?
-{: #release-faq5}
-
-The COS bucket storing the state and configuration files is secured with full encryption using a Key Management Service (KMS) key. In addition, object versioning is enabled, ensuring a complete audit trail while safeguarding against accidental data loss or corruption.
-
-### What happens to the deployer node after the LSF or Scale cluster is provisioned?
-{: #release-faq6}
-
-To optimize cloud costs and minimize the security attack surface, the deployer node is automatically stopped as the final step of a successful deployment.
-
-### How does the infrastructure handle subsequent updates or terraform apply runs?
-{: #release-faq7}
-
-The automation is built to be fully idempotent and self-managing. When you trigger a re-apply:
-
-1. The dormant deployer node is automatically powered on.
-2. The necessary temporary files and configurations (which were purged during the previous cleanup) are safely recreated.
-3. The deployment tasks are executed.
-4. The file cleanup routine runs again and the deployer node is returned to a stopped state.
-
-### How do we track changes to our infrastructure state or configuration variables over time?
-{: #release-faq8}
-
-Since object versioning is enabled on the COS bucket, every change to your `tfstate`, `tfvars`, or `all.json` files is saved as a distinct version. This allows you to review and restore earlier versions if an erroneous apply occurs and provides an accessible history of configurations directly through the COS dashboard for auditing purposes.
-
-### Do I need to install the IBM Cloud CLI to run this deployment?
-{: #release-faq9}
-
-It depends on your execution environment:
-
-* **IBM Cloud Schematics:** No action is required. When you execute the terraform deployment using IBM Cloud Schematics, the workspace runtime already includes the **ibmcloud** CLI along with all necessary plugins pre-installed.
-
-* **Local Machine:** If you are executing terraform apply from your own local machine you must have the IBM Cloud CLI installed prior to deployment. The automated cleanup scripts rely on this local CLI to authenticate and power down the deployer node upon completion.
 
 ## General
 {: #generic-faqs}
@@ -207,13 +156,13 @@ The first resource group parameter entry in the Configure your workspace section
 ### **What are the supported operating systems for dynamic node creation with {{site.data.keyword.spectrum_short}}?**
 {: #faq9}
 
-You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v3`.
+You can deploy your {{site.data.keyword.spectrum_short}} environment to automatically create Red Hat Enterprise Linux (RHEL) compute nodes. The supported image for **static_compute_instances**/**dynamic_compute_instances**/**login_compute_instances** variables for Fix Pack 15 is `hpc-lsf-fp15-compute-rhel810-v4`.
 
 As part of dynamic node provisioning, Ubuntu based operating system is not supported.
 
 | LSF version | Deployer node | Management node | Login node | Compute node |
 | ----- | ----------- | --------------- | ------------ | ------------ |
-| Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v3" | "hpc-lsf-fp15-rhel810-v3" | hpc-lsf-fp15-compute-rhel810-v3 | hpc-lsf-fp15-compute-rhel810-v3 |
+| Fix Pack 15 (10.1.0.15) | "hpc-lsf-fp15-deployer-rhel810-v4" | "hpc-lsf-fp15-rhel810-v4" | hpc-lsf-fp15-compute-rhel810-v4 | hpc-lsf-fp15-compute-rhel810-v4 |
 {: caption="Fix Pack images" caption-side="bottom"}
 
 ### **How to restart the LSF daemons on an individual host?**
@@ -420,3 +369,54 @@ So below are the required permissions for SCC Workload Protection are:
 | All Identity and Access enabled services | All | Administrator | Manager |
 | Security and Compliance Center Workload Protection | All | Administrator | -- |
 {: caption="SCC permissions" caption-side="bottom"}
+
+## Terraform or State Management
+{: #terraform-state-mgmt}
+
+### Where are the Terraform state and configuration files stored?
+{: #release-faq3}
+
+All critical configuration and state files, including `terraform.tfstate`, `terraform.tfvars`, and the ansible `all.json` inventory, are now securely maintained in a centralized Cloud Object Storage (COS) bucket. They are no longer stored locally on the deployer node, ensuring a single source of truth that is independent of the underlying compute infrastructure.
+
+### Are there any hardcoded credentials or private keys left on the deployer node?
+{: #release-faq4}
+
+No, the architecture enforces a strict zero-credential footprint on the deployer node. 
+
+* There are no HMAC credentials stored in the `backend.tf` file. 
+* No private SSH keys **(id_rsa)** are retained on the deployer node.
+* A robust cleanup routine automatically purges all sensitive deployment files from the local filesystem immediately after the terraform apply finishes.
+
+### How is the data in the Cloud Object Storage (COS) bucket secured?
+{: #release-faq5}
+
+The COS bucket storing the state and configuration files is secured with full encryption using a Key Management Service (KMS) key. In addition, object versioning is enabled, ensuring a complete audit trail while safeguarding against accidental data loss or corruption.
+
+### What happens to the deployer node after the LSF or Scale cluster is provisioned?
+{: #release-faq6}
+
+To optimize cloud costs and minimize the security attack surface, the deployer node is automatically stopped as the final step of a successful deployment.
+
+### How does the infrastructure handle subsequent updates or terraform apply runs?
+{: #release-faq7}
+
+The automation is built to be fully idempotent and self-managing. When you trigger a re-apply:
+
+1. The dormant deployer node is automatically powered on.
+2. The necessary temporary files and configurations (which were purged during the previous cleanup) are safely recreated.
+3. The deployment tasks are executed.
+4. The file cleanup routine runs again and the deployer node is returned to a stopped state.
+
+### How do we track changes to our infrastructure state or configuration variables over time?
+{: #release-faq8}
+
+Since object versioning is enabled on the COS bucket, every change to your `tfstate`, `tfvars`, or `all.json` files is saved as a distinct version. This allows you to review and restore earlier versions if an erroneous apply occurs and provides an accessible history of configurations directly through the COS dashboard for auditing purposes.
+
+### Do I need to install the IBM Cloud CLI to run this deployment?
+{: #release-faq9}
+
+It depends on your execution environment:
+
+* **IBM Cloud Schematics:** No action is required. When you execute the terraform deployment using IBM Cloud Schematics, the workspace runtime already includes the **ibmcloud** CLI along with all necessary plugins pre-installed.
+
+* **Local Machine:** If you are executing terraform apply from your own local machine you must have the IBM Cloud CLI installed prior to deployment. The automated cleanup scripts rely on this local CLI to authenticate and power down the deployer node upon completion.
