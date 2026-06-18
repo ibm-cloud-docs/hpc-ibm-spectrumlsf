@@ -29,6 +29,7 @@ toc:
       - fixpack-support.md
       - bastion-node.md
       - deployer-node.md
+      - bare-metal.md
       - lsf-paygo-model.md
       - sdp-lsf.md
       - topicgroup:

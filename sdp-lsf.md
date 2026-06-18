@@ -24,7 +24,7 @@ subcollection: hpc-ibm-spectrumlsf
 # SSD Defined Performance (SDP)
 {: #sdp-overview}
 
-The SSD Defined Performance (SDP) is a second-generation IBM Cloud boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
+The SSD Defined Performance (SDP) is a second-generation {{site.data.keyword.cloud_notm}} boot volume profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the `sdp` profile, you can specify the boot volume capacity and configure the maximum throughput limit.
 
 ## Benefits
 {: #sdp-benefits}
