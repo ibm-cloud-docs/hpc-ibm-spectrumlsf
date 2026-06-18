@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-10"
+  years: 2026
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -42,7 +42,7 @@ The Standalone LSF Client is a traditional command-line tool installed locally a
     wget <add the copied link>
     ```
 
-2. Extract the downloaded file and select the folder for your operating system.
+2. Extract the downloaded file and select the folder for your OS.
 
     * For macOS: Install the Client Binary. Copy the lsf binary to your system path (for example, /usr/local/bin/) using:
 
@@ -162,7 +162,7 @@ The IBM Cloud LSF Plugin is a cloud-native plugin for the IBM Cloud CLI that all
     wget <add the copied link>
     ```
 
-3. Extract the downloaded file and select the folder for your operating system.
+3. Extract the downloaded file and select the folder for your OS.
 
     * For "macOS": Install the Client Binary. Copy the lsf binary to your system path (for example, /usr/local/bin/) using:
 

@@ -141,4 +141,4 @@ If any one of these variable (`observability_monitoring_enable` and `enable_sccw
 ### Workload Protection
 {: #workload-protection-details}
 
-When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor deep operating system system calls, identify real-time threats, and scan installed host packages for known CVEs.
+When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor deep OS system calls, identify real-time threats, and scan installed host packages for known CVEs.

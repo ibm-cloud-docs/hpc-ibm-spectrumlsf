@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -149,7 +149,7 @@ Spot instances can be reclaimed by {{site.data.keyword.cloud_notm}} when the und
 
 During a reclamation event:
 
-1. {{site.data.keyword.cloud_notm}} sends a reclamation notification and the operating system receives a shutdown signal.
+1. {{site.data.keyword.cloud_notm}} sends a reclamation notification and the OS receives a shutdown signal.
 2. A **systemd** service automatically invokes the shutdown script located at `/usr/local/bin/ibm-cloud-shutdown-script.sh` on the spot instance.
 3. The shutdown script prevents the node from accepting new workload execution requests while allowing currently running jobs to continue execution during the shutdown grace period.
 4. After the script runs, the node status is updated to `closed_Adm`, preventing any additional jobs from being scheduled on the node.
