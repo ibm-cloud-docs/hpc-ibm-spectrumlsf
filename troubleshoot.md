@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-18"
 
 keywords: question about _xx_, _messageID_
 
@@ -73,12 +73,12 @@ LDAP VSI deployment is failing with the following error message:
 {: screen}
 {: tsSymptoms}
 
-This is an infrastructure issue where the SSH is not enabled or in a active state. 
+This is an infrastructure issue where SSH is either not enabled or not in an active state. 
 {: tsCauses}
 
-To fix this issue, you can:
-1. Manually, reboot the LDAP VSI.
-2. Wait for sometime and then reapply.
+To resolve this issue, you can:
+1. Manually reboot the LDAP VSI.
+2. Wait for some time, then reapply the configuration.
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to clone the public GitHub repo?
