@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -82,13 +82,13 @@ When you access the UI for the service, all the above mentioned pillars are cove
 
     ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
-4. To view the agents, click on the **Vulnerability Findings** option for each host, explore detailed findings, and also remediations provided within the dashboard.
-
-    ![SCC Vulnerability Findings - 1](images/vulnerability_findings1.png "SCC Vulnerability Findings - 1"){: caption="SCC Vulnerability Findings - 1" caption-side="bottom"}
-
-    ![SCC Vulnerability Findings - 2](images/vulnerability_findings2.png "SCC Vulnerability Findings - 2"){: caption="SCC Vulnerability Findings - 2" caption-side="bottom"}
+4. To view the connected agents, click **Agents** in the top-right corner. Select a host and navigate to **Vulnerability Findings** to review the detailed findings and the recommended remediation actions available in the dashboard.
 
     ![SCC Sysdig Agents](images/vulnerability_findings3.png "SCC Sysdig Agents"){: caption="SCC Sysdig Agents" caption-side="bottom"}
+
+    ![SCC Vulnerability Findings - 1](images/vulnerability_findings2.png "SCC Vulnerability Findings - 1"){: caption="SCC Vulnerability Findings - 1" caption-side="bottom"}
+
+    ![SCC Vulnerability Findings - 2](images/vulnerability_findings1.png "SCC Vulnerability Findings - 2"){: caption="SCC Vulnerability Findings - 2" caption-side="bottom"}
 
 4. Inventory is agentless, which is provided by IBM cloud. For example, in the account we have 1000 resources, you can add the filters and validate all the resources of the inventory i.e, Security groups/Instances/FIP and so on. When a certain security group does not have the rules set, then all of them can be monitored here.
 
@@ -126,7 +126,7 @@ So below are the required permissions for SCC Workload Protection are:
 ## Unified agent integration logic
 {: #unified-agent-integration-logic}
 
-The cluster deploys a single, unified Sysdig agent to support both observability and security, automatically tailoring its configuration based on the specified deployment variables.
+The cluster deploys a single, unified Sysdig agent to support both monitoring and security, automatically tailoring its configuration based on the specified deployment variables.
 
 ### Dual integration (metrics and security)
 {: #dual-integration}
@@ -141,4 +141,4 @@ If any one of these variable (`observability_monitoring_enable` and `enable_sccw
 ### Workload Protection
 {: #workload-protection-details}
 
-When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor low-level OS system calls, identify real-time threats, and scan installed host packages for known CVEs.
+When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor deep operating system system calls, identify real-time threats, and scan installed host packages for known CVEs.

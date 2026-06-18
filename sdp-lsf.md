@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -335,17 +335,7 @@ You can perform the steps manually or using CLI, but the recommended way is usin
 {: #bm-support}
 
 A new feature has been introduced to allow users to provision Bare Metal servers as static compute nodes.
-
-* Variable - `enable_baremetal`
-
-* Description - Specifies whether the bare metal servers are used for static compute nodes.
-
-* Default: false
-
-* Type: bool
-
-### Requirements
-{: #req}
+The `enable_baremetal` variable is used to specify whether the bare metal servers are used for static compute nodes.
 
 When `enable_baremetal = true`, a bare metal profile must be specified for every entry in the `static_compute_instances`.
 
