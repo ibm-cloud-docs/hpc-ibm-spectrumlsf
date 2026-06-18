@@ -41,10 +41,9 @@ profile = "mx3d-metal-64x512"
 count   = 1
 image   = "hpc-lsf-fp15-compute-rhel810-v4"
 }]
+enable_baremetal = true
 ```
 {: codeblock}
-
-enable_baremetal = true
 
 ## Key considerations
 {: #key-features}
