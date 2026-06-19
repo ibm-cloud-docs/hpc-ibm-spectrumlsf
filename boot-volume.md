@@ -22,7 +22,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:table: .aria-labeledby="caption"}
 
 # Boot Volume Configuration
-{: #sdp-overview}
+{: #boot-volume-overview}
 
 Boot volumes are automatically created and attached during instance provisioning. The solution provides flexible boot volume configuration options to meet different workload requirements across login, management, static compute, and dynamic compute nodes.
 If the `boot_volume` block is not specified, the deployment uses the default boot volume configuration.
