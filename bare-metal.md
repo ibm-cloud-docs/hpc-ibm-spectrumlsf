@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-19"
 
 keywords:
 
@@ -31,17 +31,20 @@ A new feature has been introduced to allow users to provision Bare Metal servers
 ## Enabling bare metal servers
 {: #enable-bm}
 
-To provision static compute nodes as bare metal servers, set `enable_baremetal` to true and specify a supported bare metal profile in the `static_compute_instances` configuration.
+To provision static compute nodes as bare metal servers, set `enable_baremetal` to true and specify a supported bare metal profile in the `static_compute_instances` configuration. For more information on bare metal server profiles, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 Example configuration:
 
 ```text
-static_compute_instances = [{
-profile = "mx3d-metal-64x512"
-count   = 1
-image   = "hpc-lsf-fp15-compute-rhel810-v4"
-}]
 enable_baremetal = true
+
+static_compute_instances = [
+  {
+    profile = "mx3d-metal-64x512"
+    count   = 1
+    image   = "hpc-lsf-fp15-compute-rhel810-v4"
+  }
+]
 ```
 {: codeblock}
 

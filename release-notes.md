@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-19"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -40,10 +40,10 @@ Following are the changes made for the release:
 Support for Bare metal on Static Compute nodes
 :   Up to release v3.3.1, the solution supported only virtual server instances (VSI) for all the LSF cluster nodes. With the current release, bare metal is supported only for static compute nodes, while all other cluster nodes continue to use VSI.
 
-Support for Block storage on SSD Defined Performance (SDP):
+Support for Block storage on SSD Defined Performance (SDP)
 :   Solution now supports provisioning block storage volume on SDP profile on all the LSF cluster nodes as it is second-generation profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the sdp profile, cluster nodes can be configured as per the requirement.
 
-Support for Spot Instances only for Dynamic nodes:
+Support for Spot Instances only for Dynamic nodes
 :   Solution can now provision dynamic nodes as a Spot instances. Which offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. Unused cloud capacity are available at significantly lower prices compared to standard virtual server instances.
 
 Support for Gen 4 Compute profiles
