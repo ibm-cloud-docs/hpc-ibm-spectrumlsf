@@ -78,6 +78,8 @@ The general-purpose profile is the default IBM Cloud boot volume profile and pro
 #### Supported node types
 {: #supported-types}
 
+Following are the supported node types are:
+
 * Login instances
 * Management instances
 * Static compute instances
@@ -85,6 +87,8 @@ The general-purpose profile is the default IBM Cloud boot volume profile and pro
 
 #### Configuration rules
 {: config-rules}
+
+The following table shows the configuration rules:
 
 | Attribute | Value |
 | ----- | ----------- |
@@ -113,13 +117,15 @@ boot_volume = {
 ```
 {: codeblock}
 
-## SDP profile
+### SDP profile
 {: #sdp-profile}
 
 SSD Defined Performance (SDP) provides configurable performance and throughput for workloads requiring predictable storage performance.
 
 #### Supported node types
 {: #supported-sdp-type}
+
+Following are the supported node types are:
 
 * Login instances
 * Management instances
@@ -128,6 +134,8 @@ SSD Defined Performance (SDP) provides configurable performance and throughput f
 
 #### Configuration rules
 {: config-rules-sdp}
+
+The following table shows the configuration rules:
 
 | Attribute | Value |
 | ----- | ----------- |
@@ -170,6 +178,8 @@ For 5 IOPS tier profile the supported node types is Dynamic compute instances on
 #### Configuration rules
 {: config-rules-3tier}
 
+The following table shows the configuration rules:
+
 | Attribute | Value |
 | ----- | ----------- |
 | Size | 100 GB – 250 GB |
@@ -210,6 +220,8 @@ For 10 IOPS tier profile the supported node types is Dynamic compute instances o
 
 #### Configuration rules
 {: config-rules-10tier}
+
+The following table shows the configuration rules:
 
 | Attribute | Value |
 | ----- | ----------- |
@@ -252,6 +264,8 @@ For Custom profile the supported node types is Dynamic compute instances only.
 #### Configuration rules
 {: #config-rules-custom}
 
+The following table shows the configuration rules:
+
 | Attribute | Value |
 | ----- | ----------- |
 | `size` | 100 GB – 250 GB |
@@ -281,6 +295,8 @@ iops	= 3600 bandwidth = null
 ## Profile comparison
 {: #profile-comparison}
 
+The following table shows the profile comparison:
+
 | Profile | Supported Nodes | Size Range | IOPS | Bandwidth |
 | ----- | ----------- | --------- | --------- | ----------- |
 | general-purpose | Login, Management, Static, Dynamic | 100–250 GB | Auto | Auto |
@@ -291,6 +307,8 @@ iops	= 3600 bandwidth = null
 {: caption="Profile comparison" caption-side="bottom"}
 
 ## Limitations
+
+Following are the limitations of different profiles:
 
 1. SDP profile limitation
 
@@ -308,29 +326,3 @@ iops	= 3600 bandwidth = null
 * 5iops-tier, 10iops-tier, and custom profiles are supported only for dynamic compute instances.
 * Bandwidth configuration is supported only with the SDP profile.
 * Custom profile requires user-defined IOPS and does not support bandwidth configuration.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
