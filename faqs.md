@@ -30,15 +30,16 @@ This document provides a list of frequently asked questions and answers about a 
 ## Release FAQs - June 19
 {: #current-release}
 
-### What new capability is being introduced to the IBM Spectrum LSF solution in the current release?
+### **What new enhancement is being introduced to the IBM Spectrum LSF solution in the current release?**
 {: #release-faq1}
 
-In the upcoming quarterly release, we are introducing support for bare metal infrastructure provisioning for compute nodes, enhancing the existing IBM Spectrum LSF solution we have been supporting for several years.
+In the current release, we are introducing support for:
 
-### What enhancement has been made to the platform in the latest release?
-{: #release-faq2}
-
-Previously, the platform supported only virtual server instances (VSI). With this release, it now supports both Bare metal and VSI environments. Granite Rapids (Gen 4) profiles are supported as part of this as well.
+* Support for Bare metal on Static Compute nodes
+* Support for Block storage on SSD Defined Performance (SDP)
+* Support for Spot Instances only for Dynamic nodes
+* Support for Gen 4 Compute profiles
+* Update the Security and Workload protection to support its integration with cloud monitoring
 
 ## General
 {: #generic-faqs}
