@@ -241,7 +241,7 @@ dynamic_compute_instances = [{
   count = 500
   image = "hpc-lsf-fp15-compute-rhel810-v4"
  
-boot_volume = {
+  boot_volume = {
   profile = "10iops-tier" 
   size	= 200
   iops	= null 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-19"
 
 keywords:
 
@@ -42,37 +42,6 @@ Previously, the platform supported only virtual server instances (VSI). With thi
 
 ## General
 {: #generic-faqs}
-
-### What enhancements does this release bring to the solution?
-{: #release-faq}
-
-#### AMD Turin profiles
-{: #amd-profile}
-
-AMD Turin compute profiles are designed to provide high core density, making them  ideal for parallel workloads. The only supported AMD-based profile is **hx4da-248x680**. For this release, the profiles are supported only on **us-south** region.
-
-#### Gaudi 3 profiles
-{: #gaudi-profile}
-
-Intel Gaudi 3 compute profiles are designed to accelerate large-scale AI and deep learning workloads within HPC environments. The supported profile is **gx3d-160x1792x8gaudi3** and these profiles are available only on **Dalas/Washington DC** and **Frankfurt** regions.
-
-Provisioning instances with Gaudi 3 profiles typically takes about 10–20 minutes per instance due to their high memory configuration.
-{: note}
-
-#### IBM Cloud hardware
-{: #cloud-hw}
-
-The LSF software configurations are updated to detect and apply the appropriate computing hardware configurations, ensuring that applications run optimally based on both hardware and software characteristics.
-
-#### IBM Standard Edition
-{: #standard-edition}
-
-The LSF solution has been reverted to use the IBM Standard Edition software, as previously the solution relied on the Enterprise edition.
-
-#### LSF License Scheduler
-{: #license-scheduler}
-
-The LSF License Scheduler manages license tokens instead of controlling the licenses directly.Using LSF License Scheduler, jobs obtain a license token before the application starts.
 
 ### **Why does provisioning an instance with Gaudi 3 profiles take a long time?**
 {: #faq0}
