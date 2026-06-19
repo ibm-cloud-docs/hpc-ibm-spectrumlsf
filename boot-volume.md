@@ -165,7 +165,7 @@ boot_volume = {
 ```
 {: codeblock}
 
-## 5 IOPS tier profile
+## 5-IOPS tier profile
 {: #3tier-profile}
 
 The 5iops-tier profile is available only for dynamic compute instances and provides a predefined IOPS-per-GB performance tier.
@@ -208,7 +208,7 @@ boot_volume = {
 ```
 {: codeblock}
 
-## 10 IOPS tier profile
+## 10-IOPS tier profile
 {: #10tier-profile}
 
 The 10iops-tier profile provides a higher predefined IOPS-per-GB performance tier for dynamic compute nodes.
