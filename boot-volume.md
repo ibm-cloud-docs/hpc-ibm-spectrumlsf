@@ -47,10 +47,10 @@ The `boot_volume` block supports the following attributes:
 
 | Attribute | Description |
 | ----- | ----------- |
-| `profile` | Boot volume storage profile. Supported values depend on the node type.|
-| `size` | Boot volume capacity in GB.|
-| `iops` | Provisioned IOPS for supported profiles. |
-| `bandwidth` | Provisioned bandwidth in Mbps for supported profiles. |
+| Profile | Boot volume storage profile. Supported values depend on the node type.|
+| Size | Boot volume capacity in GB.|
+| IOPS | Provisioned IOPS for supported profiles. |
+| Bandwidth | Provisioned bandwidth in Mbps for supported profiles. |
 {: caption="Boot volume attributes" caption-side="bottom"}
 
 **Example**
@@ -92,9 +92,9 @@ The following table shows the configuration rules:
 
 | Attribute | Value |
 | ----- | ----------- |
-| `size` | 100 GB – 250 GB |
-| `iops` | Must be null |
-| `bandwidth` | Must be null |
+| Size | 100 GB – 250 GB |
+| IOPS | Must be null |
+| Bandwidth | Must be null |
 {: caption="General Purpose - Configuration rules" caption-side="bottom"}
 
 IOPS and bandwidth are automatically determined by IBM Cloud based on the selected volume size. User-defined IOPS and bandwidth are not supported.
@@ -225,15 +225,15 @@ The following table shows the configuration rules:
 
 | Attribute | Value |
 | ----- | ----------- |
-| `size` | 100 GB – 250 GB |
-| `iops` | Must be null  |
-| `bandwidth` | Must be null |
+| Size | 100 GB – 250 GB |
+| IOPS | Must be null  |
+| Bandwidth | Must be null |
 {: caption="10 IOPS Tier Profile - Configuration rules" caption-side="bottom"}
 
 IOPS are automatically calculated by IBM Cloud based on the tier and selected size. Custom IOPS and bandwidth values are not supported.
 {: note}
 
-Example
+**Example**
 
 ```text
 dynamic_compute_instances = [{ 
@@ -268,9 +268,9 @@ The following table shows the configuration rules:
 
 | Attribute | Value |
 | ----- | ----------- |
-| `size` | 100 GB – 250 GB |
-| `iops` | 100 – 48,000  |
-| `bandwidth` | Must be null |
+| Size | 100 GB – 250 GB |
+| IOPS | 100 – 48,000 |
+| Bandwidth | Must be null |
 {: caption="Custom profile - Configuration rules" caption-side="bottom"}
 
 **Notes:**
@@ -310,18 +310,18 @@ The following table shows the profile comparison:
 
 Following are the limitations of different profiles:
 
-1. SDP profile limitation
+1. **SDP profile limitation**
 
 * Boot volume size can be increased only; reducing the size of an existing volume is not supported.
 
-2. General-Purpose profile limitations
+2. **General-Purpose profile limitations**
 
 * Maximum boot volume size is 250 GB.
 * Boot volume size can only be increased; shrinking an existing volume is not supported.
 * User-defined IOPS are not supported.
 * User-defined bandwidth is not supported.
 
-3. Dynamic Compute profile limitations
+3. **Dynamic Compute profile limitations**
 
 * 5iops-tier, 10iops-tier, and custom profiles are supported only for dynamic compute instances.
 * Bandwidth configuration is supported only with the SDP profile.
