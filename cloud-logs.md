@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-07-01"
+  years: 2026
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -35,7 +35,7 @@ Following are the key features of {{site.data.keyword.logs_full_notm}}:
 
 * Advanced querying, tailing, and visualization capabilities.
 
-* Integration options for management and compute Virtual Server Instances (VSIs).
+* Integration options for management and compute virtual server instances (VSIs).
 
 ## Functionality
 {: #cloud-log-functionality}

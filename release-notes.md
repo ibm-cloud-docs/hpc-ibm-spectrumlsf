@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-06-19"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -26,7 +26,31 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 3.3.1**
+**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 4.0**
+
+## June 2026
+{: #subcollection-june26}
+
+### 19 June 2026
+{: #subcollection-june2026}
+{: release-note}
+
+Following are the changes made for the release:
+
+Support for Bare metal on Static Compute nodes
+:   Up to release v3.3.1, the solution supported only virtual server instances (VSI) for all the LSF cluster nodes. With the current release, bare metal is supported only for static compute nodes, while all other cluster nodes continue to use VSI.
+
+Support for Block storage on SSD Defined Performance (SDP)
+:   Solution now supports provisioning block storage volume on SDP profile on all the LSF cluster nodes as it is second-generation profile that provides enhanced flexibility in defining performance and capacity characteristics for boot volumes. By using the sdp profile, cluster nodes can be configured as per the requirement.
+
+Support for Spot Instances only for Dynamic nodes
+:   Solution can now provision dynamic nodes as a Spot instances. Which offer a cost-efficient option for running transient and fault-tolerant workloads on IBM Cloud. Unused cloud capacity are available at significantly lower prices compared to standard virtual server instances.
+
+Support for Gen 4 Compute profiles
+:   The solution already supported Intel compute profiles with Gen 2 and Gen3 and now Gen4 profiles are also supported. The only supported Gen 4 region is us-south (Dallas)
+
+Update the Security and Workload protection to support its integration with cloud monitoring
+:   SCC Workload Protection has been integrated into the existing Sysdig monitoring architecture, allowing the unified agent to seamlessly transmit host-level security data—including continuous OS posture assessment and threat detection—alongside observability metrics from a single deployment footprint.
 
 ## March 2026
 {: #subcollection-mar26}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -114,7 +114,7 @@ If these KMS values are not provided, the automation creates a new KMS instance 
 ### Custom image builder workflow
 {: #custom-image-builder-workflow}
 
-With the custom image builder, you can write your own scripts to install extra packages (including open source packages, dependencies, and configuration requirements) for RHEL and Rocky Linux&reg; images, along with the essential packages installed. Use the provided `customer_script.sh` script as a template for your script. Provide values based on the operating system you choose for the `source_image_name` variable. Whenever a new dynamic node joins the cluster, all additional packages and necessary configuration are automatically included for the new nodes.
+With the custom image builder, you can write your own scripts to install extra packages (including open source packages, dependencies, and configuration requirements) for RHEL and Rocky Linux&reg; images, along with the essential packages installed. Use the provided `customer_script.sh` script as a template for your script. Provide values based on the OS you choose for the `source_image_name` variable. Whenever a new dynamic node joins the cluster, all additional packages and necessary configuration are automatically included for the new nodes.
 
 The custom image automation creates two VSIs: VSI-1 is a bootstrap node VSI, and VSI-2 is a worker node VSI.
 

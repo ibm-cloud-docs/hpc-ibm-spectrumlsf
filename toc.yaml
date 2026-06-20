@@ -25,10 +25,13 @@ toc:
       - enable-vpn.md
       - dns-service-instances.md
       - key-protect-encrypyption-keys.md
+      - spot-instances.md
       - fixpack-support.md
       - bastion-node.md
       - deployer-node.md
+      - bare-metal.md
       - lsf-paygo-model.md
+      - boot-volume.md
       - topicgroup:
           label: Using IBM Scale Storage as your storage solution
           topics:

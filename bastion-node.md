@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-06-18"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -78,6 +78,3 @@ Failing to provide a correct security group ID or leaving the value as empty, th
 By providing these details, the LSF cluster can be configured to use the existing bastion node, enabling secure access and efficient management.
 
 This approach ensures a seamless and secure solution either by using a newly created or existing bastion node.
-
-## Architecture Overview
-{: #architecture-overview}

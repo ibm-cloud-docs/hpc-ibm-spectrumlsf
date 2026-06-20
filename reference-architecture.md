@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-06-18"
 
 keywords: # Not typically populated
 
@@ -46,7 +46,7 @@ production: false
 The architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
 
 * **Data:** Data storage
-* **Compute:** Virtual servers
+* **Compute:** Virtual servers and Bare metal servers
 * **Storage:** Primary storage
 * **Networking:** Isolation and domain name service
 * **Security:** Data security
@@ -80,8 +80,8 @@ The following table outlines the requirements that are addressed in this archite
 |  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
 |  | Create virtual server instances to support lsf client node. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
 |  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
-|  | Create virtual server instances to support static compute nodes. | Static compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
-|  | Create virtual server instances to support dynamic compute nodes. | Dynamic compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
+|  | Create IBM Cloud VPC virtual server instances or bare metal servers to enable users to log in and submit HPC jobs. | Static compute node | Create IBM Cloud VPC virtual server instances or bare metal servers to enable users to log in and submit HPC jobs. |
+|  | Create virtual server instances or spot instances to support dynamic compute nodes. | Dynamic compute node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
 | Networking | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the VPC. |
 |  | Enable a public gateway for the management subnet. | Public gateway for management subnet | Allows outbound communication for the LSF management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the compute nodes | DNS service | Helps with the IP and name resolution for the compute nodes. |
