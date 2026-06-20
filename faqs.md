@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-06-20"
 
 keywords:
 
@@ -33,13 +33,13 @@ This document provides a list of frequently asked questions and answers about a 
 ### **What new enhancement is being introduced to the IBM Spectrum LSF solution in the current release?**
 {: #release-faq1}
 
-In the current release, we are introducing support for:
+In the current release, we are introducing:
 
 * Support for Bare metal on Static Compute nodes
 * Support for Block storage on SSD Defined Performance (SDP)
 * Support for Spot Instances only for Dynamic nodes
 * Support for Gen 4 Compute profiles
-* Update the Security and Workload protection to support its integration with cloud monitoring
+* Updated the Security and Workload protection to support its integration with cloud monitoring
 
 ## General
 {: #generic-faqs}
