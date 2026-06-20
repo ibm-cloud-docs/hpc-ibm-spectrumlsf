@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-20"
 
 keywords:
 
@@ -85,12 +85,12 @@ For more information about dedicated host, go to [Creating dedicated hosts and g
     │ 21: static_compute_instances = [{
     │ profile = "bx2-4x16"
     │ count   = 1
-    │ image   = "hpc-lsf-fp15-compute-rhel810-v3"
+    │ image   = "hpc-lsf-fp15-compute-rhel810-v4"
     │ },
     | {
     │ profile = "cx2-2x4"
     │ count   = 2
-    │ image   = "hpc-lsf-fp15-compute-rhel810-v3"
+    │ image   = "hpc-lsf-fp15-compute-rhel810-v4"
     | }]
     ├────────────────
     │     │ var.enable_dedicated_host is true
@@ -143,7 +143,7 @@ The solution does not support deployments where both `enable_spot_instances` and
     │ {
     │ profile = "bxf-2x8"
     │ count   = 500
-    │ image   = "hpc-lsf-fp15-compute-rhel810-v3"
+    │ image   = "hpc-lsf-fp15-compute-rhel810-v4"
     │ enable_spot_instances = true
     │ }
     │ ]

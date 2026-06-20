@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-20"
 
 keywords:
 
@@ -74,7 +74,7 @@ You must also specify a Spot-supported Flex or GPU profile in the `profile` para
 dynamic_compute_instances = [{
     profile               = "bxf-2x8"
     count                 = 500
-    image                 = "hpc-lsf-fp15-compute-rhel810-v3"
+    image                 = "hpc-lsf-fp15-compute-rhel810-v4"
     enable_spot_instances = true
 }]
 ```
