@@ -27,6 +27,8 @@ subcollection: hpc-ibm-spectrumlsf
 Boot volumes are automatically created and attached during instance provisioning. The solution provides flexible boot volume configuration options to meet different workload requirements across login, management, static compute, and dynamic compute nodes.
 If the `boot_volume` block is not specified, the deployment uses the default boot volume configuration.
 
+For more information, see [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile).
+
 ## Supported profiles for LSF solution
 {: #suppoted-bv}
 
