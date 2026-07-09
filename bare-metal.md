@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-07-09"
 
 keywords:
 
@@ -24,14 +24,18 @@ subcollection: hpc-ibm-spectrumlsf
 # Bare metal support
 {: #bm-overview}
 
-{{site.data.keyword.cloud_notm}} Bare Metal servers for VPC offer dedicated physical servers within the VPC environment, enabling high performance, low latency, and full control over the underlying hardware resources. These servers combine the isolation and control of dedicated infrastructure with VPC networking features such as private networking, security groups, and scalable, cloud-native connectivity.
+{{site.data.keyword.cloud_notm}} Bare Metal servers offers dedicated physical servers within the VPC environment, enabling high performance, low latency, and full control over the underlying hardware resources. These servers provide the isolation and control of dedicated infrastructure while leveraging VPC networking capabilities, including private networking, security groups, and scalability.
 
 A new feature has been introduced to allow users to provision Bare Metal servers for **static compute nodes**.
+{: note}
+
+The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region.
+{: important}
 
 ## Enabling bare metal servers
 {: #enable-bm}
 
-To provision static compute nodes as bare metal servers, set `enable_baremetal` to true and specify a supported bare metal profile in the `static_compute_instances` configuration. For more information on bare metal server profiles, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+To provision worker nodes as bare metal servers, set `enable_baremetal` to true and specify a supported bare metal profile in the `static_compute_instances` configuration. For more information on bare metal server profiles, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 For more information on the variable, see [Deployment values](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-deployment-values).
 
