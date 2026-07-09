@@ -76,12 +76,12 @@ Following are the limitations of different profiles:
     * Bandwidth configuration is supported only with the SDP profile.
     * Custom profile requires user-defined IOPS and does not support bandwidth configuration.
 
-## Resizing the Disk
+## Resizing the disk
 {: #resize-disk}
 
 For SDP profiles, you can increase the **disk size**, **IOPS**, and **bandwidth** values. Resizing can be performed either manually or through automation.
 
-### Scenario 1: Manual Resize
+### Scenario 1: Manual resize
 {: #scenario1}
 
 To increase the disk size, IOPS, or bandwidth manually:
