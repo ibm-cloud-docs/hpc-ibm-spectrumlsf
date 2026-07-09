@@ -55,6 +55,7 @@ The following table shows the profile comparison:
 {: caption="Profile comparison" caption-side="bottom"}
 
 ## Limitations
+{: #limitations-sdp}
 
 Following are the limitations of different profiles:
 
@@ -81,6 +82,7 @@ Following are the limitations of different profiles:
 For SDP profiles, you can increase the **disk size**, **IOPS**, and **bandwidth** values. Resizing can be performed either manually or through automation.
 
 ### Scenario 1: Manual Resize
+{: #scenario1}
 
 To increase the disk size, IOPS, or bandwidth manually:
 
@@ -89,6 +91,7 @@ To increase the disk size, IOPS, or bandwidth manually:
 3. Verify that the updated values are reflected in the cluster and user interface.
 
 ### Scenario 2: Automation/Terraform
+{: #scenario2}
 
 To increase the disk size, IOPS, or bandwidth using automation:
 
@@ -97,6 +100,7 @@ To increase the disk size, IOPS, or bandwidth using automation:
 3. The updated values are automatically reflected in both the cluster and the user interface.
 
 ## Conclusion
+{: #conclusion}
 
 - Disk size, IOPS, and bandwidth can only be increased. Decreasing these values is not supported.
 - For nodes configured as **`general-purpose`**, **IOPS** and **bandwidth** must remain **null**. Specifying values for either parameter will result in an error during automation.
