@@ -91,7 +91,7 @@ To increase the disk size, IOPS, or bandwidth manually:
 1. Update the required values for the disk. 
 2. Updating the values does not automatically resize the disk. 
 
-    Refer the [Steps to expand an attached boot volume manually](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-boot-volume-overview#boot-steps) section to perform the manual steps.
+    Refer the [Steps to expand an attached boot volume manually](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-boot-volume-overview#boot-steps) below to perform the manual steps.
 3. Verify that the updated values are reflected in the cluster and user interface.
 
 #### Steps to expand an attached boot volume manually
@@ -101,7 +101,7 @@ To increase the disk size, IOPS, or bandwidth manually:
     The attached boot volume is at `/dev/vda` with the root file system on partition 3.
 
 2. Expand the partition.
-    * Run the following command on all the storage node VSIs to expand the data partition to match the resized block volume:
+    Run the following command on all the storage node VSIs to expand the data partition to match the resized block volume:
 
     ```pre
     growpart /dev/vda 3
@@ -113,7 +113,7 @@ To increase the disk size, IOPS, or bandwidth manually:
     * The OS partition and file system needs to be expanded on every storage node VSI.
 
 4. Grow the file system.
-    * Once the partitions are expanded, grow the file system. For XFS file systems, run:
+    Once the partitions are expanded, grow the file system. For XFS file systems, run:
 
     ```pre
     xfs_growfs /
