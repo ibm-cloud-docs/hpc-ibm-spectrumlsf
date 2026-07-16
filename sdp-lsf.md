@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-16"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: hpc-ibm-spectrumlsf
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Boot Volume Configuration
+# SSD Defined Performance (SDP)
 {: #boot-volume-overview}
 
 Boot volumes are automatically created and attached during instance provisioning. The solution provides flexible boot volume configuration options to meet different workload requirements across login, management, static compute, and dynamic compute nodes.
@@ -89,8 +89,47 @@ For SDP profiles, you can increase the **disk size**, **IOPS**, and **bandwidth*
 To increase the disk size, IOPS, or bandwidth manually:
 
 1. Update the required values for the disk. 
-2. Updating the values does not automatically resize the disk. Perform the manual steps.
+2. Updating the values does not automatically resize the disk. Refer the [Steps to expand an attached boot volume manually] section to perform the manual steps.
 3. Verify that the updated values are reflected in the cluster and user interface.
+
+#### Steps to expand an attached boot volume manually
+{: #boot-steps}
+
+1. Identify the boot volume.
+    The attached boot volume is at `/dev/vda` with the root file system on partition 3.
+
+2. Expand the partition.
+    * Run the following command on all the storage node VSIs to expand the data partition to match the resized block volume:
+
+    ```pre
+    growpart /dev/vda 3
+    ```
+    {: codeblock}
+
+3. Resize the volume.
+    * The size of the underlying disk has increased.
+    * The OS partition and file system needs to be expanded on every storage node VSI.
+
+4. Grow the file system.
+    * Once the partitions are expanded, grow the file system. For XFS file systems, run:
+
+    ```pre
+    xfs_growfs /
+    ```
+    {: codeblock}
+
+    or use the appropriate mount point for the block volume (for example, /gpfs/fs1).
+
+5. Ensure you have expanded both partitions and the file system using the appropriate commands (`growpart` and `xfs_growfs` or equivalent).
+
+6. On each storage node VSI, run the following command:
+
+    ```pre
+    lsblk
+    ```
+    {: codeblock}
+
+    This command confirms the updated device sizes, partition growth, and correct mount points.
 
 ### Scenario 2: Automation/Terraform
 {: #scenario2}
@@ -106,3 +145,25 @@ To increase the disk size, IOPS, or bandwidth using automation:
 
 - Disk size, IOPS, and bandwidth can only be increased. Decreasing these values is not supported.
 - For nodes configured as **`general-purpose`**, **IOPS** and **bandwidth** must remain **null**. Specifying values for either parameter will result in an error during automation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
