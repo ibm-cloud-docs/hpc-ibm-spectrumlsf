@@ -89,7 +89,9 @@ For SDP profiles, you can increase the **disk size**, **IOPS**, and **bandwidth*
 To increase the disk size, IOPS, or bandwidth manually:
 
 1. Update the required values for the disk. 
-2. Updating the values does not automatically resize the disk. Refer the [Steps to expand an attached boot volume manually] section to perform the manual steps.
+2. Updating the values does not automatically resize the disk. 
+
+    Refer the [Steps to expand an attached boot volume manually](/docs-draft/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-boot-volume-overview#boot-steps) section to perform the manual steps.
 3. Verify that the updated values are reflected in the cluster and user interface.
 
 #### Steps to expand an attached boot volume manually
@@ -145,25 +147,3 @@ To increase the disk size, IOPS, or bandwidth using automation:
 
 - Disk size, IOPS, and bandwidth can only be increased. Decreasing these values is not supported.
 - For nodes configured as **`general-purpose`**, **IOPS** and **bandwidth** must remain **null**. Specifying values for either parameter will result in an error during automation.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
