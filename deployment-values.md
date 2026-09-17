@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-09-17"
 
 keywords:
 
@@ -96,7 +96,7 @@ The following are the optional deployment values used to configure the {{site.da
 | `enable_ldap` | Set this option to true to enable LDAP for IBM Spectrum LSF, with the default value set to false. | No | false |
 | `ldap_basedns` | The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name. | No | "hpc.local" |
 |`ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | No | None |
-| `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information, see [existing LDAP server certificate](/docs/allowlist/hpc-service?topic=hpc-service-integrating-openldap). | No | None |
+| `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information, see [existing LDAP server certificate](/docs/hpc-ibm-spectrumlsf?topic=hpc-ibm-spectrumlsf-integrating-openldap). | No | None |
 | `ldap_admin_password` | The LDAP admin password must be 15 to 32 characters long and include at least two alphabetic characters (with one uppercase and one lowercase), one number, and one special character from the set (!@#$%^&*()_+=-). The password must not contain the username or any spaces. [This value is ignored for an existing LDAP server]. | No | None |
 | `ldap_user_name` | Custom LDAP User for performing cluster operations. **Note:** Username should be between 4 to 32 characters, (any combination of lowercase and uppercase letters).[This value is ignored for an existing LDAP server]. | No | "" |
 | `ldap_user_password` | The LDAP user password must be 15 to 32 characters long and include at least two alphabetic characters (with one uppercase and one lowercase), one numeric digit, and at least one special character from the set (!@#$%^&*()_+=-). Spaces are not allowed. The password must not contain the username for enhanced security. [This value is ignored for an existing LDAP server]. | No | "" |
