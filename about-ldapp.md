@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-02-20"
+  years: 2026
+lastupdated: "2026-09-21"
 
 keywords:
 
@@ -24,6 +24,6 @@ subcollection: hpc-ibm-spectrumlsf
 
 OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
-Integrating OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
+Integrating OpenLDAP with your {{site.data.keyword.spectrum_full_notm}} cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. OpenLDAP can be integrated with Kerberos to provide secure authentication while continuing to use OpenLDAP for centralized user and directory management. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
 
 OpenLDAP server can be installed and configured on a Linux&reg; system; for example, an Ubuntu 22.04 as the host is supported.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-02-20"
+  years: 2026
+lastupdated: "2026-09-21"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -48,5 +48,13 @@ After {{site.data.keyword.spectrum_full_notm}} cluster deployment, Schematics lo
 
     ```text
     ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:///
+    ```
+    {: codeblock}
+
+4. Verify the Kerberos Status:
+
+    ```text
+    systemctl status krb5-kdc
+    systemctl status krb5-admin-server
     ```
     {: codeblock}

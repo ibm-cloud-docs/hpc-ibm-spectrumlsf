@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-17"
+  years: 2026
+lastupdated: "2026-09-21"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -24,11 +24,11 @@ subcollection: hpc-ibm-spectrumlsf
 # Creating an LDAP user
 {: #create-ldap-user}
 
-If you do not have an existing LDAP server, the deployment process creates a new LDAP server through which the user can access the {{site.data.keyword.spectrum_full_notm}} cluster to manage the remaining user creation. Create an LDAP user for your {{site.data.keyword.spectrum_full}} LDAP server.
+If you do not have an existing LDAP server, the deployment process creates a new LDAP server and configures Kerberos authentication for the {{site.data.keyword.spectrum_full_notm}} cluster. Create an LDAP user for your {{site.data.keyword.spectrum_full_notm}} LDAP server.
 
-Use this LDAP server to run the LSF commands and submit the LSF jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
+Use this LDAP user with Kerberos authentication to access the {{site.data.keyword.spectrum_full_notm}} cluster, run LSF commands, and submit LSF jobs using existing authentication credentials, reducing the need to remember multiple login credentials.
 
-If you have an existing LDAP server with the LDAP information you provided during the {{site.data.keyword.spectrum_full_notm}} cluster deployment, then no need to create a new LDAP user.
+If you have an existing LDAP server with the LDAP information you provided during the {{site.data.keyword.spectrum_full_notm}} cluster deployment, there is no need to create a new LDAP user.
 
 ## Before you begin
 {: #prequisites}
@@ -111,6 +111,15 @@ export NEW_LDAP_USER_PASSWORD="Test@1234secure"
     ldapadd -x -D "cn=admin,dc=${BASE_DN%%.*},dc=${BASE_DN#*.}" -w "${LDAP_ADMIN_PASSWORD}" -f "${LDAP_USER}.ldif"
     ```
     {: codeblock}
+
+6. Add a Kerberos principal for the new LDAP user by using the same username and password:
+
+    ```text
+    kadmin.local -q "addprinc -pw ${LDAP_ADMIN_PASSWORD} ${LDAP_USER}"
+    ```
+    {: codeblock}
+
+    This creates a Kerberos principal for the LDAP user, allowing the user to authenticate with Kerberos using the same credentials configured for the LDAP user.
 
 To accommodate a potentially large number of LDAP users (where each user has an individual IP address), update the security group for the {{site.data.keyword.spectrum_full}} cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up to date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
 {: note}
