@@ -105,7 +105,7 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 
 {{site.data.keyword.filestorage_vpc_full_notm}} is a zonal file storage offering that provides NFS-based file storage services. You create file share mounts from a subnet in an availability zone within a region. You can also share them with multiple virtual server instances within the same zone across multiple VPCs. {{site.data.keyword.spectrum_full}} supports the use of [dp2 profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile).
 
-## Why is `sdp` support restricted to allowlisted customers?
+### Why is `sdp` support restricted to allowlisted customers?
 {: #faq-sdp}
 {: faq}
 
