@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-21"
+lastupdated: "2026-09-23"
 
 keywords:
 subcollection: hpc-ibm-spectrumlsf
@@ -31,7 +31,7 @@ If you have an existing OpenLDAP server, you can use that with your {{site.data.
 1. OpenLDAP version 2.4 or later is installed and configured.
 2. The OpenLDAP server can communicate with the {{site.data.keyword.spectrum_full_notm}} cluster nodes over the network. This can be achieved by configuring the network settings on both the OpenLDAP server and the {{site.data.keyword.spectrum_full}} cluster nodes.
 3. The OpenLDAP server and the {{site.data.keyword.spectrum_full}} cluster nodes can communicate over port 389.
-4. The Kerberos server can communicate with the {{site.data.keyword.spectrum_full}} cluster nodes over the network. Port 88 is open for Kerberos authentication.
+4. The Kerberos server can communicate with the {{site.data.keyword.spectrum_full}} cluster nodes over the network and port 88 should be open for Kerberos authentication.
 
 Also, always allow access to the CIDR ranges for the VPC that the {{site.data.keyword.spectrum_full}} cluster deployment creates. Make sure that the security groups for the existing LDAP and Kerberos servers are allowlisted with the VPC CIDR range of the newly created VPC. This way, the new VPC can connect to your existing OpenLDAP and Kerberos servers and all management and login nodes can access the required authentication services.
 
