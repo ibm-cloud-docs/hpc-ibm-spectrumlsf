@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-20"
+lastupdated: "2026-09-23"
 
 keywords:
 
@@ -390,3 +390,11 @@ It depends on your execution environment:
 * **IBM Cloud Schematics:** No action is required. When you execute the terraform deployment using IBM Cloud Schematics, the workspace runtime already includes the **ibmcloud** CLI along with all necessary plugins pre-installed.
 
 * **Local Machine:** If you are executing terraform apply from your own local machine you must have the IBM Cloud CLI installed prior to deployment. The automated cleanup scripts rely on this local CLI to authenticate and power down the deployer node upon completion.
+
+## Why is `sdp` support restricted to allowlisted customers?
+{: #faq-sdp}
+{: faq}
+
+Access to the sdp profile is limited to allowlisted accounts. Customers who are not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing sdp volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+
+For more information see, [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&locale=en&interface=ui#defined-performance-profile).
