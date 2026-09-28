@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-09-28"
 
 keywords: question about _xx_, _messageID_
 
@@ -430,4 +430,29 @@ test-mgmt-1-f86c-002.hpc.local    unreach         -      0      0      0      0 
 {: tsSymptoms}
 
 If a management node appears as unreach, log in to that node through SSH and restart the lsfd service using the following command: `sudo service lsfd restart`.
+{: tsResolve}
+
+## Why do some cluster creation operations fail when using higher-capacity bare metal profiles?
+{: #troubleshoot-topic-21}
+{: troubleshoot}
+{: support}
+
+Some cluster creation operations can fail when using higher-capacity bare metal profiles, such as mx3d-metal-*. In some cases, the same issue may also occur after rebooting an affected bare metal server.
+The affected bare metal server(s) are unable to establish network connectivity to the NFS endpoint IP addresses. As a result, mounting the associated file shares fails and returns the following error:
+`mount.nfs: No route to host`
+{: pre}
+{: tsSymptoms}
+
+This issue can occur when certain required management services on the bare metal server fail to start or become available as expected. When these services are not running correctly, network connectivity to the NFS endpoint IP addresses can be disrupted, preventing the associated file shares from being mounted.
+The underlying cause is related to the bare metal server infrastructure. Resolution of the issue requires intervention from IBM's internal bare metal team, which is responsible for investigating and restoring the affected services.
+{: tsCauses}
+
+If you encounter this issue during cluster creation or after a reboot:
+
+* Contact the support team.
+* Provide the exact error message, including `mount.nfs: No route to host`.
+* Provide the affected bare metal server ID(s).
+* Include any relevant cluster or job details to help with investigation.
+
+The support team can then engage the appropriate IBM internal bare metal team to investigate the issue and restore the required services on the affected bare metal server(s).
 {: tsResolve}
