@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-09-28"
 
 keywords:
 
@@ -28,6 +28,9 @@ Boot volumes are automatically created and attached during instance provisioning
 If the `boot_volume` block is not specified, the deployment uses the default boot volume configuration.
 
 For more information, see [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile).
+
+Access to the sdp profile is limited to allowlisted accounts. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+{: note}
 
 ## Supported profiles for LSF solution
 {: #suppoted-bv}
