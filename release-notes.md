@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-09-30"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -27,6 +27,23 @@ The release notes describes the brief overview of the new features, enhancements
 {: shortdesc}
 
 **For this release, the {{site.data.keyword.spectrum_full_notm}} version is 4.0**
+
+## September 2026
+{: #subcollection-sep26}
+
+### 30 September 2026
+{: #subcollection-sep2026}
+{: release-note}
+
+The following enhancements and updates are included in this release:
+
+Support for Kerberos Authentication with OpenLDAP
+
+:   Enabled Kerberos authentication for Identity and Access Management (IAM) integration with OpenLDAP. This enhancement provides secure authentication for LSF cluster users and improves centralized identity management.
+
+Support for AMD Compute Profiles
+
+:   Added support for AMD-based compute profiles to enable high-performance computing (HPC) clusters. This enhancement expands the available compute options, allowing users to leverage AMD processors for demanding workloads.
 
 ## June 2026
 {: #subcollection-june26}
