@@ -26,8 +26,6 @@ content-type: release-note
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to {{site.data.keyword.spectrum_full}} for the release.
 {: shortdesc}
 
-**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 4.0**
-
 ## September 2026
 {: #subcollection-sep26}
 
@@ -35,7 +33,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-sep2026}
 {: release-note}
 
-The following enhancements and updates are included in this release:
+**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 5.0**
 
 Support for Kerberos Authentication with OpenLDAP
 
