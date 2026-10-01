@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-07-09"
 
 keywords:
 
@@ -67,7 +67,6 @@ curl -X GET "https://management.us-south.logs-router.cloud.ibm.com:443/v1/tenant
 
 {"tenants":[{"name":"us-south-1751346798861","id":"4844257c-47d6-4d3c-b022-d2691ebb0711","crn":"crn:v1:bluemix:public:logs-router:us-south:a/19066a3fe4ca466a810f7278fc902dc9:4844257c-47d6-4d3c-b022-d2691ebb0711::","created_at":"2025-07-01 05:13:20.607943 +0000 UTC","updated_at":"2025-07-01 05:13:20.607943 +0000 UTC","write_status":{"status":"unknown"},"etag":"\"62ffe53666dbf646de2b9dfc8a31e6bb2a6915dcd2296dce80ca52040f4a6b04\"","targets":[{"name":"target-36aafd11-80f5-44b6-ab0","id":"f7226f32-b9d3-4067-8ec3-bfcc66e6e333","type":"logs","log_sink_crn":"crn:v1:bluemix:public:logs:us-south:a/19066a3fe4ca466a810f7278fc902dc9:750533e1-9d91-46dc-81be-af92179c8786::","created_at":"2025-07-01 05:13:20.607943 +0000 UTC","updated_at":"2025-07-01 05:13:20.607943 +0000 UTC","etag":"\"07b35eceed90ce9a18c1f83b9ba52a470213d77da6d543bd9ae26d09dec35007\"","parameters":{"host":"750533e1-9d91-46dc-81be-af92179c8786.ingress.us-south.logs.cloud.ibm.com","port":443}}]}]}
 ```
-
 
 
 ```pre
