@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-09-30"
+lastupdated: "2026-10-14"
 
 keywords: IBM Spectrum LSF release notes
 
@@ -33,7 +33,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-sep2026}
 {: release-note}
 
-**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 5.0**
+**For this release, the {{site.data.keyword.spectrum_full_notm}} version is 5.0.1**
 
 Support for Kerberos Authentication with OpenLDAP
 
